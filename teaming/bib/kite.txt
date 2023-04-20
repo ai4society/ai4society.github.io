@@ -1,0 +1,4 @@
+@article{guptakite,
+  title={KITE-An Unsupervised, Effective and Inclusive Approach for Textual Content Exploration},
+  author={Gupta, Aniket and Srivastava, Biplav and Aggarwal, Karan and Paladi, Sai Teja}
+}
