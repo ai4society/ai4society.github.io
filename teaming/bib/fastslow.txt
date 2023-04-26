@@ -1,6 +1,0 @@
-@article{fabiano2023fast,
-  title={Fast and Slow Planning},
-  author={Fabiano, Francesco and Pallagani, Vishal and Ganapini, Marianna Bergamaschi and Horesh, Lior and Loreggia, Andrea and Murugesan, Keerthiram and Rossi, Francesca and Srivastava, Biplav},
-  journal={arXiv preprint arXiv:2303.04283},
-  year={2023}
-}

@@ -1,5 +1,0 @@
-@article{pallagani2021prudent,
-  title={PRUDENT-A Generic Dialog Agent for Information Retrieval That Can Flexibly Mix Automated Planning and Reinforcement Learning},
-  author={Pallagani, Vishal and Srivastava, Biplav and Agrawal, Sparsh},
-  year={2021}
-}
