@@ -10,6 +10,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" type="text/css" href="./stylesheet.css">
+
+<script>
+  var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length} ;
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  x[slideIndex-1].style.display = "block";
+}
+</script>
+
 </head>
 
 <body class="container">
@@ -58,25 +79,12 @@
                 href="http://casy.cse.sc.edu/Matching/" target="_blank"><b>[Demo]</b></a>
               <a href="./bib/ultra.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
               <br>
-              <div class="row">
-                <div class="column">
-                  <img src="./images/system_architecture2.png" height="170" width="300">
-                <figcaption>Figure 1: ULTRA - System Architecture</figcaption>
-                </div>
-                <div class="column">
-                  <img src="./images/sample_results.png" height="170" width="300">
-                <figcaption>Figure 2: ULTRA - Sample Use Case Results </figcaption>
-                </div>
-                
-              </div>
-              <br>
-              <div class="row">
-                <div class="column">
-                  <img src="./images/ultra-poster.png" height="370" width="300">
-                <figcaption>Figure 1: ULTRA - System Architecture</figcaption>
-                </div>
-              </div>
-                
+              <img class="mySlides" src="img_snowtops.jpg">
+              <img class="mySlides" src="img_lights.jpg">
+              <img class="mySlides" src="img_mountains.jpg">
+              <img class="mySlides" src="img_forest.jpg">
+              <button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+              <button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>
             </li>
             <br>
           </ul>
@@ -94,14 +102,14 @@
               </center>
             </li>
             <br>
-            <li>[2022] A Text-to-Classification Mapper (Using ACM/JEL Subject Ontology Codes).<br> 
-            <a href="http://casy.cse.sc.edu/mapper/" target="_blank"><b>[Tool Website]</b></a> <a
-              href="http://casy.cse.sc.edu/mapper/" target="_blank"><b>[Demo]</b></a>
-            <br>
-            <center><img src="./images/ultra_mapper.png" height="200" width="400">
-              <figcaption>Figure 4: Text-to-Classification Demo</figcaption>
-            </center>
-          </li>
+            <li>[2022] A Text-to-Classification Mapper (Using ACM/JEL Subject Ontology Codes).<br>
+              <a href="http://casy.cse.sc.edu/mapper/" target="_blank"><b>[Tool Website]</b></a> <a
+                href="http://casy.cse.sc.edu/mapper/" target="_blank"><b>[Demo]</b></a>
+              <br>
+              <center><img src="./images/ultra_mapper.png" height="200" width="400">
+                <figcaption>Figure 4: Text-to-Classification Demo</figcaption>
+              </center>
+            </li>
           </ul>
         </td>
 
