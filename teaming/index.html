@@ -37,7 +37,9 @@
                 href="https://sites.google.com/site/biplavsrivastava/home?authuser=0">Biplav Srivastava</a>, <a
                 target="_blank" href="https://www.researchgate.net/profile/Tarmo-Koppel">Tarmo Koppel</a></i>
             <br>
-            We introduce ULTRA (<b><u>U</u></b>niversity <b><u>L</u></b>ead <b><u>T</u></b>eam <b><u>B</u></b>uilder from <b><u>R</u></b>FPs and <b><u>A</u></b>nalysis), an emerging AI-based approach and prototype system for assisting team formation when
+            We introduce ULTRA (<b><u>U</u></b>niversity <b><u>L</u></b>ead <b><u>T</u></b>eam <b><u>B</u></b>uilder
+            from <b><u>R</u></b>FPs and <b><u>A</u></b>nalysis), an emerging AI-based approach and prototype system for
+            assisting team formation when
             researchers respond to calls for proposals from funding agencies. This is an instance of the general problem
             of building teams when demand opportunities come periodically and potential members may vary over time. The
             novelties of our approach are that we: (a) extract technical skills needed about researchers and calls from
@@ -67,7 +69,7 @@
                 <div class="slide fade">
                   <img src='images/ultra_teaming_setup.png' alt='' height="500px">
                 </div>
-                
+
                 <a href="#" class="prev" title="Previous">&#10094</a>
                 <a href="#" class="next" title="Next">&#10095</a>
               </div>
@@ -79,107 +81,107 @@
 
               <script>
                 let currentSlide = 0;
-const slides = document.querySelectorAll(".slide")
-const dots = document.querySelectorAll('.dot')
+                const slides = document.querySelectorAll(".slide")
+                const dots = document.querySelectorAll('.dot')
 
-const init = (n) => {
-  slides.forEach((slide, index) => {
-    slide.style.display = "none"
-    dots.forEach((dot, index) => {
-      dot.classList.remove("active")
-    })
-  })
-  slides[n].style.display = "block"
-  dots[n].classList.add("active")
-}
-document.addEventListener("DOMContentLoaded", init(currentSlide))
-const next = () => {
-  currentSlide >= slides.length - 1 ? currentSlide = 0 : currentSlide++
-  init(currentSlide)
-}
+                const init = (n) => {
+                  slides.forEach((slide, index) => {
+                    slide.style.display = "none"
+                    dots.forEach((dot, index) => {
+                      dot.classList.remove("active")
+                    })
+                  })
+                  slides[n].style.display = "block"
+                  dots[n].classList.add("active")
+                }
+                document.addEventListener("DOMContentLoaded", init(currentSlide))
+                const next = () => {
+                  currentSlide >= slides.length - 1 ? currentSlide = 0 : currentSlide++
+                  init(currentSlide)
+                }
 
-const prev = () => {
-  currentSlide <= 0 ? currentSlide = slides.length - 1 : currentSlide--
-  init(currentSlide)
-}
+                const prev = () => {
+                  currentSlide <= 0 ? currentSlide = slides.length - 1 : currentSlide--
+                  init(currentSlide)
+                }
 
-document.querySelector(".next").addEventListener('click', next)
+                document.querySelector(".next").addEventListener('click', next)
 
-document.querySelector(".prev").addEventListener('click', prev)
+                document.querySelector(".prev").addEventListener('click', prev)
 
 
-setInterval(() => {
-  next()
-}, 5000);
+                setInterval(() => {
+                  next()
+                }, 5000);
 
-dots.forEach((dot, i) => {
-  dot.addEventListener("click", () => {
-    console.log(currentSlide)
-    init(i)
-    currentSlide = i
-  })
-})
+                dots.forEach((dot, i) => {
+                  dot.addEventListener("click", () => {
+                    console.log(currentSlide)
+                    init(i)
+                    currentSlide = i
+                  })
+                })
               </script>
-          </center>
-          
-          
+            </center>
+
+
             <script>
-              var responsiveSlider = function() {
-          
-          var slider = document.getElementById("slider");
-          var sliderWidth = slider.offsetWidth;
-          var slideList = document.getElementById("slideWrap");
-          var count = 1;
-          var items = slideList.querySelectorAll("li").length;
-          var prev = document.getElementById("prev");
-          var next = document.getElementById("next");
-          
-          window.addEventListener('resize', function() {
-            sliderWidth = slider.offsetWidth;
-          });
-          
-          var prevSlide = function() {
-            if(count > 1) {
-              count = count - 2;
-              slideList.style.left = "-" + count * sliderWidth + "px";
-              count++;
-            }
-            else if(count = 1) {
-              count = items - 1;
-              slideList.style.left = "-" + count * sliderWidth + "px";
-              count++;
-            }
-          };
-        
-          var nextSlide = function() {
-            if(count < items) {
-              slideList.style.left = "-" + count * sliderWidth + "px";
-              count++;
-            }
-            else if(count = items) {
-              slideList.style.left = "0px";
-              count = 1;
-            }
-          };
-          
-          next.addEventListener("click", function() {
-            nextSlide();
-          });
-          
-          prev.addEventListener("click", function() {
-            prevSlide();
-          });
-          
-          setInterval(function() {
-            nextSlide()
-          }, 2500);
-          
-          };
-          
-          window.onload = function() {
-          responsiveSlider();  
-          }       
-          
+              var responsiveSlider = function () {
+
+                var slider = document.getElementById("slider");
+                var sliderWidth = slider.offsetWidth;
+                var slideList = document.getElementById("slideWrap");
+                var count = 1;
+                var items = slideList.querySelectorAll("li").length;
+                var prev = document.getElementById("prev");
+                var next = document.getElementById("next");
+
+                window.addEventListener('resize', function () {
+                  sliderWidth = slider.offsetWidth;
+                });
+
+                var prevSlide = function () {
+                  if (count > 1) {
+                    count = count - 2;
+                    slideList.style.left = "-" + count * sliderWidth + "px";
+                    count++;
+                  }
+                  else if (count = 1) {
+                    count = items - 1;
+                    slideList.style.left = "-" + count * sliderWidth + "px";
+                    count++;
+                  }
+                };
+
+                var nextSlide = function () {
+                  if (count < items) {
+                    slideList.style.left = "-" + count * sliderWidth + "px";
+                    count++;
+                  }
+                  else if (count = items) {
+                    slideList.style.left = "0px";
+                    count = 1;
+                  }
+                };
+
+                next.addEventListener("click", function () {
+                  nextSlide();
+                });
+
+                prev.addEventListener("click", function () {
+                  prevSlide();
+                });
+
+                setInterval(function () {
+                  nextSlide()
+                }, 2500);
+
+              };
+
+              window.onload = function () {
+                responsiveSlider();
+              }
+
             </script>
           </ul>
           <p><i><b>Additional Tools</b></i></p>
