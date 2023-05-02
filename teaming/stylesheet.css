@@ -333,6 +333,7 @@ img {
 
 /* Number text (1/3 etc) */
 .numbertext {
+  font-weight: bold;
   color: lightskyblue;
   font-size: 12px;
   padding: 8px 12px;
