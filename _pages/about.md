@@ -37,7 +37,7 @@ AI for Society (AI4S) group at the [AI Institute](https://aiisc.ai/) is focused 
          <span>Bharath Muppasani, Vishal Pallagani, Kausik Lakkaraju, Shuge Lei, Biplav Srivastava, Brett Robertson, Andrea Hickerson, Vignesh Narayanan, On Safe and Usable Chatbots for Promoting Voter Participation, AAAI 2023 Workshop on AI for Credible Elections, On Arxiv at: <a href="https://arxiv.org/abs/2212.11219">https://arxiv.org/abs/2212.11219</a> [Chatbot, Voter Engagement] - <a href="https://arxiv.org/pdf/2212.11219.pdf">[PDF]</a></span>
       </a></li>
       <li><a style="text-decoration: none;color: black;"><h3><span style="color:black">2023-3</span></h3>
-         <span>Biplav Srivastava, Kausik Lakkaraju, Mariana Bernagozzi, Marco Valtorta, Advances in Automatically Rating the Trustworthiness of Text Processing Services, AAAI Spring Symposium, San Francisco, 2023 [AI Rating, Trust]</span>
+         <span>Biplav Srivastava, Kausik Lakkaraju, Mariana Bernagozzi, Marco Valtorta, Advances in Automatically Rating the Trustworthiness of Text Processing Services, AAAI Spring Symposium, San Francisco, 2023 [AI Rating, Trust]<a href="https://arxiv.org/pdf/2302.09079.pdf">[PDF]</a></span> 
       </a></li>  
    </ul>
 
@@ -46,8 +46,8 @@ AI for Society (AI4S) group at the [AI Institute](https://aiisc.ai/) is focused 
     * [SCRA](https://www.scra.org/) (award)
     * [Tantiv4](https://www.tantiv4.com/) (award)
  * <span style="color:maroon">**Activities and Teaching**</span>
-    * [CSEC-771](https://sites.google.com/site/biplavsrivastava/teaching/csce-771-computer-processing-of-natural-language?authuser=0) [Computer Processing of Natural Languages in Fall 2022]
-    * VAJRA visit to [IIT-Roorkee](https://www.iitr.ac.in/)
+    * [CSCE-581](https://sites.google.com/site/biplavsrivastava/teaching/csce-771-computer-processing-of-natural-language?authuser=0) [Trusted AI,  Fall 2023]
+    * VAJRA visit to [IIT-Roorkee](https://www.iitr.ac.in/) [2022, 2023]
  
  * <span style="color:maroon">**Conference**</span>
    * [Collaborative Assistants for Society (CASY) workshops at the AI Institute](https://casy.aiisc.ai/):  A series of hybrid physical/virtual free-to-attend conferences intended to promote the ethical usage of digital assistants in society for daily life activities. 
