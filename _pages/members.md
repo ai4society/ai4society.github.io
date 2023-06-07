@@ -7,7 +7,7 @@ author_profile: true
 
 
 {% assign excerpts = "Faculty, Ph.D. graduate student, Masters student, Undergraduate student, Intern, Indirect Study, External, Alumni" | split: ", " %}
-{% assign headers = "Faculty, Ph.D. students, Masters student, Undergraduate students, Interns, Affiliated / Independent Study, External, Alumni" | split: ", " %}
+{% assign headers = "Faculty, Ph.D. students, Masters students, Undergraduate students, Interns, Affiliated / Independent Study, External, Alumni" | split: ", " %}
 
 {% for excerpt in excerpts %}
 	{% assign isEmpty = true %}
