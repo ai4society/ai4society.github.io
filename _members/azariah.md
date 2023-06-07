@@ -1,5 +1,4 @@
 <!-- ---
-
 name: "Azariah Laulusa - Azariah "
 theme: "Meal Recommendation"
 email: laulusa@email.sc.edu
