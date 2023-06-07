@@ -37,7 +37,7 @@ AI for Society (AI4S) group at the [AI Institute](https://aiisc.ai/) is focused 
          <span>Bharath Muppasani, Vishal Pallagani, Kausik Lakkaraju, Shuge Lei, Biplav Srivastava, Brett Robertson, Andrea Hickerson, Vignesh Narayanan, On Safe and Usable Chatbots for Promoting Voter Participation, AAAI 2023 Workshop on AI for Credible Elections, On Arxiv at: <a href="https://arxiv.org/abs/2212.11219">https://arxiv.org/abs/2212.11219</a> [Chatbot, Voter Engagement] - <a href="https://arxiv.org/pdf/2212.11219.pdf">[PDF]</a></span>
       </a></li>
       <li><a style="text-decoration: none;color: black;"><h3><span style="color:black">2023-3</span></h3>
-         <span>Biplav Srivastava, Kausik Lakkaraju, Mariana Bernagozzi, Marco Valtorta, Advances in Automatically Rating the Trustworthiness of Text Processing Services, AAAI Spring Symposium, San Francisco, 2023 [AI Rating, Trust]<a href="https://arxiv.org/pdf/2302.09079.pdf">[PDF]</a></span> 
+         <span>Biplav Srivastava, Kausik Lakkaraju, Mariana Bernagozzi, Marco Valtorta, Advances in Automatically Rating the Trustworthiness of Text Processing Services, AAAI Spring Symposium, San Francisco, 2023 [AI Rating, Trust] - <a href="https://arxiv.org/pdf/2302.09079.pdf">[PDF]</a></span> 
       </a></li>  
    </ul>
 
