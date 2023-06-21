@@ -1,6 +1,6 @@
 ---
 name: "ULTRA-Metric"
-image: <img src='../images/ultra-uc1-demo.png' width="250px" style="float:left; margin:0px 10px 0px 0px;">
+image: <img src='/images/ultra-uc1-demo.png' width="250px" style="float:left; margin:0px 10px 0px 0px;">
 website: "[\[Repository\]](https://github.com/ai4society/Ultra-Metric/tree/main"
 collection: repositories
 excerpt: Github Repositories
