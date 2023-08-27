@@ -121,12 +121,21 @@
     </ul>
   </div>
   <p><mark>Disclaimer: Website best viewed in Google Chrome.</mark></p>
-  <p>May 2022</p>
-  <div class="author__image">
-    {% if author.image contains "://" %}
-    	<img src="{{ author.image }}" alt="{{ author.name }}">
+  <p>May 2023</p>
+  <div class="author__image_4">
+    {% if author.image_4 contains "://" %}
+      <img src="{{ author.image_4 }}" alt="{{ author.name }}">
     {% else %}
-    	<img src="{{ author.image | prepend: "/images/" | prepend: base_path }}" class="author__image" alt="{{ author.name }}">
+    	<img src="{{ author.image_4 | prepend: "/images/" | prepend: base_path }}" class="author__image_1" alt="{{ author.name }}">
+    {% endif %}
+  </div>
+  
+  <p>May 2023</p>
+  <div class="author__image_3">
+    {% if author.image_3 contains "://" %}
+      <img src="{{ author.image_3 }}" alt="{{ author.name }}">
+    {% else %}
+    	<img src="{{ author.image_3 | prepend: "/images/" | prepend: base_path }}" class="author__image_1" alt="{{ author.name }}">
     {% endif %}
   </div>
   <br>
@@ -138,12 +147,14 @@
     	<img src="{{ author.image_2 | prepend: "/images/" | prepend: base_path }}" class="author__image_1" alt="{{ author.name }}">
     {% endif %}
   </div>
-  <p>May 2023</p>
-  <div class="author__image_3">
-    {% if author.image_3 contains "://" %}
-      <img src="{{ author.image_3 }}" alt="{{ author.name }}">
+  <br>
+  <p>May 2022</p>
+  <div class="author__image">
+    {% if author.image contains "://" %}
+    	<img src="{{ author.image }}" alt="{{ author.name }}">
     {% else %}
-    	<img src="{{ author.image_3 | prepend: "/images/" | prepend: base_path }}" class="author__image_1" alt="{{ author.name }}">
+    	<img src="{{ author.image | prepend: "/images/" | prepend: base_path }}" class="author__image" alt="{{ author.name }}">
     {% endif %}
   </div>
+  
 </div>
