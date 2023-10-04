@@ -42,6 +42,7 @@ AI for Society (AI4S) group at the [AI Institute](https://aiisc.ai/) is focused 
    </ul>
 
  * <span style="color:maroon">**Funding and Collaboration**</span>
+    * [J.P. Morgan](https://www.jpmorgan.com/global) (award)
     * [Cisco](http://www.cisco.com/) Research (gift)
     * [SCRA](https://www.scra.org/) (award)
     * [Tantiv4](https://www.tantiv4.com/) (award)
