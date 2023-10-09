@@ -1,5 +1,6 @@
 ---
-title: "Rating of AI Systems" 
+title: "Rating of AI Systems"
+theme: "Trusted AI"
 team: "Kausik Lakkaraju, Biplav Srivastava, Marco Valtorta"  
 description: "AI systems, such as facial recognition and sentiment analyzers, often show model uncertainty, leading to algorithmic bias, particularly concerning protected attributes like gender and race. This research seeks to understand and reduce bias by establishing causal relationships. Assigning ratings to AI systems based on this helps users make informed choices. [More Details](https://ai4society.github.io/rating_page/)"
 # description: "Artificial Intelligence (AI) systems like facial recognition systems and sentiment 
