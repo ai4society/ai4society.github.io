@@ -69,7 +69,16 @@
                 McElwain</a></i><br>
 
           <p align="justify">We introduce ULTRA (<b><u>U</u></b>niversity <b><u>L</u></b>ead <b><u>T</u></b>eam
-            <b><u>B</u></b>uilder from <b><u>R</u></b>FPs and <b><u>A</u></b>nalysis), an novel AI-based system for assisting team formation when researchers respond to calls for proposals from funding agencies. This is an instance of the general problem of building teams when demand opportunities come periodically and potential members may vary over time. The novelties of our approach are that we: (a) extract technical skills needed about researchers and calls from multiple <i>open</i> data sources and normalize them using NLP techniques, (b) build a prototype solution based on matching and teaming based on constraints, (c) evaluate our system in two diverse settings in US and India to establish generality of our approach, and (d) create and publish a dataset that others can use.<br> <span style="color:violet"><i>(This research study has been certified as exempt from the IRB per 45 CFR 46.104(d)(3) and 45 CFR  46.111(a)(7) by University of South Carolina IRB# Pro00127449.)</i></span>
+            <b><u>B</u></b>uilder from <b><u>R</u></b>FPs and <b><u>A</u></b>nalysis), an novel AI-based system for
+            assisting team formation when researchers respond to calls for proposals from funding agencies. This is an
+            instance of the general problem of building teams when demand opportunities come periodically and potential
+            members may vary over time. The novelties of our approach are that we: (a) extract technical skills needed
+            about researchers and calls from multiple <i>open</i> data sources and normalize them using NLP techniques,
+            (b) build a prototype solution based on matching and teaming based on constraints, (c) evaluate our system
+            in two diverse settings in US and India to establish generality of our approach, and (d) create and publish
+            a dataset that others can use.<br> <span style="color:violet"><i>(This research study has been certified as
+                exempt from the IRB per 45 CFR 46.104(d)(3) and 45 CFR 46.111(a)(7) by University of South Carolina IRB#
+                Pro00127449.)</i></span>
           </p>
 
           <p><i><b>Representative Publications</b></i></p>
@@ -108,20 +117,20 @@
             <center>
               <div class="slide-container">
                 <div class="slide fade">
-                  <img src='images/ultra_poster.png' alt='' height="700px">
+                  <img src='images/ultra_poster.png' alt='' width="125px" height="600px">
                   <figcaption>A poster of ULTRA (<b><u>U</u></b>niversity <b><u>L</u></b>ead <b><u>T</u></b>eam
                     <b><u>B</u></b>uilder from <b><u>R</u></b>FPs and <b><u>A</u></b>nalysis).
                   </figcaption>
                 </div>
                 <div class="slide fade">
-                  <img src='images/ultra_teaming_setup.png' alt='' height="700px">
+                  <img src='images/ultra_teaming_setup.png' alt='' width="125px" height="600px">
                   <figcaption>ULTRA teaming setup with users who can be administrators or potential team participants. A
                     trusted team is one where all stakeholders are convinced that the right members from those available
                     have been selected on the needs of the call for unknown
                     success in future.</figcaption>
                 </div>
                 <div class="slide fade">
-                  <img src='images/ultra_system_architecture.png' alt='' height="700px">
+                  <img src='images/ultra_system_architecture.png' alt='' width="125px" height="600px">
                   <figcaption>System architecture of ULTRA.</figcaption>
                 </div>
                 <a href="#" class="prev" title="Previous">&#10094</a>
@@ -153,21 +162,15 @@
                   currentSlide >= slides.length - 1 ? currentSlide = 0 : currentSlide++
                   init(currentSlide)
                 }
-
                 const prev = () => {
                   currentSlide <= 0 ? currentSlide = slides.length - 1 : currentSlide--
                   init(currentSlide)
                 }
-
                 document.querySelector(".next").addEventListener('click', next)
-
                 document.querySelector(".prev").addEventListener('click', prev)
-
-
                 setInterval(() => {
                   next()
                 }, 4500);
-
                 dots.forEach((dot, i) => {
                   dot.addEventListener("click", () => {
                     console.log(currentSlide)
