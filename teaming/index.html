@@ -43,7 +43,7 @@
               Huhns</a>, <a target="_blank" href="https://personal.utdallas.edu/~sriraam.natarajan/">Sriraam Natarajan</a></i>
             <br>
           </p>
-          <p align="justify"><img id="myImg" src="../images/group-reco-ultra.jpg"
+          <p align="justify"><img id="myImg" src="images/group_recommendation.jpg"
               alt="Group Recommendation - Research Potential, Methods, and Fairness"
               style="width:100%;max-width:80px">We study the problem of group recommendation, an information exploration
             paradigm that retrieves interesting items for users based on their profiles and past
@@ -116,9 +116,9 @@
                 href="https://sc.edu/study/colleges_schools/engineering_and_computing/faculty-staff/mcelwain.php">Danielle
                 McElwain</a></i><br>
 
-          <p align="justify"><img id="myImg" src="../images/group-reco-ultra.jpg"
+          <p align="justify"><img id="myImg2" src="./images/ultra_poster.jpg"
               alt="Group Recommendation - Research Potential, Methods, and Fairness"
-              style="width:100%;max-width:80px;max-height:200px;">We introduce ULTRA (<b><u>U</u></b>niversity
+              style="width:100%;max-width:80px;height:150px;">We introduce ULTRA (<b><u>U</u></b>niversity
             <b><u>L</u></b>ead <b><u>T</u></b>eam
             <b><u>B</u></b>uilder from <b><u>R</u></b>FPs and <b><u>A</u></b>nalysis), an novel AI-based system for
             assisting team formation when researchers respond to RFPs from funding agencies. This is an instance of the
@@ -127,6 +127,37 @@
             and calls from multiple <i>open</i> data sources and normalize them using NLP techniques, (b) build teaming
             solutions based on constraints, (c) computationally and qualitatively evaluate our system in two diverse settings (US, India) to establish generality of our approach, and (d) create and  publish a dataset that others can use.<br><br> <span style="color:violet"><i>(This research study has been certified as exempt from the IRB per 45 CFR 46.104(d)(3) and 45 CFR 46.111(a)(7) by University of South Carolina IRB#Pro00127449.)</i></span>
           </p>
+
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="img01">
+            <div id="caption"></div>
+          </div>
+
+          <script>
+            // Get the modal
+            var modal = document.getElementById("myModal");
+
+            // Get the image and insert it inside the modal - use its "alt" text as a caption
+            var img = document.getElementById("myImg2");
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+            img.onclick = function () {
+              modal.style.display = "block";
+              modalImg.src = this.src;
+              captionText.innerHTML = this.alt;
+            }
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+              modal.style.display = "none";
+            }
+          </script>
+
 
           <p><i><b>Representative Publications</b></i></p>
           <ul>
