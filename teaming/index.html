@@ -38,9 +38,12 @@
           <p style="text-align: justify;"><span style="background-color: aqua;"><b>Group Recommendation and
                 Fairness</b></span><br>
             <i><b>Authors: </b><a target="_blank"
-              href="https://sites.google.com/site/biplavsrivastava/home?authuser=0">Biplav Srivastava</a>, <a target="_blank" href="https://www.linkedin.com/in/likitha9/">Siva Likitha Valluru</a>, <a target="_blank"
-              href="https://sc.edu/study/colleges_schools/engineering_and_computing/faculty-staff/michaelhuhns.php">Michael
-              Huhns</a>, <a target="_blank" href="https://personal.utdallas.edu/~sriraam.natarajan/">Sriraam Natarajan</a></i>
+                href="https://sites.google.com/site/biplavsrivastava/home?authuser=0">Biplav Srivastava</a>, <a
+                target="_blank" href="https://www.linkedin.com/in/likitha9/">Siva Likitha Valluru</a>, <a
+                target="_blank"
+                href="https://sc.edu/study/colleges_schools/engineering_and_computing/faculty-staff/michaelhuhns.php">Michael
+                Huhns</a>, <a target="_blank" href="https://personal.utdallas.edu/~sriraam.natarajan/">Sriraam
+                Natarajan</a></i>
             <br>
           </p>
           <p align="justify"><img id="myImg" src="images/group_recommendation.jpg"
@@ -125,7 +128,11 @@
             general problem of building teams when demand opportunities come periodically and potential members may vary
             over time. The novelties of our approach are that we: (a) extract technical skills needed about researchers
             and calls from multiple <i>open</i> data sources and normalize them using NLP techniques, (b) build teaming
-            solutions based on constraints, (c) computationally and qualitatively evaluate our system in two diverse settings (US, India) to establish generality of our approach, and (d) create and  publish a dataset that others can use.<br><br> <span style="color:violet"><i>(This research study has been certified as exempt from the IRB per 45 CFR 46.104(d)(3) and 45 CFR 46.111(a)(7) by University of South Carolina IRB#Pro00127449.)</i></span>
+            solutions based on constraints, (c) computationally and qualitatively evaluate our system in two diverse
+            settings (US, India) to establish generality of our approach, and (d) create and publish a dataset that
+            others can use.<br><br> <span style="color:violet"><i>(This research study has been certified as exempt from
+                the IRB per 45 CFR 46.104(d)(3) and 45 CFR 46.111(a)(7) by University of South Carolina
+                IRB#Pro00127449.)</i></span>
           </p>
 
           <!-- The Modal -->
@@ -192,132 +199,20 @@
               <br>
             </li>
             <br>
+              
             <center>
-              <div class="slide-container">
-                <div class="slide fade">
-                  <img src='images/ultra_poster.png' alt='' width="125px" height="600px">
-                  <figcaption>A poster of ULTRA (<b><u>U</u></b>niversity <b><u>L</u></b>ead <b><u>T</u></b>eam
-                    <b><u>B</u></b>uilder from <b><u>R</u></b>FPs and <b><u>A</u></b>nalysis).
-                  </figcaption>
-                </div>
-                <div class="slide fade">
-                  <img src='images/ultra_teaming_setup.png' alt='' width="125px" height="600px">
-                  <figcaption>ULTRA teaming setup with users who can be administrators or potential team participants. A
-                    trusted team is one where all stakeholders are convinced that the right members from those available
-                    have been selected on the needs of the call for unknown
-                    success in future.</figcaption>
-                </div>
-                <div class="slide fade">
-                  <img src='images/ultra_system_architecture.png' alt='' width="125px" height="600px">
-                  <figcaption>System architecture of ULTRA.</figcaption>
-                </div>
-                <a href="#" class="prev" title="Previous">&#10094</a>
-                <a href="#" class="next" title="Next">&#10095</a>
-              </div>
-              <div class="dots-container">
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-              </div>
+            <div>
+            <figure class="imageLeft">
+              <img class="top" src="images/ultra_teaming_setup.png" width="350" height="250"/>
+              <figcaption> Figure 1: Teaming setup of ULTRA.</figcaption>
+            </figure>
+            <figure class="imageRight">
+              <img class="average" src="images/ultra_system_architecture.png" width="350" height="250"/>
+              <figcaption> Figure 2: System architecture of ULTRA.</figcaption>
+            </figure>
+          </div>
+        </center>
 
-              <script>
-                let currentSlide = 0;
-                const slides = document.querySelectorAll(".slide")
-                const dots = document.querySelectorAll('.dot')
-
-                const init = (n) => {
-                  slides.forEach((slide, index) => {
-                    slide.style.display = "none"
-                    dots.forEach((dot, index) => {
-                      dot.classList.remove("active")
-                    })
-                  })
-                  slides[n].style.display = "block"
-                  dots[n].classList.add("active")
-                }
-                document.addEventListener("DOMContentLoaded", init(currentSlide))
-                const next = () => {
-                  currentSlide >= slides.length - 1 ? currentSlide = 0 : currentSlide++
-                  init(currentSlide)
-                }
-                const prev = () => {
-                  currentSlide <= 0 ? currentSlide = slides.length - 1 : currentSlide--
-                  init(currentSlide)
-                }
-                document.querySelector(".next").addEventListener('click', next)
-                document.querySelector(".prev").addEventListener('click', prev)
-                setInterval(() => {
-                  next()
-                }, 4500);
-                dots.forEach((dot, i) => {
-                  dot.addEventListener("click", () => {
-                    console.log(currentSlide)
-                    init(i)
-                    currentSlide = i
-                  })
-                })
-              </script>
-            </center>
-
-
-            <script>
-              var responsiveSlider = function () {
-
-                var slider = document.getElementById("slider");
-                var sliderWidth = slider.offsetWidth;
-                var slideList = document.getElementById("slideWrap");
-                var count = 1;
-                var items = slideList.querySelectorAll("li").length;
-                var prev = document.getElementById("prev");
-                var next = document.getElementById("next");
-
-                window.addEventListener('resize', function () {
-                  sliderWidth = slider.offsetWidth;
-                });
-
-                var prevSlide = function () {
-                  if (count > 1) {
-                    count = count - 2;
-                    slideList.style.left = "-" + count * sliderWidth + "px";
-                    count++;
-                  }
-                  else if (count = 1) {
-                    count = items - 1;
-                    slideList.style.left = "-" + count * sliderWidth + "px";
-                    count++;
-                  }
-                };
-
-                var nextSlide = function () {
-                  if (count < items) {
-                    slideList.style.left = "-" + count * sliderWidth + "px";
-                    count++;
-                  }
-                  else if (count = items) {
-                    slideList.style.left = "0px";
-                    count = 1;
-                  }
-                };
-
-                next.addEventListener("click", function () {
-                  nextSlide();
-                });
-
-                prev.addEventListener("click", function () {
-                  prevSlide();
-                });
-
-                setInterval(function () {
-                  nextSlide()
-                }, 2500);
-
-              };
-
-              window.onload = function () {
-                responsiveSlider();
-              }
-
-            </script>
           </ul>
           <p><i><b>Additional Tools</b></i></p>
           <ul>
@@ -331,7 +226,7 @@
               <a href="./bib/kite.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
               <br><br>
               <center><img src="./images/kite.png" height="200" width="60%"><br>
-                <figcaption>Figure 4: Using KITE</figcaption>
+                <figcaption>Figure 3: Using KITE</figcaption>
               </center>
             </li>
             <br>
@@ -339,7 +234,7 @@
               <a href="http://casy.cse.sc.edu/mapper/" target="_blank"><b>[Tool Website]</b></a>
               <br><br>
               <center><img src="./images/ultra_mapper.png" height="200" width="400"><br>
-                <figcaption>Figure 5: Text-to-Classification Demo</figcaption>
+                <figcaption>Figure 4: Text-to-Classification Demo</figcaption>
               </center>
             </li>
           </ul>
