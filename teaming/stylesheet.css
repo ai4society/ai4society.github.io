@@ -395,13 +395,13 @@ body h1 {
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 
-#myImg {
+#myImg, #myImg2 {
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
 }
 
-#myImg:hover {opacity: 0.7;}
+#myImg:hover, #myImg2:hover {opacity: 0.7;}
 
 /* The Modal (background) */
 .modal {
@@ -481,7 +481,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   }
 }
 
-#myImg {
+#myImg, #myImg2 {
   float: right;
   border: 1px dotted black;
   margin: 0px 0px 15px 20px;
