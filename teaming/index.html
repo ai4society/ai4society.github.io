@@ -6,7 +6,6 @@
   <title>AI Teaming</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></script>
   <link rel="stylesheet" type="text/css" href="./stylesheet.css">
-
 </head>
 
 <body class="container">
@@ -39,13 +38,45 @@
           <p style="text-align: justify;"><span style="background-color: aqua;"><b>Group Recommendation and
                 Fairness</b></span><br>
             <i><b>Authors: </b>Biplav Srivastava, Siva Likitha Valluru, Michael Huhns, Sriraam Natarajan</i>
-            <br><br>
-            We study the problem of group recommendation, an information exploration paradigm that retrieves interesting
-            items for users based on their profiles and past interactions/activities/history. Existing literature
-            encourages using greedy methods, genetic and heuristic algorithms, topic diversification, and cost
-            constraint bi-objective optimizations. Our objective is to build novel methods and useful tools for group
-            recommendation with fairness, and drive different use cases (e.g., meal recommendation).
+            <br>
           </p>
+          <p align="justify"><img id="myImg" src="../images/group-reco-ultra.jpg" alt="Group Recommendation"
+              style="width:100%;max-width:50px">We study the problem of group recommendation, an information exploration
+            paradigm that retrieves interesting items for users based on their profiles and past
+            interactions/activities/history. Existing literature encourages using greedy methods, genetic and heuristic
+            algorithms, topic diversification, and cost constraint bi-objective optimizations. Our objective is to build
+            novel methods and useful tools for group recommendation with fairness, and drive different use cases (e.g.,
+            meal recommendation).</p>
+
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="img01">
+            <div id="caption"></div>
+          </div>
+
+          <script>
+            // Get the modal
+            var modal = document.getElementById("myModal");
+
+            // Get the image and insert it inside the modal - use its "alt" text as a caption
+            var img = document.getElementById("myImg");
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+            img.onclick = function () {
+              modal.style.display = "block";
+              modalImg.src = this.src;
+              captionText.innerHTML = this.alt;
+            }
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+              modal.style.display = "none";
+            }
+          </script>
 
           <p style="text-align: justify;"><span style="background-color: aqua;"><b>Team Formation</b></span><br>
             <i><b>Technical Lead: </b><a target="_blank"
