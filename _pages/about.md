@@ -12,15 +12,11 @@ AI for Society (AI4S) group at the [AI Institute](https://aiisc.ai/) is focused 
 
 
 
-
-
 <span style="color:maroon">**NEWS**</span>
 ======
 
-
-
  * <span style="color:maroon">**Students**</span>
-    * [Vishal Pallagani](https://www.linkedin.com/in/vishalpallagani/)  is doing his internship at IBM Res. [May 2023]
+    * [Vishal Pallagani](https://www.linkedin.com/in/vishalpallagani/) completed second internship at IBM Research, invited for next summer as well. [Aug 2023]
     * [Sai Teja Paladi](https://www.linkedin.com/in/sai-teja-paladi-52a062140/) graduated with a master's degree in Computer Science. He helped our team in developing and deploying various tools. [May 2023]
     * [Kausik Lakkaraju](https://kausik-l.github.io/) secured the best graduate student poster presentation award in the computer science department for his work on 'Rating of AI Systems through a Causal Lens' at the [Discover USC](https://www.sc.edu/about/signature_events/discover_uofsc/about/news/2023/20220428_Check_Out_DUSC_2023.php) event. [April 2023]
  * <span style="color:maroon">**Latest Research and Publications**</span>
@@ -34,7 +30,7 @@ AI for Society (AI4S) group at the [AI Institute](https://aiisc.ai/) is focused 
                2023 [Power data, machine learning] - <a href="https://arxiv.org/pdf/2209.00987.pdf">[PDF]</a></span>        
       </a></li>
       <li><a style="text-decoration: none;color: black;"><h3><span style="color:black">2023-2</span></h3>
-         <span>Bharath Muppasani, Vishal Pallagani, Kausik Lakkaraju, Shuge Lei, Biplav Srivastava, Brett Robertson, Andrea Hickerson, Vignesh Narayanan, On Safe and Usable Chatbots for Promoting Voter Participation, AAAI 2023 Workshop on AI for Credible Elections, On Arxiv at: <a href="https://arxiv.org/abs/2212.11219">https://arxiv.org/abs/2212.11219</a> [Chatbot, Voter Engagement] - <a href="https://arxiv.org/pdf/2212.11219.pdf">[PDF]</a></span>
+         <span>Bharath Muppasani, Vishal Pallagani, Kausik Lakkaraju, Shuge Lei, Biplav Srivastava, Brett Robertson, Andrea Hickerson, Vignesh Narayanan, On Safe and Usable Chatbots for Promoting Voter Participation, AI Magazine Special Issue, Fall 2023. AAAI 2023 Workshop on AI for Credible Elections, On Arxiv at: <a href="https://arxiv.org/abs/2212.11219">https://arxiv.org/abs/2212.11219</a> [Chatbot, Voter Engagement] - <a href="https://arxiv.org/pdf/2212.11219.pdf">[PDF]</a></span>
       </a></li>
       <li><a style="text-decoration: none;color: black;"><h3><span style="color:black">2023-3</span></h3>
          <span>Biplav Srivastava, Kausik Lakkaraju, Mariana Bernagozzi, Marco Valtorta, Advances in Automatically Rating the Trustworthiness of Text Processing Services, AAAI Spring Symposium, San Francisco, 2023 [AI Rating, Trust] - <a href="https://arxiv.org/pdf/2302.09079.pdf">[PDF]</a></span> 
