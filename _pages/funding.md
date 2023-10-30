@@ -48,8 +48,8 @@ redirect_from:
   * Oklahoma State University, [2021-2023]
       - Multimodal reasoning
   * Cisco Research:  [2022-]
-      - <span style="color:lime">AI trust</span>, <span style="color:Aqua">security</span>
+      - <span style="color:lime">AI Trust</span>, <span style="color:Aqua">security</span>
   * JP Morgan Chase Research:  [2023-]
-      - <span style="color:lime">AI trust</span>, <span style="color:Aqua">finance</span>
+      - <span style="color:lime">AI Trust</span>, <span style="color:Aqua">finance</span>
   * Indian Institutions (IIT Roorkee, IIT BHU, ...)
       - <span style="color:violet">AI Ethics</span>, <span style="color:teal">Smart City</span>, <span style="color:blue">Power</span>, <span style="color:pink">Food</span> 
