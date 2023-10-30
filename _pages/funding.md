@@ -24,7 +24,7 @@ redirect_from:
 
 * University of South Carolina (ASPIRE-II), $98,535, 2021-2022, Collaborative Artificial Intelligence 
        for Learning to Solve the Rubik's Cube, Team: Matt Irvin (PI), Forest Agostinelli. Biplav Srivastava, 
-       Dezhi Wu, Hengtao Tang, Amit Sheth (Consultant) [<span style="color:skyblue">Chatbots</span>, <span style="color:brown">Games</span>, <span style="color:lime">Trust</span>]
+       Dezhi Wu, Hengtao Tang, Amit Sheth (Consultant) [<span style="color:skyblue">Chatbots</span>, <span style="color:brown">Games</span>, <span style="color:lime">AI Trust</span>]
 * University of South Carolina (Racial Justice), $14,636, February 1, 2022 - April 30, 2023,    
        Intersectionality between race, gender, and computer science stereotypes influencing racially
        minoritized high schoolers' intentions to pursue computer science major, Team: Lima de Vasconcelos (PI),
