@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Generalized Planning</title>
+
+    <meta name="author" content="Vishal Pallagani">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="./stylesheet.css">
+</head>
+
+<body class="container">
+
+
+    <table style="width:80%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+        <tbody>
+            <tr style="padding:0px">
+                <td style="padding-left:2.5%;padding-top:3%;width:63%;vertical-align:middle">
+                  <p style="text-align:left">
+                    <a href='../../index.html'>Home</a> &nbsp/&nbsp
+                    <a href='../index.html'>Projects</a> &nbsp/&nbsp
+                  </p>
+                </td>
+              </tr>
+
+              <tr style="padding:0px">
+                <td style="padding-left:2.5%;width:63%;vertical-align:middle">   
+                  
+                  <h2 style="display:flex;align-items:center;">
+                    <span style="background-color:hsl(60, 100%, 50%);height:20px;width:20px;margin-right:10px;border:1px solid black;"></span>
+                    Generalized Planning
+                  </h2>
+                  <p style="text-align: justify;"><span style="background-color: hsl(60, 100%, 50%);"><b>Generative Models for Automated Planning</b></span><br>
+                      <i><b>Collaborators: </b>AIISC - University of South Carolina, IBM Research, University of Udine, University of Brescia</i>
+                      <br>
+                      <i><b>Advisors: </b><a target="_blank" href="https://sites.google.com/site/biplavsrivastava/home?authuser=0">Biplav Srivastava</a>, <a target="_blank" href="https://researcher.watson.ibm.com/researcher/view.php?person=ibm-Francesca.Rossi2">Francesca Rossi</a>, <a target="_blank" href="https://researcher.watson.ibm.com/researcher/view.php?person=us-lhoresh">Lior Horesh</a>, <a target="_blank" href="https://www.cs.cmu.edu/~kmuruges/Home.html">Keerthiram Murugesan</a></i>
+                      <br>
+                      Large Language Models (LLMs) have been the subject of active research, significantly advancing the field of Natural Language Processing (NLP). 
+                      From BERT to BLOOM, LLMs have surpassed state-of-the-art results in various natural language tasks such as question-answering, summarization, and text generation. 
+                      Many ongoing efforts focus on understanding LLMs' capabilities, including their knowledge of the world, syntax, and semantics. 
+                      However, extending the textual prowess of LLMs to symbolic reasoning has been slow and predominantly focused on tackling problems related to the mathematical field. 
+                      In this work, we explore the use of LLMs for automated planning - a branch of AI concerned with the realization of action sequences (plans) to achieve a goal, typically executed by intelligent agents, autonomous robots, and unmanned vehicles.
+                  </p>
+                  <p><i><b>Representative Publications</b></i></p>
+                  <ul>
+                    <li>Plansformer: Generating Symbolic Plans using Transformers <br> <a href="https://arxiv.org/abs/2212.08681" target="_blank"><b>[Paper]</b></a>
+                      <a href="uo-sc-plansformer.vercel.app" target="_blank"><b>[Tool Website]</b></a> <a href="https://www.youtube.com/watch?v=_1rlctCGsrk" target="_blank"><b>[Demo]</b></a>
+                      <a href="./bib/plansformer.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
+                    </li>
+                  </ul>
+                  <tr style="padding:0px">
+                    <td style="padding-left:2.5%;width:63%;vertical-align:middle">
+                        <img src="./images/plansformer.png" style="max-width:50%; display: block; margin: 0 auto;">
+                    </td>
+                </tr>
+              </td> 
+
+            </tr>
+
+            <tr style="padding: 0px">
+              <td style="padding-left:2.5%;width:63%;vertical-align:middle">
+                <p style="text-align: justify;"><span style="background-color: hsl(60, 100%, 50%);"><b>Planning using Fast and Slow AI Architecture</b></span><br>
+                  <i><b>Collaborators: </b>IBM Research, AIISC - University of South Carolina, University of Udine, University of Brescia, Union College (New York), Tulane University, University of West Florida</i>
+                  <br>
+                  <i><b>Advisors: </b><a target="_blank" href="https://sites.google.com/site/biplavsrivastava/home?authuser=0">Biplav Srivastava</a>, <a target="_blank" href="https://researcher.watson.ibm.com/researcher/view.php?person=ibm-Francesca.Rossi2">Francesca Rossi</a>, <a target="_blank" href="https://researcher.watson.ibm.com/researcher/view.php?person=us-lhoresh">Lior Horesh</a>, <a target="_blank" href="https://www.cs.cmu.edu/~kmuruges/Home.html">Keerthiram Murugesan</a></i>
+                  <br>
+                  The newly introduced idea of Fast and Slow AI (SOFAI) architecture is inspired from the cognitive theories mentioned by Daniel Kahneman in Thinking Fast and Slow. 
+                  This research project aims to build AI-supported machines that can 
+                  <ol>
+                      <li style="color:green">make decisions with emergent behaviors similar to the human ones, and</li>
+                      <li style="color:green">support human decision making through nudging and explanations.</li>
+                  </ol>
+              </p>
+              <p style="text-align: justify;">To achieve these goals, the team is designing and building a cognitive architecture 
+                  to mimic these two broad modalities in a machine. We adapt the SOFAI architecture to solving planning domains 
+                  where incoming problems are solved by either <b>system 1</b> (or ”fast” - S1) agents, also called solvers, that 
+                  react by exploiting either past experience (case-based reasoning) or using a learnt model called as 
+                  Plansformer, or by <b>system 2</b> (or ”slow” - S2) agents, that are deliberately activated when there is the 
+                  need to reason and search for optimal solutions beyond what is expected from the system 1 agent. 
+                  SOFAI architecture with Plansformer as S1 solves more problems than the symbolic planner 
+                  (FastDownward, which is also used as S2). Visit the <a href="https://sites.google.com/view/sofai/home" target="_blank">dedicated website</a> for more details on <b>SOFAI</b>.
+              </p>
+              
+                <p><i><b>Representative Publications</b></i></p>
+                <ul>
+                  <li>Fast and Slow Planning<br> <a href="https://arxiv.org/pdf/2303.04283.pdf" target="_blank"><b>[Paper]</b></a>
+                    <a href="./bib/fastslow.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
+                  </li>  
+                  <li>Epistemic Planning in a Fast and Slow Setting<br> <a href="https://ceur-ws.org/Vol-3332/paper7.pdf" target="_blank"><b>[Paper]</b></a>
+                    <a href="./bib/epistemic.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
+                  </li>
+                  <li>Plansformer: Generating Symbolic Plans using Transformers <br> <a href="https://arxiv.org/abs/2212.08681" target="_blank"><b>[Paper]</b></a>
+                    <a href="uo-sc-plansformer.vercel.app" target="_blank"><b>[Tool Website]</b></a> <a href="https://www.youtube.com/watch?v=_1rlctCGsrk" target="_blank"><b>[Demo]</b></a>
+                    <a href="./bib/plansformer.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
+                  </li>
+                </ul>
+                <tr style="padding:0px">
+                  <td style="padding-left:2.5%;width:63%;vertical-align:middle">
+                      <img src="./images/SOFAI.png" style="max-width:40%; display: block; margin: 0 auto;">
+                  </td>
+              </tr>
+            </td> 
+
+          </tr>
+            
+          <tr style="padding:0px">
+              <td style="padding-left:2.5%;width:63%;vertical-align:middle">
+                  <hr style="width: 100%; float: left;">
+              </td>
+          </tr>
+        </tbody>
+    </table>
+</body>
+</html>

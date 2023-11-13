@@ -1,0 +1,12 @@
+@inproceedings{midas-state-id,
+
+author = {Bharath C Muppasani and C J Anand and Chinmayi Appajigowda  and Biplav Srivastava  and Lokesh Johri},
+
+title = {A Dataset and Baseline Approach for Identifying Usage States from Non-Intrusive Power Sensing With MiDAS IoT-based Sensors},
+
+booktitle = {Proc. Thirty-Fifth Annual Conference on Innovative Applications of Artificial Intelligence (AAAI/IAAI-23)},
+year = {2023},
+keywords = {Signal Processing (eess.SP), Artificial Intelligence (cs.AI), Machine Learning (cs.LG), FOS: Electrical engineering, electronic engineering, information engineering, FOS: Computer and information sciences},
+copyright = {Creative Commons Attribution Non Commercial No Derivatives 4.0 International}
+
+}

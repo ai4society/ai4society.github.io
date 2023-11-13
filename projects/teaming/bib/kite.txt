@@ -1,0 +1,7 @@
+@article{gupta2022kite,
+  title={KITE - An Unsupervised, Effective and Inclusive Approach for Textual Content Exploration},
+  year={2022},
+  author={Gupta, Aniket and Srivastava, Biplav and Aggarwal, Karan and Paladi, Sai Teja},
+  url={https://www.researchgate.net/publication/363608853_KITE_-_An_Unsupervised_Effective_and_Inclusive_Approach_for_Textual_Content_Exploration},
+  doi = {10.13140/RG.2.2.11094.11847}
+}

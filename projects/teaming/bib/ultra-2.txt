@@ -1,0 +1,6 @@
+@article{valluru2023deployed,
+  title={(Deployed Application) Promoting Research Collaboration with Open Data Driven Team Recommendation in Response to Call for Proposals},
+  author={Valluru, Siva Likitha and Srivastava, Biplav and Paladi, Sai Teja and Yan, Siwen and Natarajan, Sriraam},
+  journal={arXiv preprint arXiv:2309.09404},
+  year={2023}
+}

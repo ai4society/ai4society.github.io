@@ -1,0 +1,6 @@
+@article{pallagani2021generic,
+  title={A generic dialog agent for information retrieval based on automated planning within a reinforcement learning platform},
+  author={Pallagani, Vishal and Srivastava, Biplav},
+  journal={Bridging the Gap Between AI Planning and Reinforcement Learning (PRL)},
+  year={2021}
+}

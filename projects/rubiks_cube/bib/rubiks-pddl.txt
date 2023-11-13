@@ -1,0 +1,8 @@
+@article{muppasani2022solving,
+author = {Muppasani, Bharath and Pallagani, Vishal and Lakkaraju, Kausik and Srivastava, Biplav and Agostinelli, Forest},
+year = {2022},
+month = {04},
+pages = {},
+title = {Solving the Rubik's Cube with a PDDL Planner},
+doi = {10.13140/RG.2.2.36563.04649}
+}

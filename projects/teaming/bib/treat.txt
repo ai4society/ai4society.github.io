@@ -1,0 +1,6 @@
+@article{pallagani2022rich,
+  title={A Rich Recipe Representation as Plan to Support Expressive Multi Modal Queries on Recipe Content and Preparation Process},
+  author={Pallagani, Vishal and Ramamurthy, Priyadharsini and Khandelwal, Vedant and Venkataramanan, Revathy and Lakkaraju, Kausik and Aakur, Sathyanarayanan N and Srivastava, Biplav},
+  journal={arXiv preprint arXiv:2203.17109},
+  year={2022}
+}

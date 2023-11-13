@@ -1,0 +1,6 @@
+@article{srivastava2022ultra,
+  title={ULTRA: A Data-driven Approach for Recommending Team Formation in Response to Proposal Calls},
+  author={Srivastava, Biplav and Koppel, Tarmo and Shah, Ronak and Bond, Owen and Paladi, Sai Teja and Sharma, Rohit and Hetherington, Austin},
+  journal={IEEE ICDM Workshop on AI for Nudging and Personalization (WAIN)},
+  year={2022}
+}
