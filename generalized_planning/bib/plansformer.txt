@@ -1,6 +1,0 @@
-@article{pallagani2022plansformer,
-  title={Plansformer: Generating Symbolic Plans using Transformers},
-  author={Pallagani, Vishal and Muppasani, Bharath and Murugesan, Keerthiram and Rossi, Francesca and Horesh, Lior and Srivastava, Biplav and Fabiano, Francesco and Loreggia, Andrea},
-  journal={arXiv preprint arXiv:2212.08681},
-  year={2022}
-}

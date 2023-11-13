@@ -1,8 +1,0 @@
-@inproceedings{fabiano2022epistemic,
-  title={Epistemic Planning in a Fast and Slow Setting},
-  author={Fabiano, Francesco and Ganapini, Marianna Bergamaschi and Horesh, Lior and Loreggia, Andrea and Murugesan, Keerthiram and Pallagani, Vishal and Rossi, Francesca and Srivastava, Biplav and others},
-  booktitle={CEUR WORKSHOP PROCEEDINGS},
-  volume={3332},
-  year={2022},
-  organization={CEUR-WS}
-}
