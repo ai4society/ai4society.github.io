@@ -1,8 +1,0 @@
-@misc{lakkaraju2023llms,
-      title={Can LLMs be Good Financial Advisors?: An Initial Study in Personal Decision Making for Optimized Outcomes}, 
-      author={Kausik Lakkaraju and Sai Krishna Revanth Vuruma and Vishal Pallagani and Bharath Muppasani and Biplav Srivastava},
-      year={2023},
-      eprint={2307.07422},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
-}

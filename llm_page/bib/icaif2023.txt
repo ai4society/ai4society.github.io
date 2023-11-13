@@ -1,7 +1,0 @@
-@misc{lakkaraju2023icaif,
-      title={LLMs for Financial Advisement: A Fairness and Efficacy Study in Personal Decision Making}, 
-      author={Kausik Lakkaraju, Sara E. Jones, Sai Krishna Revanth Vuruma, Vishal Pallagani, Bharath C Muppasani, Biplav Srivastava},
-      year={2023},
-      keywords = {chatbots, llms, fairness, efficacy},
-      location={Brooklyn, United States of America}
-}
