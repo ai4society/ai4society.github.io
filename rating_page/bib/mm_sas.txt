@@ -1,7 +1,0 @@
-@misc{lakkaraju2023advances,
-      title={The Effect of Human v/s Synthetic Test Data and Round-tripping on Assessment of Sentiment Analysis Systems for Bias}, 
-      author={Kausik Lakkaraju, Aniket Gupta, Biplav Srivastava, Marco Valtorta and Dezhi Wu},
-      year={2023},
-      keywords = {bias, fairness, rating AI systems},
-      location={Atlanta, United States of America}
-}
