@@ -1,0 +1,8 @@
+@misc{lakkaraju2023rating,
+      title={Rating Sentiment Analysis Systems for Bias through a Causal Lens}, 
+      author={Kausik Lakkaraju and Biplav Srivastava and Marco Valtorta},
+      year={2023},
+      eprint={2302.02038},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI}
+}
