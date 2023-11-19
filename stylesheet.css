@@ -393,6 +393,80 @@ button:hover {
   }
 }
 
+/* News-Journal CSS */
+.newsjournal {
+  position: relative;
+  padding-left: 20px;
+  list-style: none;
+}
+
+.newsjournal:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 5px;
+  width: 2px;
+  background: #C5CAE9; /* Color of the vertical line */
+}
+
+.newsjournal-item {
+  margin-bottom: 20px;
+}
+
+.newsjournal-dot {
+  position:relative;
+  left: -26px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #3F51B5; /* Color of the dots */
+  top: 5px;
+}
+
+.newsjournal-container {
+  display: flex;
+  align-items:center;
+  justify-content:left;
+}
+
+.newsjournal-month {
+  padding-left: 20px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.newsjournal-year {
+  font-size: 20px; /* Smaller than the main title */
+  margin-top: 20px; /* Spacing before the year heading */
+  margin-bottom: 15px; /* Spacing after the year heading */
+  font-weight: bold;
+  margin-left: -10px;
+}
+
+.newsjournal-content {
+  padding-left: 40px;
+}
+
+/* Optional responsive adjustments */
+@media (max-width: 600px) {
+  .newsjournal {
+    padding-left: 25px;
+  }
+
+  .newsjournal:before {
+    left: 10px;
+  }
+
+  .newsjournal-dot {
+    left: -8px;
+  }
+
+  .newsjournal-content {
+    padding-left: 25px;
+  }
+}
+
 /* Style for the papers section */
 .papers-by-year h2 {
   font-size: 20px; /* Smaller than the main title */
