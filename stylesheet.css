@@ -365,9 +365,22 @@ button:hover {
   top: 5px;
 }
 
+.timeline-dot.year-dot {
+  background: #007bff; /* Blue color for year dots */
+}
+
 .timeline-date {
   margin-bottom: 5px;
   font-weight: bold;
+}
+
+.timeline-date.month {
+  font-size: 0.9em; /* Smaller font size for months */
+}
+
+.timeline-date.year {
+  font-size: 1.2em; /* Larger font size for years */
+  font-weight: bold; /* Optional: Makes year text bolder */
 }
 
 .timeline-content {
