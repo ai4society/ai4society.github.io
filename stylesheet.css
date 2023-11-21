@@ -352,20 +352,22 @@ button:hover {
 }
 
 .timeline-item {
+  position: relative;
   margin-bottom: 20px;
+  padding-left: 15px; /* Reduced to bring content closer */
 }
 
-.timeline-dot {
-  position: absolute;
-  left: -6px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #3F51B5; /* Color of the dots */
-  top: 5px;
+.timeline-content {
+  padding-left: 15px; /* Reduced to bring content closer */
 }
 
 .timeline-dot.year-dot {
+  position: absolute;
+  left: -25px; /* Move the dot to the left of the timeline */
+  top: 4px; /* Adjust vertically as needed */
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
   background: #007bff; /* Blue color for year dots */
 }
 
@@ -375,34 +377,27 @@ button:hover {
 }
 
 .timeline-date.month {
-  font-size: 0.9em; /* Smaller font size for months */
+  font-size: 0.9em;
 }
 
 .timeline-date.year {
-  font-size: 1.2em; /* Larger font size for years */
-  font-weight: bold; /* Optional: Makes year text bolder */
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
-.timeline-content {
-  padding-left: 20px;
-}
-
-/* Optional responsive adjustments */
+/* Responsive adjustments */
 @media (max-width: 600px) {
+  /* Adjust these values as well if needed for mobile responsiveness */
   .timeline {
-    padding-left: 25px;
-  }
-
-  .timeline:before {
-    left: 10px;
-  }
-
-  .timeline-dot {
-    left: -8px;
+    padding-left: 15px;
   }
 
   .timeline-content {
-    padding-left: 25px;
+    padding-left: 15px;
+  }
+
+  .timeline-dot.year-dot {
+    left: -8px; /* Adjust if needed */
   }
 }
 
@@ -736,4 +731,3 @@ button:hover {
   padding: 10px; /* Optional: for some spacing around the content */
   margin-bottom: 10px; /* Optional: space between boxes */
 }
-
