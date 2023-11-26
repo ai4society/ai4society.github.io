@@ -779,10 +779,6 @@ button:hover {
 
 }
 
-.activities-content-month{
-  visibility: hidden;
-}
-
-.activities-content-misc{
+.activities-content-month, .activities-content-misc{
   visibility: hidden;
 }
