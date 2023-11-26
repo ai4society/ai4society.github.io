@@ -724,3 +724,57 @@ button:hover {
   margin-bottom: 10px; /* Optional: space between boxes */
 }
 
+/* Style for activities section */
+.activities {
+  position: relative;
+  padding-left: 20px;
+  list-style: none;
+}
+
+.activities-item {
+  margin-bottom: 20px;
+}
+
+.activities-container {
+  display: flex;
+  align-items:center;
+  justify-content:left;
+}
+
+.activities-year {
+  padding-left: 20px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.activities-type {
+  font-size: 20px; /* Smaller than the main title */
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ccc; /* Light line under the activity type */
+  font-weight: bold;
+  margin-left: -10px;
+}
+
+.activities-content {
+  padding-left: 40px;
+}
+
+.activities-content-title{
+  font-weight: bold;
+}
+
+.activities-content-event{
+  font-style: italic;
+}
+
+.activities-content-members{
+
+}
+
+.activities-content-month{
+  visibility: hidden;
+}
+
+.activities-content-misc{
+  visibility: hidden;
+}
