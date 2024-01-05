@@ -1,0 +1,17 @@
+@inproceedings{10.1145/3632410.3632503,
+author = {Valluru, Siva Likitha and Widener, Michael and Srivastava, Biplav and Gangopadhyay, Sugata},
+title = {ULTRA: Exploring Team Recommendations in Two Geographies Using Open Data in Response to Call for Proposals},
+year = {2024},
+isbn = {9798400716348},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3632410.3632503},
+doi = {10.1145/3632410.3632503},
+abstract = {This paper demonstrates ULTRA (University-Lead Team Builder from RFPs and Analysis), a novel AI-based recommendation system for team formation, where (1) candidate teams are formed with the goal to reach highest possible skill coverage, as demanded by an opportunity, and (2) the challenge of fair distribution of opportunities is balanced amongst all available members. Using this tool, users can explore the skills required in open data from proposal calls (demand) and adeptly assemble teams from candidate researcher profiles (supply). The efficiency of these teams is then evaluated using an innovative goodness metric and validated through both quantitative and qualitative experiments. Beyond teaming, the tool design and evaluation of this work could interest researchers exploring the potential of set recommendation in other applications, rather than the well-understood traditional single-item recommendations. We deploy this system in two major institutions from diverse geographical regions of the world (United States and India), and in doing so, we show that ULTRA can generate good candidate teams across differing teaming contexts, and support the notion that our system is widely expandable.},
+booktitle = {Proceedings of the 7th Joint International Conference on Data Science \& Management of Data (11th ACM IKDD CODS and 29th COMAD)},
+pages = {547–552},
+numpages = {6},
+keywords = {Natural Language Processing, Team Formation, Boosted Bandit, Recommender Systems, Artificial Intelligence},
+location = {<conf-loc>, <city>Bangalore</city>, <country>India</country>, </conf-loc>},
+series = {CODS-COMAD '24}
+}
