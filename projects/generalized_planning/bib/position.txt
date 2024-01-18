@@ -1,0 +1,6 @@
+@article{pallagani2024prospects,
+  title={On the Prospects of Incorporating Large Language Models (LLMs) in Automated Planning and Scheduling (APS)},
+  author={Pallagani, Vishal and Roy, Kaushik and Muppasani, Bharath and Fabiano, Francesco and Loreggia, Andrea and Murugesan, Keerthiram and Srivastava, Biplav and Rossi, Francesca and Horesh, Lior and Sheth, Amit},
+  journal={arXiv preprint arXiv:2401.02500},
+  year={2024}
+}

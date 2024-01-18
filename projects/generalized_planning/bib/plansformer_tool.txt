@@ -1,0 +1,9 @@
+@inproceedings{pallagani2023plansformer,
+  title={Plansformer tool: demonstrating generation of symbolic plans using transformers},
+  author={Pallagani, Vishal and Muppasani, Bharath and Srivastava, Biplav and Rossi, Francesca and Horesh, Lior and Murugesan, Keerthiram and Loreggia, Andrea and Fabiano, Francesco and Joseph, Rony and Kethepalli, Yathin and others},
+  booktitle={IJCAI},
+  volume={2023},
+  pages={7158--7162},
+  year={2023},
+  organization={International Joint Conferences on Artificial Intelligence}
+}
