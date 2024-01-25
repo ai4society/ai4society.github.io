@@ -3,15 +3,64 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>AI Teaming</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></script>
+  <title>Trustworthy Group Recommendation</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  </script>
   <link rel="stylesheet" type="text/css" href="./stylesheet.css">
 </head>
 
 <body class="container">
 
+  <!--JS functions-->
+  <script>
+    // function to include collapsible sections in the webpage
+    function toggleContent() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    }
+
+    function setupModal(imageId, modalId, modalImgId, captionId, closeClass) {
+  // Get the modal
+  var modal = document.getElementById(modalId);
+
+  // Get the image and insert it inside the modal - use its "alt" text as a caption
+  var img = document.getElementById(imageId);
+  var modalImg = document.getElementById(modalImgId);
+  var captionText = document.getElementById(captionId);
+
+  // Function to open the modal with the clicked image
+  function openModal() {
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+  }
+
+  // Function to close the modal
+  function closeModal() {
+    modal.style.display = "none";
+  }
+
+  // Set up event listener for image click
+  img.onclick = openModal;
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName(closeClass)[0];
+
+  // Set up event listener for span click
+  span.onclick = closeModal;
+}
+    </script>
+
+
+
   <table style="width:80%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
     <tbody>
+      <!--AI4Society Home - link back to homepage-->
       <tr style="padding:0px">
         <td style="padding-left:2.5%;padding-top:3%;width:63%;vertical-align:middle">
           <p style="text-align:left">
@@ -20,26 +69,34 @@
         </td>
       </tr>
 
+      
       <tr style="padding:0px">
+
+        <!--Page header and news-->
         <td style="padding-left:2.5%;width:63%;vertical-align:middle">
           <h1 style="display:flex;align-items:center;">
             <span
               style="background-color: cyan ;height:20px;width:20px;margin-right:10px;border:1px solid black;"></span>
-            AI Teaming and Fairness
+            Trustworthy Group Recommendation
           </h1>
           <p style="border-width:3px; border-style:solid; border-color:black;padding: 10px;"><mark
-            style="color:red;"><b>NEW!</b></mark> Our <a
-            href="https://arxiv.org/abs/2309.09404">paper</a>
-          that presents a novel system to recommend teams using a variety of AI methods has been accepted to <a
-            href="https://aaai.org/aaai-conference/iaai-24-call-for-participation/"
-            style="text-decoration:none;"><b><i>IAAI-AAAI'2024</i></b></a> and will receive the <span
-            style="color:violet"><i>Innovative
-              Application</i></span> award.</p>
+              style="color:red;"><b>NEW!</b></mark> Our <a href="https://arxiv.org/abs/2309.09404">paper</a>
+            that presents a novel system to recommend teams using a variety of AI methods has been accepted to <a
+              href="https://aaai.org/aaai-conference/iaai-24-call-for-participation/"
+              style="text-decoration:none;"><b><i>IAAI-AAAI'2024</i></b></a> and will receive the <span
+              style="color:violet"><i>Innovative
+                Application</i></span> award.</p>
           <p style="border-width:3px; border-style:solid; border-color:black;padding: 10px;"><mark
-            style="color:red;"><b>NEW!</b></mark> Our <a
-            href="https://dl.acm.org/doi/10.1145/3632410.3632503">demo paper</a> about deploying <a href="https://ai4society.github.io/projects/teaming/index.html#:~:text=We%20introduce%20ULTRA,others%20can%20use.">ULTRA</a> in two geographical regions of the world has been accepted to <a href="https://cods-comad.in/call-for-demo-track-papers.php" style="text-decoration:none;"><b><i>CODS-COMAD'2024</i></b></a>.</p>
+              style="color:red;"><b>NEW!</b></mark> Our <a href="https://dl.acm.org/doi/10.1145/3632410.3632503">demo
+              paper</a> about deploying <a
+              href="https://ai4society.github.io/projects/teaming/index.html#:~:text=We%20introduce%20ULTRA,others%20can%20use.">ULTRA</a>
+            in two geographical regions of the world has been accepted to <a
+              href="https://cods-comad.in/call-for-demo-track-papers.php"
+              style="text-decoration:none;"><b><i>CODS-COMAD'2024</i></b></a>.</p>
           <hr>
 
+
+          <!--Group reco and fairness-->
           <p style="text-align: justify;">
           <h3><span style="background-color: aqua;"><b>Group Recommendation and
                 Fairness</b></span></h3>
@@ -72,30 +129,13 @@
           </div>
 
           <script>
-            // Get the modal
-            var modal = document.getElementById("myModal");
-
-            // Get the image and insert it inside the modal - use its "alt" text as a caption
-            var img = document.getElementById("myImg");
-            var modalImg = document.getElementById("img01");
-            var captionText = document.getElementById("caption");
-            img.onclick = function () {
-              modal.style.display = "block";
-              modalImg.src = this.src;
-              captionText.innerHTML = this.alt;
-            }
-
-            // Get the <span> element that closes the modal
-            var span = document.getElementsByClassName("close")[0];
-
-            // When the user clicks on <span> (x), close the modal
-            span.onclick = function () {
-              modal.style.display = "none";
-            }
+            // Call the function with your specific IDs and class
+setupModal("myImg", "myModal", "img01", "caption", "close");
           </script>
 
           <hr>
 
+          <!--Team formation-->
           <p style="text-align: justify;">
           <h3><span style="background-color: aqua;"><b>Team Formation</b></span></h3>
           <i><b>Technical Lead: </b><a target="_blank"
@@ -142,26 +182,7 @@
           </p>
 
           <script>
-            // Get the modal
-            var modal = document.getElementById("myModal");
-
-            // Get the image and insert it inside the modal - use its "alt" text as a caption
-            var img = document.getElementById("myImg2");
-            var modalImg = document.getElementById("img01");
-            var captionText = document.getElementById("caption");
-            img.onclick = function () {
-              modal.style.display = "block";
-              modalImg.src = this.src;
-              captionText.innerHTML = this.alt;
-            }
-
-            // Get the <span> element that closes the modal
-            var span = document.getElementsByClassName("close")[0];
-
-            // When the user clicks on <span> (x), close the modal
-            span.onclick = function () {
-              modal.style.display = "none";
-            }
+            setupModal("myImg2", "myModal", "img01", "caption", "close");
           </script>
 
 
@@ -187,8 +208,10 @@
               </div>
             </li>
             <br>
-            <li>[2024] ULTRA: Exploring Team Recommendations in Two Geographies Using Open Data in Response to Call for Proposals.
-              <br><i>ACM India Joint International Conference on Data Science and Management of Data (CODS-COMAD-2024)</i><br>
+            <li>[2024] ULTRA: Exploring Team Recommendations in Two Geographies Using Open Data in Response to Call for
+              Proposals.
+              <br><i>ACM India Joint International Conference on Data Science and Management of Data
+                (CODS-COMAD-2024)</i><br>
               <a href="https://dl.acm.org/doi/10.1145/3632410.3632503" target="_blank"><b>[Paper]</b></a>
               <a href="./bib/ultra-cods.bib" target="_blank" type="text/plain"><b>[BibTex]</b></a>
               <br><br>
@@ -238,27 +261,9 @@
                 data which can generate insights from a general as well as a domain-dependent perspective consisting of
                 holistic views, entity-centric view, events view, domain-specific interpretation using industry
                 taxonomies and a detailed full-text view transparently connecting the document to insight elements.</p>
+              
               <script>
-                // Get the modal
-                var modal = document.getElementById("myModal");
-
-                // Get the image and insert it inside the modal - use its "alt" text as a caption
-                var img = document.getElementById("myImg3");
-                var modalImg = document.getElementById("img01");
-                var captionText = document.getElementById("caption");
-                img.onclick = function () {
-                  modal.style.display = "block";
-                  modalImg.src = this.src;
-                  captionText.innerHTML = this.alt;
-                }
-
-                // Get the <span> element that closes the modal
-                var span = document.getElementsByClassName("close")[0];
-
-                // When the user clicks on <span> (x), close the modal
-                span.onclick = function () {
-                  modal.style.display = "none";
-                }
+                setupModal("myImg3", "myModal", "img01", "caption", "close");
               </script>
             </li>
             <li>
