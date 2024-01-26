@@ -1,0 +1,18 @@
+@article{10.1002/aaai.12109,
+author = {Muppasani, Bharath and Pallagani, Vishal and Lakkaraju, Kausik and Lei, Shuge and Srivastava, Biplav and Robertson, Brett and Hickerson, Andrea and Narayanan, Vignesh},
+title = {On safe and usable chatbots for promoting voter participation},
+year = {2023},
+issue_date = {Fall 2023},
+publisher = {American Association for Artificial Intelligence},
+address = {USA},
+volume = {44},
+number = {3},
+issn = {0738-4602},
+url = {https://doi.org/10.1002/aaai.12109},
+doi = {10.1002/aaai.12109},
+abstract = {Chatbots, or bots for short, are multimodal collaborative assistants that can help people complete useful tasks. Usually, when chatbots are referenced in connection with elections, they often draw negative reactions due to the fear of mis‐information and hacking. Instead, in this work, we explore how chatbots may be used to promote voter participation in vulnerable segments of society like senior citizens and first‐time voters. In particular, we have built a system that amplifies official information while personalizing it to users' unique needs transparently (e.g., language, cognitive abilities, linguistic abilities). The uniqueness of this work are (a) a safe design where only responses that are grounded and traceable to an allowed source (e.g., official question/answer) will be answered via system's self‐awareness (metacognition), (b) a do‐not‐respond strategy that can handle customizable responses/deflection, and (c) a low‐programming design‐pattern based on the open‐source Rasa platform to generate chatbots quickly for any region. Our current prototypes use frequently asked questions (FAQ) election information for two US states that are low on an ease‐of‐voting scale, and have performed initial evaluations using focus groups with senior citizens. Our approach can be a win‐win for voters, election agencies trying to fulfill their mandate and democracy at&nbsp;large.},
+journal = {AI Mag.},
+month = {sep},
+pages = {240–247},
+numpages = {8}
+}

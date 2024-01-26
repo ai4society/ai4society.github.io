@@ -1,0 +1,6 @@
+@inproceedings{fabiano2023plan,
+  title={Plan-SOFAI: A Neuro-Symbolic Planning Architecture},
+  author={Fabiano, Francesco and Pallagani, Vishal and Ganapini, Marianna Bergamaschi and Horesh, Lior and Loreggia, Andrea and Murugesan, Keerthiram and Rossi, Francesca and Srivastava, Biplav},
+  booktitle={Neuro-Symbolic Learning and Reasoning in the era of Large Language Models},
+  year={2023}
+}
