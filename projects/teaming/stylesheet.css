@@ -570,7 +570,8 @@ details[open] > summary::before {
 .content {
   padding: 0 18px;
   overflow: hidden;
-  background-color: white;
+  border: 1px;
+  background-color: rgba(240, 255, 255, 0.25);
   max-height: 0;
   animation: fadeIn 1.5s ease-out; /* Animation effect for opening */
 }
