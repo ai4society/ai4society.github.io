@@ -25,36 +25,36 @@
     }
 
     function setupModal(imageId, modalId, modalImgId, captionId, closeClass) {
-  // Get the modal
-  var modal = document.getElementById(modalId);
+      // Get the modal
+      var modal = document.getElementById(modalId);
 
-  // Get the image and insert it inside the modal - use its "alt" text as a caption
-  var img = document.getElementById(imageId);
-  var modalImg = document.getElementById(modalImgId);
-  var captionText = document.getElementById(captionId);
+      // Get the image and insert it inside the modal - use its "alt" text as a caption
+      var img = document.getElementById(imageId);
+      var modalImg = document.getElementById(modalImgId);
+      var captionText = document.getElementById(captionId);
 
-  // Function to open the modal with the clicked image
-  function openModal() {
-    modal.style.display = "block";
-    modalImg.src = this.src;
-    captionText.innerHTML = this.alt;
-  }
+      // Function to open the modal with the clicked image
+      function openModal() {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+      }
 
-  // Function to close the modal
-  function closeModal() {
-    modal.style.display = "none";
-  }
+      // Function to close the modal
+      function closeModal() {
+        modal.style.display = "none";
+      }
 
-  // Set up event listener for image click
-  img.onclick = openModal;
+      // Set up event listener for image click
+      img.onclick = openModal;
 
-  // Get the <span> element that closes the modal
-  var span = document.getElementsByClassName(closeClass)[0];
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName(closeClass)[0];
 
-  // Set up event listener for span click
-  span.onclick = closeModal;
-}
-    </script>
+      // Set up event listener for span click
+      span.onclick = closeModal;
+    }
+  </script>
 
 
 
@@ -69,7 +69,6 @@
         </td>
       </tr>
 
-      
       <tr style="padding:0px">
 
         <!--Page header and news-->
@@ -95,43 +94,49 @@
               style="text-decoration:none;"><b><i>CODS-COMAD'2024</i></b></a>.</p>
           <hr>
 
+          <details>
+            <summary><b>Group Recommendation and Fairness</b></summary>
+            <div class="content">
+              <!--Group reco and fairness-->
+              <p style="text-align: justify;">
+                <i><b>Authors: </b><a target="_blank"
+                    href="https://sites.google.com/site/biplavsrivastava/home?authuser=0">Biplav Srivastava</a>, <a
+                    target="_blank" href="https://www.linkedin.com/in/likitha9/">Siva Likitha Valluru</a>, <a
+                    target="_blank"
+                    href="https://sc.edu/study/colleges_schools/engineering_and_computing/faculty-staff/michaelhuhns.php">Michael
+                    Huhns</a>, <a target="_blank" href="https://personal.utdallas.edu/~sriraam.natarajan/">Sriraam
+                    Natarajan</a></i>
+                <br>
+              </p>
+              <p align="justify"><img id="myImg" src="images/group_recommendation.jpg"
+                  alt="Group Recommendation - Research Potential, Methods, and Fairness"
+                  style="width:100%;max-width:100px;height:120px;">We study the problem of group recommendation, an
+                information exploration
+                paradigm that retrieves interesting items for users based on their profiles and past
+                interactions/activities/history. Existing literature encourages using greedy methods, genetic and
+                heuristic
+                algorithms, topic diversification, and cost constraint bi-objective optimizations. Our objective is to
+                build
+                novel methods and useful tools for group recommendation with fairness, and drive different use cases
+                (e.g.,
+                meal recommendation). <br><br>
+                <span style="color:violet"><i>The underlying research directions and applications are summarized in the
+                    poster to the right (can be enlarged).</i></span>
+              </p>
 
-          <!--Group reco and fairness-->
-          <p style="text-align: justify;">
-          <h3><span style="background-color: aqua;"><b>Group Recommendation and
-                Fairness</b></span></h3>
-          <i><b>Authors: </b><a target="_blank"
-              href="https://sites.google.com/site/biplavsrivastava/home?authuser=0">Biplav Srivastava</a>, <a
-              target="_blank" href="https://www.linkedin.com/in/likitha9/">Siva Likitha Valluru</a>, <a target="_blank"
-              href="https://sc.edu/study/colleges_schools/engineering_and_computing/faculty-staff/michaelhuhns.php">Michael
-              Huhns</a>, <a target="_blank" href="https://personal.utdallas.edu/~sriraam.natarajan/">Sriraam
-              Natarajan</a></i>
-          <br>
-          </p>
-          <p align="justify"><img id="myImg" src="images/group_recommendation.jpg"
-              alt="Group Recommendation - Research Potential, Methods, and Fairness"
-              style="width:100%;max-width:100px;height:120px;">We study the problem of group recommendation, an
-            information exploration
-            paradigm that retrieves interesting items for users based on their profiles and past
-            interactions/activities/history. Existing literature encourages using greedy methods, genetic and heuristic
-            algorithms, topic diversification, and cost constraint bi-objective optimizations. Our objective is to build
-            novel methods and useful tools for group recommendation with fairness, and drive different use cases (e.g.,
-            meal recommendation). <br><br>
-            <span style="color:violet"><i>The underlying research directions and applications are summarized in the
-                poster to the right (can be enlarged).</i></span>
-          </p>
+              <!-- The Modal -->
+              <div id="myModal" class="modal">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="img01">
+                <div id="caption"></div>
+              </div>
 
-          <!-- The Modal -->
-          <div id="myModal" class="modal">
-            <span class="close">&times;</span>
-            <img class="modal-content" id="img01">
-            <div id="caption"></div>
-          </div>
-
-          <script>
-            // Call the function with your specific IDs and class
-setupModal("myImg", "myModal", "img01", "caption", "close");
-          </script>
+              <script>
+                // Call the function with your specific IDs and class
+                setupModal("myImg", "myModal", "img01", "caption", "close");
+              </script>
+            </div>
+          </details>
 
           <hr>
 
@@ -261,7 +266,7 @@ setupModal("myImg", "myModal", "img01", "caption", "close");
                 data which can generate insights from a general as well as a domain-dependent perspective consisting of
                 holistic views, entity-centric view, events view, domain-specific interpretation using industry
                 taxonomies and a detailed full-text view transparently connecting the document to insight elements.</p>
-              
+
               <script>
                 setupModal("myImg3", "myModal", "img01", "caption", "close");
               </script>
