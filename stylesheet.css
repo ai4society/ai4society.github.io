@@ -505,36 +505,50 @@ button:hover {
 }
 
 .best-demo-badge {
-  background-color: #34568B; /* Deep blue for a professional look */
-  color: white;
+  background: linear-gradient(45deg, #FFC107, #FFD700, #FFC107, #FFD700);
+  background-size: 200% 200%;
+  color: #333;
   font-size: 0.8em;
-  padding: 0.2em 0.4em;
+  padding: 0.3em 0.6em;
   border-radius: 0.3em;
-  margin-left: 0.5em; /* Space from the title */
-  vertical-align: super; /* Align with the top of the title */
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  cursor: pointer; /* Change cursor to indicate clickable */
-  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  margin-left: 0.5em;
+  vertical-align: super;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid #C5A358;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  animation: shine 2s ease-in-out infinite;
 }
 
-.best-demo-badge:hover {
-  transform: translateY(-2px); /* Move up slightly on hover */
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2); /* Larger shadow on hover */
+.best-demo-badge::after {
+  content: '';
+  top: -2px;
+  left: -2px;
+  bottom: -2px;
+  right: -2px;
+  position: absolute;
+  background: linear-gradient(45deg, #fff4d6, #fff, #fff4d6, #fff);
+  border-radius: 0.3em;
+  z-index: -1;
+  opacity: 0.7;
+  filter: blur(5px);
 }
 
-/* Add this new animation style to your CSS */
-@keyframes bounce {
-  0%, 100% {
-      transform: translateY(0);
-  }
-  50% {
-      transform: translateY(-5px);
-  }
+.best-demo-badge:hover::after {
+  animation: glow 2s ease-in-out infinite;
 }
 
-.animate-badge {
-  animation: bounce 0.5s ease-in-out;
+@keyframes shine {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
+
+@keyframes glow {
+  0%, 100% { opacity: 0.7; filter: blur(5px); }
+  50% { opacity: 0.9; filter: blur(10px); }
+}
+
 
 .paper-title {
   font-size: 16px; /* Size of the paper title */
