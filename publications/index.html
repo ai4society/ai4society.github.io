@@ -8,6 +8,7 @@
 
   <meta name="author" content="Vishal Pallagani">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
 
   <link rel="stylesheet" type="text/css" href="../stylesheet.css">
 </head>
@@ -88,16 +89,17 @@
                             <span class="tag tag-type">Conference</span>
                             <span class="tag tag-method">Recommender Systems</span>
                             <br>
-
-                       <li><b>Expressive and Flexible Simulation of Information Spread Strategies in Social Networks Using Planning</b><br>
+                        
+                        <li>
+                            <b>Expressive and Flexible Simulation of Information Spread Strategies in Social Networks Using Planning
+                            <span class="best-demo-badge">🏆 Best Demo at AAAI-24</span></b><br>
                             <i>Proceedings of the Thirty-Eighth Annual Conference of Association for Advancement of Artificial Intelligence - Demonstrations Track (AAAI-24 Demo)</i><br>
                             Bharath Muppasani, Vignesh Narayanan, Biplav Srivastava, Michael N. Huhns<br>
                             <a href='./papers_local/InfoSpread_AAAI24_Demo.pdf' target="_blank">[Paper]</a>
                             <span class="tag tag-type">Demo</span>
                             <span class="tag tag-method">Automated Planning</span>
-                            <br>
-
-
+                        </li>
+                            
                         <li><b>ULTRA: Exploring Team Recommendations in Two Geographies Using Open Data in Response to Call for Proposals</b><br>
                             <i>Proceedings of the 7th Joint International Conference on Data Science & Management of Data (CODS-COMAD) Demonstration Track, 2024</i><br>
                             Siva Likitha Valluru, Michael Widener, Biplav Srivastava, Sugata Gangopadhyay<br>
@@ -408,6 +410,37 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelector('.reset-filters').addEventListener('click', function() {
         filterPapers('');
     });
+});
+
+// Function to trigger the confetti
+function triggerConfetti() {
+  confetti({
+    particleCount: 100,
+    spread: 70,
+    origin: { y: 0.6 }
+  });
+}
+
+// Event listener for the Best Demo badge
+document.addEventListener('DOMContentLoaded', function() {
+  // Find the Best Demo badge and attach the click event handler
+  var bestDemoBadge = document.querySelector('.best-demo-badge');
+  if (bestDemoBadge) {
+    bestDemoBadge.addEventListener('click', triggerConfetti);
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    var bestDemoBadge = document.querySelector('.best-demo-badge');
+    if (bestDemoBadge) {
+        bestDemoBadge.addEventListener('click', function() {
+            // Toggle a class that applies an animation
+            bestDemoBadge.classList.add('animate-badge');
+            setTimeout(function() {
+                bestDemoBadge.classList.remove('animate-badge');
+            }, 1000); // Remove the class after the animation completes
+        });
+    }
 });
 </script>
 </body>
