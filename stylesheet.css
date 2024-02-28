@@ -490,7 +490,9 @@ button:hover {
 }
 
 .papers-list li {
+  position: relative; /* Make the list item a relative container for absolute children */
   margin-bottom: 10px; /* Spacing between paper entries */
+  padding-right: 120px; /* Provide space for the badge */
 }
 
 .papers-list li::before {
@@ -500,6 +502,38 @@ button:hover {
   display: inline-block; 
   width: 1em;
   margin-left: -1em;
+}
+
+.best-demo-badge {
+  background-color: #34568B; /* Deep blue for a professional look */
+  color: white;
+  font-size: 0.8em;
+  padding: 0.2em 0.4em;
+  border-radius: 0.3em;
+  margin-left: 0.5em; /* Space from the title */
+  vertical-align: super; /* Align with the top of the title */
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  cursor: pointer; /* Change cursor to indicate clickable */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.best-demo-badge:hover {
+  transform: translateY(-2px); /* Move up slightly on hover */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2); /* Larger shadow on hover */
+}
+
+/* Add this new animation style to your CSS */
+@keyframes bounce {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-5px);
+  }
+}
+
+.animate-badge {
+  animation: bounce 0.5s ease-in-out;
 }
 
 .paper-title {
@@ -528,6 +562,8 @@ button:hover {
 .papers-list a:hover {
   text-decoration: underline;
 }
+
+
 
 .tag {
   display: inline-block;
@@ -782,3 +818,4 @@ button:hover {
 .activities-content-month, .activities-content-misc{
   visibility: hidden;
 }
+
