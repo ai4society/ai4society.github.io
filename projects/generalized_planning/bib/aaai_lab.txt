@@ -1,0 +1,6 @@
+@inproceedings{pallagani2024harnessing,
+  title={Harnessing Large Language Models for Planning: A Lab on Strategies for Success and Mitigation of Pitfalls},
+  author={Pallagani, Vishal and Murugesan, Keerthiram and Srivastava, Biplav and Rossi, Francesca and Horesh, Lior},
+  booktitle={AAAI Conference on Artificial Intelligence},
+  year={2024}
+}
