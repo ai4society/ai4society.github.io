@@ -9,12 +9,44 @@
   <meta name="author" content="Vishal Pallagani">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" type="text/css" href="../stylesheet.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="./stylesheet.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
 </head>
 
 <body class="container">
+    <script>
+        function setupModal(imageId, modalId, modalImgId, captionId, closeClass) {
+          // Get the modal
+          var modal = document.getElementById(modalId);
+    
+          // Get the image and insert it inside the modal - use its "alt" text as a caption
+          var img = document.getElementById(imageId);
+          var modalImg = document.getElementById(modalImgId);
+          var captionText = document.getElementById(captionId);
+    
+          // Function to open the modal with the clicked image
+          function openModal() {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+          }
+    
+          // Function to close the modal
+          function closeModal() {
+            modal.style.display = "none";
+          }
+    
+          // Set up event listener for image click
+          img.onclick = openModal;
+    
+          // Get the <span> element that closes the modal
+          var span = document.getElementsByClassName(closeClass)[0];
+    
+          // Set up event listener for span click
+          span.onclick = closeModal;
+        }
+      </script>
 
     <table style="width:80%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
         <tbody>
@@ -33,29 +65,70 @@
                 </td>
             </tr>
             <tr style="padding:0px">
-                <td style="padding-left:2.5%;width:63%;vertical-align:middle">
+                <td style="padding-left:2.5%;">
+                    <h2>Awards</h2>
+                    <hr>
+                    <ul>
 
-                <heading>Awards</heading>
-                <hr style="width: 100%; float: left;">
-                <ul>
-                    <li style="margin-bottom: 20px; font-size: 16px">In February 2024, our paper titled 'Expressive and Flexible Simulation of Information Spread Strategies
-                        in Social Networks Using Planning' authored by Bharath Muppasani, Vignesh Narayanan, 
-                        Biplav Srivastava, and Michael N. Huhns, has been honored with the <a href="./certificates/AAAI-2024-BestDemo.pdf" style="font-size: 18px">Best Technical 
-                        Demonstration Award</a> at the 2024 AAAI Conference by the Association for the Advancement 
-                        of Artificial Intelligence (AAAI). More info can be found 
-                        <a style="font-size: 18px" href="https://www.linkedin.com/feed/update/urn:li:activity:7168707053862014977?updateEntityUrn=urn%3Ali%3Afs_feedUpdate%3A%28V2%2Curn%3Ali%3Aactivity%3A7168707053862014977%29">
-                        here</a>.</li>
-                    <li style="margin-bottom: 20px; font-size: 16px">In February 2024, our paper titled 'Promoting Research Collaboration with Open Data Driven 
-                        Team Recommendation in Response to Call for Proposals' authored by 
-                        Siva Likitha Valluru, Biplav Srivastava, Sai Teja Paladi, 
-                        Siwen Yan, and Sriraam Natarajan has been honored with the <a href="./certificates/AAAI-2024-IAAI.jpg" style="font-size: 18px">2024 IAAI 
-                        Deployed Application Award</a> at AAAI 2024 conference by the Association for the Advancement 
-                        of Artificial Intelligence (AAAI). More info can be found 
-                        <a style="font-size: 18px" href="https://www.linkedin.com/feed/update/urn:li:activity:7166818744667762688?updateEntityUrn=urn%3Ali%3Afs_feedUpdate%3A%28V2%2Curn%3Ali%3Aactivity%3A7166818744667762688%29">
-                        here</a>.</li>
-                    <li style="margin-bottom: 20px; font-size: 16px">In April 2023, Kausik Lakkaraju was honored with the <a href="https://www.sc.edu/about/signature_events/discover_uofsc/about/news/2023/20220428_Check_Out_DUSC_2023.php" style="font-size: 18px">
+                        <li style="margin-bottom: 20px"><img id="myImg0" src="./certificates/AAAI-2024-IAAI.jpg"
+                            alt="🎉 2024 IAAI Deployed Application Award for our AI application, <i>Promoting Research Collaboration with Open Data Driven Team Recommendation in Response to Call for Proposals</i> 🎉"
+                            style="width:100%;max-width:100px;height:50px;">
+                            In February 2024, our paper titled 'Promoting Research Collaboration with Open Data Driven Team Recommendation in Response to Call for Proposals' authored by Siva Likitha Valluru, 
+                            Biplav Srivastava, Sai Teja Paladi, Siwen Yan, and Sriraam Natarajan has been honored with the 2024 IAAI Deployed Application Award at AAAI 2024 conference by the Association for 
+                            the Advancement of Artificial Intelligence (AAAI). More info can be found <a href="https://www.linkedin.com/feed/update/urn:li:activity:7166818744667762688">here</a>.
+                            
+                            <div id="myModal" class="modal">
+                              <span class="close">&times;</span>
+                              <img class="modal-content" id="img01">
+                              <div id="caption"></div>
+                            </div>
+                
+                            <script>
+                              // Call the function with your specific IDs and class
+                              setupModal("myImg0", "myModal", "img01", "caption", "close");
+                            </script>
+
+                        </li>
+
+                        <li style="margin-bottom: 20px"><img id="myImg1" src="./certificates/AAAI-2024-BestDemo.jpg"
+                            alt="🎉 2024 AAAI Best Technical Demonstration 🎉"
+                            style="width:100%;max-width:100px;height:60px;">
+                            In February 2024, our paper titled 'Expressive and Flexible Simulation of Information Spread Strategies
+                            in Social Networks Using Planning' authored by Bharath Muppasani, Vignesh Narayanan, 
+                            Biplav Srivastava, and Michael N. Huhns, has been honored with the Best Technical 
+                            Demonstration Award at the 2024 AAAI Conference by the Association for the Advancement 
+                            of Artificial Intelligence (AAAI). More info can be found 
+                            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7168707053862014977?updateEntityUrn=urn%3Ali%3Afs_feedUpdate%3A%28V2%2Curn%3Ali%3Aactivity%3A7168707053862014977%29">
+                            here</a>.
+                           
+
+                            <div id="myModal" class="modal">
+                                <span class="close">&times;</span>
+                                <img class="modal-content" id="img01">
+                                <div id="caption"></div>
+                            </div>
+                  
+                            <script>
+                            setupModal("myImg1", "myModal", "img01", "caption", "close");
+                            </script>
+                        </li>
+
+                    <li style="margin-bottom: 20px; font-size: 16px"><img id="myImg2" src="./certificates/DiscoverUSC-2023-psoter.jpg"
+                        alt="🎉 2023 Discover USC Best Graduate Student Poster in the CSCE Department 🎉"
+                        style="width:100%;max-width:100px;height:50px;">In April 2023, Kausik Lakkaraju was honored with the
                         Best Graduate Student Poster Presentation Award</a> at the Discover USC event, a university-wide showcase at the University 
-                        of South Carolina for his work on 'Rating of AI Systems through a Causal Lens'. The poster can be found <a style="font-size: 18px" href="./certificates/DiscoverUSC-2023-psoter.pdf">here.</a></li>
+                        of South Carolina for his work on 'Rating of AI Systems through a Causal Lens'. More info can be found <a href="https://www.sc.edu/about/signature_events/discover_uofsc/about/news/2023/20220428_Check_Out_DUSC_2023.php">here</a>.</li>
+
+                        
+                        <div id="myModal" class="modal">
+                            <span class="close">&times;</span>
+                            <img class="modal-content" id="img01">
+                            <div id="caption"></div>
+                        </div>
+              
+                        <script>
+                        setupModal("myImg2", "myModal", "img01", "caption", "close");
+                        </script>
                 </ul>
 
 
