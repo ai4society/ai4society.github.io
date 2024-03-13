@@ -1,7 +1,10 @@
-@misc{lakkaraju2023advances,
-      title={The Effect of Human v/s Synthetic Test Data and Round-tripping on Assessment of Sentiment Analysis Systems for Bias}, 
-      author={Kausik Lakkaraju, Aniket Gupta, Biplav Srivastava, Marco Valtorta and Dezhi Wu},
-      year={2023},
-      keywords = {bias, fairness, rating AI systems},
-      location={Atlanta, United States of America}
-}
+@ARTICLE{10466637,
+  author={Lakkaraju, Kausik and Srivastava, Biplav and Valtorta, Marco},
+  journal={IEEE Transactions on Technology and Society}, 
+  title={Rating Sentiment Analysis Systems for Bias Through a Causal Lens}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={1-1},
+  keywords={AI;Bias;Causality;Rating;Sentiment Analysis Systems;User Trust},
+  doi={10.1109/TTS.2024.3375519}}
