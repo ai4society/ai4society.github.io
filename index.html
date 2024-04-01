@@ -36,6 +36,7 @@
                     <a href='funding/index.html'>Funding</a> &nbsp|&nbsp
                     <a href='members/index.html'>Members</a> &nbsp|&nbsp
                     <a href='news-journal/index.html'>NewsLog</a> &nbsp|&nbsp
+                    <a href='patents/index.html'>Patents</a> &nbsp|&nbsp
                     <a href='projects/index.html'>Projects</a> &nbsp|&nbsp
                     <a href='publications/index.html'>Publications</a>
                   </p>
@@ -85,6 +86,11 @@
                       <div class="caption">Team Lunch - Summer '23</div>
                     </div>
 
+                    <div class="mySlides">
+                      <img src="images/holi2024.jpeg" style="width:100%">
+                      <div class="caption">Holi Celebration @ 2024</div>
+                    </div>
+
                     <!-- Next and previous buttons -->
                     <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a> -->
                     <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -119,16 +125,25 @@
 
                 <!-- Research Spotlight Section -->
                 <td style="padding:2.5%;width:50%;vertical-align:top">
-                  <div class="research-spotlight">
-                    <h3 class="spotlight-title">
-                      🔍 Research Spotlight
-                    </h3>
-                    <a href="spotlight/group_recommendation.jpg" target="_blank">
-                      <img src="spotlight/group_recommendation.jpg" alt="Research Poster Thumbnail"
-                        class="poster-thumbnail">
-                    </a>
+                  <div class="slideshow-container">
+                    <div class="research-spotlight research-spotlight-slide">
+                      <h3 class="spotlight-title">🔍 Research Spotlight</h3>
+                      <a href="spotlight/group_recommendation.jpg" target="_blank">
+                        <img src="spotlight/group_recommendation.jpg" alt="Research Poster Thumbnail" class="poster-thumbnail">
+                      </a>
+                    </div>
+                
+                    <div class="research-spotlight research-spotlight-slide">
+                      <h3 class="spotlight-title">🔍 Research Spotlight</h3>
+                      <a href="spotlight/power-IAAI.jpg" target="_blank">
+                        <img src="spotlight/power-IAAI.jpg" alt="Research Poster Thumbnail" class="poster-thumbnail">
+                      </a>
+                    </div>
+                    
+                    <!-- Optionally, add navigation buttons -->
+                    <a class="prev" onclick="plusSpotlightSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSpotlightSlides(1)">&#10095;</a>
                   </div>
-
                 </td>
               </tr>
 
@@ -155,36 +170,68 @@
     </tbody>
   </table>
   <script>
+    // Image Slideshow Variables
     var slideIndex = 0;
     var slides = document.getElementsByClassName("mySlides");
-    var timer;
-
+    var imgTimer;
+  
+    // Research Spotlight Slideshow Variables
+    var spotlightIndex = 0;
+    var spotlightSlides = document.getElementsByClassName("research-spotlight-slide");
+    var spotlightTimer;
+  
+    // Image Slideshow Functions
     function showSlides() {
       var i;
       for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+        slides[i].style.display = "none";  
       }
       slideIndex++;
-      if (slideIndex > slides.length) { slideIndex = 1 }
-      slides[slideIndex - 1].style.display = "block";
+      if (slideIndex > slides.length) {slideIndex = 1}
+      slides[slideIndex-1].style.display = "block";
     }
-
-    // Start the slideshow
-    function startSlideshow() {
+  
+    function startImageSlideshow() {
       showSlides();
-      timer = setInterval(showSlides, 4000); // Change image every 4 seconds
+      imgTimer = setInterval(showSlides, 4000); // Change image every 4 seconds
     }
-
-    // Called when the prev/next buttons are clicked
+  
     function plusSlides(n) {
-      clearInterval(timer); // Stop the slideshow
+      clearInterval(imgTimer); // Stop the image slideshow
       slideIndex += n - 1; // Adjust because showSlides() will increment
       showSlides();
-      startSlideshow(); // Restart the slideshow
+      startImageSlideshow(); // Restart the image slideshow
     }
-
-    startSlideshow(); // Initialize the slideshow
+  
+    // Research Spotlight Slideshow Functions
+    function showSpotlightSlides() {
+      var i;
+      for (i = 0; i < spotlightSlides.length; i++) {
+        spotlightSlides[i].style.display = "none";  
+      }
+      spotlightIndex++;
+      if (spotlightIndex > spotlightSlides.length) {spotlightIndex = 1}
+      spotlightSlides[spotlightIndex-1].style.display = "block";
+    }
+  
+    function startSpotlightSlideshow() {
+      showSpotlightSlides();
+      spotlightTimer = setInterval(showSpotlightSlides, 4000); // Change spotlight every 4 seconds
+    }
+  
+    function plusSpotlightSlides(n) {
+      clearInterval(spotlightTimer); // Stop the spotlight slideshow
+      spotlightIndex += n - 1; // Adjust because showSpotlightSlides() will increment
+      showSpotlightSlides();
+      startSpotlightSlideshow(); // Restart the spotlight slideshow
+    }
+  
+    // Initialize Both Slideshows
+    startImageSlideshow(); // Initialize the image slideshow
+    startSpotlightSlideshow(); // Initialize the research spotlight slideshow
   </script>
+  
+  
 
 </body>
 
