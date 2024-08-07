@@ -1,65 +1,137 @@
 <!DOCTYPE HTML>
 <html lang="en">
-
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
     <title>Rating of AI Systems</title>
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+          line-height: 1.4;
+          color: #333;
+          background-color: #f4f4f4;
+          margin: 0;
+          padding: 0;
+      }
+      .container {
+          max-width: 1000px;
+          background: white;
+          padding: 10px 20px;
+          margin: 0 auto; /* Adjusted top margin to 0 */
+          box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      }
+      h2 {
+          background-color: #FFD700;
+          padding: 8px;
+          color: #333;
+          text-align: center;
+          margin: 10px auto 10px auto; /* Adjust top and bottom margin */
+          border-radius: 8px;
+      }
+      table {
+          width: 100%;
+          border-collapse: collapse;
+          margin: 10px 0; /* Further reduce or adjust the margin as needed */
+      }
+      td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+      }
+      tr:nth-child(even) {
+          background-color: #f9f9f9;
+      }
+      a {
+          color: #0066cc;
+          text-decoration: none;
+      }
+      a:hover {
+          text-decoration: underline;
+      }
+      ul {
+          padding-left: 20px;
+      }
+      img {
+          max-width: 100%;
+          height: auto;
+      }
+      @keyframes flash {
+          0%, 100% { background-color: #0059ff69; }
+          50% { background-color: transparent; }
+      }
+      .flashing-text {
+          animation: flash 2s infinite; 
+          font-size: 30px;
+      }
+      .center-content {
+            display: flex;
+            justify-content: center; /* Centers horizontally */
+            align-items: center; /* Centers vertically if needed */
+        }    
+  </style>
 </head>
 
 <body class="container">
-
-  <h2 style="display:flex;align-items:center;">
-    <span style="background-color:hsl(37, 100%, 50%);height:20px;width:20px;margin-right:10px;border:1px solid black;"></span>
-    Rating of AI Systems
-  </h2>
-    <table style="width:80%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-        <tbody>
-            <tr style="padding:0px">
-                <td style="padding-left:2.5%;padding-top:3%;width:63%;vertical-align:middle">
-                  <p style="text-align:left">
-                    <a href='https://ai4society.github.io/'>Home</a>
-                  </p>
-                </td>
-              </tr>
-
-      <!-- <tr style="padding:0px">
-        <td style="padding-left:2.5%;width:63%;vertical-align:middle">
-          <h1 style="display:flex;align-items:center;">
-            <span
-              style="background-color: cyan ;height:20px;width:20px;margin-right:10px;border:1px solid black;"></span>
-              Rating of AI Systems
-          </h1> -->
-
-              <tr style="padding: 0px">
-                <td style="padding-left:2.5%;width:63%;vertical-align:middle">
-                  <p style="text-align: justify;"><span style="background-color: hsl(37, 100%, 70%);"><b>Rating Sentiment Analysis Systems for Bias through a Causal Lens</b></span><br>
-                    <i><b>Collaborators: </b>AIISC, Department of Computer Science and Engineering - University of South Carolina</i>
-                    <br>
-                    <i><b>Contributors: </b>Kausik Lakkaraju, Biplav Srivastava, Marco Valtorta</i>
-                    <br>
-                </p>
-                <p style="text-align: justify;">
-                  Sentiment Analysis Systems (SASs) are data-driven Artificial Intelligence (AI) systems that 
-                  assign one or more numbers to convey the polarity and emotional intensity of a given piece of 
-                  text. However, like other automatic machine learning systems, SASs can exhibit model uncertainty, 
-                  resulting in drastic swings in output with even small changes in input. This issue becomes more 
-                  problematic when inputs involve protected attributes like gender or race, as it can be perceived 
-                  as bias or unfairness. To address this, we propose a novel method to assess and rate SASs. 
-                  We perturb inputs in a controlled causal setting to test if the output sentiment is sensitive 
-                  to protected attributes while keeping other components of the textual input, such as chosen
-                  emotion words, fixed. Based on the results, we assign labels (ratings) at both fine-grained and 
-                  overall levels to indicate the robustness of the SAS to input changes. The ratings can help 
-                  decision-makers improve online content by reducing hate speech, often fueled by biases related 
-                  to protected attributes such as gender and race. These ratings provide a principled basis for
-                  comparing SASs and making informed choices based on their behavior. The ratings also benefit 
-                  all users, especially developers who reuse off-the-shelf SASs to build larger AI systems but 
-                  do not have access to their code or training data to compare. 
-                </p>
+  <h2>Rating of AI Systems through a Causal Lens</h2>
+  <table>
+      <tr>
+          <td>
+              <p><a href='https://ai4society.github.io/'>Home</a></p>
+          </td>
+      </tr>
+      <tr>
+        <td>
+          <p style="text-align: justify;"><span style="background-color: #FFD700;"><b>Demonstration of 'ARC:<u>A</u>I <u>R</u>ating through <u>C</u>ausality' tool</b></span><br>
+          <i><b>Collaborators: </b>AIISC, Department of Computer Science and Engineering - University of South Carolina</i>
+          <br>
+          <i><b>Contributors: </b>Kausik Lakkaraju, Likitha Valluru, Biplav Srivastava, Marco Valtorta</i>
+          <br>
+          <p style="text-align: justify;">
+            We introduce ARC, a tool to rate AI systems for bias through a causal lens. 
+            The main objective of the tool is to assist developers in building better models 
+            and aid end-users in making informed decisions based on the available data. 
+            The tool is extensible and currently supports three different AI tasks: binary classification, 
+            sentiment analysis, and group recommendation. It gives users the option of choosing data 
+            for a task and rating AI systems for bias with respect to different protected attributes 
+            present in the data. The rating method is system-independent and the ratings given by 
+            the algorithm are causally interpretable. These ratings help the user make an informed 
+            decision based on the data in hand. The demonstration video is available here:<br>
+            <p class="center-content">
+            <a href="https://rb.gy/3qweh" target="_blank">
+              <img src="images/arc.png" alt="Video Thumbnail" style="width: 400px; height: 200px; border: none;">
+          </a>
+          </p>
+          </p>
+      </td>
+    </tr>
+      <br><br>
+      <tr>
+          <td>
+            <p style="text-align: justify;"><span style="background-color: #FFD700;">
+            <b>Rating Sentiment Analysis Systems for Bias through a Causal Lens</b></span><br>
+              <i><b>Collaborators: </b>AIISC, Department of Computer Science and Engineering - University of South Carolina</i>
+              <br>
+              <i><b>Contributors: </b>Kausik Lakkaraju, Biplav Srivastava, Marco Valtorta</i>
+              <br>
+            </p>
+            <p style="text-align: justify;">
+              Sentiment Analysis Systems (SASs) are data-driven Artificial Intelligence (AI) systems that 
+              assign one or more numbers to convey the polarity and emotional intensity of a given piece of 
+              text. However, like other automatic machine learning systems, SASs can exhibit model uncertainty, 
+              resulting in drastic swings in output with even small changes in input. This issue becomes more 
+              problematic when inputs involve protected attributes like gender or race, as it can be perceived 
+              as bias or unfairness. To address this, we propose a novel method to assess and rate SASs. 
+              We perturb inputs in a controlled causal setting to test if the output sentiment is sensitive 
+              to protected attributes while keeping other components of the textual input, such as chosen
+              emotion words, fixed. Based on the results, we assign labels (ratings) at both fine-grained and 
+              overall levels to indicate the robustness of the SAS to input changes. The ratings can help 
+              decision-makers improve online content by reducing hate speech, often fueled by biases related 
+              to protected attributes such as gender and race. These ratings provide a principled basis for
+              comparing SASs and making informed choices based on their behavior. The ratings also benefit 
+              all users, especially developers who reuse off-the-shelf SASs to build larger AI systems but 
+              do not have access to their code or training data to compare. 
+            </p>
                 
                   <p><i><b>Representative Publications</b></i></p>
                   <ul>
@@ -70,18 +142,13 @@
                       <a href="../rating_page/bib/ieee_tts2023.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
                     </li>
                   </ul>
-                  <!-- <tr style="padding:0px">
-                    <td style="padding-left:2.5%;width:63%;vertical-align:middle">
-                        <img src="images/causal_model_2023.png" style="max-width:30%; display: block; margin: 0 auto;">
-                    </td>
-                </tr> -->
               </td> 
               </tr>
               <br><br>
 
-              <tr style="padding: 0px">
-                <td style="padding-left:2.5%;width:63%;vertical-align:middle">
-                  <p style="text-align: justify;"><span style="background-color: hsl(37, 100%, 70%);"><b>The Effect of Human v/s Synthetic Test Data and Round-tripping on Assessment of Sentiment Analysis Systems for Bias</b></span><br>
+              <tr>
+                <td>
+                  <p style="text-align: justify;"><span style="background-color: #FFD700;"><b>The Effect of Human v/s Synthetic Test Data and Round-tripping on Assessment of Sentiment Analysis Systems for Bias</b></span><br>
                     <i><b>Collaborators: </b>AIISC, Department of Computer Science and Engineering, Department of Integrated Inforamtion Technology - University of South Carolina, Netaji Subhas University of Technology</i>
                     <br>
                     <i><b>Contributors: </b>Kausik Lakkaraju, Aniket Gupta, Biplav Srivastava, Marco Valtorta, Dezhi Wu</i>
@@ -120,18 +187,14 @@
                       <a href="../rating_page/bib/mm_sas.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
                     </li>
                   </ul>
-                  <!-- <tr style="padding:0px">
-                    <td style="padding-left:2.5%;width:63%;vertical-align:middle">
-                        <img src="images/causal_model_2023.png" style="max-width:30%; display: block; margin: 0 auto;">
-                    </td>
-                </tr> -->
+
               </td> 
               </tr>
               <br><br>
 
-              <tr style="padding: 0px">
-                <td style="padding-left:2.5%;width:63%;vertical-align:middle">
-                  <p style="text-align: justify;"><span style="background-color: hsl(37, 100%, 70%);"><b>Advances in Automatically Rating the Trustworthiness of Text Processing Services</b></span><br>
+              <tr>
+                <td>
+                  <p style="text-align: justify;"><span style="background-color: #FFD700;"><b>Advances in Automatically Rating the Trustworthiness of Text Processing Services</b></span><br>
                     <i><b>Collaborators: </b>AIISC, Department of Computer Science and Engineering - University of South Carolina, IBM Research</i>
                     <br>
                     <i><b>Contributors: </b>Biplav Srivastava, Kausik Lakkaraju, Mariana Bernagozzi, Marco Valtorta</i>
@@ -165,10 +228,9 @@
               <br><br>
 
   
-              <tr style="padding:0px">
-                <td style="padding-left:2.5%;width:63%;vertical-align:middle">   
-
-                  <p style="text-align: justify;"><span style="background-color: hsl(37, 100%, 70%);"><b>Why is my System Biased?: Rating of AI Systems through a Causal Lens</b></span><br>
+              <tr>
+                <td>   
+                  <p style="text-align: justify;"><span style="background-color: #FFD700;"><b>Why is my System Biased?: Rating of AI Systems through a Causal Lens</b></span><br>
                   
 
                   <p style="text-align: justify;"><span style="background-color: hsl(37, 100%, 70%);"><b></b></span><br>
@@ -199,9 +261,9 @@
 
             </tr>
             <br><br>
-            <tr style="padding: 0px">
-              <td style="padding-left:2.5%;width:63%;vertical-align:middle">
-                <p style="text-align: justify;"><span style="background-color: hsl(37, 100%, 70%);"><b>ROSE: Tool and Data ResOurces to Explore the Instability of SEntiment Analysis Systems</b></span><br>
+            <tr>
+              <td>
+                <p style="text-align: justify;"><span style="background-color: #FFD700;"><b>ROSE: Tool and Data ResOurces to Explore the Instability of SEntiment Analysis Systems</b></span><br>
                   <i><b>Collaborators: </b>AIISC, Department of Computer Science and Engineering - IIIT Naya Raipur</i>
                   <br>
                   <i><b>Contributors: </b>Gaurav Mundada, Kausik Lakkaraju, & Biplav Srivastava</i>
@@ -225,11 +287,6 @@
                     <a href="../rating_page/bib/rose_tool.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
                   </li>
                 </ul>
-                <!-- <tr style="padding:0px">
-                  <td style="padding-left:2.5%;width:63%;vertical-align:middle">
-                      <img src="images/causal_model_2023.png" style="max-width:30%; display: block; margin: 0 auto;">
-                  </td>
-              </tr> -->
             </td> 
             </tr>
             <br><br>
@@ -245,3 +302,8 @@
     <script type="text/javascript" src="../js/script.js"></script>
 </body>
 </html>
+
+
+
+
+
