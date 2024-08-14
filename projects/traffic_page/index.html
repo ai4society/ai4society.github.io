@@ -42,24 +42,205 @@
                     Traffic Data Analysis
                   </h2>
                   <p style="text-align: justify;"><span style="background-color: hsla(95, 99%, 35%, 0.302);"><b>Improving SC Roads Using Insights from DoT Traffic Data: Alive@25 Recommendations</b></span><br>
+                      <i><b>Team: </b>Bharath Muppasani, Saina Srivastava, Nitin Gupta, Aarohi Goel, Biplav Srivastava</i><br>
                       <i><b>Collaborators: </b>AIISC - University of South Carolina, South Carolina Department of Health and Environmental Control (DHEC), South Carolina Department of Public Safety (SCDPS), National Safety Council Southeastern Chapter (NSCSC)</i>
                       <br>
                       <!-- <i><b>Authors: </b>Kausik Lakkaraju, Vinamra Palaiya, Sai Teja Paladi, Chinmayi Appajigowda, Biplav Srivastava, Lokesh Johri</i> -->
                       <br>
                     </p>
-                    <!-- <p style="text-align: justify;">In this demonstration, we focus on middleware data obtained from devices like the network routers and power meters which may be of interest to a technician fixing a customer complaint or a user trying to self-diagnose their utility usage. The users in our case are often unaware of both the data details and database querying language which is in contrast to typical natural language to structured query (NL2SQL) situations where the business analyst knows their domain data but not the querying techniques. We adapt the rule-based NL2SQL approach to our problem and in particular, focus on queries about users, devices and spatio-temporal properties that are unique to this setting. We demonstrate an Alexa-based system, implemented using open-source Rasa, that can answer router usage queries in a home setting and easily extended for power usage or other utilities.</p> -->
-                  
-                  <!-- <p><i><b>Representative Publications</b></i></p>
-                  <ul>
-                    <li>Data-Based Insights for the Masses: Scaling Natural Language Querying to Middleware Data<br> <a href="https://link.springer.com/chapter/10.1007/978-3-031-00129-1_49" target="_blank"><b>[Paper]</b></a>
-                      <a href="https://scholar.googleusercontent.com/scholar.bib?q=info:c9AondTAj-EJ:scholar.google.com/&output=citation&scisdr=Cpuv8VjjELnd1ozriCs:AJ9-iYsAAAAAZCztkCvMs8XoBGJG-9wFkXN0Qb0&scisig=AJ9-iYsAAAAAZCztkNIt0Ao_m1A7ve5qTPcm_qE&scisf=4&ct=citation&cd=-1&hl=en" target="_blank" type="text/plain"><b>[BibTex]</b></a>
-                    </li>
-                  </ul>
-                  <tr style="padding:0px">
-                    <td style="padding-left:2.5%;width:63%;vertical-align:middle">
-                        <img src="images/middleware.png" style="max-width:50%; display: block; margin: 0 auto;">
-                    </td>
-                </tr> -->
+                    <ul style="padding-left: 20px; font-size: 16px; color: #333;">
+                      <li>Traffic accidents visualization is provided at the following page - <a href="https://ai4society.github.io/Traffic-Data-Analysis/" target="_blank" style="
+                        display: inline-block;
+                        padding: 4px 8px;
+                        background-color: #4286f4d6;
+                        color: white;
+                        text-decoration: none;
+                        border-radius: 8px;
+                        font-weight: bold;
+                        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+                        transition: background-color 0.3s ease;">
+                        Demo
+                    </a></li>
+                    </ul>
+                    <ul style="padding-left: 20px; font-size: 16px; color: #333;">
+                      <li>Summary of the Data used</li>
+                    </ul>
+                    <tr style="padding:0px">
+                        <td style="padding-left:2.5%;width:63%;vertical-align:middle">
+                            <table style="width:80%; border-collapse: collapse;margin: 0 auto;">
+                                <thead>
+                                    <tr>
+                                        <th style="border: 1px solid black; padding: 8px;">Dataset</th>
+                                        <th style="border: 1px solid black; padding: 8px;">Details</th>
+                                        <th style="border: 1px solid black; padding: 8px;">Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="border: 1px solid black; padding: 8px;">Location</td>
+                                        <td style="border: 1px solid black; padding: 8px;">
+                                            <ul>
+                                                <li>57 variables</li>
+                                                <li>~42 MB</li>
+                                                <li>~138,867 records/file</li>
+                                            </ul>
+                                        </td>
+                                        <td style="border: 1px solid black; padding: 8px;width: 60%;">Contains information about the collision under various conditions, including location, weather, road type, and contributing factors.</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid black; padding: 8px;">Occupant</td>
+                                        <td style="border: 1px solid black; padding: 8px;">
+                                            <ul>
+                                                <li>17 variables</li>
+                                                <li>~28 MB</li>
+                                                <li>~350,237 records/file</li>
+                                            </ul>
+                                        </td>
+                                        <td style="border: 1px solid black; padding: 8px;width: 60%;">Provides details about individuals involved in the collision, such as demographics, seating position, injury status, and safety device usage.</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid black; padding: 8px;">Truck, Bus Data</td>
+                                        <td style="border: 1px solid black; padding: 8px;">
+                                            <ul>
+                                                <li>22 variables</li>
+                                                <li>~600 KB</li>
+                                                <li>~3,677 records/file</li>
+                                            </ul>
+                                        </td>
+                                        <td style="border: 1px solid black; padding: 8px;width: 60%;">Includes data on carriers involved in collisions, focusing on vehicle types, hazardous materials, and citations, with significant data missing for many variables.</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid black; padding: 8px;">Unit Data</td>
+                                        <td style="border: 1px solid black; padding: 8px;">
+                                            <ul>
+                                                <li>47 variables</li>
+                                                <li>~58 MB</li>
+                                                <li>~261,194 records/file</li>
+                                            </ul>
+                                        </td>
+                                        <td style="border: 1px solid black; padding: 8px;width: 60%;">Contains information about the vehicles involved in collisions, covering aspects like vehicle type, damage extent, speed, and occupant details.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td colspan="100%" style="padding: 10px; border-bottom: 1px solid #ccc;"></td>
+                      </tr>
+
+                      <tr style="padding: 0px">
+                        <td style="padding-left:2.5%;width:63%;vertical-align:middle">
+                            <p style="text-align: justify;"><span style="background-color: hsla(95, 99%, 35%, 0.302);"><i>Analysis of Traffic Accident Data</i></span></p>
+                            
+                            <p style="text-align: justify; font-size: 17px;"><i> Here we present three broad analyses of the traffic accident data, focusing on visualization, economic impact, and road conditions.</i></p>
+                            
+                            <ul style="list-style-type: disc; padding-left: 20px; font-size: 16px; color: #333;">
+                                    <li>
+                                      <span style="color: #B22222; font-style: italic;">
+                                          <b>Visualization of Traffic accidents over time and region</b>
+                                      </span> - 
+                                      <span style="font-size: 16px;">
+                                          Collision incidents are higher in Greenville, Charleston, and Richland counties
+                                      </span>
+                                    </li>
+                                    <div style="text-align: center;">
+                                        <img src="images/git-incidents.gif" alt="Visualization of Traffic accidents over time and region" title= "Visualization of Traffic accidents over time and region" style="max-width: 80%; margin: 10px 0;">
+                                    </div>
+                                <!-- ################################ -->
+                                    <li>
+                                      <span style="color: #B22222; font-style: italic;">
+                                          <b>Analysis of Economic impact of accidents</b>
+                                      </span> - 
+                                      <span style="font-size: 16px;">
+                                        Ratio of cost dealt to number of collisions is higher in mostly rural counties.
+                                      </span>
+                                    </li>
+
+                                    <div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+                                      <div style="flex: 1; text-align: center;">
+                                          <img src="images/average_cost_by_county_category.png" alt="Average cost by county category" title="Average cost by county category" style="max-width: 90%; height: auto;">
+                                      </div>
+                                      <div style="flex: 1; text-align: center;">
+                                          <img src="images/total_cost_and_collisions_by_county_category.png" alt="Total cost and collisions by county category" title="Total cost and collisions by county category" style="max-width: 100%; height: auto;">
+                                      </div>
+                                    </div>
+
+                                <!-- ################################ -->
+                                <li>
+                                  <span style="color: #B22222; font-style: italic;">
+                                      <b>Analysis of Road conditions and accidents</b>
+                                  </span> - 
+                                  <span style="font-size: 16px;">
+                                    Collision incidents are higher in Two-way undivided road types.
+                                  </span>
+                                </li>
+
+                                    <div style="text-align: center;">
+                                        <img src="images/road-type-traffic.png" alt="Analysis of Road conditions and accidents" style="max-width: 50%; margin: 10px 0;">
+                                    </div>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+                    <tr>
+                      <td colspan="100%" style="padding: 0; border-bottom: 1px solid #ccc;"></td>
+                    </tr>
+
+
+                    <tr style="padding: 0px">
+                      <td style="padding-left:2.5%;width:63%;vertical-align:middle">
+                          <p style="text-align: justify; font-size: 15px;"><span style="background-color: hsla(95, 99%, 35%, 0.302);"><b><i>Recommendations</i></b></span></p>
+                          
+                          <ul style="list-style-type: disc; padding-left: 20px; font-size: 16px; color: #333;">
+                                  <li>
+                                    <span style="color: #B22222; font-style: italic;">
+                                        <b>Recommendation 1</b>
+                                    </span> - 
+                                    <span style="font-size: 16px;">
+                                      Increase the count of two-way divided roads with barriers in Urban counties mainly focusing on <i><b>Greeneville</b></i>, <i><b>Charleston</b></i>, and <i><b>Richland</b></i> counties.
+                                    </span>
+                                  </li>
+                            
+                              <!-- ################################ -->
+                                  <li>
+                                    <span style="color: #B22222; font-style: italic;">
+                                        <b>Recommendation 2</b>
+                                    </span> - 
+                                    <span style="font-size: 16px;">
+                                      Increase the <i><b>Alive@25</b></i> programs and conduct awareness camps in <i><b>Mostly Rural</b></i> counties.
+                                    </span>
+                                  </li>
+                          </ul>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td colspan="100%" style="padding: 10px; border-bottom: 3px solid #ccc;"></td>
+                    </tr>
+
+                    <tr style="padding: 0px">
+                      <td style="padding-left:2.5%;width:63%;vertical-align:middle">
+                          <ul style="list-style-type: disc; padding-left: 20px; font-size: 16px; color: #333;">
+                                  <li>
+                                    For more details refer the following <a href="./traffic-slides.pdf" target="_blank" style="
+                                        display: inline-block;
+                                        padding: 4px 8px;
+                                        background-color: #4286f4d6;
+                                        color: white;
+                                        text-decoration: none;
+                                        border-radius: 8px;
+                                        font-weight: bold;
+                                        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+                                        transition: background-color 0.3s ease;">
+                                        Slides
+                                    </a>
+                                  </li>
+                          </ul>
+                      </td>
+                    </tr>
+
                 </td> 
 
               </tr>
