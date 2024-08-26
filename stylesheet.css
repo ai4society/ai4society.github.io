@@ -844,11 +844,41 @@ button:hover {
   font-style: italic;
 }
 
-.activities-content-members{
-
-}
-
 .activities-content-month, .activities-content-misc{
   visibility: hidden;
+}
+
+.patent-section {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.patent-text {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.patent-frame {
+  flex: 1;
+  background: linear-gradient(145deg, #c19a6b, #8b4513); /* Elegant wood gradient */
+  border: 5px solid #5c3a19; /* Darker wood border for contrast */
+  border-radius: 3px; /* Sharp corners */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), inset 0 0 5px rgba(255, 255, 255, 0.2); /* Glossy effect with inset shadow */
+  max-width: 350px;
+  margin-left: auto;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for interaction */
+}
+
+.patent-frame:hover {
+  transform: scale(1.05); /* Slightly enlarge the frame on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.3); /* Enhance the glossy effect on hover */
+}
+
+.patent-image {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 

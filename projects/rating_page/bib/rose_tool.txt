@@ -1,4 +1,7 @@
 @article{mundadarose,
   title={ROSE: Tool and Data ResOurces to Explore the Instability of SEntiment Analysis Systems},
-  author={MUNDADA, GAURAV and LAKKARAJU, KAUSIK and SRIVASTAVA, BIPLAV}
+  author={MUNDADA, GAURAV and LAKKARAJU, KAUSIK and SRIVASTAVA, BIPLAV},
+  year={2022},
+  doi={10.13140/RG.2.2.12533.04323},
+  url={https://www.researchgate.net/publication/358475224_ROSE_Tool_and_Data_ResOurces_to_Explore_the_Instability_of_SEntiment_Analysis_Systems}
 }
