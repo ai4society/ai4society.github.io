@@ -42,7 +42,7 @@
                   </p>
                 </td>
               </tr>
-              
+
 
               <tr style="padding:0px">
                 <td style="padding-left:2.5%;padding-right:2.5%;width:63%;vertical-align:middle">
@@ -111,27 +111,21 @@
                       <div class="timeline-date year">2024</div>
                     </div>
 
-                    <!-- August 2024 -->
+                    <!-- Oct 2024 -->
                     <div class="timeline-item">
                       <div class="timeline-dot"></div>
-                      <div class="timeline-date month">August</div>
+                      <div class="timeline-date month">October</div>
                       <div class="timeline-content">
-                        <p>Our paper "AI-Assisted Research Collaboration with Open Data for Fair and Effective Response to Call for Proposals", an extension of our previous work at <a href="https://ai4society.github.io/publications/papers_local/ULTRA-IAAI_AAAI2024_Deployed_Application_Track.pdf"> IAAI-24</a>, is published at AI Magazine, AAAI-2024.</p>
-                        <p>We have presented our work on "Improving SC Roads Using Insights from DoT Traffic Data" to South Carolina Department of Health and Environmental Control (DHEC), South Carolina Department of Public Safety (SCDPS), National Safety Council Southeastern Chapter (NSCSC). For more details <a href="https://ai4society.github.io/projects/traffic_page/index.html">click here.</a> </p>
-                        <p>Nitin Gupta, pursuing his bachelor's at University of South Carolina, has joined us as an Undergraduate Researcher.</p>
-                        <p><a href="https://vishalpallagani.github.io/" target="_blank">Vishal Pallagani</a> finished his summer internship at IBM Research.</p>
-                        <div class="patent-section">
-                          <div class="patent-text">
-                              <p><strong>First patent of AI4Society issued!</strong> We are pleased to share that our patent titled "<em><a href="https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/12067983">US 12,067,983 – Robust useful and general task-oriented virtual assistants</a></em>" [tags: chatbot monitoring, execution] has been officially issued by USPTO.</p>
-                          </div>                    
-                          <div class="patent-frame">
-                              <a href="https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/12067983" target="_blank">
-                                  <img src="images/patent1.png" alt="First Page of Patent" class="patent-image">
-                              </a>
-                          </div>
-                        </div>
+                        <p><a target="_blank" href="https://sites.google.com/site/biplavsrivastava">Biplav
+                            Srivastava</a> will be a panelist at the University of South Carolina School of
+                          Law’s
+                          upcoming symposium titled “AI and Elections.” Click <a
+                            href="https://sc.edu/study/colleges_schools/law/academics/conferences_and_symposia/ai_voting/index.php"
+                            target="_blank">here</a>
+                          for more details.</p>
                       </div>
                     </div>
+                  </div>
 
                   </div>
                 </td>
@@ -142,17 +136,18 @@
                     <div class="research-spotlight research-spotlight-slide">
                       <h3 class="spotlight-title">🔍 Research Spotlight</h3>
                       <a href="spotlight/group_recommendation.jpg" target="_blank">
-                        <img src="spotlight/group_recommendation.jpg" alt="Research Poster Thumbnail" class="poster-thumbnail">
+                        <img src="spotlight/group_recommendation.jpg" alt="Research Poster Thumbnail"
+                          class="poster-thumbnail">
                       </a>
                     </div>
-                
+
                     <div class="research-spotlight research-spotlight-slide">
                       <h3 class="spotlight-title">🔍 Research Spotlight</h3>
                       <a href="spotlight/power-IAAI.jpg" target="_blank">
                         <img src="spotlight/power-IAAI.jpg" alt="Research Poster Thumbnail" class="poster-thumbnail">
                       </a>
                     </div>
-                    
+
                     <!-- Optionally, add navigation buttons -->
                     <a class="prev" onclick="plusSpotlightSlides(-1)">&#10094;</a>
                     <a class="next" onclick="plusSpotlightSlides(1)">&#10095;</a>
@@ -187,64 +182,64 @@
     var slideIndex = 0;
     var slides = document.getElementsByClassName("mySlides");
     var imgTimer;
-  
+
     // Research Spotlight Slideshow Variables
     var spotlightIndex = 0;
     var spotlightSlides = document.getElementsByClassName("research-spotlight-slide");
     var spotlightTimer;
-  
+
     // Image Slideshow Functions
     function showSlides() {
       var i;
       for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
+        slides[i].style.display = "none";
       }
       slideIndex++;
-      if (slideIndex > slides.length) {slideIndex = 1}
-      slides[slideIndex-1].style.display = "block";
+      if (slideIndex > slides.length) { slideIndex = 1 }
+      slides[slideIndex - 1].style.display = "block";
     }
-  
+
     function startImageSlideshow() {
       showSlides();
       imgTimer = setInterval(showSlides, 4000); // Change image every 4 seconds
     }
-  
+
     function plusSlides(n) {
       clearInterval(imgTimer); // Stop the image slideshow
       slideIndex += n - 1; // Adjust because showSlides() will increment
       showSlides();
       startImageSlideshow(); // Restart the image slideshow
     }
-  
+
     // Research Spotlight Slideshow Functions
     function showSpotlightSlides() {
       var i;
       for (i = 0; i < spotlightSlides.length; i++) {
-        spotlightSlides[i].style.display = "none";  
+        spotlightSlides[i].style.display = "none";
       }
       spotlightIndex++;
-      if (spotlightIndex > spotlightSlides.length) {spotlightIndex = 1}
-      spotlightSlides[spotlightIndex-1].style.display = "block";
+      if (spotlightIndex > spotlightSlides.length) { spotlightIndex = 1 }
+      spotlightSlides[spotlightIndex - 1].style.display = "block";
     }
-  
+
     function startSpotlightSlideshow() {
       showSpotlightSlides();
       spotlightTimer = setInterval(showSpotlightSlides, 4000); // Change spotlight every 4 seconds
     }
-  
+
     function plusSpotlightSlides(n) {
       clearInterval(spotlightTimer); // Stop the spotlight slideshow
       spotlightIndex += n - 1; // Adjust because showSpotlightSlides() will increment
       showSpotlightSlides();
       startSpotlightSlideshow(); // Restart the spotlight slideshow
     }
-  
+
     // Initialize Both Slideshows
     startImageSlideshow(); // Initialize the image slideshow
     startSpotlightSlideshow(); // Initialize the research spotlight slideshow
   </script>
-  
-  
+
+
 
 </body>
 
