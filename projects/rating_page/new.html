@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rating of AI Systems</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #ffffff;
+            background: #631803;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin: 50px auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #eaaf0e73;
+            font-size: 2.5rem;
+            margin: 20px 0;
+            text-shadow: 0 0 10px #eaaf0e73;
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700;
+            }
+            100% {
+                text-shadow: 0 0 20px #FFD700, 0 0 30px #FFD700;
+            }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        a {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #ff5733;
+        }
+
+        .flashing-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            animation: flash 1.5s infinite;
+        }
+
+        @keyframes flash {
+            0%, 100% { color: #FFD700; }
+            50% { color: #ff5733; }
+        }
+
+        .center-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .center-content img {
+            width: 60%;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .center-content img:hover {
+            transform: scale(1.1);
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #bbb;
+        }
+
+        footer a {
+            color: #FFD700;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Rating of AI Systems through a Causal Lens</h2>
+        <table>
+            <tr>
+                <td>
+                    <p><a href='https://ai4society.github.io/'>Home</a></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Demonstration of 'ARC: AI Rating through Causality' Tool</p>
+                    <i><b>Collaborators: </b>AIISC, University of South Carolina</i><br>
+                    <i><b>Contributors: </b>Kausik Lakkaraju, Likitha Valluru, Biplav Srivastava</i><br>
+                    <p style="text-align: justify;">
+                        ARC is a tool for rating AI systems for bias through a causal lens. </p> 
+                        <br><a href="https://rb.gy/3qweh" target="_blank">
+                            <img src="images/arc.png" alt="ARC Tool" class="center-content" style="width: 400px; height: 200px; border: none;">
+                        </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Rating Sentiment Analysis Systems</p>
+                    <i><b>Collaborators: </b>AIISC, University of South Carolina</i><br>
+                    <i><b>Contributors: </b>Kausik Lakkaraju, Biplav Srivastava, Marco Valtorta</i><br>
+                    <p style="text-align: justify;">
+                        Sentiment Analysis Systems (SASs) are data-driven Artificial Intelligence (AI) systems that assign one or more numbers to convey the polarity and emotional intensity of a given text. Learn more about our research and publications below.
+                    </p>
+                    <ul>
+                        <li>K. Lakkaraju, B. Srivastava, and M. Valtorta, "Rating Sentiment Analysis Systems for Bias Through a Causal Lens," in IEEE Transactions on Technology and Society. <a href="https://ieeexplore.ieee.org/document/10466637" target="_blank"><b>[Paper]</b></a></li>
+                        <li>Find additional details on our <a href="https://github.com/ai4society/causal-sas-rating.git" target="_blank"><b>[GitHub Repository]</b></a>.</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+        <!-- <footer>
+            &copy; 2024 Rating of AI Systems. Made with ❤️ by <a href="https://github.com/ai4society">AI4Society</a>.
+        </footer> -->
+    </div>
+</body>
+</html>
