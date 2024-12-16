@@ -1,0 +1,326 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Traffic Data Analysis</title>
+
+    <!-- <meta name="author" content="Vishal Pallagani"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+
+<body class="container">
+
+
+    <table style="width:80%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+        <tbody>
+            <tr style="padding:0px">
+                <td style="padding-left:2.5%;padding-top:3%;width:63%;vertical-align:middle">
+                  <p style="text-align:left">
+                    <a href='../../index.html'>Home</a> &nbsp/&nbsp
+                    <a href='../index.html'>Projects</a> &nbsp/&nbsp
+                  </p>
+                </td>
+              </tr>
+
+              <tr style="padding:0px">
+                <td style="padding-left:2.5%;width:63%;vertical-align:middle">   
+                  
+                  <!-- <div id="search-bar">
+                    <input type="text" id="search-input" placeholder="Search...">
+                    <button id="search-btn">Search</button>
+                    <button id="prev-btn">Previous</button>
+                    <button id="next-btn">Next</button>
+                    <span id="match-count"></span> 
+                  </div>                     -->
+                  
+                  <h2 style="display:flex;align-items:center;">
+                    <span style="background-color:hsl(95, 99%, 35%);height:20px;width:20px;margin-right:10px;border:1px solid black;"></span>
+                    Traffic Data Analysis
+                  </h2>
+                  <p style="text-align: justify;"><span style="background-color: hsla(95, 99%, 35%, 0.302);"><b>Improving SC Roads Using Insights from DoT Traffic Data: Alive@25 Recommendations</b></span><br>
+                      <i><b>Students: </b>Bharath Muppasani, Saina Srivastava, Nitin Gupta, Aarohi Goel</i><br>
+                      <i><b>Faculty: </b>Biplav Srivastava, Lucas Vasconcelos</i><br>
+                      <i><b>Collaborators: </b>AIISC - University of South Carolina (College of Engineering and Computing and College of Education), South Carolina Department of Health and Environmental Control (DHEC), South Carolina Department of Public Safety (SCDPS), National Safety Council Southeastern Chapter (NSCSC)</i>
+                      <br>
+                    </p>
+                    <p>In summer 2024, SC dept provided us with data about traffic accidents in SC for 6 years (2017 to 2022), covering various aspects such as location, occupant details, and vehicle information. The non-profit provided us data about student safety training in schools (called Alive@25). We used traffic data to understand traffic patterns and areas of improvement. We used Alive@25 to understand training coverage and gaps. Using both, and other public data like census and cost of accidents, we made recommendations to reduce road deaths and other accident costs. 
+                       The project involved creating interactive visualizations to understand patterns in collision incidents across different county categories (Urban, Mostly Rural, Rural). Key insights included identifying high-risk urban counties, economic impact of collisions, observing trends in collision rates and Alive@25 program participation.</p>
+
+                    <!-- <ul style="padding-left: 20px; font-size: 16px; color: #333;">
+                      <li>Traffic accidents visualization is provided at the following page - <a href="https://ai4society.github.io/Traffic-Data-Analysis/" target="_blank" style="
+                        display: inline-block;
+                        padding: 4px 8px;
+                        background-color: #4286f4d6;
+                        color: white;
+                        text-decoration: none;
+                        border-radius: 8px;
+                        font-weight: bold;
+                        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+                        transition: background-color 0.3s ease;">
+                        Demo
+                    </a></li>
+                    </ul>
+                    <ul style="padding-left: 20px; font-size: 16px; color: #333;">
+                      <li>Summary of the Data used</li>
+                    </ul>
+                    <tr style="padding:0px">
+                        <td style="padding-left:2.5%;width:63%;vertical-align:middle">
+                            <table style="width:80%; border-collapse: collapse;margin: 0 auto;">
+                                <thead>
+                                    <tr>
+                                        <th style="border: 1px solid black; padding: 8px;">Dataset</th>
+                                        <th style="border: 1px solid black; padding: 8px;">Details</th>
+                                        <th style="border: 1px solid black; padding: 8px;">Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="border: 1px solid black; padding: 8px;">Location</td>
+                                        <td style="border: 1px solid black; padding: 8px;">
+                                            <ul>
+                                                <li>57 variables</li>
+                                                <li>~42 MB</li>
+                                                <li>~138,867 records/file</li>
+                                            </ul>
+                                        </td>
+                                        <td style="border: 1px solid black; padding: 8px;width: 60%;">Contains information about the collision under various conditions, including location, weather, road type, and contributing factors.</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid black; padding: 8px;">Occupant</td>
+                                        <td style="border: 1px solid black; padding: 8px;">
+                                            <ul>
+                                                <li>17 variables</li>
+                                                <li>~28 MB</li>
+                                                <li>~350,237 records/file</li>
+                                            </ul>
+                                        </td>
+                                        <td style="border: 1px solid black; padding: 8px;width: 60%;">Provides details about individuals involved in the collision, such as demographics, seating position, injury status, and safety device usage.</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid black; padding: 8px;">Truck, Bus Data</td>
+                                        <td style="border: 1px solid black; padding: 8px;">
+                                            <ul>
+                                                <li>22 variables</li>
+                                                <li>~600 KB</li>
+                                                <li>~3,677 records/file</li>
+                                            </ul>
+                                        </td>
+                                        <td style="border: 1px solid black; padding: 8px;width: 60%;">Includes data on carriers involved in collisions, focusing on vehicle types, hazardous materials, and citations.</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid black; padding: 8px;">Unit Data</td>
+                                        <td style="border: 1px solid black; padding: 8px;">
+                                            <ul>
+                                                <li>47 variables</li>
+                                                <li>~58 MB</li>
+                                                <li>~261,194 records/file</li>
+                                            </ul>
+                                        </td>
+                                        <td style="border: 1px solid black; padding: 8px;width: 60%;">Contains information about the vehicles involved in collisions, covering aspects like vehicle type, damage extent, speed, and occupant details.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                      </tr> -->
+
+                      <div style="border: 3px solid black; border-radius: 10px; padding: 10px; width: 90%; margin: 10px auto; background-color: rgba(225, 255, 216, 0.294);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; font-weight: bold;">
+                            <div style="flex: 1; text-align: center; border-right: 2px solid black; padding-right: 20px;">
+                                <a href="https://ai4society.github.io/Traffic-Data-Analysis/" target="_blank" style="text-decoration: underline; color: #0066cc;">Demo Link</a>
+                            </div>
+                            <div style="flex: 1; text-align: center; border-right: 2px solid black">
+                                <a href="./traffic-slides.pdf" target="_blank" style="text-decoration: underline; color: #0066cc;">Slides Link</a>
+                            </div>
+                            <div style="flex: 1; text-align: center; padding-left: 20px;">
+                              <a href="./traffic-paper.pdf" target="_blank" style="text-decoration: underline; color: #0066cc;">Paper Link</a>
+                            </div>
+                        
+                        </div>
+                        
+                        <hr style="border: 1px solid black; margin: 10px 0;">
+                        
+                        <div style="display: flex; justify-content: space-around; text-align: center; font-weight: bold;">
+                            <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                              Dataset
+                            </div>
+                            <div style="flex: 1; border-left: 2px solid black; padding-left: 10px; padding-right: 10px;">
+                                <div style="color: #B22222">Location</div>
+                                <hr style="border: 1px solid black; margin: 5px 0;">
+                                <div style="font-size: 0.9em; font-weight: normal; color: blue;">
+                                    57 variables<br>
+                                    ~42 MB<br>
+                                    ~138,867 records
+                                </div>
+                            </div>
+                            <div style="flex: 1; border-left: 2px solid black; padding-left: 10px; padding-right: 10px;">
+                                <div style="color: #B22222">Occupant</div>
+                                <hr style="border: 1px solid black; margin: 5px 0;">
+                                <div style="font-size: 0.9em; font-weight: normal; color: blue;">
+                                    17 variables<br>
+                                    ~28 MB<br>
+                                    ~350,237 records
+                                </div>
+                            </div>
+                            <div style="flex: 1; border-left: 2px solid black; padding-left: 10px; padding-right: 10px;">
+                                <div style="color: #B22222">Truck, Bus Data</div>
+                                <hr style="border: 1px solid black; margin: 5px 0;">
+                                <div style="font-size: 0.9em; font-weight: normal; color: blue;">
+                                    22 variables<br>
+                                    ~600 KB<br>
+                                    ~3,677 records
+                                </div>
+                            </div>
+                            <div style="flex: 1; border-left: 2px solid black; padding-left: 10px; padding-right: 10px;">
+                                <div style="color: #B22222">Unit Info</div>
+                                <hr style="border: 1px solid black; margin: 5px 0;">
+                                <div style="font-size: 0.9em; font-weight: normal; color: blue;">
+                                    47 variables<br>
+                                    ~58 MB<br>
+                                    ~261,194 records
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
+                
+                      <!-- <tr>
+                        <td colspan="100%" style="padding: 10px; border-bottom: 1px solid #ccc;"></td>
+                      </tr> -->
+
+                      <tr style="padding: 0px">
+                        <td style="padding-left:2.5%;width:63%;vertical-align:middle">
+                            <p style="text-align: justify;"><span style="background-color: hsla(95, 99%, 35%, 0.302);"><i>Analysis of Traffic Accident Data</i></span></p>
+                            
+                            <p style="text-align: justify;"><i> Here we present three broad analyses of the traffic accident data, focusing on visualization, economic impact, and road conditions.</i></p>
+                            
+                            <ul style="list-style-type: disc; padding-left: 20px; color: #333;">
+                                    <li>
+                                      <span style="color: #B22222; font-style: italic;">
+                                          <b>Visualization of Traffic accidents over time and region</b>
+                                      </span> - 
+                                      <span>
+                                          Collision incidents are higher in Greenville, Charleston, and Richland counties
+                                      </span>
+                                    </li>
+                                    <div style="text-align: center;">
+                                        <img src="images/git-incidents.gif" alt="Visualization of Traffic accidents over time and region" title= "Visualization of Traffic accidents over time and region" style="max-width: 80%; margin: 10px 0;">
+                                    </div>
+                                <!-- ################################ -->
+                                    <li>
+                                      <span style="color: #B22222; font-style: italic;">
+                                          <b>Analysis of Economic impact of accidents</b>
+                                      </span> - 
+                                      <span>
+                                        Ratio of cost dealt to number of collisions is higher in mostly rural counties.
+                                      </span>
+                                    </li>
+
+                                    <div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+                                      <div style="flex: 1; text-align: center;">
+                                          <img src="images/average_cost_by_county_category.png" alt="Average cost by county category" title="Average cost by county category" style="max-width: 90%; height: auto;">
+                                      </div>
+                                      <div style="flex: 1; text-align: center;">
+                                          <img src="images/total_cost_and_collisions_by_county_category.png" alt="Total cost and collisions by county category" title="Total cost and collisions by county category" style="max-width: 100%; height: auto;">
+                                      </div>
+                                    </div>
+
+                                <!-- ################################ -->
+                                <li>
+                                  <span style="color: #B22222; font-style: italic;">
+                                      <b>Analysis of Road conditions and accidents</b>
+                                  </span> - 
+                                  <span>
+                                    Collision incidents are higher in Two-way undivided road types.
+                                  </span>
+                                </li>
+
+                                    <div style="text-align: center;">
+                                        <img src="images/road-type-traffic.png" alt="Analysis of Road conditions and accidents" style="max-width: 50%; margin: 10px 0;">
+                                    </div>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+                    <tr style="padding: 0px">
+                      <td style="padding-left:2.5%;width:63%;vertical-align:middle">
+                      <p><i><b>Representative Publications</b></i></p>
+                      <ul>
+                        <li>Towards Enhancing Road Safety in South Carolina Using Insights from Traffic and Driver-Education Data<br> 
+                          <i>Nitin Gupta, Bharath Muppasani, Saina Srivastava, Aarohi Goel, Ross Hartfield, Todd Buehrig, Melissa Reck, Emma Kennedy, Kevin Poore, Karilyn Tremblay, Biplav Srivastava, Lucas Vasconcelos</i>
+                          <br><i>Accepted for AAAI-25 Student Abstract and Poster Program, Philadelphia, USA, Feb 2025</i>
+                          <a href="https://www.researchgate.net/publication/385590927_Towards_Enhancing_Road_Safety_in_South_Carolina_Using_Insights_from_Traffic_and_Driver-Education_Data" target="_blank">
+                            <br><b>[Paper]</b></a>
+                        </li>
+                      </ul>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td colspan="100%" style=" border-bottom: 3px solid #ccc;"></td>
+                    </tr>
+
+
+                    <tr style="padding: 0px">
+                      <td style="padding-left:2.5%;width:63%;vertical-align:middle">
+                          <p style="text-align: justify; font-size: 15px;"><span style="background-color: hsla(95, 99%, 35%, 0.302);"><b><i>Recommendations</i></b></span></p>
+                          
+                          <ul style="list-style-type: disc; padding-left: 20px; color: #333;">
+                                  <li>
+                                    <span style="color: #B22222; font-style: italic;">
+                                        <b>Recommendation 1</b>
+                                    </span> - 
+                                    <span>
+                                      Increase the count of two-way divided roads with barriers in Urban counties mainly focusing on <i><b>Greeneville</b></i>, <i><b>Charleston</b></i>, and <i><b>Richland</b></i> counties.
+                                    </span>
+                                  </li>
+                            
+                              <!-- ################################ -->
+                                  <li>
+                                    <span style="color: #B22222; font-style: italic;">
+                                        <b>Recommendation 2</b>
+                                    </span> - 
+                                    <span>
+                                      Increase the <i><b>Alive@25</b></i> programs and conduct awareness camps in <i><b>Mostly Rural</b></i> counties.
+                                    </span>
+                                  </li>
+                          </ul>
+                      </td>
+                    </tr>
+
+
+                    <!-- <tr style="padding: 0px">
+                      <td style="padding-left:2.5%;width:63%;vertical-align:middle">
+                          <ul style="list-style-type: disc; padding-left: 20px; color: #333;">
+                                  <li>
+                                    For more details refer the following <a href="./traffic-slides.pdf" target="_blank" style="
+                                        display: inline-block;
+                                        padding: 4px 8px;
+                                        background-color: #4286f4d6;
+                                        color: white;
+                                        text-decoration: none;
+                                        border-radius: 8px;
+                                        font-weight: bold;
+                                        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+                                        transition: background-color 0.3s ease;">
+                                        Slides
+                                    </a>
+                                  </li>
+                          </ul>
+                      </td>
+                    </tr> -->
+
+                </td> 
+
+              </tr>
+
+            
+
+        </tbody>
+    </table>
+    <script type="text/javascript" src="../js/script.js"></script>
+</body>
+</html>
