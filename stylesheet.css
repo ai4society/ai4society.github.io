@@ -728,6 +728,17 @@ button:hover {
   margin-right: 3px; /* Spacing between icon and text */
 }
 
+/* Government Fund Source Tag */
+.tag-government-source {
+  background-color: #FF9800;
+}
+
+.tag-government-source::before {
+  content: '\f0c0'; /* FontAwesome icon code for a government building (gavel) */
+  font-family: 'Font Awesome 5 Free'; /* Specify FontAwesome */
+  margin-right: 3px; /* Spacing between icon and text */
+}
+
 /* Research Spotlight Styles */
 .research-spotlight {
   text-align: center;
