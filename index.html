@@ -6,7 +6,6 @@
 
   <title>AI4Society</title>
 
-  <meta name="author" content="Vishal Pallagani">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -98,6 +97,28 @@
                 </td>
 
               </tr>
+
+              <tr style="padding:0px">
+                <td style="padding-left:2.5%;width:100%;vertical-align:top">
+                  <div class="schedule-container">
+                    <h2 style="text-align: center; color: #2c3e50; font-size: 1.8em;">AAAI-25 Schedule</h2>
+                    <div class="date-tabs" id="date-tabs">
+                      <div class="date-tab" onclick="showDetails(event, 'Feb 24')">Feb 24</div>
+                      <div class="date-tab" onclick="showDetails(event, 'Feb 25')">Feb 25</div>
+                      <div class="date-tab" onclick="showDetails(event, 'Feb 26')">Feb 26</div>
+                      <div class="date-tab" onclick="showDetails(event, 'Feb 27')">Feb 27</div>
+                      <div class="date-tab" onclick="showDetails(event, 'Feb 28')">Feb 28</div>
+                      <div class="date-tab" onclick="showDetails(event, 'Mar 1')">Mar 1</div>
+                      <div class="date-tab" onclick="showDetails(event, 'Mar 2')">Mar 2</div>
+                      <div class="date-tab" onclick="showDetails(event, 'Mar 3')">Mar 3</div>
+                      <div class="date-tab" onclick="showDetails(event, 'Mar 4')">Mar 4</div>
+                    </div>
+                    <div class="event-details" id="event-details">Select a date to view schedule.</div>
+                  </div>
+                </td>
+              </tr>                         
+              
+
               <tr style="padding:0px">
                 <td style="padding:2.5%;width:67%;vertical-align:top">
                   <p style="text-align:left">
@@ -210,6 +231,29 @@
     </tbody>
   </table>
   <script>
+
+
+    function showDetails(event, date) {
+      const scheduleData = {
+        "Feb 24": "Arrival and networking event",
+        "Feb 25": "Vishal: Presentation (12:30 - 1:45pm)",
+        "Feb 26": "Bridge - ; [Biplav arrives]",
+        "Feb 27": "Biplav: Blue Sky Presentation @2pm",
+        "Feb 28": "Nitin: Student Poster Presentation (12:30 - 2:30 pm)<br>Biplav: chairing New Faculty session (2:30-4:00 pm)",
+        "Mar 1": "No scheduled events.",
+        "Mar 2": "[Biplav leaves]",
+        "Mar 3": "Vansh: Poster Presentation/ AI Mission @?time",
+        "Mar 4": "Bharath: <a href='publications/papers_local/AAAI_25_Opinion_Dynamics_formulation_for_Dialog_Management.pdf' target='_blank'>Poster Presentation</a> @GenPlan"
+      };
+
+      document.getElementById('event-details').innerHTML = scheduleData[date] || "No events scheduled.";
+      document.querySelectorAll('.date-tab').forEach(tab => tab.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+
+
+
+
     // Image Slideshow Variables
     var slideIndex = 0;
     var slides = document.getElementsByClassName("mySlides");
