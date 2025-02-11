@@ -99,27 +99,6 @@
               </tr>
 
               <tr style="padding:0px">
-                <td style="padding-left:2.5%;width:100%;vertical-align:top">
-                  <div class="schedule-container">
-                    <h2 style="text-align: center; color: #2c3e50; font-size: 1.8em;">AAAI-25 Schedule</h2>
-                    <div class="date-tabs" id="date-tabs">
-                      <div class="date-tab" onclick="showDetails(event, 'Feb 24')">Feb 24</div>
-                      <div class="date-tab" onclick="showDetails(event, 'Feb 25')">Feb 25</div>
-                      <div class="date-tab" onclick="showDetails(event, 'Feb 26')">Feb 26</div>
-                      <div class="date-tab" onclick="showDetails(event, 'Feb 27')">Feb 27</div>
-                      <div class="date-tab" onclick="showDetails(event, 'Feb 28')">Feb 28</div>
-                      <div class="date-tab" onclick="showDetails(event, 'Mar 1')">Mar 1</div>
-                      <div class="date-tab" onclick="showDetails(event, 'Mar 2')">Mar 2</div>
-                      <div class="date-tab" onclick="showDetails(event, 'Mar 3')">Mar 3</div>
-                      <div class="date-tab" onclick="showDetails(event, 'Mar 4')">Mar 4</div>
-                    </div>
-                    <div class="event-details" id="event-details">Select a date to view schedule.</div>
-                  </div>
-                </td>
-              </tr>                         
-              
-
-              <tr style="padding:0px">
                 <td style="padding:2.5%;width:67%;vertical-align:top">
                   <p style="text-align:left">
                     <heading>News</heading>
@@ -221,6 +200,51 @@
                     <a class="prev" onclick="plusSpotlightSlides(-1)">&#10094;</a>
                     <a class="next" onclick="plusSpotlightSlides(1)">&#10095;</a>
                   </div>
+
+                  <!-- AAAI-25 Schedule Section Below Spotlight -->
+                  <!-- <div class="schedule-container" style="margin-top: 20px;">
+                    <h2 style="text-align: center; color: #2c3e50; font-size: 1.8em;">AAAI-25 Schedule</h2>
+                    <div style="display: flex; align-items: flex-start;"> -->
+                      <!-- Dates as Sidebar -->
+                      <!-- <div class="date-sidebar">
+                        <div class="date-tab" onclick="showDetails(event, 'Feb 24')">Feb 24</div>
+                        <div class="date-tab" onclick="showDetails(event, 'Feb 25')">Feb 25</div>
+                        <div class="date-tab" onclick="showDetails(event, 'Feb 26')">Feb 26</div>
+                        <div class="date-tab" onclick="showDetails(event, 'Feb 27')">Feb 27</div>
+                        <div class="date-tab" onclick="showDetails(event, 'Feb 28')">Feb 28</div>
+                        <div class="date-tab" onclick="showDetails(event, 'Mar 1')">Mar 1</div>
+                        <div class="date-tab" onclick="showDetails(event, 'Mar 2')">Mar 2</div>
+                        <div class="date-tab" onclick="showDetails(event, 'Mar 3')">Mar 3</div>
+                        <div class="date-tab" onclick="showDetails(event, 'Mar 4')">Mar 4</div>
+                      </div> -->
+                      <!-- Event Details Section -->
+                      <!-- <div class="event-details" id="event-details">Select a date to view schedule.</div>
+                    </div>
+                  </div> -->
+                </td>
+              </tr>
+
+              <tr style="padding:0px">
+                <td colspan="2" style="padding-left:2.5%; width:100%; vertical-align:top;">
+                  <div class="schedule-container">
+                    <h2 style="text-align: center; color: #2c3e50; font-size: 1.8em;">AAAI-25 Schedule</h2>
+                    <div class="schedule-grid">
+                      <!-- Dates Sidebar -->
+                      <div class="date-sidebar">
+                        <div class="date-tab" onclick="showDetails(event, 'Feb 24')">Feb 24</div>
+                        <div class="date-tab" onclick="showDetails(event, 'Feb 25')">Feb 25</div>
+                        <div class="date-tab" onclick="showDetails(event, 'Feb 26')">Feb 26</div>
+                        <div class="date-tab" onclick="showDetails(event, 'Feb 27')">Feb 27</div>
+                        <div class="date-tab" onclick="showDetails(event, 'Feb 28')">Feb 28</div>
+                        <div class="date-tab" onclick="showDetails(event, 'Mar 1')">Mar 1</div>
+                        <div class="date-tab" onclick="showDetails(event, 'Mar 2')">Mar 2</div>
+                        <div class="date-tab" onclick="showDetails(event, 'Mar 3')">Mar 3</div>
+                        <div class="date-tab" onclick="showDetails(event, 'Mar 4')">Mar 4</div>
+                      </div>
+                      <!-- Event Details Section -->
+                      <div class="event-details" id="event-details">Select a date to view schedule.</div>
+                    </div>
+                  </div>
                 </td>
               </tr>
 
@@ -248,23 +272,43 @@
   </table>
   <script>
 
-
     function showDetails(event, date) {
-      const scheduleData = {
-        "Feb 24": "Arrival and networking event",
-        "Feb 25": "Vishal: Presentation (12:30 - 1:45pm)",
-        "Feb 26": "Bridge - ; [Biplav arrives]",
-        "Feb 27": "Biplav: Blue Sky Presentation @2pm",
-        "Feb 28": "Nitin: Student Poster Presentation (12:30 - 2:30 pm)<br>Biplav: chairing New Faculty session (2:30-4:00 pm)",
-        "Mar 1": "No scheduled events.",
-        "Mar 2": "[Biplav leaves]",
-        "Mar 3": "Vansh: Poster Presentation/ AI Mission @?time",
-        "Mar 4": "Bharath: <a href='publications/papers_local/AAAI_25_Opinion_Dynamics_formulation_for_Dialog_Management.pdf' target='_blank'>Poster Presentation</a> @GenPlan"
-      };
+        const scheduleData = {
+          "Feb 24": "<strong>Arrival and Networking Event</strong>",
+          "Feb 25": `<strong>Lab/ Tutorial:</strong>
+            <p><a href='https://aaai.org/conference/aaai/aaai-25/tutorial-and-lab-list/#LQ01' target='_blank'>SOFAI Lab: A Hands-On Guide to Building Neurosymbolic Systems with Metacognitive Control</a> 
+            - Vishal</p>
+            <p style="color: #e74c3c; font-weight: bold;">Room: 115C | Time: 10:45am-12:30pm</p>`,
+          "Feb 26": `<strong>Bridge Sessions:</strong>
+            <p><a href='https://aaai.org/conference/aaai/aaai-25/aaai-25-bridge-list/#bp03' target='_blank'>B3: Bridging Cognitive Science and AI to Bridge Neuro and Symbolic AI</a> 
+            - Vishal, Biplav</p>
+            <p style="color: #e74c3c; font-weight: bold;">Room: 125 | Time: 9am-5pm</p>
+            <br>
+            <p><a href='https://aaai.org/conference/aaai/aaai-25/aaai-25-bridge-list/#bp04' target='_blank'>B4: Bridging Planning and Reasoning in Natural Languages with Foundational Models (PLAN-FM)</a> 
+            - Biplav</p>
+            <p style="color: #e74c3c; font-weight: bold;">Room: 120C | Time: 9am-5pm</p>`,
+          "Feb 27": `<strong>Blue Sky/ SM Presentation:</strong>
+            <p>"A Vision for Reinventing Credible Elections with Artificial Intelligence" - Biplav</p>
+            <p style="color: #e74c3c; font-weight: bold;">Time: 2:00-2:20pm</p>`,
+          "Feb 28": `<strong>Student Poster Presentation:</strong>
+            <p>"Towards Enhancing Road Safety in South Carolina Using Insights from Traffic and Driver-Education Data" - Nitin, Bharath, Biplav</p>
+            <p style="color: #e74c3c; font-weight: bold;">Time: 12:30-2:30pm</p>
+            <br>
+            <strong>Chairing Session:</strong>
+            <p>New Faculty Session - Biplav</p>
+            <p style="color: #e74c3c; font-weight: bold;">Time: 2:30-4:00pm</p>`,
+          "Mar 1": "<strong>No Scheduled Events</strong>",
+          "Mar 2": "<strong>No Scheduled Events</strong>",
+          "Mar 3": `<strong>Workshop:</strong>
+            <p>Vansh: Poster Presentation / AI Mission @?time</p>`,
+          "Mar 4": `<strong>Workshop:</strong>
+            <p><a href='publications/papers_local/AAAI_25_Opinion_Dynamics_formulation_for_Dialog_Management.pdf' target='_blank'>On Generalized Planning for Controlling Opinion Networks: Interpreting Human-AI Dialog States and Beliefs</a> - Bharath</p>
+            <p style="color: #e74c3c; font-weight: bold;">Time: 10:00-10:30am</p>`
+        };
 
-      document.getElementById('event-details').innerHTML = scheduleData[date] || "No events scheduled.";
-      document.querySelectorAll('.date-tab').forEach(tab => tab.classList.remove('active'));
-      event.target.classList.add('active');
+        document.getElementById('event-details').innerHTML = scheduleData[date] || "<strong>No events scheduled.</strong>";
+        document.querySelectorAll('.date-tab').forEach(tab => tab.classList.remove('active'));
+        event.target.classList.add('active');
     }
 
 

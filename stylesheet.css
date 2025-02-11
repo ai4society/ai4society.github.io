@@ -895,7 +895,6 @@ button:hover {
 
 /* Schedule Container */
 .schedule-container {
-  /* text-align: center; */
   margin: 20px auto;
   max-width: 100%;
   background: rgba(44, 62, 80, 0.1); /* Slight transparent background */
@@ -904,48 +903,57 @@ button:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-/* Date Tabs */
-.date-tabs {
-  display: grid;
-  grid-template-columns: repeat(9, 1fr); /* 9 columns for each date */
-  gap: 0; /* No spacing between tabs */
-  margin-bottom: 15px;
+/* Schedule Grid: Aligns Date Sidebar and Event Details Side by Side */
+.schedule-grid {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
 }
 
+/* Date Sidebar */
+.date-sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 130px; /* Reduce width slightly */
+  padding-right: 10px;
+  gap: 4px; /* Reduce spacing between date tabs */
+}
+
+/* Date Tabs (Reduce height and padding) */
 .date-tab {
-  padding: 10px 5px;
+  padding: 6px 8px; /* Reduce padding */
   background-color: #f1f1f1; /* Light gray background */
   cursor: pointer;
   border: 1px solid #ccc;
   text-align: center;
-  font-size: 0.9em;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  font-size: 0.85em; /* Reduce font size slightly */
+  border-radius: 4px; /* Smaller rounded edges */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); /* Lighter shadow */
 }
 
 .date-tab:hover {
   background-color: #34495e; /* Darker hover color */
   color: white;
-  transform: scale(1.05); /* Slight zoom effect */
+  transform: scale(1.03); /* Less aggressive zoom */
 }
 
 .date-tab.active {
   background-color: #2c3e50; /* Active tab color */
   color: white;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* More prominent shadow */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Slightly smaller shadow */
 }
 
-/* Event Details */
+/* Event Details Box */
 .event-details {
+  flex-grow: 1;
   background: rgba(255, 255, 255, 0.9); /* Almost white background */
-  padding: 15px;
+  padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1.1em;
   color: #333;
-  min-height: 50px;
-  margin-top: 10px;
+  min-height: 100px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
@@ -956,4 +964,23 @@ button:hover {
   font-size: 1.8em;
   font-weight: bold;
   margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .schedule-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .date-sidebar {
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    padding-right: 0;
+  }
+
+  .date-tab {
+    margin-right: 5px;
+  }
 }
