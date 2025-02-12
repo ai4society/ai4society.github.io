@@ -895,7 +895,7 @@ button:hover {
 
 /* Schedule Container */
 .schedule-container {
-  margin: 20px auto;
+  margin: 10px auto;
   max-width: 100%;
   background: rgba(44, 62, 80, 0.1); /* Slight transparent background */
   padding: 15px;
@@ -907,7 +907,7 @@ button:hover {
 .schedule-grid {
   display: flex;
   align-items: flex-start;
-  gap: 15px;
+  gap: 1px;
 }
 
 /* Date Sidebar */
