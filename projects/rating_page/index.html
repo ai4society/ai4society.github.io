@@ -106,6 +106,22 @@
             text-align: center;
             font-family: 'Orbitron', sans-serif;
         }
+        .demo-highlight {
+            background-image: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: black;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .video-thumbnail {
+            width: 40%; 
+            height: auto;
+            border-radius: 5px;
+            margin: 10px auto; 
+            display: block;
+        }
 
     </style>
 </head>
@@ -126,8 +142,34 @@
             <p>We introduce a novel approach to evaluate and rate AI systems using causal analysis, 
                 aiming to identify and quantify the robustness exhibited by different AI systems. 
                 Our rating method provides causally interpretable ratings that help communicate the behavior of AI systems
-                to end-users and help them make informed decisions based on the data in hand.
+                to end-users and help them make informed decisions based on the data in hand. We have developed the ARC tool, 
+                which applies our rating method to tasks like binary classification, sentiment analysis, time-series forecasting, 
+                and group recommendation, providing insights into AI system behavior.
             </p>
+        </div>
+        <h1>Demonstration</h1>
+        <div class="demo-highlight">
+            <h2 style="text-align: justify;"><span><b>ARC:<u>A</u>I <u>R</u>ating through <u>C</u>ausality</b></span></h2>
+            <i><b style="color: blue">[Under Review]</b></i>
+            <br>
+            <i><b>Collaborators: </b>AIISC - University of South Carolina, Department of Computer Science and Engineering - University of South Carolina</i>
+            <br>
+            <i><b>Contributors: </b>Kausik Lakkaraju, Likitha Valluru, Biplav Srivastava, Marco Valtorta</i>
+            <br>
+            <p style="text-align: justify;">
+                We introduce ARC, a tool to rate AI systems for robustness, encompassing both bias and robustness
+                against perturbations, along with accuracy through a causal lens. The main objective of the 
+                tool is to assist developers in building better models and aid end-users in making informed 
+                decisions based on the available data. The tool is extensible and currently supports four 
+                different AI tasks: binary classification, sentiment analysis, group recommendation, and 
+                time-series forecasting. It allows users to select data for a task and rate AI systems for 
+                robustness, assessing their stability against perturbations while also identifying biases 
+                related to protected attributes. The rating method is system-independent, and the ratings 
+                produced are causally interpretable. These ratings help users make informed decisions based 
+                on the data at hand. The demonstration video is available here:<br></p>
+                <a href="https://tinyurl.com/42raarm4" target="_blank">
+                <img src="../rating_page/images/arc.png" alt="Demo Video Thumbnail" class="video-thumbnail" class="video-thumbnail">
+                </a>
         </div>
 
         <h1>Research Publications</h1>
@@ -189,29 +231,7 @@
             </div>
         </div>
 
-        <div class="paper">
-            <h2 style="text-align: justify;"><span><b>Demonstration of 'ARC:<u>A</u>I <u>R</u>ating through <u>C</u>ausality' tool</b></span></h2>
-            <i><b style="color: blue">[Under Review]</b></i>
-            <br>
-            <i><b>Collaborators: </b>AIISC - University of South Carolina, Department of Computer Science and Engineering - University of South Carolina</i>
-            <br>
-            <i><b>Contributors: </b>Kausik Lakkaraju, Likitha Valluru, Biplav Srivastava, Marco Valtorta</i>
-            <br>
-            <p style="text-align: justify;">
-              We introduce ARC, a tool to rate AI systems for bias through a causal lens. 
-              The main objective of the tool is to assist developers in building better models 
-              and aid end-users in making informed decisions based on the available data. 
-              The tool is extensible and currently supports three different AI tasks: binary classification, 
-              sentiment analysis, and group recommendation. It gives users the option of choosing data 
-              for a task and rating AI systems for bias with respect to different protected attributes 
-              present in the data. The rating method is system-independent and the ratings given by 
-              the algorithm are causally interpretable. These ratings help the user make an informed 
-              decision based on the data in hand. The demonstration video is available here:<br>
-              <div class="links">
-                <a href="https://rb.gy/3qweh" target="_blank"><b>[Demo]</b></a>
-              </div>
-            </p>
-        </div>
+
 
         <div class="paper">
             <h2 style="text-align: justify;"><span>
@@ -312,7 +332,7 @@
         </div>
         <div class="paper">
             <h2 style="text-align: justify;"><span><b>Why is my System Biased?: Rating of AI Systems through a Causal Lens</b></span></h2>
-                <i><b style="color: blue">Conference:</b>2022 AAAI/ACM Conference on AI, Ethics, and Society</i>
+                <i><b style="color: blue">Conference:</b> 2022 AAAI/ACM Conference on AI, Ethics, and Society</i>
                 <br>
                 <i><b>Collaborators: </b>AIISC - University of South Carolina</i>
                 <br>
