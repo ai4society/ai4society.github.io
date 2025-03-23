@@ -1,0 +1,8 @@
+@misc{srivastava2024assigning,
+  title={Assigning trust rating to ai services using causal impact analysis},
+  author={Srivastava, Biplav and Lakkaraju, Kausik and Valtorta, Marco},
+  year={2024},
+  month=feb # "~22",
+  publisher={Google Patents},
+  note={US Patent App. 18/448,369}
+}

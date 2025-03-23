@@ -1,0 +1,6 @@
+@article{lakkaraju2024rating,
+  title={Rating Multi-Modal Time-Series Forecasting Models (MM-TSFM) for Robustness Through a Causal Lens},
+  author={Lakkaraju, Kausik and Kaur, Rachneet and Zeng, Zhen and Zehtabi, Parisa and Patra, Sunandita and Srivastava, Biplav and Valtorta, Marco},
+  journal={arXiv preprint arXiv:2406.12908},
+  year={2024}
+}
