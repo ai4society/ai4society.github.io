@@ -1,94 +1,70 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlanFM: NAIRR Pilot</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #1f2833, #66fcf1);
-            color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .container {
-            text-align: center;
-            padding: 2rem;
-            background: rgba(0, 0, 0, 0.6);
-            border-radius: 16px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-
-        p {
-            font-size: 1.2rem;
-            margin: 0.5rem 0;
-        }
-
-        .email {
-            color: #66fcf1;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .email:hover {
-            text-decoration: underline;
-        }
-
-        .under-construction {
-            font-size: 1.3rem;
-            margin-top: 2rem;
-            font-weight: 600;
-            color: #f1f1f1;
-            animation: bounce 1.5s infinite;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-8px);
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>PlanFM - NSF EAGER Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="NSF EAGER project demonstrating compact foundation models for planning-like tasks">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="stylesheet.css">
+  
 </head>
+
 <body>
-    <div class="container">
-        <h2>EAGER: NAIRR Pilot</h1>
-        <h2>Demonstrating a Compact Foundation Model for Planning-Like (PL) Tasks for Next Generation Trusted Applications</h2>
-        <p>Project Lead: Biplav Srivastava</p>
-        <p>Email: <a href="mailto:biplav.s@sc.edu" class="email">biplav.s@sc.edu</a></p>
-        <div class="under-construction">🚧 This website is under construction. Stay tuned! 🚧</div>
+    <header class="header">
+        <div class="header-container">
+          <div class="logos">
+            <img src="../images/university_logo.png" alt="University Logo">
+            <img src="../images/nsf_logo.png" alt="National Science Foundation Logo" class="nsf-logo">
+          </div>
+          <div class="nav-wrapper">
+            <a href="index.html" class="home-link">Home</a>
+            <nav class="nav">
+              <ul class="nav-list">
+                <li><a href="" class="nav-link">Project</a></li>
+                <li><a href="publications.html" class="nav-link">Publications</a></li>
+                <li><a href="team.html" class="nav-link">Team</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>      
+
+  <main class="main">
+    <section class="hero">
+      <p class="nsf-label">NSF EAGER Award Abstract #2454027</p>
+      <h1 class="project-title">Demonstrating a Compact Foundation Model for Planning-Like(PL) Tasks for Next Generation Trusted Applications</h1>
+    </section>
+  
+    <section class="updates">
+      <h2>Recent Updates</h2>
+      <ul class="updates-list">
+        <li>Jan 2025 – Project kickoff and initial team meeting</li>
+      </ul>
+    </section>
+
+    <section id="project-overview" class="project-overview">
+        <h2>Project Overview</h2>
+        <p>
+            The current generation of Artificial Intelligence (AI) models has not only revolutionized real-world applications like conversations. These models have also transformed AI itself, as they can serve as the basis, or foundation, for more specialized AI tasks if given sufficient additional training. However, building and training these models and specializing them for challenging tasks like planning is hard due to barriers including limited computing resources, limited non-proprietary knowledge, and even limitations on the basic assumptions used to build the models. This effort investigate an alternative path: it creates and trains a specialized AI model, using innovations on current methods, that can be applied to problems involving planning and chains of tasks. The resulting model has the potential to outperform and be more efficient and more understandable at these types of tasks than the current generation of general-purpose Large Language Models. The project offers a unique demonstration opportunity to overcome resource barriers and democratize knowledge, especially for underserved communities. The model development process, resulting AI infrastructure, and accompanying outreach activities will engage research communities from a wide array of academic disciplines at multiple universities including minority-serving institutions.
+        </p>
+        <p>
+            AI foundation models, optimized primarily for next-token prediction, excel in generating coherent and contextually relevant text, making them effective for natural language and conversational agents. However, these models exhibit significant limitations when applied to tasks from real-world applications requiring sequential decision making, reasoning, and other planning-like tasks. Examples include business processes, guidelines, instructions, programs, and workflows. Previous work on this topic using foundation models has primarily focused on using or fine-tuning pre-trained, off-the-shelf models with limited success. This project will instead investigate a different approach, creating a comprehensive, yet compact, foundation model for planning-like tasks from scratch. This model will be based on innovative approaches for tokenization, training, and other steps that will enable the model to specialize in advanced planning. The project will follow a transparent, bottom-up methodology for building this new model that will open new avenues for research, education, and real-world applications.
+        </p>
+      </section>
+      
+
+  </main>
+  
+
+  <footer class="footer">
+    <div class="footer-container">
+      <p>&copy; 2025 AI4Society</p>
     </div>
+  </footer>
+  
+  
 </body>
+
 </html>

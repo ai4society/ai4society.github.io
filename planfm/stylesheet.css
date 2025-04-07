@@ -1,0 +1,350 @@
+:root {
+    --primary-color: #004080;
+    --secondary-color: #003366;
+    --accent-color: #007bff;
+    --text-color: #333;
+    --background-light: #f8f9fa;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Layout Fix for Sticky Footer */
+  html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+  }
+  
+  /* Ensure main expands */
+  main.main {
+    flex: 1;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+  }
+  
+  /* Header */
+  .header {
+    background: var(--background-light);
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .logos {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  
+  .logos img {
+    height: 50px;
+    width: auto;
+  }
+  
+  .logos img.nsf-logo {
+    height: 70px;
+    width: auto;
+  }
+  
+  /* Wrapper for Home + Nav */
+  .nav-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .nav {
+    padding: 0;
+  }
+  
+  .nav-list {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.3rem 0.75rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+  }
+  
+  .nav-link:hover,
+  .nav-link:focus {
+    background-color: var(--background-light);
+    text-decoration: underline;
+  }
+  
+  /* Home link styling */
+  .home-link {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.3rem 0.75rem;
+    border-radius: 4px;
+  }
+  
+  .home-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Hero Section */
+  .hero {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .nsf-label {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+  }
+  
+  .project-title {
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+  }
+  
+  .hero-subtext {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Updates Box */
+  .updates {
+    background-color: var(--background-light);
+    padding: 1.5rem 2rem;
+    border-left: 4px solid var(--accent-color);
+    margin-bottom: 3rem;
+    border-radius: 6px;
+  }
+  
+  .updates-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .updates-list li {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
+  
+  /* Project Overview Section */
+  .project-overview {
+    margin-top: 2rem;
+  }
+  
+  .project-overview p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #444;
+    text-align: justify;
+  }
+  
+  /* Simple Links (if used) */
+  .simple-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+  
+  .simple-links div {
+    padding: 0.5rem 0;
+  }
+  
+  .simple-links h3 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.3rem;
+  }
+  
+  .simple-links a {
+    text-decoration: none;
+    color: var(--primary-color);
+  }
+  
+  .simple-links a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Headings */
+  h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-color);
+    font-size: 1.5rem;
+  }
+
+  .publications {
+    padding: 2rem 0;
+  }
+  
+  .pub-entry {
+    margin-bottom: 2.5rem;
+    border-left: 4px solid var(--primary-color);
+    padding-left: 1rem;
+  }
+  
+  .pub-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    color: var(--primary-color);
+  }
+  
+  .pub-authors {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 0.25rem;
+  }
+  
+  .pub-venue {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .pub-links a {
+    margin-right: 1rem;
+    color: var(--accent-color);
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+  
+  .pub-links a:hover {
+    text-decoration: underline;
+  }
+  
+ /* --- TEAM PAGE LAYOUT --- */
+
+.section-title {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    text-align: center;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+  }
+  
+  .team-section {
+    margin: 3rem 0;
+  }
+  
+  /* Responsive 2-per-row grid */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    justify-content: center;
+  }
+  
+  .team-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 1.2rem;
+    text-align: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .team-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  }
+  
+  .team-card h3 {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 0.4rem;
+  }
+  
+  .team-card p {
+    font-size: 0.95rem;
+    color: #555;
+    margin: 0;
+  }
+  
+  
+  /* Footer */
+  .footer {
+    background-color: var(--background-light);
+    padding: 1rem 0;
+    border-top: 1px solid #dee2e6;
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    color: var(--text-color);
+    font-size: 0.9rem;
+  }
+  
+  /* Global Links */
+  a {
+    color: var(--accent-color);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .header-container {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+  
+    .logos {
+      flex-direction: column;
+    }
+  
+    .nav-wrapper {
+      flex-direction: column;
+    }
+  
+    .nav-list {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  
+    .project-title {
+      font-size: 1.5rem;
+    }
+  }
+  
