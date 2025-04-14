@@ -1,0 +1,6 @@
+@inproceedings{pallagani2025sofailab,
+  title={SOFAI Lab: A Hands-On Guide to Building Neurosymbolic Systems with Metacognitive Control},
+  author={Pallagani, Vishal and Loreggia, Andrea and Fabiano, Francesco and Srivastava, Biplav and Rossi, Francesca and Horesh, Lior},
+  booktitle={AAAI Conference on Artificial Intelligence},
+  year={2025}
+}
