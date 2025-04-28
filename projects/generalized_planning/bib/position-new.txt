@@ -1,0 +1,6 @@
+@article{pallagani2025revisiting,
+  title={Revisiting LLMs in Planning from Literature Review: a Semi-Automated Analysis Approach and Evolving Categories Representing Shifting Perspectives},
+  author={Pallagani, Vishal and Gupta, Nitin and Muppasani, Bharath Chandra and Srivastava, Biplav},
+  journal={ICAPS 2025},
+  year={2025}
+}
