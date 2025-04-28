@@ -104,8 +104,28 @@
             </tr>
         </tbody>
     </table>
-  
+
     <div class="container" style="width:80%;border:0;border-spacing:0;border-collapse:separate;margin-right:auto;margin-left:auto;">
+        <div style="border: 3px solid #030303; 
+        padding: 10px; 
+        font-family: Arial, sans-serif;
+        background-image: linear-gradient(135deg, #8bed6148, #8bed6148);
+        color: black;
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 5px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+            <h3 style="margin: 0 0 5px 0; color: black;">
+            <b>Key Idea</b>
+            </h3>
+            <p>We introduce a novel approach to evaluate and rate AI systems using causal analysis, 
+            aiming to identify and quantify the robustness exhibited by different AI systems. 
+            Our rating method provides causally interpretable ratings that help communicate the behavior of AI systems
+            to end-users and help them make informed decisions based on the data in hand. We have developed the ARC tool, 
+            which applies our rating method to tasks like binary classification, sentiment analysis, time-series forecasting, 
+            and group recommendation, providing insights into AI system behavior.
+            </p>
+        </div>
         <div style="border: 3px solid black; padding: 10px; font-family: Arial, sans-serif;">
             <h3 style="margin: 0 0 10px 0;">
               <b>Quick Start</b>
@@ -130,31 +150,11 @@
                     border-radius: 5px;
                     box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
             <h3 style="margin: 0 0 5px 0; color: black;">
-            Highlights
+            News
             </h3>
             <p>Kausik Lakkaraju, Rachneet Kaur, Sunandita Patra, and Biplav Srivastava conducted a tutorial on <a href="https://sites.google.com/view/raasta2024icaif/" target="_blank">'Evaluating and Rating AI Systems for Trust and Its Application to Finance'</a> at 5th ACM International Conference on AI in Finance (ICAIF-24)</p>
             <!-- <p class="highlight">Kausik Lakkaraju was awarded $ 1,000 NSF student travel grant to present the paper, <a href="../../publications/papers_local/M_SAS_Final_IEEE.pdf" target="_blank">'The Effect of Human v/s Synthetic Test Data and Round-tripping on Assessment of Sentiment Analysis Systems for Bias'</a> at the 2023 IEEE 5th International Conference on Trust, Privacy and Security.</p>
             <p class="highlight">Kausik Lakkaraju received the best graduate student poster presentation award at a university-wide event that was held at the University of South Carolina in April 2023 for a poster presented on the topic, 'Rating of AI Systems through a Causal Lens'.</p> -->
-        </div>
-        <div style="border: 3px solid #030303; 
-                    padding: 10px; 
-                    font-family: Arial, sans-serif;
-                    background-image: linear-gradient(135deg, #8bed6148, #8bed6148);
-                    color: black;
-                    padding: 20px;
-                    margin: 20px 0;
-                    border-radius: 5px;
-                    box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
-            <h3 style="margin: 0 0 5px 0; color: black;">
-                <b>Key Idea</b>
-            </h3>
-            <p>We introduce a novel approach to evaluate and rate AI systems using causal analysis, 
-                aiming to identify and quantify the robustness exhibited by different AI systems. 
-                Our rating method provides causally interpretable ratings that help communicate the behavior of AI systems
-                to end-users and help them make informed decisions based on the data in hand. We have developed the ARC tool, 
-                which applies our rating method to tasks like binary classification, sentiment analysis, time-series forecasting, 
-                and group recommendation, providing insights into AI system behavior.
-            </p>
         </div>
         <h1>Demonstration</h1>
         <div class="demo-highlight">
@@ -176,7 +176,7 @@
                 on the data at hand. The demonstration video is available here:<br></p>
                 <a href="https://tinyurl.com/42raarm4" target="_blank">
                 <img src="../rating_page/images/arc.png" alt="Demo Video Thumbnail" 
-                style="width: 40%; 
+                style="width: 50%; 
                        height: auto;
                        border-radius: 5px;
                        margin: 10px auto; 
@@ -204,6 +204,12 @@
                 framework's usability, we conduct a user study showcasing FMTS prediction errors along with our computed ratings. The study confirmed that our ratings reduced the 
                 difficulty for users in comparing the robustness of different systems.
             </p>
+            <img src="../rating_page/images/FM_Workflow.png" alt="TSFM" 
+            style="width: 50%; 
+                   height: auto;
+                   border-radius: 5px;
+                   margin: 10px auto; 
+                   display: block;">
             <div class="links">
                 <a href="https://arxiv.org/pdf/2502.12226" target="_blank"><b>[Paper]</b></a>
                 <a href="../rating_page/bib/fmts2024.txt" target="_blank" type="text/plain"><b>[Bibtex]</b></a>
@@ -233,6 +239,12 @@
                 different stakeholders of time-series forecasting understand the models` behaviors along trust (robustness) and accuracy dimensions to select 
                 an appropriate model for forecasting using our rating method, leading to improved decision-making.
             </p>
+            <img src="../rating_page/images/mmtsfm_workflow.png" alt="TSFM" 
+            style="width: 60%; 
+                   height: auto;
+                   border-radius: 5px;
+                   margin: 10px auto; 
+                   display: block;">
             <div class="links">
                 <a href="https://arxiv.org/pdf/2406.12908" target="_blank"><b>[Paper]</b></a>
                 <a href="../rating_page/bib/mm_tsfm2024.txt" target="_blank" type="text/plain"><b>[Bibtex]</b></a>
@@ -268,6 +280,12 @@
                 all users, especially developers who reuse off-the-shelf SASs to build larger AI systems but 
                 do not have access to their code or training data to compare. 
             </p>
+            <img src="../rating_page/images/sas_causal.png" alt="Causal Model" 
+            style="width: 20%; 
+                   height: auto;
+                   border-radius: 5px;
+                   margin: 10px auto; 
+                   display: block;">
             <div class="links">
                 <a href="https://ieeexplore.ieee.org/document/10466637" target="_blank"><b>[Paper]</b></a>
                 <a href="https://github.com/ai4society/causal-sas-rating.git" target="_blank" type="text/plain"><b>[GitHub Respository]</b></a>
@@ -308,6 +326,12 @@
               strategies and foster trust as SASs are considered part of more
               mission-critical applications for global use.
             </p>
+            <img src="../rating_page/images/sas_trans_flowchart.png" alt="Causal Model" 
+            style="width: 50%; 
+                   height: auto;
+                   border-radius: 5px;
+                   margin: 10px auto; 
+                   display: block;">
             <div class="links">
                 <a href="../../publications/papers_local/M_SAS_Final_IEEE.pdf" target="_blank"><b>[Paper]</b></a>
                 <a href="https://github.com/ai4society/causal-sas-rating.git" target="_blank" type="text/plain"><b>[GitHub Respository]</b></a>
