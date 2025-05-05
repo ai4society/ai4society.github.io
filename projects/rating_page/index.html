@@ -109,7 +109,7 @@
         <div style="border: 3px solid #030303; 
         padding: 10px; 
         font-family: Arial, sans-serif;
-        background-image: linear-gradient(135deg, #8bed6148, #8bed6148);
+        background-image: linear-gradient(135deg, #eef1ed48, #eff3ee48);
         color: black;
         padding: 20px;
         margin: 20px 0;
@@ -121,10 +121,17 @@
             <p>We introduce a novel approach to evaluate and rate AI systems using causal analysis, 
             aiming to identify and quantify the robustness exhibited by different AI systems. 
             Our rating method provides causally interpretable ratings that help communicate the behavior of AI systems
-            to end-users and help them make informed decisions based on the data in hand. We have developed the ARC tool, 
-            which applies our rating method to tasks like binary classification, sentiment analysis, time-series forecasting, 
-            and group recommendation, providing insights into AI system behavior.
+            to end-users and help them make informed decisions based on the data in hand.</p>
+            <p>
+            Here's our proposed generalized causal model. The validity of link `1' depends on the conditional distribution ($T|Z$), 
+            while the validity of the links `2' and `3' can be tested using the evaluation metrics.
             </p>
+            <img src="../rating_page/images/gen_causal_diagram.png" alt="Demo Video Thumbnail" 
+            style="width: 25%; 
+                   height: auto;
+                   border-radius: 5px;
+                   margin: 10px auto; 
+                   display: block;">
         </div>
         <div style="border: 3px solid black; padding: 10px; font-family: Arial, sans-serif;">
             <h3 style="margin: 0 0 10px 0;">
