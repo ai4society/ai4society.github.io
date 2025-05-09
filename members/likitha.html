@@ -128,6 +128,45 @@
             </div>
         </div>
 
+        <div class="details">
+            <div class="detail-item">
+                <strong>Doctoral Hooding</strong>
+                Hooding By: Dr. Biplav Srivastava and Dr. Ann Vail,
+                <a href="#" onclick="seekTo(4897); return false;">1:21:37</a> to
+                <a href="#" onclick="seekTo(4918); return false;">1:21:58</a>.
+
+                <center>
+                    <iframe id="ytplayer" width="700" height="400"
+                        src="https://www.youtube.com/embed/2SP0nz1f7_E?enablejsapi=1"
+                        title="The Graduate School at USC | Spring 2025 Doctoral Hooding" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
+
+                </center>
+            </div>
+        </div>
+
+        <script>
+            var player;
+            function onYouTubeIframeAPIReady() {
+                player = new YT.Player('ytplayer');
+            }
+
+            function seekTo(seconds) {
+                if (player && player.seekTo) {
+                    player.seekTo(seconds, true);
+                }
+            }
+
+            // Load YouTube Iframe API
+            var tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/iframe_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        </script>
+
+
         <div class="abstract">
             <h2>Abstract</h2>
             <p>On the internet, where the number of available choices is exponentially growing, there is a need to
