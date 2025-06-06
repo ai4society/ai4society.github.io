@@ -1,0 +1,1398 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ai4society.github.io/projects/GenAIResultsComparator/user_guide/direct_metrics/">
+      
+      
+        <link rel="prev" href="../experiment_class/">
+      
+      
+        <link rel="next" href="../thresholds/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Using Metrics Directly - GAICo Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#using-metrics-directly" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="GAICo Documentation" class="md-header__button md-logo" aria-label="GAICo Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GAICo Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Using Metrics Directly
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ai4society/GenAIResultsComparator/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ai4society/GenAIResultsComparator
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../installation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Installation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../quickstart/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Quick Start
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../faq/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  FAQ
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../experiment_class/" class="md-tabs__link">
+          
+  
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../api/metrics/" class="md-tabs__link">
+          
+  
+  
+  API Reference
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../examples/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Examples
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../contributing/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contributing
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../license/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  License
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="GAICo Documentation" class="md-nav__button md-logo" aria-label="GAICo Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    GAICo Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ai4society/GenAIResultsComparator/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ai4society/GenAIResultsComparator
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quick Start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FAQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    User Guide
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            User Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../experiment_class/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    The Experiment Class
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Using Metrics Directly
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Metrics Directly
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-basemetric-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      The BaseMetric Class
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-method-calculate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Method: calculate()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Method: calculate()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-of-calculate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters of calculate():
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-value-of-calculate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Return Value of calculate():
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-jaccard-similarity" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Jaccard Similarity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-rouge-score-with-specific-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. ROUGE Score (with specific configuration)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-bertscore-with-specific-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. BERTScore (with specific output)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#available-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Available Metrics
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../thresholds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Working with Thresholds
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visualization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    API Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            API Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Metrics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            Metrics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/metrics/base/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BaseMetric
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/metrics/ngram_metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    N-gram Metrics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/metrics/semantic_similarity_metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Semantic Similarity Metrics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/metrics/text_similarity_metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Text Similarity Metrics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/experiment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Experiment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Utilities
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/thresholds_module/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Thresholds Module
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/visualize_module/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visualize Module
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    License
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="using-metrics-directly">Using Metrics Directly<a class="headerlink" href="#using-metrics-directly" title="Permanent link">&para;</a></h1>
+<p>While the <a href="../experiment_class/">Experiment Class</a> provides a high-level interface for common evaluation scenarios, GAICo also allows you to use its individual metric classes directly. This approach offers more granular control and flexibility, especially when:</p>
+<ul>
+<li>You need to evaluate a single model's output against a reference.</li>
+<li>You are comparing lists of generated texts against corresponding lists of reference texts (i.e., pair-wise comparisons for multiple examples).</li>
+<li>You want to integrate a specific metric into a custom evaluation pipeline.</li>
+<li>You need to configure metric-specific parameters not exposed by the <code>Experiment</code> class's default initialization.</li>
+<li>You are developing or testing a new custom metric.</li>
+</ul>
+<h2 id="the-basemetric-class">The <code>BaseMetric</code> Class<a class="headerlink" href="#the-basemetric-class" title="Permanent link">&para;</a></h2>
+<p>All metric classes in GAICo (e.g., <code>JaccardSimilarity</code>, <code>ROUGE</code>, <code>BERTScore</code>) inherit from the <code>gaico.metrics.base.BaseMetric</code> abstract class. This base class defines the common interface for all metrics, primarily through the <code>calculate()</code> method.</p>
+<h2 id="core-method-calculate">Core Method: <code>calculate()</code><a class="headerlink" href="#core-method-calculate" title="Permanent link">&para;</a></h2>
+<p>The <code>calculate()</code> method is the primary way to compute a metric's score. It's designed to be flexible and can handle:</p>
+<ul>
+<li><strong>Single Pair of Texts:</strong> Comparing one generated text string to one reference text string.</li>
+<li><strong>Batch of Texts:</strong> Comparing an iterable (list, NumPy array, Pandas Series) of generated texts to a corresponding iterable of reference texts.</li>
+<li><strong>Broadcasting:</strong> Comparing a single generated text to multiple reference texts, or multiple generated texts to a single reference text.</li>
+</ul>
+<h3 id="parameters-of-calculate">Parameters of <code>calculate()</code>:<a class="headerlink" href="#parameters-of-calculate" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>generated_texts</code> (<code>str | Iterable | np.ndarray | pd.Series</code>):
+    A single generated text string or an iterable of generated texts.</li>
+<li><code>reference_texts</code> (<code>str | Iterable | np.ndarray | pd.Series</code>):
+    A single reference text string or an iterable of reference texts.</li>
+<li><code>**kwargs</code>: Additional keyword arguments specific to the metric being used (e.g., <code>use_corpus_bleu=False</code> for <code>BLEU</code>, or <code>output_val=['f1']</code> for <code>BERTScore</code>).</li>
+</ul>
+<h3 id="return-value-of-calculate">Return Value of <code>calculate()</code>:<a class="headerlink" href="#return-value-of-calculate" title="Permanent link">&para;</a></h3>
+<p>The return type depends on the metric and the input:
+*   For most metrics, it returns a <code>float</code> for single inputs or a <code>List[float]</code> (or <code>np.ndarray</code>/<code>pd.Series</code> if inputs were such) for batch inputs.
+*   Metrics like <code>ROUGE</code> or <code>BERTScore</code> can return a <code>dict</code> of scores (e.g., <code>{'rouge1': 0.8, 'rougeL': 0.75}</code>) for single inputs or a <code>List[dict]</code> for batch inputs, depending on their configuration.</p>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
+<p>Let's look at how to use some of the individual metric classes.</p>
+<h3 id="1-jaccard-similarity">1. Jaccard Similarity<a class="headerlink" href="#1-jaccard-similarity" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">gaico.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">JaccardSimilarity</span>
+
+<span class="c1"># Initialize the metric</span>
+<span class="n">jaccard_metric</span> <span class="o">=</span> <span class="n">JaccardSimilarity</span><span class="p">()</span>
+
+<span class="c1">#  Single Pair</span>
+<span class="n">generated_text_single</span> <span class="o">=</span> <span class="s2">&quot;The quick brown fox&quot;</span>
+<span class="n">reference_text_single</span> <span class="o">=</span> <span class="s2">&quot;A quick brown dog&quot;</span>
+<span class="n">score_single</span> <span class="o">=</span> <span class="n">jaccard_metric</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="n">generated_text_single</span><span class="p">,</span> <span class="n">reference_text_single</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jaccard Score (Single): </span><span class="si">{</span><span class="n">score_single</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># Output: Jaccard Score (Single): 0.3333333333333333</span>
+
+<span class="c1">#  Batch of Texts</span>
+<span class="n">generated_texts_batch</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hello world&quot;</span><span class="p">,</span> <span class="s2">&quot;GAICo is great&quot;</span><span class="p">]</span>
+<span class="n">reference_texts_batch</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hello there world&quot;</span><span class="p">,</span> <span class="s2">&quot;GAICo is an awesome library&quot;</span><span class="p">]</span>
+<span class="n">scores_batch</span> <span class="o">=</span> <span class="n">jaccard_metric</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="n">generated_texts_batch</span><span class="p">,</span> <span class="n">reference_texts_batch</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jaccard Scores (Batch): </span><span class="si">{</span><span class="n">scores_batch</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># Jaccard Scores (Batch): [0.6666666666666666, 0.3333333333333333]</span>
+
+<span class="c1">#  Broadcasting: Single generated text to multiple references</span>
+<span class="n">generated_text_broadcast</span> <span class="o">=</span> <span class="s2">&quot;Common evaluation text&quot;</span>
+<span class="n">reference_texts_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Evaluation text for comparison&quot;</span><span class="p">,</span> <span class="s2">&quot;Another reference text&quot;</span><span class="p">]</span>
+<span class="n">scores_broadcast_gen</span> <span class="o">=</span> <span class="n">jaccard_metric</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="n">generated_text_broadcast</span><span class="p">,</span> <span class="n">reference_texts_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jaccard Scores (Broadcast Gen): </span><span class="si">{</span><span class="n">scores_broadcast_gen</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># Jaccard Scores (Broadcast Gen): [0.4, 0.2]</span>
+</code></pre></div>
+<h3 id="2-rouge-score-with-specific-configuration">2. ROUGE Score (with specific configuration)<a class="headerlink" href="#2-rouge-score-with-specific-configuration" title="Permanent link">&para;</a></h3>
+<p>The <code>ROUGE</code> metric, by default, calculates 'rouge1', 'rouge2', and 'rougeL' F1-scores. You can customize this.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">gaico.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">ROUGE</span>
+
+<span class="c1"># Initialize ROUGE to calculate only &#39;rouge1&#39; and &#39;rougeL&#39; F1-scores</span>
+<span class="n">rouge_metric</span> <span class="o">=</span> <span class="n">ROUGE</span><span class="p">(</span><span class="n">rouge_types</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;rouge1&#39;</span><span class="p">,</span> <span class="s1">&#39;rougeL&#39;</span><span class="p">],</span> <span class="n">use_stemmer</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">generated</span> <span class="o">=</span> <span class="s2">&quot;The cat sat on the mat.&quot;</span>
+<span class="n">reference</span> <span class="o">=</span> <span class="s2">&quot;A cat was sitting on a mat.&quot;</span>
+
+<span class="c1"># Calculate ROUGE scores</span>
+<span class="n">rouge_scores</span> <span class="o">=</span> <span class="n">rouge_metric</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="n">generated</span><span class="p">,</span> <span class="n">reference</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ROUGE Scores: </span><span class="si">{</span><span class="n">rouge_scores</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># Example Output: ROUGE Scores: {&#39;rouge1&#39;: 0.4615384615384615, &#39;rougeL&#39;: 0.4615384615384615}</span>
+
+<span class="c1"># If you configure for a single ROUGE type, it returns a float</span>
+<span class="n">rouge_metric_single_type</span> <span class="o">=</span> <span class="n">ROUGE</span><span class="p">(</span><span class="n">rouge_types</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;rougeL&#39;</span><span class="p">])</span>
+<span class="n">rouge_l_score</span> <span class="o">=</span> <span class="n">rouge_metric_single_type</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="n">generated</span><span class="p">,</span> <span class="n">reference</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ROUGE-L Score: </span><span class="si">{</span><span class="n">rouge_l_score</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># Example Output: ROUGE-L Score: 0.4615384615384615</span>
+</code></pre></div>
+<h3 id="3-bertscore-with-specific-output">3. BERTScore (with specific output)<a class="headerlink" href="#3-bertscore-with-specific-output" title="Permanent link">&para;</a></h3>
+<p><code>BERTScore</code> can also be configured to return specific components (precision, recall, or F1) or a dictionary of them.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">gaico.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">BERTScore</span>
+
+<span class="c1"># Initialize BERTScore to return only the F1 score</span>
+<span class="c1"># Note: BERTScore can be slow to initialize the first time as it downloads models.</span>
+<span class="c1"># For faster tests/examples, you might use a smaller model or mock it.</span>
+
+<span class="c1"># To get a dictionary with only F1 scores:</span>
+<span class="n">bertscore_metric_f1_dict</span> <span class="o">=</span> <span class="n">BERTScore</span><span class="p">()</span>
+<span class="n">generated_bert</span> <span class="o">=</span> <span class="s2">&quot;This is a test sentence for BERTScore.&quot;</span>
+<span class="n">reference_bert</span> <span class="o">=</span> <span class="s2">&quot;This is a reference sentence for BERTScore evaluation.&quot;</span>
+<span class="n">bert_f1_dict</span> <span class="o">=</span> <span class="n">bertscore_metric_f1_dict</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="n">generated_bert</span><span class="p">,</span> <span class="n">reference_bert</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;BERTScore (F1 dict): </span><span class="si">{</span><span class="n">bert_f1_dict</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># Example Output: BERTScore (F1 dict): {&#39;precision&#39;: 0.9229249954223633, &#39;recall&#39;: 0.8905344009399414, &#39;f1&#39;: 0.9064403772354126}</span>
+
+<span class="n">bertscore_metric_f1</span> <span class="o">=</span> <span class="n">BERTScore</span><span class="p">(</span><span class="n">output_val</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;f1&#39;</span><span class="p">])</span> <span class="c1"># Returns a dict: {&#39;f1&#39;: value}</span>
+<span class="n">bert_f1_score_float</span> <span class="o">=</span> <span class="n">bertscore_metric_f1</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="n">generated_bert</span><span class="p">,</span> <span class="n">reference_bert</span><span class="p">)</span> <span class="c1"># Using the same instance</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;BERTScore (F1 float): </span><span class="si">{</span><span class="n">bert_f1_score_float</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># This will be the float value of F1</span>
+<span class="c1"># Example Output: BERTScore (F1 float): 0.9064403772354126...</span>
+</code></pre></div>
+<h2 id="available-metrics">Available Metrics<a class="headerlink" href="#available-metrics" title="Permanent link">&para;</a></h2>
+<p>GAICo includes the following built-in metrics, all usable directly:</p>
+<ul>
+<li><strong>N-gram-based Metrics:</strong><ul>
+<li><code>gaico.metrics.BLEU</code></li>
+<li><code>gaico.metrics.ROUGE</code></li>
+<li><code>gaico.metrics.JSDivergence</code> (Jensen-Shannon Divergence)</li>
+</ul>
+</li>
+<li><strong>Text Similarity Metrics:</strong><ul>
+<li><code>gaico.metrics.JaccardSimilarity</code></li>
+<li><code>gaico.metrics.CosineSimilarity</code></li>
+<li><code>gaico.metrics.LevenshteinDistance</code></li>
+<li><code>gaico.metrics.SequenceMatcherSimilarity</code></li>
+</ul>
+</li>
+<li><strong>Semantic Similarity Metrics:</strong><ul>
+<li><code>gaico.metrics.BERTScore</code></li>
+</ul>
+</li>
+</ul>
+<p>Refer to the <a href="../../api/metrics/">API Reference</a> for detailed constructor parameters and any specific <code>**kwargs</code> for each metric's <code>calculate()</code> method.</p>
+<p>Using metrics directly provides the foundational building blocks for more complex evaluation setups or for when you need precise control over individual metric calculations.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
