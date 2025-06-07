@@ -1209,7 +1209,7 @@ It uses the NLTK library to calculate BLEU scores.</p>
 
 
 <a href="#gaico.metrics.ngram_metrics.BLEU.__init__" class="headerlink" title="Permanent link">&para;</a></h3>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">__init__</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">smoothing_function</span><span class="o">=</span><span class="n">SmoothingFunction</span><span class="p">()</span><span class="o">.</span><span class="n">method1</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">__init__</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">smoothing_function</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -1249,7 +1249,7 @@ It uses the NLTK library to calculate BLEU scores.</p>
                 <code>smoothing_function</code>
             </td>
             <td>
-                  <code><span title="typing.Callable">Callable</span> | <span title="nltk.translate.bleu_score.SmoothingFunction">SmoothingFunction</span></code>
+                  <code><span title="typing.Optional">Optional</span>[<span title="typing.Callable">Callable</span>]</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -1257,7 +1257,7 @@ It uses the NLTK library to calculate BLEU scores.</p>
               </div>
             </td>
             <td>
-                  <code><span title="method1">method1</span></code>
+                  <code>None</code>
             </td>
           </tr>
       </tbody>

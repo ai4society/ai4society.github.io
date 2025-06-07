@@ -485,6 +485,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#installation" class="md-nav__link">
     <span class="md-ellipsis">
       Installation
@@ -505,24 +514,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#code-style" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code Style
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#running-tests" class="md-nav__link">
-    <span class="md-ellipsis">
-      Running Tests
-    </span>
-  </a>
   
 </li>
       
@@ -1147,7 +1138,7 @@
 <figcaption><em>GAICo Quickstart Demonstration</em></figcaption>
 </figure>
 <p><em>GenAI Results Comparator (GAICo) is a Python library</em> to help compare, analyze and visualize outputs from Large Language Models (LLMs), often against a reference text.</p>
-<p>The library provides a set of metrics for evaluating <strong>2 text strings as inputs</strong>. <strong>Outputs are on a scale of 0 to 1</strong> (normalized), where 1 indicates a perfect match between the two texts.</p>
+<p>At the core, the library provides a set of metrics for evaluating text strings given as inputs and produce outputs on a scale of 0 to 1 (normalized), where 1 indicates a perfect match between the two texts. These scores are use to analyze LLM outputs as well as visualize</p>
 <p><strong><em>Class Structure:</em></strong> All metrics are implemented as classes, and they can be easily extended to add new metrics. The metrics start with the <code>BaseMetric</code> class under the <code>gaico/base.py</code> file.</p>
 <p>Each metric class inherits from this base class and is implemented with <strong>just one required method</strong>: <code>calculate()</code>.</p>
 <p>This <code>calculate()</code> method takes two parameters:</p>
@@ -1164,42 +1155,68 @@ article on evaluating LLM-generated content</a>. In the article, Microsoft descr
 <br />
 <figcaption><em>Overview of the workflow supported by the <i>GAICo</i> library</em></figcaption>
 </figure>
+<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Implements various metrics for text comparison:</li>
+<li>N-gram-based metrics (<em>BLEU</em>, <em>ROUGE</em>, <em>JS divergence</em>)</li>
+<li>Text similarity metrics (<em>Jaccard</em>, <em>Cosine</em>, <em>Levenshtein</em>, <em>Sequence Matcher</em>)</li>
+<li>Semantic similarity metrics (<em>BERTScore</em>)</li>
+<li>Visualization capabilities using matplotlib and seaborn for plots like bar charts and radar plots.</li>
+<li>Exportation of results to CSV files, including scores and threshold pass/fail status.</li>
+<li>Streamlined <code>Experiment</code> class for easy comparison of multiple models, applying thresholds, plotting, and reporting.</li>
+<li>Supports batch processing for efficient computation.</li>
+<li>Optimized for different input types (lists, numpy arrays, pandas Series).</li>
+<li>Extendable architecture for easy addition of new metrics.</li>
+<li>Comprehensive testing suite.</li>
+</ul>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
 <p>You can install GAICo directly from PyPI using pip:</p>
 <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>GAICo
 </code></pre></div>
-<p>The default installation includes core metrics. For optional features:</p>
-<ul>
-<li>To include <strong>visualization</strong> features (matplotlib, seaborn):</li>
-</ul>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>GAICo<span class="o">[</span>visualization<span class="o">]</span>
-</code></pre></div>
+<p>The default installation includes core metrics and some visualization modules which are lightweight. For optional features:</p>
 <ul>
 <li>To include the <strong>BERTScore</strong> metric (which has larger dependencies like PyTorch):</li>
 </ul>
 <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>GAICo<span class="o">[</span>bertscore<span class="o">]</span>
 </code></pre></div>
 <ul>
+<li>To include the <strong>BLEU</strong> metric (requires NLTK):</li>
+</ul>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>GAICo<span class="o">[</span>bleu<span class="o">]</span>
+</code></pre></div>
+<ul>
+<li>To include the <strong>CosineSimilarity</strong> metric (requires scikit-learn):</li>
+</ul>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>GAICo<span class="o">[</span>cosine<span class="o">]</span>
+</code></pre></div>
+<ul>
+<li>To include the <strong>JSDivergence</strong> metric (requires NLTK and SciPy):</li>
+</ul>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>GAICo<span class="o">[</span>jsd<span class="o">]</span>
+</code></pre></div>
+<ul>
 <li>To install with <strong>all optional features</strong>:
-  <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>GAICo<span class="o">[</span>visualization,bertscore<span class="o">]</span>
+  <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>GAICo<span class="o">[</span>bertscore,bleu,cosine,jsd<span class="o">]</span>
 </code></pre></div></li>
 </ul>
 <h3 id="for-developers-installing-from-source">For Developers (Installing from source)<a class="headerlink" href="#for-developers-installing-from-source" title="Permanent link">&para;</a></h3>
 <p>If you want to contribute to GAICo or install it from source for development:</p>
 <ol>
-<li>Clone the repository:
-   <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ai4society/GenAIResultsComparator.git
+<li>Clone the repository:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ai4society/GenAIResultsComparator.git
 <span class="nb">cd</span><span class="w"> </span>GenAIResultsComparator
-</code></pre></div></li>
-<li>
-<p>Set up a virtual environment and install dependencies:</p>
+</code></pre></div>
+<ol>
+<li>Set up a virtual environment and install dependencies:</li>
+</ol>
 <p>We recommend using <a href="https://docs.astral.sh/uv/#installation">UV</a> for managing environments and dependencies.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create a virtual environment (e.g., Python 3.12 recommended)</span>
 uv<span class="w"> </span>venv
 <span class="c1"># Activate the environment</span>
 <span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w">  </span><span class="c1"># On Windows: .venv\Scripts\activate</span>
-<span class="w">  </span><span class="c1"># Install the package in editable mode with all development dependencies</span>
-<span class="w">  </span>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[dev]&quot;</span>
+<span class="c1"># Install the package in editable mode with all development dependencies (includes all optional features)</span>
+uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[dev]&quot;</span>
 </code></pre></div>
 <p><em>If you don't want to use <code>uv</code>,</em> you can install the dependencies with the following commands:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create a virtual environment (e.g., Python 3.12 recommended)</span>
@@ -1210,29 +1227,10 @@ python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </
 pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[dev]&quot;</span>
 </code></pre></div>
 <p><em>(Note: The <code>dev</code> extra installs GAICo with all its optional features like <code>visualization</code> and <code>bertscore</code>, plus dependencies for testing, linting, building, and documentation.)</em></p>
-</li>
-<li>
-<p>Set up pre-commit hooks (optional but recommended for contributors):</p>
-<div class="highlight"><pre><span></span><code>pre-commit<span class="w"> </span>install
-</code></pre></div>
-</li>
+<ol>
+<li>Set up pre-commit hooks (optional but recommended for contributors):</li>
 </ol>
-<h2 id="code-style">Code Style<a class="headerlink" href="#code-style" title="Permanent link">&para;</a></h2>
-<p>We use <code>pre-commit</code> hooks to maintain code quality and consistency. The configuration for these hooks is in the <code>.pre-commit-config.yaml</code> file. These hooks run automatically on <code>git commit</code>, but you can also run them manually:</p>
-<div class="highlight"><pre><span></span><code>pre-commit run --all-files
-</code></pre></div>
-<h2 id="running-tests">Running Tests<a class="headerlink" href="#running-tests" title="Permanent link">&para;</a></h2>
-<p>Navigate to the project root in your terminal and run:</p>
-<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>pytest
-</code></pre></div>
-<p>Or, for more verbose output:</p>
-<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>pytest<span class="w"> </span>-v
-</code></pre></div>
-<p>To skip the slow BERTScore tests:</p>
-<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>pytest<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;not bertscore&quot;</span>
-</code></pre></div>
-<p>To run only the slow BERTScore tests:</p>
-<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>pytest<span class="w"> </span>-m<span class="w"> </span>bertscore
+<div class="highlight"><pre><span></span><code>pre-commit<span class="w"> </span>install
 </code></pre></div>
 <h2 id="citation">Citation<a class="headerlink" href="#citation" title="Permanent link">&para;</a></h2>
 <p>If you find this project useful, please consider citing it in your work:</p>
