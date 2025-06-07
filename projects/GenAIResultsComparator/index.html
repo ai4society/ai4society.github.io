@@ -12,7 +12,7 @@
       
       
       
-        <link rel="next" href="installation/">
+        <link rel="next" href="quickstart/">
       
       
       <link rel="icon" href="assets/images/favicon.png">
@@ -230,25 +230,6 @@
     
   
   Home
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="installation/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Installation
 
       </a>
     </li>
@@ -504,6 +485,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-developers-installing-from-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      For Developers (Installing from source)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#code-style" class="md-nav__link">
     <span class="md-ellipsis">
       Code Style
@@ -552,28 +557,6 @@
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="installation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Installation
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -642,10 +625,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -658,8 +641,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             User Guide
           </label>
@@ -784,10 +767,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   
@@ -800,8 +783,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             API Reference
           </label>
@@ -827,10 +810,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
         
           
-          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
             
   
   
@@ -843,8 +826,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_1">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
             <span class="md-nav__icon md-icon"></span>
             Metrics
           </label>
@@ -1158,7 +1141,12 @@
 
 
 <h1 id="welcome-to-gaico">Welcome to GAICo<a class="headerlink" href="#welcome-to-gaico" title="Permanent link">&para;</a></h1>
-<p><img alt="quickstart" src="https://raw.githubusercontent.com/ai4society/GenAIResultsComparator/refs/heads/main/quickstart.gif" /></p>
+<figure>
+  <img src="https://raw.githubusercontent.com/ai4society/GenAIResultsComparator/refs/heads/main/quickstart.gif" alt="GIF Showing GAICo's Quickstart" style="display: block; margin: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+<br />
+<figcaption><em>GAICo Quickstart Demonstration</em></figcaption>
+</figure>
+<p><em>GenAI Results Comparator (GAICo) is a Python library</em> to help compare, analyze and visualize outputs from Large Language Models (LLMs), often against a reference text.</p>
 <p>The library provides a set of metrics for evaluating <strong>2 text strings as inputs</strong>. <strong>Outputs are on a scale of 0 to 1</strong> (normalized), where 1 indicates a perfect match between the two texts.</p>
 <p><strong><em>Class Structure:</em></strong> All metrics are implemented as classes, and they can be easily extended to add new metrics. The metrics start with the <code>BaseMetric</code> class under the <code>gaico/base.py</code> file.</p>
 <p>Each metric class inherits from this base class and is implemented with <strong>just one required method</strong>: <code>calculate()</code>.</p>
@@ -1176,6 +1164,59 @@ article on evaluating LLM-generated content</a>. In the article, Microsoft descr
 <br />
 <figcaption><em>Overview of the workflow supported by the <i>GAICo</i> library</em></figcaption>
 </figure>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<p>You can install GAICo directly from PyPI using pip:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>GAICo
+</code></pre></div>
+<p>The default installation includes core metrics. For optional features:</p>
+<ul>
+<li>To include <strong>visualization</strong> features (matplotlib, seaborn):</li>
+</ul>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>GAICo<span class="o">[</span>visualization<span class="o">]</span>
+</code></pre></div>
+<ul>
+<li>To include the <strong>BERTScore</strong> metric (which has larger dependencies like PyTorch):</li>
+</ul>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>GAICo<span class="o">[</span>bertscore<span class="o">]</span>
+</code></pre></div>
+<ul>
+<li>To install with <strong>all optional features</strong>:
+  <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>GAICo<span class="o">[</span>visualization,bertscore<span class="o">]</span>
+</code></pre></div></li>
+</ul>
+<h3 id="for-developers-installing-from-source">For Developers (Installing from source)<a class="headerlink" href="#for-developers-installing-from-source" title="Permanent link">&para;</a></h3>
+<p>If you want to contribute to GAICo or install it from source for development:</p>
+<ol>
+<li>Clone the repository:
+   <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ai4society/GenAIResultsComparator.git
+<span class="nb">cd</span><span class="w"> </span>GenAIResultsComparator
+</code></pre></div></li>
+<li>
+<p>Set up a virtual environment and install dependencies:</p>
+<p>We recommend using <a href="https://docs.astral.sh/uv/#installation">UV</a> for managing environments and dependencies.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a virtual environment (e.g., Python 3.12 recommended)</span>
+uv<span class="w"> </span>venv
+<span class="c1"># Activate the environment</span>
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w">  </span><span class="c1"># On Windows: .venv\Scripts\activate</span>
+<span class="w">  </span><span class="c1"># Install the package in editable mode with all development dependencies</span>
+<span class="w">  </span>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[dev]&quot;</span>
+</code></pre></div>
+<p><em>If you don't want to use <code>uv</code>,</em> you can install the dependencies with the following commands:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a virtual environment (e.g., Python 3.12 recommended)</span>
+python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+<span class="c1"># Activate the environment</span>
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w">  </span><span class="c1"># On Windows: .venv\Scripts\activate</span>
+<span class="c1"># Install the package in editable mode with development and visualization extras</span>
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[dev]&quot;</span>
+</code></pre></div>
+<p><em>(Note: The <code>dev</code> extra installs GAICo with all its optional features like <code>visualization</code> and <code>bertscore</code>, plus dependencies for testing, linting, building, and documentation.)</em></p>
+</li>
+<li>
+<p>Set up pre-commit hooks (optional but recommended for contributors):</p>
+<div class="highlight"><pre><span></span><code>pre-commit<span class="w"> </span>install
+</code></pre></div>
+</li>
+</ol>
 <h2 id="code-style">Code Style<a class="headerlink" href="#code-style" title="Permanent link">&para;</a></h2>
 <p>We use <code>pre-commit</code> hooks to maintain code quality and consistency. The configuration for these hooks is in the <code>.pre-commit-config.yaml</code> file. These hooks run automatically on <code>git commit</code>, but you can also run them manually:</p>
 <div class="highlight"><pre><span></span><code>pre-commit run --all-files
@@ -1196,9 +1237,10 @@ article on evaluating LLM-generated content</a>. In the article, Microsoft descr
 <h2 id="citation">Citation<a class="headerlink" href="#citation" title="Permanent link">&para;</a></h2>
 <p>If you find this project useful, please consider citing it in your work:</p>
 <div class="highlight"><pre><span></span><code><span class="nc">@software</span><span class="p">{</span><span class="nl">AI4Society_GAICo_GenAI_Results</span><span class="p">,</span>
-<span class="w">  </span><span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{{AI4Society}}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{{Nitin Gupta, Pallav Koppisetti, Biplav Srivastava}}</span><span class="p">,</span>
 <span class="w">  </span><span class="na">license</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{MIT}</span><span class="p">,</span>
 <span class="w">  </span><span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{{GAICo: GenAI Results Comparator}}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2025}</span><span class="p">,</span>
 <span class="w">  </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{https://github.com/ai4society/GenAIResultsComparator}</span>
 <span class="p">}</span>
 </code></pre></div>
