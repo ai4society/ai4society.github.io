@@ -485,6 +485,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#features" class="md-nav__link">
     <span class="md-ellipsis">
       Features
@@ -1146,8 +1155,13 @@
 <br />
 <figcaption><em>GAICo Quickstart Demonstration</em></figcaption>
 </figure>
-<p><em>GenAI Results Comparator (GAICo) is a Python library</em> to help compare, analyze and visualize outputs from Large Language Models (LLMs), often against a reference text.</p>
-<p>At the core, the library provides a set of metrics for evaluating text strings given as inputs and produce outputs on a scale of 0 to 1 (normalized), where 1 indicates a perfect match between the two texts. These scores are use to analyze LLM outputs as well as visualize.</p>
+<p><em>GenAI Results Comparator, GAICo, is a Python library</em> to help compare, analyze and visualize outputs from Large Language Models (LLMs), often against a reference text. In doing so, one can use a range of extensible metrics from the literature.</p>
+<h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h2>
+<!-- DESCRIPTION_CORE_CONCEPT_START -->
+
+<p>At the core, the library provides a set of metrics for evaluating text strings given as inputs and produce outputs on a scale of 0 to 1 (normalized), where 1 indicates a perfect match between the texts. These scores are use to analyze LLM outputs as well as visualize.</p>
+<!-- DESCRIPTION_CORE_CONCEPT_END -->
+
 <p><strong><em>Class Structure:</em></strong> All metrics are implemented as classes, and they can be easily extended to add new metrics. The metrics start with the <code>BaseMetric</code> class under the <code>gaico/base.py</code> file.</p>
 <p>Each metric class inherits from this base class and is implemented with <strong>just one required method</strong>: <code>calculate()</code>.</p>
 <p>This <code>calculate()</code> method takes two parameters:</p>
@@ -1165,6 +1179,8 @@ article on evaluating LLM-generated content</a>. In the article, Microsoft descr
 <figcaption><em>Overview of the workflow supported by the <i>GAICo</i> library</em></figcaption>
 </figure>
 <h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<!-- FEATURES_LIST_START -->
+
 <ul>
 <li>Implements various metrics for text comparison:</li>
 <li>N-gram-based metrics (<em>BLEU</em>, <em>ROUGE</em>, <em>JS divergence</em>)</li>
@@ -1176,34 +1192,59 @@ article on evaluating LLM-generated content</a>. In the article, Microsoft descr
 <li>Supports batch processing for efficient computation.</li>
 <li>Optimized for different input types (lists, numpy arrays, pandas Series).</li>
 <li>Has extendable architecture for easy addition of new metrics.</li>
-<li>Supports automated testing of metrics using <a href="https://docs.pytest.org/en/stable/">Pytest</a>.</li>
+<li>Supports automated testing of metrics using <a href="https://docs.pytest.org/en/stable/">Pytest</a>.
+  <!-- FEATURES_LIST_END -->
+</li>
 </ul>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<!-- INSTALLATION_PYPI_BASIC_START -->
+
 <p>You can install GAICo directly from PyPI using pip:</p>
 <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>gaico
 </code></pre></div>
+<!-- INSTALLATION_PYPI_BASIC_END -->
+
+<p><em>Note that the recommended way to install is using a <a href="https://docs.python.org/3/tutorial/venv.html">virtual environment</a> to avoid conflicts with other packages.</em> You can create a virtual environment using the following commands:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a virtual environment (e.g., Python 3.12 or lower recommended)</span>
+python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+<span class="c1"># Activate the environment</span>
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w">  </span><span class="c1"># On Windows: .venv\Scripts\activate</span>
+
+<span class="c1"># Then install GAICo:</span>
+pip<span class="w"> </span>install<span class="w"> </span>gaico
+</code></pre></div>
+<!-- INSTALLATION_OPTIONAL_INTRO_START -->
+
 <p>The default installation includes core metrics and some visualization modules which are lightweight. For optional features:</p>
+<!-- INSTALLATION_OPTIONAL_INTRO_END -->
+
+<!-- INSTALLATION_OPTIONAL_FEATURES_START -->
+
 <ul>
 <li>To include the <strong>BERTScore</strong> metric (which has larger dependencies like PyTorch):</li>
 </ul>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>gaico<span class="o">[</span>bertscore<span class="o">]</span>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;gaico[bertscore]&#39;</span>
 </code></pre></div>
 <ul>
 <li>To include the <strong>CosineSimilarity</strong> metric (requires scikit-learn):</li>
 </ul>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>gaico<span class="o">[</span>cosine<span class="o">]</span>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;gaico[cosine]&#39;</span>
 </code></pre></div>
 <ul>
 <li>To include the <strong>JSDivergence</strong> metric (requires SciPy):</li>
 </ul>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>gaico<span class="o">[</span>jsd<span class="o">]</span>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;gaico[jsd]&#39;</span>
 </code></pre></div>
 <ul>
-<li>To install with <strong>all optional features</strong>:
-  <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>gaico<span class="o">[</span>bertscore,cosine,jsd<span class="o">]</span>
-</code></pre></div></li>
+<li>To install with <strong>all optional features</strong>:</li>
 </ul>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;gaico[bertscore,cosine,jsd]&#39;</span>
+</code></pre></div>
+<!-- INSTALLATION_OPTIONAL_FEATURES_END -->
+
 <h3 id="installation-size-comparison">Installation Size Comparison<a class="headerlink" href="#installation-size-comparison" title="Permanent link">&para;</a></h3>
+<!-- INSTALLATION_SIZE_TABLE_CONTENT_START -->
+
 <p>The following table provides an <em>estimated</em> overview of the relative disk space impact of different installation options. Actual sizes may vary depending on your operating system, Python version, and existing packages. These are primarily to illustrate the relative impact of optional dependencies.</p>
 <p><em>Note:</em> Core dependencies include: <code>levenshtein</code>, <code>matplotlib</code>, <code>numpy</code>, <code>pandas</code>, <code>rouge-score</code>, and <code>seaborn</code>.</p>
 <table>
@@ -1221,61 +1262,60 @@ article on evaluating LLM-generated content</a>. In the article, Microsoft descr
 <td>210 MB</td>
 </tr>
 <tr>
-<td><code>pip install gaico[jsd]</code></td>
+<td><code>pip install 'gaico[jsd]'</code></td>
 <td>Core + <code>scipy</code></td>
 <td>310 MB</td>
 </tr>
 <tr>
-<td><code>pip install gaico[cosine]</code></td>
+<td><code>pip install 'gaico[cosine]'</code></td>
 <td>Core + <code>scikit-learn</code></td>
 <td>360 MB</td>
 </tr>
 <tr>
-<td><code>pip install gaico[bertscore]</code></td>
+<td><code>pip install 'gaico[bertscore]'</code></td>
 <td>Core + <code>bert-score</code> (includes <code>torch</code>, <code>transformers</code>, etc.)</td>
 <td>800 MB</td>
 </tr>
 <tr>
-<td><code>pip install gaico[bertscore,cosine,jsd]</code></td>
+<td><code>pip install 'gaico[bertscore,cosine,jsd]'</code></td>
 <td>Core + all dependencies from above</td>
 <td>950 MB</td>
 </tr>
 </tbody>
 </table>
+<!-- INSTALLATION_SIZE_TABLE_CONTENT_END -->
+
 <h3 id="for-developers-installing-from-source">For Developers (Installing from source)<a class="headerlink" href="#for-developers-installing-from-source" title="Permanent link">&para;</a></h3>
 <p>If you want to contribute to GAICo or install it from source for development:</p>
 <ol>
-<li>Clone the repository:</li>
-</ol>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ai4society/GenAIResultsComparator.git
+<li>Clone the repository:
+   <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ai4society/GenAIResultsComparator.git
 <span class="nb">cd</span><span class="w"> </span>GenAIResultsComparator
-</code></pre></div>
-<ol>
-<li>Set up a virtual environment and install dependencies:</li>
-</ol>
-<p>We recommend using <a href="https://docs.astral.sh/uv/#installation">UV</a> for managing environments and dependencies.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create a virtual environment (e.g., Python 3.12 recommended)</span>
+</code></pre></div></li>
+<li>We recommend using <a href="https://docs.astral.sh/uv/#installation">UV</a> for managing environments and dependencies.
+   <div class="highlight"><pre><span></span><code><span class="c1"># Create a virtual environment (e.g., Python 3.12 recommended)</span>
 uv<span class="w"> </span>venv
 <span class="c1"># Activate the environment</span>
 <span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w">  </span><span class="c1"># On Windows: .venv\Scripts\activate</span>
 <span class="c1"># Install the package in editable mode with all development dependencies (includes all optional features)</span>
 uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[dev]&quot;</span>
-</code></pre></div>
-<p><em>If you don't want to use <code>uv</code>,</em> you can install the dependencies with the following commands:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create a virtual environment (e.g., Python 3.12 recommended)</span>
+</code></pre></div></li>
+<li><em>If you don't want to use <code>uv</code>,</em> you can install the dependencies with the following commands:
+   <div class="highlight"><pre><span></span><code><span class="c1"># Create a virtual environment (e.g., Python 3.12 recommended)</span>
 python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
 <span class="c1"># Activate the environment</span>
 <span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w">  </span><span class="c1"># On Windows: .venv\Scripts\activate</span>
 <span class="c1"># Install the package in editable mode with development and visualization extras</span>
 pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[dev]&quot;</span>
+</code></pre></div></li>
+<li>Set up pre-commit hooks (optional but recommended for contributors):
+   <div class="highlight"><pre><span></span><code>pre-commit<span class="w"> </span>install
 </code></pre></div>
-<p><em>(Note: The <code>dev</code> extra installs GAICo with all its optional features like <code>visualization</code> and <code>bertscore</code>, plus dependencies for testing, linting, building, and documentation.)</em></p>
-<ol>
-<li>Set up pre-commit hooks (optional but recommended for contributors):</li>
+   <em>(Note: The <code>dev</code> extra installs GAICo with all its optional features like <code>bertscore</code>, plus dependencies for testing, linting, building, and documentation.)</em></li>
 </ol>
-<div class="highlight"><pre><span></span><code>pre-commit<span class="w"> </span>install
-</code></pre></div>
 <h2 id="citation">Citation<a class="headerlink" href="#citation" title="Permanent link">&para;</a></h2>
+<!-- CITATION_CONTENT_START -->
+
 <p>If you find this project useful, please consider citing it in your work:</p>
 <div class="highlight"><pre><span></span><code><span class="nc">@software</span><span class="p">{</span><span class="nl">AI4Society_GAICo_GenAI_Results</span><span class="p">,</span>
 <span class="w">  </span><span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{{Nitin Gupta, Pallav Koppisetti, Biplav Srivastava}}</span><span class="p">,</span>
@@ -1285,6 +1325,8 @@ pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </s
 <span class="w">  </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{https://github.com/ai4society/GenAIResultsComparator}</span>
 <span class="p">}</span>
 </code></pre></div>
+<!-- CITATION_CONTENT_END -->
+
 <h2 id="acknowledgments">Acknowledgments<a class="headerlink" href="#acknowledgments" title="Permanent link">&para;</a></h2>
 <ul>
 <li>The library is developed by <a href="https://github.com/g-nitin">Nitin Gupta</a>, <a href="https://github.com/pallavkoppisetti">Pallav Koppisetti</a>, and <a href="https://github.com/biplav-s">Biplav Srivastava</a>. Members of <a href="https://ai4society.github.io">AI4Society</a> contributed to this tool as part of ongoing discussions. Major contributors are credited.</li>
