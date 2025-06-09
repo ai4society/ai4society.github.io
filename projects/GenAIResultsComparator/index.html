@@ -513,6 +513,24 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#using-gaico-with-jupyter-notebookslab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using GAICo with Jupyter Notebooks/Lab
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-installations-for-gaico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional Installations for GAICo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#installation-size-comparison" class="md-nav__link">
     <span class="md-ellipsis">
       Installation Size Comparison
@@ -1155,6 +1173,20 @@
 <br />
 <figcaption><em>GAICo Quickstart Demonstration</em></figcaption>
 </figure>
+<p align="center">
+  <a href="https://pypi.org/project/GAICo/"><img alt="PyPI version" src="https://img.shields.io/pypi/v/GAICo.svg?style=flat-square"></a>
+  <a href="https://pypi.org/project/GAICo/"><img alt="Python versions" src="https://img.shields.io/pypi/pyversions/GAICo.svg?style=flat-square"></a>
+  <a href="https://github.com/ai4society/GenAIResultsComparator/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/ai4society/GenAIResultsComparator?style=flat-square"></a>
+  <a href="https://ai4society.github.io/projects/GenAIResultsComparator/"><img alt="Documentation" src="https://img.shields.io/badge/docs-mkdocs%20material-blue.svg?style=flat-square"></a>
+  <a href="https://github.com/ai4society/GenAIResultsComparator/actions/workflows/deploy-docs.yml"><img alt="Deploy Docs" src="https://github.com/ai4society/GenAIResultsComparator/actions/workflows/deploy-docs.yml/badge.svg?branch=main&style=flat-square"></a>
+
+  <!-- Uncomment below if repository blows up -->
+  <!-- <br/>
+  <a href="https://pypistats.org/packages/gaico"><img alt="PyPI Downloads" src="https://img.shields.io/pypi/dm/GAICo.svg?style=flat-square"></a>
+  <a href="https://github.com/ai4society/GenAIResultsComparator/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/ai4society/GenAIResultsComparator?style=social"></a>
+  <a href="https://github.com/ai4society/GenAIResultsComparator/network/members"><img alt="GitHub Forks" src="https://img.shields.io/github/forks/ai4society/GenAIResultsComparator?style=social"></a> -->
+</p>
+
 <p><em>GenAI Results Comparator, GAICo, is a Python library</em> to help compare, analyze and visualize outputs from Large Language Models (LLMs), often against a reference text. In doing so, one can use a range of extensible metrics from the literature.</p>
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h2>
 <!-- DESCRIPTION_CORE_CONCEPT_START -->
@@ -1197,52 +1229,81 @@ article on evaluating LLM-generated content</a>. In the article, Microsoft descr
 </li>
 </ul>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<!-- INSTALLATION_STANDARD_INTRO_START -->
+
+<p>GAICo can be installed using pip. We strongly recommend using a <a href="https://docs.python.org/3/tutorial/venv.html">Python virtual environment</a> to manage dependencies and avoid conflicts with other packages.</p>
+<!-- INSTALLATION_STANDARD_INTRO_END -->
+
+<!-- INSTALLATION_STANDARD_SETUP_START -->
+
+<ul>
+<li><strong>Create and activate a virtual environment</strong> (e.g., named <code>gaico-env</code>):</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="c1"># For Python 3.10+</span>
+<span class="w">  </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>gaico-env
+<span class="w">  </span><span class="nb">source</span><span class="w"> </span>gaico-env/bin/activate<span class="w">  </span><span class="c1"># On macOS/Linux</span>
+<span class="w">  </span><span class="c1"># gaico-env\Scripts\activate   # On Windows</span>
+</code></pre></div>
+<!-- INSTALLATION_STANDARD_SETUP_END -->
 <!-- INSTALLATION_PYPI_BASIC_START -->
 
-<p>You can install GAICo directly from PyPI using pip:</p>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>gaico
+<ul>
+<li><strong>Install GAICo:</strong>
+  Once your virtual environment is active, install GAICo using pip:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="w">  </span>pip<span class="w"> </span>install<span class="w"> </span>gaico
 </code></pre></div>
+<p>This installs the core GAICo library.</p>
 <!-- INSTALLATION_PYPI_BASIC_END -->
 
-<p><em>Note that the recommended way to install is using a <a href="https://docs.python.org/3/tutorial/venv.html">virtual environment</a> to avoid conflicts with other packages.</em> You can create a virtual environment using the following commands:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create a virtual environment (e.g., Python 3.12 or lower recommended)</span>
-python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
-<span class="c1"># Activate the environment</span>
-<span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w">  </span><span class="c1"># On Windows: .venv\Scripts\activate</span>
+<!-- INSTALLATION_JUPYTER_GUIDE_START -->
 
-<span class="c1"># Then install GAICo:</span>
-pip<span class="w"> </span>install<span class="w"> </span>gaico
+<h3 id="using-gaico-with-jupyter-notebookslab">Using GAICo with Jupyter Notebooks/Lab<a class="headerlink" href="#using-gaico-with-jupyter-notebookslab" title="Permanent link">&para;</a></h3>
+<p>If you plan to use GAICo within Jupyter Notebooks or JupyterLab (recommended for exploring examples and interactive analysis), install them into the <em>same activated virtual environment</em>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># (Ensure your &#39;gaico-env&#39; is active)</span>
+pip<span class="w"> </span>install<span class="w"> </span>notebook<span class="w">  </span><span class="c1"># For Jupyter Notebook</span>
+<span class="c1"># OR</span>
+<span class="c1"># pip install jupyterlab # For JupyterLab</span>
 </code></pre></div>
+<p>Then, launch Jupyter from the same terminal where your virtual environment is active:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># (Ensure your &#39;gaico-env&#39; is active)</span>
+jupyter<span class="w"> </span>notebook
+<span class="c1"># OR</span>
+<span class="c1"># jupyter lab</span>
+</code></pre></div>
+<p>New notebooks created in this session should automatically use the <code>gaico-env</code> Python environment. For troubleshooting kernel issues, please see our <a href="faq/">FAQ document</a>.</p>
+<!-- INSTALLATION_JUPYTER_GUIDE_END -->
+
 <!-- INSTALLATION_OPTIONAL_INTRO_START -->
 
-<p>The default installation includes core metrics and some visualization modules which are lightweight. For optional features:</p>
+<h3 id="optional-installations-for-gaico">Optional Installations for GAICo<a class="headerlink" href="#optional-installations-for-gaico" title="Permanent link">&para;</a></h3>
+<p>The default installation includes core metrics and is lightweight. For optional features and metrics that have larger dependencies:</p>
 <!-- INSTALLATION_OPTIONAL_INTRO_END -->
 
 <!-- INSTALLATION_OPTIONAL_FEATURES_START -->
 
 <ul>
-<li>To include the <strong>BERTScore</strong> metric (which has larger dependencies like PyTorch):</li>
-</ul>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;gaico[bertscore]&#39;</span>
+<li>To include the <strong>BERTScore</strong> metric (which has larger dependencies like PyTorch):
+  <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;gaico[bertscore]&#39;</span>
+</code></pre></div></li>
+<li>To include the <strong>CosineSimilarity</strong> metric (requires scikit-learn):
+  <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;gaico[cosine]&#39;</span>
+</code></pre></div></li>
+<li>To include the <strong>JSDivergence</strong> metric (requires SciPy and NLTK):
+  <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;gaico[jsd]&#39;</span>
+</code></pre></div></li>
+<li>To install with <strong>all optional features</strong>:
+  <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;gaico[bertscore,cosine,jsd]&#39;</span>
 </code></pre></div>
-<ul>
-<li>To include the <strong>CosineSimilarity</strong> metric (requires scikit-learn):</li>
+  <em>(Note: All optional features are also installed if you use the <code>dev</code> extra for development installs.)</em>
+  <!-- INSTALLATION_OPTIONAL_FEATURES_END -->
+</li>
 </ul>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;gaico[cosine]&#39;</span>
-</code></pre></div>
-<ul>
-<li>To include the <strong>JSDivergence</strong> metric (requires SciPy):</li>
-</ul>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;gaico[jsd]&#39;</span>
-</code></pre></div>
-<ul>
-<li>To install with <strong>all optional features</strong>:</li>
-</ul>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;gaico[bertscore,cosine,jsd]&#39;</span>
-</code></pre></div>
-<!-- INSTALLATION_OPTIONAL_FEATURES_END -->
+<!-- INSTALLATION_SIZE_TABLE_INTRO_START -->
 
 <h3 id="installation-size-comparison">Installation Size Comparison<a class="headerlink" href="#installation-size-comparison" title="Permanent link">&para;</a></h3>
+<!-- INSTALLATION_SIZE_TABLE_INTRO_END -->
+
 <!-- INSTALLATION_SIZE_TABLE_CONTENT_START -->
 
 <p>The following table provides an <em>estimated</em> overview of the relative disk space impact of different installation options. Actual sizes may vary depending on your operating system, Python version, and existing packages. These are primarily to illustrate the relative impact of optional dependencies.</p>
@@ -1263,7 +1324,7 @@ pip<span class="w"> </span>install<span class="w"> </span>gaico
 </tr>
 <tr>
 <td><code>pip install 'gaico[jsd]'</code></td>
-<td>Core + <code>scipy</code></td>
+<td>Core + <code>scipy</code>, <code>nltk</code></td>
 <td>310 MB</td>
 </tr>
 <tr>
@@ -1285,33 +1346,44 @@ pip<span class="w"> </span>install<span class="w"> </span>gaico
 </table>
 <!-- INSTALLATION_SIZE_TABLE_CONTENT_END -->
 
+<!-- INSTALLATION_DEVELOPER_GUIDE_START -->
+
 <h3 id="for-developers-installing-from-source">For Developers (Installing from source)<a class="headerlink" href="#for-developers-installing-from-source" title="Permanent link">&para;</a></h3>
 <p>If you want to contribute to GAICo or install it from source for development:</p>
 <ol>
-<li>Clone the repository:
-   <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ai4society/GenAIResultsComparator.git
+<li>
+<p>Clone the repository:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ai4society/GenAIResultsComparator.git
 <span class="nb">cd</span><span class="w"> </span>GenAIResultsComparator
-</code></pre></div></li>
-<li>We recommend using <a href="https://docs.astral.sh/uv/#installation">UV</a> for managing environments and dependencies.
-   <div class="highlight"><pre><span></span><code><span class="c1"># Create a virtual environment (e.g., Python 3.12 recommended)</span>
+</code></pre></div>
+</li>
+<li>
+<p>Set up a virtual environment and install dependencies:
+    We recommend using <a href="https://docs.astral.sh/uv/#installation">UV</a> for managing environments and dependencies.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a virtual environment (e.g., Python 3.10-3.12 recommended)</span>
 uv<span class="w"> </span>venv
 <span class="c1"># Activate the environment</span>
 <span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w">  </span><span class="c1"># On Windows: .venv\Scripts\activate</span>
-<span class="c1"># Install the package in editable mode with all development dependencies (includes all optional features)</span>
+<span class="c1"># Install the package in editable mode with all development dependencies</span>
+<span class="c1"># (includes all optional features like bertscore, cosine, jsd)</span>
 uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[dev]&quot;</span>
-</code></pre></div></li>
-<li><em>If you don't want to use <code>uv</code>,</em> you can install the dependencies with the following commands:
-   <div class="highlight"><pre><span></span><code><span class="c1"># Create a virtual environment (e.g., Python 3.12 recommended)</span>
+</code></pre></div>
+<p><em>If you prefer not to use <code>uv</code>,</em> you can use <code>pip</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a virtual environment (e.g., Python 3.10-3.12 recommended)</span>
 python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
 <span class="c1"># Activate the environment</span>
 <span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w">  </span><span class="c1"># On Windows: .venv\Scripts\activate</span>
-<span class="c1"># Install the package in editable mode with development and visualization extras</span>
+<span class="c1"># Install the package in editable mode with development extras</span>
 pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[dev]&quot;</span>
-</code></pre></div></li>
-<li>Set up pre-commit hooks (optional but recommended for contributors):
-   <div class="highlight"><pre><span></span><code>pre-commit<span class="w"> </span>install
 </code></pre></div>
-   <em>(Note: The <code>dev</code> extra installs GAICo with all its optional features like <code>bertscore</code>, plus dependencies for testing, linting, building, and documentation.)</em></li>
+<p><em>(The <code>dev</code> extra installs GAICo with all its optional features, plus dependencies for testing, linting, building, and documentation.)</em></p>
+</li>
+<li>
+<p>Set up pre-commit hooks (optional but recommended for contributors):</p>
+<div class="highlight"><pre><span></span><code>pre-commit<span class="w"> </span>install
+</code></pre></div>
+<!-- INSTALLATION_DEVELOPER_GUIDE_END -->
+</li>
 </ol>
 <h2 id="citation">Citation<a class="headerlink" href="#citation" title="Permanent link">&para;</a></h2>
 <!-- CITATION_CONTENT_START -->

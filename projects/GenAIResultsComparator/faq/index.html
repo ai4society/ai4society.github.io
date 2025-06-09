@@ -531,6 +531,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#q-my-jupyter-notebook-isnt-working-correctly-with-gaico-eg-import-errors-version-conflicts-what-should-i-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q: My Jupyter Notebook isn't working correctly with GAICo (e.g., import errors, version conflicts). What should I do?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#q-how-do-i-add-a-new-custom-metric" class="md-nav__link">
     <span class="md-ellipsis">
       Q: How do I add a new custom metric?
@@ -1093,6 +1102,69 @@
 
 <h1 id="frequently-asked-questions-faq">Frequently Asked Questions (FAQ)<a class="headerlink" href="#frequently-asked-questions-faq" title="Permanent link">&para;</a></h1>
 <p>Here are answers to some common questions about using GAICo.</p>
+<h2 id="q-my-jupyter-notebook-isnt-working-correctly-with-gaico-eg-import-errors-version-conflicts-what-should-i-do">Q: My Jupyter Notebook isn't working correctly with GAICo (e.g., import errors, version conflicts). What should I do?<a class="headerlink" href="#q-my-jupyter-notebook-isnt-working-correctly-with-gaico-eg-import-errors-version-conflicts-what-should-i-do" title="Permanent link">&para;</a></h2>
+<p>This usually happens if Jupyter Notebook/Lab is not using the Python environment where GAICo was installed. Here's how to troubleshoot:</p>
+<ol>
+<li>
+<p><strong>Ensure Virtual Environment Usage:</strong></p>
+<ul>
+<li>Always create and activate a Python virtual environment before installing GAICo and Jupyter.
+  <div class="highlight"><pre><span></span><code><span class="c1"># Example:</span>
+python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>my-gaico-env
+<span class="nb">source</span><span class="w"> </span>my-gaico-env/bin/activate<span class="w">  </span><span class="c1"># macOS/Linux</span>
+<span class="c1"># my-gaico-env\Scripts\activate    # Windows</span>
+</code></pre></div></li>
+<li>Install GAICo and Jupyter (Notebook/Lab) <em>into this activated environment</em>:
+  <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>gaico<span class="w"> </span>notebook<span class="w">  </span><span class="c1"># Or jupyterlab</span>
+</code></pre></div></li>
+<li>Launch Jupyter from the same terminal where the virtual environment is active:
+  <div class="highlight"><pre><span></span><code>jupyter<span class="w"> </span>notebook<span class="w"> </span><span class="c1"># Or jupyter lab</span>
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<p><strong>Select the Correct Kernel in Jupyter:</strong></p>
+<ul>
+<li>When you open or create a notebook, Jupyter needs to use the kernel associated with your virtual environment.</li>
+<li>In the Jupyter Notebook menu, go to <strong>Kernel &gt; Change kernel</strong>.</li>
+<li>You should see an option corresponding to your virtual environment. It might be named after the environment folder (e.g., "my-gaico-env"), simply "Python 3", or a display name you set up. Select it.</li>
+<li>If the kernel restarts, allow it. Then try running your GAICo code again.</li>
+</ul>
+</li>
+<li>
+<p><strong>Explicitly Registering the Kernel (if the above doesn't resolve it):</strong>
+    If Jupyter consistently fails to find or use your virtual environment's kernel, you can make it explicitly available:</p>
+<ul>
+<li>Make sure your virtual environment is active.</li>
+<li>Install <code>ipykernel</code> if it's not already there (it's usually a dependency of <code>notebook</code> or <code>jupyterlab</code>):
+  <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>ipykernel
+</code></pre></div></li>
+<li>Register the environment as a Jupyter kernel:
+  <div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>ipykernel<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>--name<span class="o">=</span>my-gaico-env<span class="w"> </span>--display-name<span class="o">=</span><span class="s2">&quot;Python (my-gaico-env)&quot;</span>
+</code></pre></div>
+  (Replace <code>my-gaico-env</code> with your actual environment name and choose a descriptive <code>display-name</code>.)</li>
+<li>Restart your Jupyter server (close the terminal window where it's running and relaunch it from the activated venv).</li>
+<li>Now, in your notebook, go to <strong>Kernel &gt; Change kernel</strong> and select the "Python (my-gaico-env)" (or your chosen display name).</li>
+</ul>
+</li>
+<li>
+<p><strong>Check <code>sys.path</code> and <code>sys.executable</code>:</strong>
+    If problems persist, add a cell to your notebook with the following to verify which Python environment is being used:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span> <span class="c1"># A core dependency</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">gaico</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Python Executable:&quot;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">System Path:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">NumPy version:&quot;</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;NumPy location:&quot;</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="vm">__file__</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">GAICo location:&quot;</span><span class="p">,</span> <span class="n">gaico</span><span class="o">.</span><span class="vm">__file__</span><span class="p">)</span>
+</code></pre></div>
+<p>The <code>sys.executable</code> and the paths for <code>numpy</code> and <code>gaico</code> should all point to directories within your active virtual environment (e.g., <code>.../my-gaico-env/lib/python3.x/site-packages/...</code>). If they point to a global Python installation or a different environment, the kernel is not set up correctly.</p>
+</li>
+</ol>
 <h2 id="q-how-do-i-add-a-new-custom-metric">Q: How do I add a new custom metric?<a class="headerlink" href="#q-how-do-i-add-a-new-custom-metric" title="Permanent link">&para;</a></h2>
 <p>Adding a new metric to GAICo is designed to be straightforward. All metrics inherit from the <code>BaseMetric</code> class.</p>
 <ol>
@@ -1100,17 +1172,15 @@
 <p><strong>Create a New Metric Class:</strong></p>
 <ul>
 <li>Your new metric class should inherit from <code>gaico.metrics.base.BaseMetric</code>.</li>
-<li>You must implement two methods:<ul>
+<li>You must implement two methods:</li>
 <li><code>_single_calculate(self, generated_text: str, reference_text: str, **kwargs: Any) -&gt; Union[float, dict]</code>: This method calculates the metric for a single pair of texts.</li>
 <li><code>_batch_calculate(self, generated_texts: Union[Iterable, np.ndarray, pd.Series], reference_texts: Union[Iterable, np.ndarray, pd.Series], **kwargs: Any) -&gt; Union[List[float], List[dict], np.ndarray, pd.Series, float, dict]</code>: This method calculates the metric for a batch of texts. Often, this can be implemented by iterating and calling <code>_single_calculate</code>, but you can optimize it for batch operations if possible.</li>
-</ul>
-</li>
 <li>The public <code>calculate()</code> method is inherited from <code>BaseMetric</code> and handles input type checking and dispatching to either <code>_single_calculate</code> or <code>_batch_calculate</code>.</li>
 </ul>
 </li>
 <li>
-<p><strong>Example Structure:</strong>
-    <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
+<p><strong>Example Structure:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">gaico.metrics.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseMetric</span>
@@ -1147,24 +1217,24 @@
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">generated_texts</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">):</span>
             <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">generated_texts</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">results</span>
-</code></pre></div></p>
+</code></pre></div>
 </li>
 <li>
 <p><strong>Using Your Custom Metric:</strong>
-    You can directly instantiate and use your custom metric:
-    <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">gaico.metrics.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseMetric</span> <span class="c1"># Or your custom metric file</span>
+    You can directly instantiate and use your custom metric:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">gaico.metrics.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseMetric</span> <span class="c1"># Or your custom metric file</span>
 <span class="c1"># from your_module import MyCustomMetric # If defined in a separate file</span>
 
 <span class="c1"># Assuming MyCustomMetric is defined as above</span>
 <span class="n">custom_metric</span> <span class="o">=</span> <span class="n">MyCustomMetric</span><span class="p">(</span><span class="n">custom_param</span><span class="o">=</span><span class="s2">&quot;example&quot;</span><span class="p">)</span>
 <span class="n">score</span> <span class="o">=</span> <span class="n">custom_metric</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="s2">&quot;This is an example generated text.&quot;</span><span class="p">,</span> <span class="s2">&quot;This is an example reference text.&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Custom metric score: </span><span class="si">{</span><span class="n">score</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre></div></p>
+</code></pre></div>
 </li>
 <li>
 <p><strong>(Optional) Registering with the <code>Experiment</code> Class:</strong>
     If you want your custom metric to be usable by its string name within the <code>Experiment</code> class (e.g., <code>exp.compare(metrics=['MyCustomMetric'])</code>), you'll need to add it to the <code>REGISTERED_METRICS</code> dictionary in <code>gaico/experiment.py</code>:</p>
-<p><div class="highlight"><pre><span></span><code><span class="c1"># In gaico/experiment.py</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># In gaico/experiment.py</span>
 <span class="c1"># ... other imports ...</span>
 <span class="c1"># from ..metrics.my_custom_metric_module import MyCustomMetric # Adjust import path</span>
 
@@ -1175,7 +1245,7 @@
     <span class="s2">&quot;MyCustomMetric&quot;</span><span class="p">:</span> <span class="n">MyCustomMetric</span><span class="p">,</span> <span class="c1"># Add your metric here</span>
 <span class="p">}</span>
 </code></pre></div>
-You would also typically add it to <code>DEFAULT_METRICS_TO_RUN</code> in the same file if you want it to run by default when <code>metrics=None</code> in <code>Experiment.compare()</code>.</p>
+<p>You would also typically add it to <code>DEFAULT_METRICS_TO_RUN</code> in the same file if you want it to run by default when <code>metrics=None</code> in <code>Experiment.compare()</code>.</p>
 <p>Refer to existing metric implementations in <code>gaico/metrics/</code> for more detailed examples (e.g., <code>text_similarity_metrics.py</code>).</p>
 </li>
 </ol>
@@ -1186,10 +1256,10 @@ You would also typically add it to <code>DEFAULT_METRICS_TO_RUN</code> in the sa
 <p><strong>All metric classes available for direct instantiation from <code>gaico.metrics</code>:</strong>
     These are all the metric classes defined in the <code>gaico.metrics</code> sub-package that are intended for public use. They are typically listed in <code>gaico.metrics.__init__.__all__</code>.</p>
 <ul>
-<li>
-<p><strong>To import and use specific metric classes by name:</strong>
-    This is the recommended way for clarity.
-    <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">gaico.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">JaccardSimilarity</span><span class="p">,</span> <span class="n">BLEU</span><span class="p">,</span> <span class="n">BERTScore</span>
+<li><strong>To import and use specific metric classes by name:</strong>
+  This is the recommended way for clarity.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">gaico.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">JaccardSimilarity</span><span class="p">,</span> <span class="n">BLEU</span><span class="p">,</span> <span class="n">BERTScore</span>
 
 <span class="n">jaccard_scorer</span> <span class="o">=</span> <span class="n">JaccardSimilarity</span><span class="p">()</span>
 <span class="n">bleu_scorer</span> <span class="o">=</span> <span class="n">BLEU</span><span class="p">()</span>
@@ -1197,12 +1267,12 @@ You would also typically add it to <code>DEFAULT_METRICS_TO_RUN</code> in the sa
 
 <span class="n">score1</span> <span class="o">=</span> <span class="n">jaccard_scorer</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="s2">&quot;text a&quot;</span><span class="p">,</span> <span class="s2">&quot;text b&quot;</span><span class="p">)</span>
 <span class="n">score2</span> <span class="o">=</span> <span class="n">bleu_scorer</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="s2">&quot;text a&quot;</span><span class="p">,</span> <span class="s2">&quot;text b&quot;</span><span class="p">)</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>To import all available metric classes using <code>*</code>:</strong>
-    This makes all metric classes from <code>gaico.metrics.__init__.__all__</code> available in your current namespace.
-    <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">gaico.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+</code></pre></div>
+<ul>
+<li><strong>To import all available metric classes using <code>*</code>:</strong>
+  This makes all metric classes from <code>gaico.metrics.__init__.__all__</code> available in your current namespace.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">gaico.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
 <span class="c1"># Now you can use the class names directly</span>
 <span class="n">jaccard_scorer</span> <span class="o">=</span> <span class="n">JaccardSimilarity</span><span class="p">()</span>
@@ -1211,37 +1281,35 @@ You would also typically add it to <code>DEFAULT_METRICS_TO_RUN</code> in the sa
 
 <span class="n">score</span> <span class="o">=</span> <span class="n">jaccard_scorer</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="s2">&quot;text a&quot;</span><span class="p">,</span> <span class="s2">&quot;text b&quot;</span><span class="p">)</span>
 </code></pre></div>
-    While convenient, using <code>import *</code> can sometimes make it less clear where names are coming from in larger projects. For <code>gaico.metrics</code>, which is focused, it's generally acceptable.</p>
-</li>
-<li>
-<p><strong>To see what's available (programmatically):</strong>
-    <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">gaico.metrics</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gaico_metrics</span>
+<p>While convenient, using <code>import *</code> can sometimes make it less clear where names are coming from in larger projects. For <code>gaico.metrics</code>, which is focused, it's generally acceptable.</p>
+<ul>
+<li><strong>To see what's available (programmatically):</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">gaico.metrics</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gaico_metrics</span>
 
 <span class="c1"># Metrics explicitly listed in gaico.metrics.__init__.__all__</span>
 <span class="n">available_metric_class_names</span> <span class="o">=</span> <span class="n">gaico_metrics</span><span class="o">.</span><span class="n">__all__</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Available metric classes for direct use (class names):&quot;</span><span class="p">,</span> <span class="n">available_metric_class_names</span><span class="p">)</span>
 <span class="c1"># Example Output:</span>
 <span class="c1"># Available metric classes for direct use (class names): [&#39;BLEU&#39;, &#39;ROUGE&#39;, &#39;JSDivergence&#39;, &#39;BERTScore&#39;, &#39;CosineSimilarity&#39;, &#39;JaccardSimilarity&#39;, &#39;LevenshteinDistance&#39;, &#39;SequenceMatcherSimilarity&#39;]</span>
-</code></pre></div></p>
-</li>
-</ul>
+</code></pre></div>
 <p>Note that the class names (e.g., <code>JaccardSimilarity</code>) might be different from the shorter keys used in <code>REGISTERED_METRICS</code> (e.g., <code>Jaccard</code>).</p>
 </li>
 <li>
 <p><strong>Metrics available by string name in the <code>Experiment</code> class:</strong>
     These are the metrics registered in <code>gaico.experiment.REGISTERED_METRICS</code>. You can access this dictionary programmatically to see which short names are recognized by the <code>Experiment</code> class:</p>
-<p><div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">gaico.experiment</span><span class="w"> </span><span class="kn">import</span> <span class="n">REGISTERED_METRICS</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">gaico.experiment</span><span class="w"> </span><span class="kn">import</span> <span class="n">REGISTERED_METRICS</span>
 
 <span class="n">registered_metric_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">REGISTERED_METRICS</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Metrics usable by name in Experiment class:&quot;</span><span class="p">,</span> <span class="n">registered_metric_names</span><span class="p">)</span>
 <span class="c1"># Example Output:</span>
 <span class="c1"># [&#39;Jaccard&#39;, &#39;Cosine&#39;, &#39;Levenshtein&#39;, &#39;SequenceMatcher&#39;, &#39;BLEU&#39;, &#39;ROUGE&#39;, &#39;JSD&#39;, &#39;BERTScore&#39;]</span>
 </code></pre></div>
-The <code>gaico.experiment.DEFAULT_METRICS_TO_RUN</code> list also shows which of these are run by default if no specific metrics are requested in <code>Experiment.compare()</code>:
+<p>The <code>gaico.experiment.DEFAULT_METRICS_TO_RUN</code> list also shows which of these are run by default if no specific metrics are requested in <code>Experiment.compare()</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">gaico.experiment</span><span class="w"> </span><span class="kn">import</span> <span class="n">DEFAULT_METRICS_TO_RUN</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Default metrics for Experiment class:&quot;</span><span class="p">,</span> <span class="n">DEFAULT_METRICS_TO_RUN</span><span class="p">)</span>
-</code></pre></div></p>
+</code></pre></div>
 </li>
 </ol>
 <hr />
