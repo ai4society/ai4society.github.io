@@ -255,3 +255,86 @@ button:hover {
   font-size: 14px;
   font-weight: bold;
 }
+
+/* Modal Styling */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  padding-top: 60px; /* Location of the box from top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+.modal-content { /* Style for the image displayed in the modal */
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px; /* Adjust as needed, can be larger for detailed images */
+}
+
+/* Caption of Modal Image */
+#llmVizCaption { /* Specific ID for the LLM Viz Tool modal's caption */
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px; /* Should generally match .modal-content max-width */
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: auto; /* Auto height for caption */
+}
+
+/* Animation for modal appearance */
+.modal-content, #llmVizCaption {
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)}
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+/* The Close Button for the LLM Viz Modal */
+.closeLlmViz {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.closeLlmViz:hover,
+.closeLlmViz:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Thumbnail Image Hover Effect for LLM Viz Tool */
+#llmVizThumbnailImg {
+  border-radius: 5px;
+  cursor: pointer; /* Indicates it's clickable */
+  transition: 0.3s;
+  border: 1px solid #ddd; /* Subtle default border */
+}
+
+#llmVizThumbnailImg:hover {
+  opacity: 0.8;
+  border: 3px solid hsl(60, 100%, 50%); /* Yellow highlight border on hover, matching page theme */
+}

@@ -1,281 +1,597 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Generalized Planning</title>
 
-  <title>Generalized Planning</title>
+    <meta name="author" content="Vishal Pallagani" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="author" content="Vishal Pallagani">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./stylesheet.css" />
 
-  <link rel="stylesheet" type="text/css" href="./stylesheet.css">
-</head>
+    <script>
+      function setupModal(imageId, modalId, modalImgId, captionId, closeClass) {
+        var modal = document.getElementById(modalId);
+        var img = document.getElementById(imageId); // This is the clickable thumbnail image
+        var modalImg = document.getElementById(modalImgId); // This is the <img_tag> inside the modal
+        var captionText = document.getElementById(captionId); // This is the caption text element
 
-<body class="container">
+        // Ensure all elements are found before attaching event handlers
+        if (!modal || !img || !modalImg || !captionText) {
+          console.warn(
+            "Modal setup failed for imageId '" +
+              imageId +
+              "': One or more HTML elements were not found. Check IDs: " +
+              modalId +
+              ", " +
+              modalImgId +
+              ", " +
+              captionId +
+              ", " +
+              closeClass
+          );
+          return;
+        }
 
+        img.onclick = function () {
+          modal.style.display = "block";
+          modalImg.src = this.src; // 'this' refers to the clicked thumbnail (img)
+          captionText.innerHTML = this.alt; // Use alt text of thumbnail as caption
+        };
 
-  <table style="width:80%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-    <tbody>
-      <tr style="padding:0px">
-        <td style="padding-left:2.5%;padding-top:3%;width:63%;vertical-align:middle">
-          <p style="text-align:left">
-            <a href='../../index.html'>Home</a> &nbsp/&nbsp
-            <a href='../index.html'>Projects</a> &nbsp/&nbsp
-          </p>
-        </td>
-      </tr>
+        var span = document.getElementsByClassName(closeClass)[0]; // Get the close button
 
-      <tr style="padding:0px">
-        <td style="padding-left:2.5%;width:63%;vertical-align:middle">
+        if (span) {
+          span.onclick = function () {
+            modal.style.display = "none";
+          };
+        } else {
+          console.warn(
+            "Modal close button with class '" +
+              closeClass +
+              "' not found for modalId '" +
+              modalId +
+              "'."
+          );
+        }
+      }
+    </script>
+  </head>
 
-          <h2 style="display:flex;align-items:center;">
-            <span
-              style="background-color:hsl(60, 100%, 50%);height:20px;width:20px;margin-right:10px;border:1px solid black;"></span>
-            Generalized Planning
-          </h2>
-
-          <div style="border: 2px solid #007acc; border-radius: 5px; padding: 15px; background-color: #f9fbff; box-shadow: 2px 2px 8px rgba(0,0,0,0.1); font-family: Arial, sans-serif;">
-            <h4 style="margin: 0 0 5px 0; color: #007acc;">Key Idea</h4>
-            <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #333;">
-                Our research in <strong>Generalized Planning</strong> focuses on building models and frameworks that reason, plan, and adapt across diverse tasks. We develop transformer-based architectures for sequential decision-making, design agentic systems inspired by <em>Thinking, Fast and Slow</em>, and create knowledge engineering ontologies that support structured reasoning.            </p>
-          </div> <br>
-          
-          <div style="border: 3px solid black; padding: 10px; font-family: Arial, sans-serif;">
-            <p style="margin: 0 0 10px 0;">
-              <b>Quick Start</b>
+  <body class="container">
+    <table
+      style="
+        width: 80%;
+        border: 0px;
+        border-spacing: 0px;
+        border-collapse: separate;
+        margin-right: auto;
+        margin-left: auto;
+      "
+    >
+      <tbody>
+        <tr style="padding: 0px">
+          <td style="padding-left: 2.5%; padding-top: 3%; width: 63%; vertical-align: middle">
+            <p style="text-align: left">
+              <a href="../../index.html">Home</a> &nbsp/&nbsp
+              <a href="../index.html">Projects</a> &nbsp/&nbsp
             </p>
-            <ol style="margin: 0; padding-left: 18px; font-size: 13.5px; color: #333; line-height: 1.6;">
-              <li>
-                To get started with how we fine-tune LLMs for plan generation, explore our lab materials on 
-                <a href="https://github.com/VishalPallagani/LLMsforPlanningLab-AAAI24" target="_blank">GitHub (2024)</a>. 
-                For a detailed comparison of different language model architectures and their effectiveness in generating plans, 
-                read our benchmarking 
-                <a href="https://arxiv.org/abs/2305.16151" target="_blank">paper (2023)</a>.
-              </li>
-              <li>
-                Explore our <a href="https://github.com/ai4society/sofai_tool/tree/main" target="_blank">SOFAI Lab library (2025)</a> to understand our architecture inspired by the principles of <em>Thinking, Fast and Slow</em>, and see how it improves planning performance in 
-                <a href="https://openreview.net/pdf?id=ORAhay0H4x" target="_blank">this paper (2024)</a>.
-              </li>              
-              <li>
-                Learn how we are building a comprehensive Plan Ontology to represent and leverage planning knowledge for downstream applications. 
-                Explore the project details and resources on our 
-                <a href="https://ai4society.github.io/planning-ontology/" target="_blank">website</a>.
-              </li>
-                          </ol>
-          </div>          
+          </td>
+        </tr>
 
-          <p style="text-align: justify;"><span style="background-color: hsl(60, 100%, 50%);"><b>Foundation Models for Planning</b></span><br>
-            <i><b>Collaborators:</b><a target="_blank" href="https://vishalpallagani.github.io/">Vishal Pallagani</a>,
-              <a target="_blank" href="https://bharathmuppasani.github.io/index.html">Bharath Muppasani</a>,
-              <a target="_blank" href="https://sites.google.com/site/biplavsrivastava/home?authuser=0">Biplav
-                Srivastava</a>, <a target="_blank"
-                href="https://researcher.watson.ibm.com/researcher/view.php?person=ibm-Francesca.Rossi2">Francesca
-                Rossi</a>, <a target="_blank"
-                href="https://researcher.watson.ibm.com/researcher/view.php?person=us-lhoresh">Lior Horesh</a>, <a
-                target="_blank" href="https://www.cs.cmu.edu/~kmuruges/Home.html">Keerthiram Murugesan</a>,
-              <a target="_blank" href="https://www.linkedin.com/in/kaushik-roy-b8a323ab/">Kaushik Roy</a>, <a
-                target="_blank" href="https://amit.aiisc.ai/">Amit Sheth</a></i>
-            <br>
-            Large Language Models (LLMs) have been the subject of active research, significantly advancing the field of
-            Natural Language Processing (NLP).
-            From BERT to BLOOM, LLMs have surpassed state-of-the-art results in various natural language tasks such as
-            question-answering, summarization, and text generation.
-            Many ongoing efforts focus on understanding LLMs' capabilities, including their knowledge of the world,
-            syntax, and semantics.
-            However, extending the textual prowess of LLMs to symbolic reasoning has been slow and predominantly focused
-            on tackling problems related to the mathematical field.
-            In this work, we explore the use of LLMs for automated planning - a branch of AI concerned with the
-            realization of action sequences (plans) to achieve a goal, typically executed by intelligent agents,
-            autonomous robots, and unmanned vehicles.
-          </p>
-          <p><i><b>Representative Publications</b></i></p>
-          <ul>
-            <li>Revisiting LLMs in Planning from Literature Review: a Semi-Automated Analysis Approach and Evolving Categories Representing Shifting Perspectives<br>
-              <i>The 35th International Conference on Automated Planning and Scheduling (ICAPS), 2025</i> <br>
-              <a href="https://ai4society.github.io/publications/papers_local/litevol.pdf" target="_blank"><b>[Paper]</b></a>
-              <a href="./bib/position-new.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
-              <a href="https://ai4society.github.io/LLM-Planning-Viz/" target="_blank"
-                type="text/plain"><b>[Visualization Tool]</b></a>
-              <a href="https://github.com/ai4society/LLM-Planning-Viz" target="_blank"
-                type="text/plain"><b>[Github]</b></a>
-            </li>
-            <li>On the Prospects of Incorporating Large Language Models (LLMs) in Automated Planning and Scheduling
-              (APS) <br>
-              <i>The 34th International Conference on Automated Planning and Scheduling (ICAPS), 2024</i> <br>
-              <a href="https://arxiv.org/abs/2401.02500" target="_blank"><b>[Paper]</b></a>
-              <a href="./bib/position.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
-              <a href="https://ai4society.github.io/LLM-Planning-Viz/" target="_blank"
-                type="text/plain"><b>[Visualization Tool]</b></a>
-              <a href="https://github.com/ai4society/LLM-Planning-Viz" target="_blank"
-                type="text/plain"><b>[Github]</b></a>
-            </li>
-            
-            <li>The Case for Developing a Foundation Model for Planning-like Tasks from
-                                    Scratch<br>
-                                <i>Planning and Reinforcement Learning (PRL) Workshop at ICAPS, 2024</i><br>
-                                <a href='https://arxiv.org/abs/2404.04540' target="_blank">[Paper]</a>
-                                <br>
+        <tr style="padding: 0px">
+          <td style="padding-left: 2.5%; width: 63%; vertical-align: middle">
+            <h2 style="display: flex; align-items: center">
+              <span
+                style="
+                  background-color: hsl(60, 100%, 50%);
+                  height: 20px;
+                  width: 20px;
+                  margin-right: 10px;
+                  border: 1px solid black;
+                "
+              ></span>
+              Generalized Planning
+            </h2>
+
+            <div
+              style="
+                border: 2px solid #007acc;
+                border-radius: 5px;
+                padding: 15px;
+                background-color: #f9fbff;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+                font-family: Arial, sans-serif;
+              "
+            >
+              <h4 style="margin: 0 0 5px 0; color: #007acc">Key Idea</h4>
+              <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #333">
+                Our research in <strong>Generalized Planning</strong> focuses on building models and
+                frameworks that reason, plan, and adapt across diverse tasks. We develop
+                transformer-based architectures for sequential decision-making, design agentic
+                systems inspired by <em>Thinking, Fast and Slow</em>, and create knowledge
+                engineering ontologies that support structured reasoning.
+              </p>
+            </div>
+            <br />
+
+            <div style="border: 3px solid black; padding: 10px; font-family: Arial, sans-serif">
+              <p style="margin: 0 0 10px 0">
+                <b>Quick Start</b>
+              </p>
+              <ol
+                style="
+                  margin: 0;
+                  padding-left: 18px;
+                  font-size: 13.5px;
+                  color: #333;
+                  line-height: 1.6;
+                "
+              >
+                <li>
+                  To get started with how we fine-tune LLMs for plan generation, explore our lab
+                  materials on
+                  <a
+                    href="https://github.com/VishalPallagani/LLMsforPlanningLab-AAAI24"
+                    target="_blank"
+                    >GitHub (2024)</a
+                  >. For a detailed comparison of different language model architectures and their
+                  effectiveness in generating plans, read our benchmarking
+                  <a href="https://arxiv.org/abs/2305.16151" target="_blank">paper (2023)</a>.
                 </li>
-            
-            <li>Understanding the Capabilities of Large Language Models for Automated Planning <br>
-              <i>Preprint, 2023 </i> <br>
-              <a href="https://arxiv.org/abs/2305.16151" target="_blank"><b>[Paper]</b></a>
-              <a href="./bib/understanding.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
-            </li>
-            
-            <li> Plansformer Tool: Demonstrating Generation of Symbolic Plans Using Transformers <br>
-              <i>Proc. of the Thirty-Second International Joint Conference on Artificial Intelligence (IJCAI)
-                Demonstrations Track, 2023</i> <br>
-              <a href="https://www.ijcai.org/proceedings/2023/0839.pdf" target="_blank"><b>[Paper]</b></a><a
-                href="uo-sc-plansformer.vercel.app" target="_blank"><b>[Tool Website]</b></a>
-              <a href="https://www.youtube.com/watch?v=_1rlctCGsrk" target="_blank"><b>[Demo]</b></a><a
-                href="./bib/plansformer_tool.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
-            </li>
-            <li>Plansformer: Generating Symbolic Plans using Transformers <br>
-              <i>Workshop on Generalization in Planning (GenPlan) at NeurIPS, 2023</i><br>
-              <a href="https://arxiv.org/abs/2212.08681" target="_blank"><b>[Paper]</b></a>
-              <a href="./bib/plansformer.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
-            </li>
-          </ul>
-          <p><i><b>Representative Activities</b></i></p>
-          <ul>
-            <li>Harnessing Large Language Models for Planning: A Lab on Strategies for Success and Mitigation of
-              Pitfalls<br>
-              <i>AAAI Conference on Artificial Intelligence, 2024</i> <br>
-              <a href="https://github.com/VishalPallagani/LLMsforPlanningLab-AAAI24" target="_blank"><b>[Github]</b></a>
-              <a href="https://sites.google.com/view/llmsxplanning-lab/home" target="_blank"><b>[Website]</b></a>
-              <a href="./bib/aaai_lab.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
-            </li>
-          </ul>
-          <p><i><b>Representative Patents</b></i></p>
-          <ul>
-            <li><b>P202203822US01</b> Plansformer - a transformer planner<br>
-              <i>Francesca Rossi, Lior Horesh, Vishal Pallagani, Biplav Srivastava, Andrea Loreggia</i> <br>
-            </li>
-            <li><b>USC 1702</b> Unsupervised Plan Summarization to Improve Planner Performance and Human Interpretability<br>
-              <i>Biplav Srivastava, Vishal Pallagani</i> <br>
-            </li>
-          </ul>
-      <tr style="padding:0px">
-        <td style="padding-left:2.5%;width:63%;vertical-align:middle">
-          <img src="./images/plansformer.png" style="max-width:50%; display: block; margin: 0 auto;">
-        </td>
-      </tr>
-      </td>
+                <li>
+                  Explore our
+                  <a href="https://github.com/ai4society/sofai_tool/tree/main" target="_blank"
+                    >SOFAI Lab library (2025)</a
+                  >
+                  to understand our architecture inspired by the principles of
+                  <em>Thinking, Fast and Slow</em>, and see how it improves planning performance in
+                  <a href="https://openreview.net/pdf?id=ORAhay0H4x" target="_blank"
+                    >this paper (2024)</a
+                  >.
+                </li>
+                <li>
+                  Learn how we are building a comprehensive Plan Ontology to represent and leverage
+                  planning knowledge for downstream applications. Explore the project details and
+                  resources on our
+                  <a href="https://ai4society.github.io/planning-ontology/" target="_blank"
+                    >website</a
+                  >.
+                </li>
 
-      </tr>
+                <li style="margin-top: 10px">
+                  <div style="display: flex; align-items: flex-start; gap: 10px; margin-top: 5px">
+                    <div style="flex-grow: 1">
+                      The
+                      <a href="https://ai4society.github.io/LLM-Planning-Viz/" target="_blank"
+                        >LLM Planning Visualization Tool</a
+                      >
+                      offers an interactive way to explore the evolution and landscape of Large
+                      Language Models in planning research. This tool, part of the
+                      <a href="https://ai4society.github.io/planfm/" target="_blank"
+                        >NAIRR PlanFM project</a
+                      >, provides dynamic insights into research trends.
+                      <i>(Click image to enlarge)</i>
+                    </div>
+                    <div style="flex-shrink: 0">
+                      <img
+                        id="llmVizThumbnailImg"
+                        src="../../images/llm-planning-viz-thumbnail.png"
+                        alt="LLM Planning Visualization Tool: Interactive dashboard showcasing research trends in LLMs for planning."
+                        style="
+                          width: 150px;
+                          height: auto;
+                          max-height: 100px;
+                          display: block;
+                          border: 1px solid #ccc;
+                        "
+                      />
+                      <!-- In-line styles for cursor and border-radius are handled by CSS #llmVizThumbnailImg -->
+                    </div>
+                  </div>
+                </li>
+              </ol>
+            </div>
 
-      <tr style="padding: 0px">
-        <td style="padding-left:2.5%;width:63%;vertical-align:middle">
-          <p style="text-align: justify;"><span style="background-color: hsl(60, 100%, 50%);"><b>Planning using Fast and
-                Slow AI Architecture</b></span><br>
-            <i><b>Collaborators: </b><a target="_blank" href="https://vishalpallagani.github.io/">Vishal Pallagani</a>,
-              <a target="_blank" href="https://sites.google.com/site/biplavsrivastava/home?authuser=0">Biplav
-                Srivastava</a>, <a target="_blank"
-                href="https://researcher.watson.ibm.com/researcher/view.php?person=ibm-Francesca.Rossi2">Francesca
-                Rossi</a>, <a target="_blank"
-                href="https://researcher.watson.ibm.com/researcher/view.php?person=us-lhoresh">Lior Horesh</a>, <a
-                target="_blank" href="https://www.cs.cmu.edu/~kmuruges/Home.html">Keerthiram Murugesan</a></i><br>
-            The newly introduced idea of Fast and Slow AI (SOFAI) architecture is inspired from the cognitive theories
-            mentioned by Daniel Kahneman in Thinking Fast and Slow.
-            This research project aims to build AI-supported machines that can
-          <ol>
-            <li style="color:green">make decisions with emergent behaviors similar to the human ones, and</li>
-            <li style="color:green">support human decision making through nudging and explanations.</li>
-          </ol>
-          </p>
-          <p style="text-align: justify;">To achieve these goals, the team is designing and building a cognitive
-            architecture
-            to mimic these two broad modalities in a machine. We adapt the SOFAI architecture to solving planning
-            domains
-            where incoming problems are solved by either <b>system 1</b> (or ”fast” - S1) agents, also called solvers,
-            that
-            react by exploiting either past experience (case-based reasoning) or using a learnt model called as
-            Plansformer, or by <b>system 2</b> (or ”slow” - S2) agents, that are deliberately activated when there is
-            the
-            need to reason and search for optimal solutions beyond what is expected from the system 1 agent.
-            SOFAI architecture with Plansformer as S1 solves more problems than the symbolic planner
-            (FastDownward, which is also used as S2). Visit the <a href="https://sites.google.com/view/sofai/home"
-              target="_blank">dedicated website</a> for more details on <b>SOFAI</b>.
-          </p>
+            <!-- Modal HTML for LLM Planning Viz Tool -->
+            <div id="llmVizModal" class="modal">
+              <span class="closeLlmViz">&times;</span>
+              <img class="modal-content" id="llmVizModalImg" />
+              <div id="llmVizCaption"></div>
+            </div>
 
-          <p><i><b>Representative Publications</b></i></p>
-          <ul>
-            <li>Plan-SOFAI: A Neuro-Symbolic Planning Architecture<br>
-              <i>Neuro-Symbolic Learning and Reasoning in the era of Large Language Models (NuCLeaR) Workshop at AAAI
-                2024</i><br>
-              <a href="https://openreview.net/pdf?id=ORAhay0H4x" target="_blank"><b>[Paper]</b></a>
-              <a href="./bib/plan-sofai.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
-            </li>
-            <li>Fast and Slow Planning<br>
-              <i>Preprint</i><br>
-              <a href="https://arxiv.org/pdf/2303.04283.pdf" target="_blank"><b>[Paper]</b></a>
-              <a href="./bib/fastslow.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
-            </li>
-            <li>Epistemic Planning in a Fast and Slow Setting<br>
-              <i>AAAI 2022 Fall Symposium Series, Thinking Fast and Slow and Other Cognitive Theories in AI
-                track</i><br>
-              <a href="https://ceur-ws.org/Vol-3332/paper7.pdf" target="_blank"><b>[Paper]</b></a>
-              <a href="./bib/epistemic.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
-            </li>
-          </ul>
-          <p><i><b>Representative Activities</b></i></p>
-          <ul>
-            <li>SOFAI Lab: A Hands-On Guide to Building Neurosymbolic Systems with Metacognitive Control <br>
-              <i>AAAI Conference on Artificial Intelligence, 2025</i> <br>
-              <a href="https://github.com/ai4society/sofai_tool/tree/main" target="_blank"><b>[Github]</b></a>
-              <a href="./bib/sofai_lab.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
-            </li>
-          </ul>
-    
-      <tr style="padding:0px">
-        <td style="padding-left:2.5%;width:63%;vertical-align:middle">
-          <img src="./images/SOFAI.png" style="max-width:40%; display: block; margin: 0 auto;">
-        </td>
-      </tr>
-      </td>
+            <!-- Script to activate the modal for the LLM Planning Viz Tool image -->
+            <script>
+              setupModal(
+                "llmVizThumbnailImg",
+                "llmVizModal",
+                "llmVizModalImg",
+                "llmVizCaption",
+                "closeLlmViz"
+              );
+            </script>
 
-      </tr>
+            <p style="text-align: justify">
+              <span style="background-color: hsl(60, 100%, 50%)"
+                ><b>Foundation Models for Planning</b></span
+              ><br />
+              <i
+                ><b>Collaborators:</b
+                ><a target="_blank" href="https://vishalpallagani.github.io/">Vishal Pallagani</a>,
+                <a target="_blank" href="https://bharathmuppasani.github.io/index.html"
+                  >Bharath Muppasani</a
+                >,
+                <a
+                  target="_blank"
+                  href="https://sites.google.com/site/biplavsrivastava/home?authuser=0"
+                  >Biplav Srivastava</a
+                >,
+                <a
+                  target="_blank"
+                  href="https://researcher.watson.ibm.com/researcher/view.php?person=ibm-Francesca.Rossi2"
+                  >Francesca Rossi</a
+                >,
+                <a
+                  target="_blank"
+                  href="https://researcher.watson.ibm.com/researcher/view.php?person=us-lhoresh"
+                  >Lior Horesh</a
+                >,
+                <a target="_blank" href="https://www.cs.cmu.edu/~kmuruges/Home.html"
+                  >Keerthiram Murugesan</a
+                >,
+                <a target="_blank" href="https://www.linkedin.com/in/kaushik-roy-b8a323ab/"
+                  >Kaushik Roy</a
+                >, <a target="_blank" href="https://amit.aiisc.ai/">Amit Sheth</a></i
+              >
+              <br />
+              Large Language Models (LLMs) have been the subject of active research, significantly
+              advancing the field of Natural Language Processing (NLP). From BERT to BLOOM, LLMs
+              have surpassed state-of-the-art results in various natural language tasks such as
+              question-answering, summarization, and text generation. Many ongoing efforts focus on
+              understanding LLMs' capabilities, including their knowledge of the world, syntax, and
+              semantics. However, extending the textual prowess of LLMs to symbolic reasoning has
+              been slow and predominantly focused on tackling problems related to the mathematical
+              field. In this work, we explore the use of LLMs for automated planning - a branch of
+              AI concerned with the realization of action sequences (plans) to achieve a goal,
+              typically executed by intelligent agents, autonomous robots, and unmanned vehicles.
+            </p>
+            <p>
+              <i><b>Representative Publications</b></i>
+            </p>
+            <ul>
+              <li>
+                Revisiting LLMs in Planning from Literature Review: a Semi-Automated Analysis
+                Approach and Evolving Categories Representing Shifting Perspectives<br />
+                <i
+                  >The 35th International Conference on Automated Planning and Scheduling (ICAPS),
+                  2025</i
+                >
+                <br />
+                <a
+                  href="https://ai4society.github.io/publications/papers_local/litevol.pdf"
+                  target="_blank"
+                  ><b>[Paper]</b></a
+                >
+                <a href="./bib/position-new.txt" target="_blank" type="text/plain"
+                  ><b>[BibTex]</b></a
+                >
+                <a
+                  href="https://ai4society.github.io/LLM-Planning-Viz/"
+                  target="_blank"
+                  type="text/plain"
+                  ><b>[Visualization Tool]</b></a
+                >
+                <a
+                  href="https://github.com/ai4society/LLM-Planning-Viz"
+                  target="_blank"
+                  type="text/plain"
+                  ><b>[Github]</b></a
+                >
+              </li>
+              <li>
+                On the Prospects of Incorporating Large Language Models (LLMs) in Automated Planning
+                and Scheduling (APS) <br />
+                <i
+                  >The 34th International Conference on Automated Planning and Scheduling (ICAPS),
+                  2024</i
+                >
+                <br />
+                <a href="https://arxiv.org/abs/2401.02500" target="_blank"><b>[Paper]</b></a>
+                <a href="./bib/position.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
+                <a
+                  href="https://ai4society.github.io/LLM-Planning-Viz/"
+                  target="_blank"
+                  type="text/plain"
+                  ><b>[Visualization Tool]</b></a
+                >
+                <a
+                  href="https://github.com/ai4society/LLM-Planning-Viz"
+                  target="_blank"
+                  type="text/plain"
+                  ><b>[Github]</b></a
+                >
+              </li>
 
-      <tr style="padding: 0px">
-        <td style="padding-left:2.5%;width:63%;vertical-align:middle">
-          <p style="text-align: justify;"><span style="background-color: hsl(60, 100%, 50%);"><b>Knowledge Engineering for Planning</b></span><br>
-            <i><b>Collaborators: </b>(Students)</i> Bharath Muppasani, Nitin Gupta and Vishal Pallagani <i>(Faculty)</i> Biplav Srivastava, Raghava Mutharaju, Michael N. Huhns and Vignesh Narayanan<br>
-          </p>
-          <p style="text-align: justify;">Ontologies are known for their ability to organize rich metadata, support the identification of novel insights via semantic queries, and promote reuse. In this paper, we consider the problem of automated planning, where the objective is to find a sequence of actions that will move an agent from an initial state of the world to a desired goal state. We hypothesize that given a large number of available planners and diverse planning domains; they carry essential information that can be leveraged to identify suitable planners and improve their performance for a domain. We use data on planning domains and planners from the International Planning Competition (IPC) to construct a planning ontology and demonstrate via experiments in two use cases that the ontology can lead to the selection of promising planners and improving their performance using macros - a form of action ordering constraints extracted from planning ontology. We also make the planning ontology and associated resources available to the community to promote further research.
-          </p>
+              <li>
+                The Case for Developing a Foundation Model for Planning-like Tasks from Scratch<br />
+                <i>Planning and Reinforcement Learning (PRL) Workshop at ICAPS, 2024</i><br />
+                <a href="https://arxiv.org/abs/2404.04540" target="_blank">[Paper]</a>
+                <br />
+              </li>
 
-          <p><i><b>Representative Publications</b></i></p>
-          <ul>
-            <li>Building a Plan Ontology to Represent and Exploit Planning Knowledge and Its Applications<br>
-              <i>Eighth International Conference on Data Science and Management of Data (CODS-COMAD '24), India, 2024.</i><br>
-              <a href='./papers_local/CODS_24_AI_Planning_Ontology.pdf' target="_blank">[Paper]</a>
-              <a href="https://ai4society.github.io/planning-ontology/" target="_blank">[Website]</a>
-            </li>
-          </ul>
-          <p><i><b>Representative Patents</b></i></p>
-          <ul>
-            <li><b>USC 1649</b> Improving Planner Performance by Learning and Using Metadata of Experiences<br>
-              <i>Biplav Srivastava, Vishal Pallagani, Bharath Muppasani</i> <br>
-            </li>
-          </ul>
-      <tr style="padding:0px">
-        <td style="padding-left:2.5%;width:63%;vertical-align:middle">
-          <img src="./images/planning_ontology.png" style="max-width:90%; display: block; margin: 0 auto;">
-        </td>
-      </tr>
-      </td>
+              <li>
+                Understanding the Capabilities of Large Language Models for Automated Planning
+                <br />
+                <i>Preprint, 2023 </i> <br />
+                <a href="https://arxiv.org/abs/2305.16151" target="_blank"><b>[Paper]</b></a>
+                <a href="./bib/understanding.txt" target="_blank" type="text/plain"
+                  ><b>[BibTex]</b></a
+                >
+              </li>
 
-      </tr>
+              <li>
+                Plansformer Tool: Demonstrating Generation of Symbolic Plans Using Transformers
+                <br />
+                <i
+                  >Proc. of the Thirty-Second International Joint Conference on Artificial
+                  Intelligence (IJCAI) Demonstrations Track, 2023</i
+                >
+                <br />
+                <a href="https://www.ijcai.org/proceedings/2023/0839.pdf" target="_blank"
+                  ><b>[Paper]</b></a
+                ><a href="uo-sc-plansformer.vercel.app" target="_blank"><b>[Tool Website]</b></a>
+                <a href="https://www.youtube.com/watch?v=_1rlctCGsrk" target="_blank"
+                  ><b>[Demo]</b></a
+                ><a href="./bib/plansformer_tool.txt" target="_blank" type="text/plain"
+                  ><b>[BibTex]</b></a
+                >
+              </li>
+              <li>
+                Plansformer: Generating Symbolic Plans using Transformers <br />
+                <i>Workshop on Generalization in Planning (GenPlan) at NeurIPS, 2023</i><br />
+                <a href="https://arxiv.org/abs/2212.08681" target="_blank"><b>[Paper]</b></a>
+                <a href="./bib/plansformer.txt" target="_blank" type="text/plain"
+                  ><b>[BibTex]</b></a
+                >
+              </li>
+            </ul>
+            <p>
+              <i><b>Representative Activities</b></i>
+            </p>
+            <ul>
+              <li>
+                Harnessing Large Language Models for Planning: A Lab on Strategies for Success and
+                Mitigation of Pitfalls<br />
+                <i>AAAI Conference on Artificial Intelligence, 2024</i> <br />
+                <a
+                  href="https://github.com/VishalPallagani/LLMsforPlanningLab-AAAI24"
+                  target="_blank"
+                  ><b>[Github]</b></a
+                >
+                <a href="https://sites.google.com/view/llmsxplanning-lab/home" target="_blank"
+                  ><b>[Website]</b></a
+                >
+                <a href="./bib/aaai_lab.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
+              </li>
+            </ul>
+            <p>
+              <i><b>Representative Patents</b></i>
+            </p>
+            <ul>
+              <li>
+                <b>P202203822US01</b> Plansformer - a transformer planner<br />
+                <i
+                  >Francesca Rossi, Lior Horesh, Vishal Pallagani, Biplav Srivastava, Andrea
+                  Loreggia</i
+                >
+                <br />
+              </li>
+              <li>
+                <b>USC 1702</b> Unsupervised Plan Summarization to Improve Planner Performance and
+                Human Interpretability<br />
+                <i>Biplav Srivastava, Vishal Pallagani</i> <br />
+              </li>
+            </ul>
+            <tr style="padding: 0px">
+              <td style="padding-left: 2.5%; width: 63%; vertical-align: middle">
+                <img
+                  src="./images/plansformer.png"
+                  style="max-width: 50%; display: block; margin: 0 auto"
+                />
+              </td>
+            </tr>
+          </td>
+        </tr>
 
-      <tr style="padding:0px">
-        <td style="padding-left:2.5%;width:63%;vertical-align:middle">
-          <hr style="width: 100%; float: left;">
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</body>
+        <tr style="padding: 0px">
+          <td style="padding-left: 2.5%; width: 63%; vertical-align: middle">
+            <p style="text-align: justify">
+              <span style="background-color: hsl(60, 100%, 50%)"
+                ><b>Planning using Fast and Slow AI Architecture</b></span
+              ><br />
+              <i
+                ><b>Collaborators: </b
+                ><a target="_blank" href="https://vishalpallagani.github.io/">Vishal Pallagani</a>,
+                <a
+                  target="_blank"
+                  href="https://sites.google.com/site/biplavsrivastava/home?authuser=0"
+                  >Biplav Srivastava</a
+                >,
+                <a
+                  target="_blank"
+                  href="https://researcher.watson.ibm.com/researcher/view.php?person=ibm-Francesca.Rossi2"
+                  >Francesca Rossi</a
+                >,
+                <a
+                  target="_blank"
+                  href="https://researcher.watson.ibm.com/researcher/view.php?person=us-lhoresh"
+                  >Lior Horesh</a
+                >,
+                <a target="_blank" href="https://www.cs.cmu.edu/~kmuruges/Home.html"
+                  >Keerthiram Murugesan</a
+                ></i
+              ><br />
+              The newly introduced idea of Fast and Slow AI (SOFAI) architecture is inspired from
+              the cognitive theories mentioned by Daniel Kahneman in Thinking Fast and Slow. This
+              research project aims to build AI-supported machines that can
+            </p>
 
+            <ol>
+              <li style="color: green">
+                make decisions with emergent behaviors similar to the human ones, and
+              </li>
+              <li style="color: green">
+                support human decision making through nudging and explanations.
+              </li>
+            </ol>
+            <!-- </p> -->
+            <p style="text-align: justify">
+              To achieve these goals, the team is designing and building a cognitive architecture to
+              mimic these two broad modalities in a machine. We adapt the SOFAI architecture to
+              solving planning domains where incoming problems are solved by either
+              <b>system 1</b> (or ”fast” - S1) agents, also called solvers, that react by exploiting
+              either past experience (case-based reasoning) or using a learnt model called as
+              Plansformer, or by <b>system 2</b> (or ”slow” - S2) agents, that are deliberately
+              activated when there is the need to reason and search for optimal solutions beyond
+              what is expected from the system 1 agent. SOFAI architecture with Plansformer as S1
+              solves more problems than the symbolic planner (FastDownward, which is also used as
+              S2). Visit the
+              <a href="https://sites.google.com/view/sofai/home" target="_blank"
+                >dedicated website</a
+              >
+              for more details on <b>SOFAI</b>.
+            </p>
+
+            <p>
+              <i><b>Representative Publications</b></i>
+            </p>
+            <ul>
+              <li>
+                Plan-SOFAI: A Neuro-Symbolic Planning Architecture<br />
+                <i
+                  >Neuro-Symbolic Learning and Reasoning in the era of Large Language Models
+                  (NuCLeaR) Workshop at AAAI 2024</i
+                ><br />
+                <a href="https://openreview.net/pdf?id=ORAhay0H4x" target="_blank"
+                  ><b>[Paper]</b></a
+                >
+                <a href="./bib/plan-sofai.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
+              </li>
+              <li>
+                Fast and Slow Planning<br />
+                <i>Preprint</i><br />
+                <a href="https://arxiv.org/pdf/2303.04283.pdf" target="_blank"><b>[Paper]</b></a>
+                <a href="./bib/fastslow.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
+              </li>
+              <li>
+                Epistemic Planning in a Fast and Slow Setting<br />
+                <i
+                  >AAAI 2022 Fall Symposium Series, Thinking Fast and Slow and Other Cognitive
+                  Theories in AI track</i
+                ><br />
+                <a href="https://ceur-ws.org/Vol-3332/paper7.pdf" target="_blank"><b>[Paper]</b></a>
+                <a href="./bib/epistemic.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
+              </li>
+            </ul>
+            <p>
+              <i><b>Representative Activities</b></i>
+            </p>
+            <ul>
+              <li>
+                SOFAI Lab: A Hands-On Guide to Building Neurosymbolic Systems with Metacognitive
+                Control <br />
+                <i>AAAI Conference on Artificial Intelligence, 2025</i> <br />
+                <a href="https://github.com/ai4society/sofai_tool/tree/main" target="_blank"
+                  ><b>[Github]</b></a
+                >
+                <a href="./bib/sofai_lab.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
+              </li>
+            </ul>
+
+            <tr style="padding: 0px">
+              <td style="padding-left: 2.5%; width: 63%; vertical-align: middle">
+                <img
+                  src="./images/SOFAI.png"
+                  style="max-width: 40%; display: block; margin: 0 auto"
+                />
+              </td>
+            </tr>
+          </td>
+        </tr>
+
+        <tr style="padding: 0px">
+          <td style="padding-left: 2.5%; width: 63%; vertical-align: middle">
+            <p style="text-align: justify">
+              <span style="background-color: hsl(60, 100%, 50%)"
+                ><b>Knowledge Engineering for Planning</b></span
+              ><br />
+              <i><b>Collaborators: </b>(Students)</i> Bharath Muppasani, Nitin Gupta and Vishal
+              Pallagani <i>(Faculty)</i> Biplav Srivastava, Raghava Mutharaju, Michael N. Huhns and
+              Vignesh Narayanan<br />
+            </p>
+            <p style="text-align: justify">
+              Ontologies are known for their ability to organize rich metadata, support the
+              identification of novel insights via semantic queries, and promote reuse. In this
+              paper, we consider the problem of automated planning, where the objective is to find a
+              sequence of actions that will move an agent from an initial state of the world to a
+              desired goal state. We hypothesize that given a large number of available planners and
+              diverse planning domains; they carry essential information that can be leveraged to
+              identify suitable planners and improve their performance for a domain. We use data on
+              planning domains and planners from the International Planning Competition (IPC) to
+              construct a planning ontology and demonstrate via experiments in two use cases that
+              the ontology can lead to the selection of promising planners and improving their
+              performance using macros - a form of action ordering constraints extracted from
+              planning ontology. We also make the planning ontology and associated resources
+              available to the community to promote further research.
+            </p>
+
+            <p>
+              <i><b>Representative Publications</b></i>
+            </p>
+            <ul>
+              <li>
+                Building a Plan Ontology to Represent and Exploit Planning Knowledge and Its
+                Applications<br />
+                <i
+                  >Eighth International Conference on Data Science and Management of Data
+                  (CODS-COMAD '24), India, 2024.</i
+                ><br />
+                <a href="./papers_local/CODS_24_AI_Planning_Ontology.pdf" target="_blank"
+                  >[Paper]</a
+                >
+                <a href="https://ai4society.github.io/planning-ontology/" target="_blank"
+                  >[Website]</a
+                >
+              </li>
+            </ul>
+            <p>
+              <i><b>Representative Patents</b></i>
+            </p>
+            <ul>
+              <li>
+                <b>USC 1649</b> Improving Planner Performance by Learning and Using Metadata of
+                Experiences<br />
+                <i>Biplav Srivastava, Vishal Pallagani, Bharath Muppasani</i> <br />
+              </li>
+            </ul>
+            <tr style="padding: 0px">
+              <td style="padding-left: 2.5%; width: 63%; vertical-align: middle">
+                <img
+                  src="./images/planning_ontology.png"
+                  style="max-width: 90%; display: block; margin: 0 auto"
+                />
+              </td>
+            </tr>
+          </td>
+        </tr>
+
+        <tr style="padding: 0px">
+          <td style="padding-left: 2.5%; width: 63%; vertical-align: middle">
+            <hr style="width: 100%; float: left" />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
 </html>
