@@ -11,10 +11,10 @@
         <link rel="canonical" href="https://ai4society.github.io/projects/GenAIResultsComparator/news/">
       
       
-        <link rel="prev" href="../quickstart/">
+        <link rel="prev" href="..">
       
       
-        <link rel="next" href="../api/metrics/">
+        <link rel="next" href="../quickstart/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -240,25 +240,6 @@
   
   
   
-  
-    <li class="md-tabs__item">
-      <a href="../quickstart/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Quick Start
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
     
   
   
@@ -270,6 +251,25 @@
     
   
   News
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../quickstart/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Quick Start
 
       </a>
     </li>
@@ -465,28 +465,6 @@
       
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../quickstart/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Quick Start
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
     
   
   
@@ -559,9 +537,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#quick-start-example-020" class="md-nav__link">
+  <a href="#quick-start-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Quick Start Example (0.2.0):
+      Quick Start Example:
     </span>
   </a>
   
@@ -592,9 +570,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#quick-start-example-015" class="md-nav__link">
+  <a href="#quick-start-example_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Quick Start Example (0.1.5):
+      Quick Start Example:
     </span>
   </a>
   
@@ -609,6 +587,28 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quick Start
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1374,11 +1374,10 @@
 <li><strong>Automated Planning:</strong> Added <code>PlanningLCS</code> and <code>PlanningJaccard</code> for analyzing planning sequences.</li>
 <li><strong>Time-Series:</strong> Introduced metrics like <code>TimeSeriesElementDiff</code> and <code>TimeSeriesDTW</code> for evaluating time-series data.</li>
 </ul>
-<h3 id="quick-start-example-020">Quick Start Example (0.2.0):<a class="headerlink" href="#quick-start-example-020" title="Permanent link">&para;</a></h3>
+<h3 id="quick-start-example">Quick Start Example:<a class="headerlink" href="#quick-start-example" title="Permanent link">&para;</a></h3>
 <p>This example demonstrates using the <code>Experiment</code> class with a mix of general and specialized metrics.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">gaico</span><span class="w"> </span><span class="kn">import</span> <span class="n">Experiment</span>
 
-<span class="c1"># Initialize Experiment with references for different data types</span>
 <span class="n">exp</span> <span class="o">=</span> <span class="n">Experiment</span><span class="p">(</span>
     <span class="n">llm_responses</span><span class="o">=</span><span class="p">{</span>
         <span class="s2">&quot;Model A&quot;</span><span class="p">:</span> <span class="s2">&quot;t1:1, t2:2, t3:3, t4:4, t5:3, t6:2&quot;</span><span class="p">,</span>
@@ -1395,9 +1394,9 @@
 <span class="p">)</span>
 </code></pre></div>
 <figure>
-  <img src="https://raw.githubusercontent.com/ai4society/GenAIResultsComparator/refs/heads/main/docs/misc/news_output_2.png" alt="Quick Start Example Output" style="display: block; margin: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+  <img alt="Quick Start Example Output" src="https://raw.githubusercontent.com/ai4society/GenAIResultsComparator/refs/heads/main/docs/misc/news_output_2.png" width="600" />
 <br />
-<figcaption><em>GAICo Quick Start Example Output</em></figcaption>
+<figcaption><em>GAICo v0.2.0 Quick Start Example Output</em></figcaption>
 </figure>
 <hr />
 <h2 id="015-june-2025">0.1.5 - June 2025<a class="headerlink" href="#015-june-2025" title="Permanent link">&para;</a></h2>
@@ -1409,7 +1408,7 @@
 <li><strong>Basic Visualizations:</strong> Enabled the creation of bar charts and radar plots for visualizing metric scores.</li>
 <li><strong>Extensible Architecture:</strong> Designed for easy addition of new metrics.</li>
 </ul>
-<h3 id="quick-start-example-015">Quick Start Example (0.1.5):<a class="headerlink" href="#quick-start-example-015" title="Permanent link">&para;</a></h3>
+<h3 id="quick-start-example_1">Quick Start Example:<a class="headerlink" href="#quick-start-example_1" title="Permanent link">&para;</a></h3>
 <p>This example showcases the basic usage of the <code>Experiment</code> class for comparing general text responses.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">gaico</span><span class="w"> </span><span class="kn">import</span> <span class="n">Experiment</span>
 
@@ -1435,9 +1434,9 @@
 <span class="p">)</span>
 </code></pre></div>
 <figure>
-  <img src="https://raw.githubusercontent.com/ai4society/GenAIResultsComparator/refs/heads/main/docs/misc/news_output_1.png" alt="Quick Start Example Output" style="display: block; margin: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+  <img alt="Quick Start Example Output" src="https://raw.githubusercontent.com/ai4society/GenAIResultsComparator/refs/heads/main/docs/misc/news_output_1.png" width="600" />
 <br />
-<figcaption><em>GAICo Quick Start Example Output</em></figcaption>
+<figcaption><em>GAICo v0.1.5 Quick Start Example Output</em></figcaption>
 </figure>
 
 
