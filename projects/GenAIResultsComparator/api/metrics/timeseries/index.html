@@ -1471,7 +1471,7 @@ e.g., "t1:70, t2:72, t3:75".</p>
 
 
 <a href="#gaico.metrics.structured.TimeSeriesElementDiff.__init__" class="headerlink" title="Permanent link">&para;</a></h3>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">__init__</span><span class="p">(</span><span class="n">key_to_value_weight_ratio</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">__init__</span><span class="p">(</span><span class="n">key_to_value_weight_ratio</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -1504,6 +1504,22 @@ e.g., "t1:70, t2:72, t3:75".</p>
             </td>
             <td>
                   <code>2.0</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>normalize</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If True, applies min-max normalization to each series' values before comparison. Defaults to False.</p>
+              </div>
+            </td>
+            <td>
+                  <code>False</code>
             </td>
           </tr>
       </tbody>
@@ -1625,7 +1641,7 @@ e.g., "t1:70, 72, t3:75". Non-numeric parts will be ignored with a warning.</p>
 
 
 <a href="#gaico.metrics.structured.TimeSeriesDTW.__init__" class="headerlink" title="Permanent link">&para;</a></h3>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">__init__</span><span class="p">(</span><span class="n">similarity_method</span><span class="o">=</span><span class="s1">&#39;reciprocal&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">__init__</span><span class="p">(</span><span class="n">similarity_method</span><span class="o">=</span><span class="s1">&#39;reciprocal&#39;</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -1658,6 +1674,22 @@ e.g., "t1:70, 72, t3:75". Non-numeric parts will be ignored with a warning.</p>
             </td>
             <td>
                   <code>&#39;reciprocal&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>normalize</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If True, applies min-max normalization to each series' values before comparison. Defaults to False.</p>
+              </div>
+            </td>
+            <td>
+                  <code>False</code>
             </td>
           </tr>
           <tr class="doc-section-item">
