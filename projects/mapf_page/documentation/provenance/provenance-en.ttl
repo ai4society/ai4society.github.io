@@ -1,0 +1,12 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix : <> .
+<https://purl.org/ai4s/ontology/planning/multi-agent/v1.0.0> a prov:Entity;
+	 dc:title "Multi-Agent Planning Ontology";
+	 prov:wasAttributedTo :agent0;
+	 prov:wasAttributedTo :agent1;
+	 prov:wasAttributedTo <https://github.com/dgarijo/Widoco/>,<http://www.essepuntato.it/lode/>;
+.
+:agent0 a prov:Agent; foaf:name "Bharath Muppasani".
+:agent1 a prov:Agent; foaf:name "This ontology extends the base Planning Ontology available at https://ai4society.github.io/planning-ontology#".

@@ -1,0 +1,484 @@
+<https://purl.org/ai4s/ontology/planning/multi-agent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<https://purl.org/ai4s/ontology/planning/multi-agent> <http://www.w3.org/2002/07/owl#versionIRI> <https://purl.org/ai4s/ontology/planning/multi-agent/v1.0.0> .
+<https://purl.org/ai4s/ontology/planning/multi-agent> <http://www.w3.org/2002/07/owl#imports> <http://www.w3.org/2006/time#> .
+<https://purl.org/ai4s/ontology/planning/multi-agent> <http://www.w3.org/2002/07/owl#imports> <http://www.w3.org/ns/prov#> .
+<https://purl.org/ai4s/ontology/planning/multi-agent> <http://www.w3.org/2002/07/owl#imports> <http://www.w3.org/ns/sosa/> .
+<https://purl.org/ai4s/ontology/planning/multi-agent> <http://purl.org/dc/terms/contributor> "This ontology extends the base Planning Ontology available at https://ai4society.github.io/planning-ontology#" .
+<https://purl.org/ai4s/ontology/planning/multi-agent> <http://purl.org/dc/terms/creator> "Bharath Muppasani" .
+<https://purl.org/ai4s/ontology/planning/multi-agent> <http://purl.org/dc/terms/description> "An ontology for representing knowledge in Multi-Agent Path Finding (MAPF) problems. This ontology defines concepts such as agents, plans, conflicts, and replanning strategies to support explainable AI in MAPF."@en .
+<https://purl.org/ai4s/ontology/planning/multi-agent> <http://purl.org/dc/terms/issued> "2024-07-22"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://purl.org/ai4s/ontology/planning/multi-agent> <http://purl.org/dc/terms/license> <http://creativecommons.org/licenses/by/4.0/> .
+<https://purl.org/ai4s/ontology/planning/multi-agent> <http://purl.org/dc/terms/title> "Multi-Agent Planning Ontology" .
+<https://purl.org/ai4s/ontology/planning/multi-agent> <http://purl.org/vocab/vann/preferredNamespaceUri> "https://purl.org/ai4s/ontology/planning/multi-agent#" .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/terms/issued
+<http://purl.org/dc/terms/issued> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/ns/prov#wasDerivedFrom
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# http://www.w3.org/ns/prov#wasGeneratedBy
+<http://www.w3.org/ns/prov#wasGeneratedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#agentAt
+<https://purl.org/ai4s/ontology/planning/multi-agent#agentAt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#agentAt> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#AgentState> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#agentAt> <http://www.w3.org/2000/01/rdf-schema#range> <https://purl.org/ai4s/ontology/planning/multi-agent#GridLocation> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#alertsConflict
+<https://purl.org/ai4s/ontology/planning/multi-agent#alertsConflict> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#alertsConflict> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#alertsConflict> <http://www.w3.org/2000/01/rdf-schema#range> <https://purl.org/ai4s/ontology/planning/multi-agent#CollisionEvent> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#atLocation
+<https://purl.org/ai4s/ontology/planning/multi-agent#atLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#atLocation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2002/07/owl#Thing> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#atLocation> <http://www.w3.org/2000/01/rdf-schema#range> <https://purl.org/ai4s/ontology/planning/multi-agent#GridLocation> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#belongsToAgent
+<https://purl.org/ai4s/ontology/planning/multi-agent#belongsToAgent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#belongsToAgent> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#AgentSubPlan> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#belongsToAgent> <http://www.w3.org/2000/01/rdf-schema#range> <https://purl.org/ai4s/ontology/planning/multi-agent#Agent> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#belongsToAgentSegment
+<https://purl.org/ai4s/ontology/planning/multi-agent#belongsToAgentSegment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#belongsToAgentSegment> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#AgentPathSegment> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#belongsToAgentSegment> <http://www.w3.org/2000/01/rdf-schema#range> <https://purl.org/ai4s/ontology/planning/multi-agent#Agent> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#composedOfSubPlans
+<https://purl.org/ai4s/ontology/planning/multi-agent#composedOfSubPlans> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#composedOfSubPlans> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#JointPlan> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#composedOfSubPlans> <http://www.w3.org/2000/01/rdf-schema#range> <https://purl.org/ai4s/ontology/planning/multi-agent#AgentSubPlan> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#conflictLocation
+<https://purl.org/ai4s/ontology/planning/multi-agent#conflictLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#conflictLocation> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#CollisionEvent> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#conflictLocation> <http://www.w3.org/2000/01/rdf-schema#range> <https://purl.org/ai4s/ontology/planning/multi-agent#GridLocation> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#derivesFrom
+<https://purl.org/ai4s/ontology/planning/multi-agent#derivesFrom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#derivesFrom> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasDerivedFrom> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#derivesFrom> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#ResolvedSubPlan> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#derivesFrom> <http://www.w3.org/2000/01/rdf-schema#range> <https://purl.org/ai4s/ontology/planning/multi-agent#OriginalSubPlan> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#executesAction
+<https://purl.org/ai4s/ontology/planning/multi-agent#executesAction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#executesAction> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#Agent> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#executesAction> <http://www.w3.org/2000/01/rdf-schema#range> <https://ai4society.github.io/planning-ontology#Action> .
+<https://ai4society.github.io/planning-ontology#Action> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#forbiddenRegion
+<https://purl.org/ai4s/ontology/planning/multi-agent#forbiddenRegion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#forbiddenRegion> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#ConflictConstraint> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#forbiddenRegion> <http://www.w3.org/2000/01/rdf-schema#range> <https://ai4society.github.io/planning-ontology#Region> .
+<https://ai4society.github.io/planning-ontology#Region> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#generatedBy
+<https://purl.org/ai4s/ontology/planning/multi-agent#generatedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#generatedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasGeneratedBy> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#generatedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#ResolvedSubPlan> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#generatedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/prov#Activity> .
+<http://www.w3.org/ns/prov#Activity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#generatesPlan
+<https://purl.org/ai4s/ontology/planning/multi-agent#generatesPlan> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#generatesPlan> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#MultiAgentPlanner> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#generatesPlan> <http://www.w3.org/2000/01/rdf-schema#range> <https://ai4society.github.io/planning-ontology#Plan> .
+<https://ai4society.github.io/planning-ontology#Plan> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#hasAgentSet
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasAgentSet> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasAgentSet> <http://www.w3.org/2000/01/rdf-schema#domain> <https://ai4society.github.io/planning-ontology#PlanningProblem> .
+<https://ai4society.github.io/planning-ontology#PlanningProblem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasAgentSet> <http://www.w3.org/2000/01/rdf-schema#range> <https://purl.org/ai4s/ontology/planning/multi-agent#Agent> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#hasCapability
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasCapability> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasCapability> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#Agent> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasCapability> <http://www.w3.org/2000/01/rdf-schema#range> <http://wwwIEEE1872-2015/cora#Capability> .
+<http://wwwIEEE1872-2015/cora#Capability> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#hasConflictConstraint
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasConflictConstraint> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasConflictConstraint> <http://www.w3.org/2000/01/rdf-schema#domain> <https://ai4society.github.io/planning-ontology#PlanningProblem> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasConflictConstraint> <http://www.w3.org/2000/01/rdf-schema#range> <https://purl.org/ai4s/ontology/planning/multi-agent#ConflictConstraint> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#hasGoalLocation
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasGoalLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasGoalLocation> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#Agent> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasGoalLocation> <http://www.w3.org/2000/01/rdf-schema#range> <https://purl.org/ai4s/ontology/planning/multi-agent#GridLocation> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#hasGoalStates
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasGoalStates> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasGoalStates> <http://www.w3.org/2000/01/rdf-schema#domain> <https://ai4society.github.io/planning-ontology#PlanningProblem> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasGoalStates> <http://www.w3.org/2000/01/rdf-schema#range> <https://purl.org/ai4s/ontology/planning/multi-agent#AgentState> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#hasInitialLocation
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasInitialLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasInitialLocation> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#Agent> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasInitialLocation> <http://www.w3.org/2000/01/rdf-schema#range> <https://purl.org/ai4s/ontology/planning/multi-agent#GridLocation> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#hasInitialStates
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasInitialStates> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasInitialStates> <http://www.w3.org/2000/01/rdf-schema#domain> <https://ai4society.github.io/planning-ontology#PlanningProblem> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasInitialStates> <http://www.w3.org/2000/01/rdf-schema#range> <https://purl.org/ai4s/ontology/planning/multi-agent#AgentState> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#hasPathSequence
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasPathSequence> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasPathSequence> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#AgentPathSegment> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasPathSequence> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#List> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#hasValidTime
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasValidTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasValidTime> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#AgentPathSegment> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasValidTime> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2006/time#Interval> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#implementsProcedure
+<https://purl.org/ai4s/ontology/planning/multi-agent#implementsProcedure> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#implementsProcedure> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#MultiAgentPlanner> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#implementsProcedure> <http://www.w3.org/2000/01/rdf-schema#range> <https://purl.org/ai4s/ontology/planning/multi-agent#PlannerProcedure> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#involvesAgents
+<https://purl.org/ai4s/ontology/planning/multi-agent#involvesAgents> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#involvesAgents> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#ConflictConstraint> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#involvesAgents> <http://www.w3.org/2000/01/rdf-schema#range> <https://purl.org/ai4s/ontology/planning/multi-agent#Agent> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#involvesAgentsEvent
+<https://purl.org/ai4s/ontology/planning/multi-agent#involvesAgentsEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#involvesAgentsEvent> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#CollisionEvent> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#involvesAgentsEvent> <http://www.w3.org/2000/01/rdf-schema#range> <https://purl.org/ai4s/ontology/planning/multi-agent#Agent> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#observedForbiddenCells
+<https://purl.org/ai4s/ontology/planning/multi-agent#observedForbiddenCells> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#observedForbiddenCells> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#ReplanningStrategy> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#observedForbiddenCells> <http://www.w3.org/2000/01/rdf-schema#range> <https://ai4society.github.io/planning-ontology#Cell> .
+<https://ai4society.github.io/planning-ontology#Cell> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#observedForbiddenSegment
+<https://purl.org/ai4s/ontology/planning/multi-agent#observedForbiddenSegment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#observedForbiddenSegment> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#ReplanningStrategy> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#observedForbiddenSegment> <http://www.w3.org/2000/01/rdf-schema#range> <https://purl.org/ai4s/ontology/planning/multi-agent#AgentPathSegment> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#occursAtTime
+<https://purl.org/ai4s/ontology/planning/multi-agent#occursAtTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#occursAtTime> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#AgentState> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#occursAtTime> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#CollisionEvent> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#occursAtTime> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2006/time#Instant> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#planData
+<https://purl.org/ai4s/ontology/planning/multi-agent#planData> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#planData> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#AgentSubPlan> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#planData> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#JointPlan> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#planData> <http://www.w3.org/2000/01/rdf-schema#range> <https://purl.org/ai4s/ontology/planning/multi-agent#AgentPathSegment> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#resolvesConflict
+<https://purl.org/ai4s/ontology/planning/multi-agent#resolvesConflict> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#resolvesConflict> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#ResolvedSubPlan> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#resolvesConflict> <http://www.w3.org/2000/01/rdf-schema#range> <https://purl.org/ai4s/ontology/planning/multi-agent#CollisionEvent> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#resolvesConflict> <http://www.w3.org/2000/01/rdf-schema#comment> "Connects a revised plan to the conflict it solves." .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#targetAgent
+<https://purl.org/ai4s/ontology/planning/multi-agent#targetAgent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#targetAgent> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#targetAgent> <http://www.w3.org/2000/01/rdf-schema#range> <https://purl.org/ai4s/ontology/planning/multi-agent#Agent> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#triggeredBy
+<https://purl.org/ai4s/ontology/planning/multi-agent#triggeredBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#triggeredBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#ReplanningStrategy> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#triggeredBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#triggeredBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Shows which alert initiated a replanning action." .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#usedAlertSet
+<https://purl.org/ai4s/ontology/planning/multi-agent#usedAlertSet> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#usedAlertSet> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#JointPlan> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#usedAlertSet> <http://www.w3.org/2000/01/rdf-schema#range> <https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#actionSpace
+<https://purl.org/ai4s/ontology/planning/multi-agent#actionSpace> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#actionSpace> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#AgentPolicy> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#actionSpace> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#agentSelectionPolicy
+<https://purl.org/ai4s/ontology/planning/multi-agent#agentSelectionPolicy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#agentSelectionPolicy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#PlannerProcedure> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#agentSelectionPolicy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#alertID
+<https://purl.org/ai4s/ontology/planning/multi-agent#alertID> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#alertID> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#alertID> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#alertType
+<https://purl.org/ai4s/ontology/planning/multi-agent#alertType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#alertType> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#alertType> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#communicationOverhead
+<https://purl.org/ai4s/ontology/planning/multi-agent#communicationOverhead> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#communicationOverhead> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#MultiAgentPlanner> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#communicationOverhead> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#conflictID
+<https://purl.org/ai4s/ontology/planning/multi-agent#conflictID> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#conflictID> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#CollisionEvent> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#conflictID> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#conflictResolutionProtocol
+<https://purl.org/ai4s/ontology/planning/multi-agent#conflictResolutionProtocol> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#conflictResolutionProtocol> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#JointPlan> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#conflictResolutionProtocol> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#conflictType
+<https://purl.org/ai4s/ontology/planning/multi-agent#conflictType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#conflictType> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#ConflictConstraint> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#conflictType> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#conflictTypeEvent
+<https://purl.org/ai4s/ontology/planning/multi-agent#conflictTypeEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#conflictTypeEvent> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#CollisionEvent> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#conflictTypeEvent> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#dynamicForbiddenPath
+<https://purl.org/ai4s/ontology/planning/multi-agent#dynamicForbiddenPath> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#dynamicForbiddenPath> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#dynamicForbiddenPath> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#hasAgentID
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasAgentID> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasAgentID> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#Agent> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasAgentID> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#hasChannel
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasChannel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasChannel> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#ObservationMaskSpec> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasChannel> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#hasGlobalMakespan
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasGlobalMakespan> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasGlobalMakespan> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#JointPlan> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasGlobalMakespan> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#hasPerformanceTradeoff
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasPerformanceTradeoff> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasPerformanceTradeoff> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#MultiAgentPlanner> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasPerformanceTradeoff> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#hasPlanCost
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasPlanCost> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasPlanCost> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#AgentSubPlan> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasPlanCost> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#hasRationale
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasRationale> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasRationale> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#PlannerProcedure> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#hasRationale> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#implementsStage
+<https://purl.org/ai4s/ontology/planning/multi-agent#implementsStage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#implementsStage> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#PlannerProcedure> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#implementsStage> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#maskDimension
+<https://purl.org/ai4s/ontology/planning/multi-agent#maskDimension> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#maskDimension> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#ObservationMaskSpec> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#maskDimension> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#observationChannels
+<https://purl.org/ai4s/ontology/planning/multi-agent#observationChannels> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#observationChannels> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#AgentPolicy> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#observationChannels> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#ofPlannerType
+<https://purl.org/ai4s/ontology/planning/multi-agent#ofPlannerType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#ofPlannerType> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#MultiAgentPlanner> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#ofPlannerType> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#policyName
+<https://purl.org/ai4s/ontology/planning/multi-agent#policyName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#policyName> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#AgentPolicy> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#policyName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#procedureID
+<https://purl.org/ai4s/ontology/planning/multi-agent#procedureID> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#procedureID> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#PlannerProcedure> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#procedureID> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#rewindWindow
+<https://purl.org/ai4s/ontology/planning/multi-agent#rewindWindow> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#rewindWindow> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#rewindWindow> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#rewindWindowDefault
+<https://purl.org/ai4s/ontology/planning/multi-agent#rewindWindowDefault> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#rewindWindowDefault> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#PlannerProcedure> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#rewindWindowDefault> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#selectionRationale
+<https://purl.org/ai4s/ontology/planning/multi-agent#selectionRationale> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#selectionRationale> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#selectionRationale> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#selectionRationale> <http://www.w3.org/2000/01/rdf-schema#comment> "Explains why a specific agent was chosen for a conflict alert." .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#staticForbiddenCells
+<https://purl.org/ai4s/ontology/planning/multi-agent#staticForbiddenCells> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#staticForbiddenCells> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#staticForbiddenCells> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#strategyID
+<https://purl.org/ai4s/ontology/planning/multi-agent#strategyID> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#strategyID> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#ReplanningStrategy> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#strategyID> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#supportsConflictDetection
+<https://purl.org/ai4s/ontology/planning/multi-agent#supportsConflictDetection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#supportsConflictDetection> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#MultiAgentPlanner> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#supportsConflictDetection> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#trainedOnEnvironment
+<https://purl.org/ai4s/ontology/planning/multi-agent#trainedOnEnvironment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#trainedOnEnvironment> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#AgentPolicy> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#trainedOnEnvironment> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#usedDynamicReplanning
+<https://purl.org/ai4s/ontology/planning/multi-agent#usedDynamicReplanning> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#usedDynamicReplanning> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#ReplanningStrategy> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#usedDynamicReplanning> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#usedStaticReplanning
+<https://purl.org/ai4s/ontology/planning/multi-agent#usedStaticReplanning> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#usedStaticReplanning> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#ReplanningStrategy> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#usedStaticReplanning> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#xCoordinate
+<https://purl.org/ai4s/ontology/planning/multi-agent#xCoordinate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#xCoordinate> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#GridLocation> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#xCoordinate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#yCoordinate
+<https://purl.org/ai4s/ontology/planning/multi-agent#yCoordinate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#yCoordinate> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/ai4s/ontology/planning/multi-agent#GridLocation> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#yCoordinate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/1999/02/22-rdf-syntax-ns#List
+# 
+# http://www.w3.org/ns/prov#Activity
+# 
+# http://wwwIEEE1872-2015/cora#Capability
+# 
+# https://ai4society.github.io/planning-ontology#Action
+# 
+# https://ai4society.github.io/planning-ontology#Cell
+# 
+# https://ai4society.github.io/planning-ontology#DomainRequirement
+<https://ai4society.github.io/planning-ontology#DomainRequirement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://ai4society.github.io/planning-ontology#Plan
+# 
+# https://ai4society.github.io/planning-ontology#Planner
+<https://ai4society.github.io/planning-ontology#Planner> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://ai4society.github.io/planning-ontology#PlanningProblem
+# 
+# https://ai4society.github.io/planning-ontology#ProblemObject
+<https://ai4society.github.io/planning-ontology#ProblemObject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://ai4society.github.io/planning-ontology#Region
+# 
+# https://ai4society.github.io/planning-ontology#State
+<https://ai4society.github.io/planning-ontology#State> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#Agent
+<https://purl.org/ai4s/ontology/planning/multi-agent#Agent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#Agent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/sosa/Platform> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#Agent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ai4society.github.io/planning-ontology#ProblemObject> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#AgentPathSegment
+<https://purl.org/ai4s/ontology/planning/multi-agent#AgentPathSegment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#AgentPolicy
+<https://purl.org/ai4s/ontology/planning/multi-agent#AgentPolicy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#AgentState
+<https://purl.org/ai4s/ontology/planning/multi-agent#AgentState> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#AgentState> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ai4society.github.io/planning-ontology#State> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#AgentSubPlan
+<https://purl.org/ai4s/ontology/planning/multi-agent#AgentSubPlan> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#AgentSubPlan> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ai4society.github.io/planning-ontology#Plan> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#CollisionEvent
+<https://purl.org/ai4s/ontology/planning/multi-agent#CollisionEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert
+<https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#ConflictConstraint
+<https://purl.org/ai4s/ontology/planning/multi-agent#ConflictConstraint> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#ConflictConstraint> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ai4society.github.io/planning-ontology#DomainRequirement> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#GridLocation
+<https://purl.org/ai4s/ontology/planning/multi-agent#GridLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#GridLocation> <http://www.w3.org/2000/01/rdf-schema#comment> "A structured representation of a grid cell with x and y coordinates." .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#JointPlan
+<https://purl.org/ai4s/ontology/planning/multi-agent#JointPlan> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#JointPlan> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ai4society.github.io/planning-ontology#Plan> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#MultiAgentPlanner
+<https://purl.org/ai4s/ontology/planning/multi-agent#MultiAgentPlanner> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#MultiAgentPlanner> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ai4society.github.io/planning-ontology#Planner> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#ObservationMaskSpec
+<https://purl.org/ai4s/ontology/planning/multi-agent#ObservationMaskSpec> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#OriginalSubPlan
+<https://purl.org/ai4s/ontology/planning/multi-agent#OriginalSubPlan> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#OriginalSubPlan> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://purl.org/ai4s/ontology/planning/multi-agent#AgentSubPlan> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#PlannerProcedure
+<https://purl.org/ai4s/ontology/planning/multi-agent#PlannerProcedure> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#ReplanningStrategy
+<https://purl.org/ai4s/ontology/planning/multi-agent#ReplanningStrategy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://purl.org/ai4s/ontology/planning/multi-agent#ResolvedSubPlan
+<https://purl.org/ai4s/ontology/planning/multi-agent#ResolvedSubPlan> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://purl.org/ai4s/ontology/planning/multi-agent#ResolvedSubPlan> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://purl.org/ai4s/ontology/planning/multi-agent#AgentSubPlan> .
+# 
+# Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

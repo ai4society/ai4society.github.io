@@ -1,0 +1,1618 @@
+<h2 id="crossreference" class="list">Cross-reference for Multi-Agent Planning Ontology classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by Multi-Agent Planning Ontology.
+<div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
+ <h3 id="classes-headline" class="list">Classes</h3>
+ <ul class="hlist">
+  <li><a href="#Agent" title="https://purl.org/ai4s/ontology/planning/multi-agent#Agent"> <span>Agent</span> </a></li>
+  <li><a href="#AgentState" title="https://purl.org/ai4s/ontology/planning/multi-agent#AgentState"> <span>Agent State</span> </a></li>
+  <li><a href="#AgentSubPlan" title="https://purl.org/ai4s/ontology/planning/multi-agent#AgentSubPlan"> <span>Agent Sub Plan</span> </a></li>
+  <li><a href="#ConflictConstraint" title="https://purl.org/ai4s/ontology/planning/multi-agent#ConflictConstraint"> <span>Conflict Constraint</span> </a></li>
+  <li><a href="#GridLocation" title="https://purl.org/ai4s/ontology/planning/multi-agent#GridLocation"> <span>Grid Location</span> </a></li>
+  <li><a href="#JointPlan" title="https://purl.org/ai4s/ontology/planning/multi-agent#JointPlan"> <span>Joint Plan</span> </a></li>
+  <li><a href="#MultiAgentPlanner" title="https://purl.org/ai4s/ontology/planning/multi-agent#MultiAgentPlanner"> <span>Multi Agent Planner</span> </a></li>
+  <li><a href="#OriginalSubPlan" title="https://purl.org/ai4s/ontology/planning/multi-agent#OriginalSubPlan"> <span>Original Sub Plan</span> </a></li>
+  <li><a href="#ResolvedSubPlan" title="https://purl.org/ai4s/ontology/planning/multi-agent#ResolvedSubPlan"> <span>Resolved Sub Plan</span> </a></li>
+ </ul>
+ <div class="entity" id="Agent">
+  <h3>Agent<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#Agent</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/ns/sosa/Platform" target="_blank" title="http://www.w3.org/ns/sosa/Platform">Platform</a> <sup class="type-c" title="class">c</sup>, <a href="https://ai4society.github.io/planning-ontology#ProblemObject" target="_blank" title="https://ai4society.github.io/planning-ontology#ProblemObject">Problem Object</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#executesAction" title="https://purl.org/ai4s/ontology/planning/multi-agent#executesAction">executes Action</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasAgentID" title="https://purl.org/ai4s/ontology/planning/multi-agent#hasAgentID">has Agent I D</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasCapability" title="https://purl.org/ai4s/ontology/planning/multi-agent#hasCapability">has Capability</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasGoalLocation" title="https://purl.org/ai4s/ontology/planning/multi-agent#hasGoalLocation">has Goal Location</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasInitialLocation" title="https://purl.org/ai4s/ontology/planning/multi-agent#hasInitialLocation">has Initial Location</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#belongsToAgent" title="https://purl.org/ai4s/ontology/planning/multi-agent#belongsToAgent">belongs To Agent</a> <sup class="type-op" title="object property">op</sup>, <a href="#belongsToAgentSegment" title="https://purl.org/ai4s/ontology/planning/multi-agent#belongsToAgentSegment">belongs To Agent Segment</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasAgentSet" title="https://purl.org/ai4s/ontology/planning/multi-agent#hasAgentSet">has Agent Set</a> <sup class="type-op" title="object property">op</sup>, <a href="#involvesAgents" title="https://purl.org/ai4s/ontology/planning/multi-agent#involvesAgents">involves Agents</a> <sup class="type-op" title="object property">op</sup>, <a href="#involvesAgentsEvent" title="https://purl.org/ai4s/ontology/planning/multi-agent#involvesAgentsEvent">involves Agents Event</a> <sup class="type-op" title="object property">op</sup>, <a href="#targetAgent" title="https://purl.org/ai4s/ontology/planning/multi-agent#targetAgent">target Agent</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="AgentState">
+  <h3>Agent State<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#AgentState</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://ai4society.github.io/planning-ontology#State" target="_blank" title="https://ai4society.github.io/planning-ontology#State">State</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#agentAt" title="https://purl.org/ai4s/ontology/planning/multi-agent#agentAt">agent At</a> <sup class="type-op" title="object property">op</sup>, <a href="#occursAtTime" title="https://purl.org/ai4s/ontology/planning/multi-agent#occursAtTime">occurs At Time</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasGoalStates" title="https://purl.org/ai4s/ontology/planning/multi-agent#hasGoalStates">has Goal States</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasInitialStates" title="https://purl.org/ai4s/ontology/planning/multi-agent#hasInitialStates">has Initial States</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="AgentSubPlan">
+  <h3>Agent Sub Plan<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#AgentSubPlan</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://ai4society.github.io/planning-ontology#Plan" target="_blank" title="https://ai4society.github.io/planning-ontology#Plan">Plan</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#OriginalSubPlan" title="https://purl.org/ai4s/ontology/planning/multi-agent#OriginalSubPlan">Original Sub Plan</a> <sup class="type-c" title="class">c</sup>, <a href="#ResolvedSubPlan" title="https://purl.org/ai4s/ontology/planning/multi-agent#ResolvedSubPlan">Resolved Sub Plan</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#belongsToAgent" title="https://purl.org/ai4s/ontology/planning/multi-agent#belongsToAgent">belongs To Agent</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasPlanCost" title="https://purl.org/ai4s/ontology/planning/multi-agent#hasPlanCost">has Plan Cost</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#planData" title="https://purl.org/ai4s/ontology/planning/multi-agent#planData">plan Data</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#composedOfSubPlans" title="https://purl.org/ai4s/ontology/planning/multi-agent#composedOfSubPlans">composed Of Sub Plans</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="ConflictConstraint">
+  <h3>Conflict Constraint<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#ConflictConstraint</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://ai4society.github.io/planning-ontology#DomainRequirement" target="_blank" title="https://ai4society.github.io/planning-ontology#DomainRequirement">Domain Requirement</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#conflictType" title="https://purl.org/ai4s/ontology/planning/multi-agent#conflictType">conflict Type</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#forbiddenRegion" title="https://purl.org/ai4s/ontology/planning/multi-agent#forbiddenRegion">forbidden Region</a> <sup class="type-op" title="object property">op</sup>, <a href="#involvesAgents" title="https://purl.org/ai4s/ontology/planning/multi-agent#involvesAgents">involves Agents</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasConflictConstraint" title="https://purl.org/ai4s/ontology/planning/multi-agent#hasConflictConstraint">has Conflict Constraint</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="GridLocation">
+  <h3>Grid Location<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#GridLocation</p>
+  <div class="comment">
+   <span class="markdown">A structured representation of a grid cell with x and y coordinates.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#xCoordinate" title="https://purl.org/ai4s/ontology/planning/multi-agent#xCoordinate">x Coordinate</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#yCoordinate" title="https://purl.org/ai4s/ontology/planning/multi-agent#yCoordinate">y Coordinate</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#agentAt" title="https://purl.org/ai4s/ontology/planning/multi-agent#agentAt">agent At</a> <sup class="type-op" title="object property">op</sup>, <a href="#atLocation" title="https://purl.org/ai4s/ontology/planning/multi-agent#atLocation">at Location</a> <sup class="type-op" title="object property">op</sup>, <a href="#conflictLocation" title="https://purl.org/ai4s/ontology/planning/multi-agent#conflictLocation">conflict Location</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasGoalLocation" title="https://purl.org/ai4s/ontology/planning/multi-agent#hasGoalLocation">has Goal Location</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasInitialLocation" title="https://purl.org/ai4s/ontology/planning/multi-agent#hasInitialLocation">has Initial Location</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="JointPlan">
+  <h3>Joint Plan<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#JointPlan</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://ai4society.github.io/planning-ontology#Plan" target="_blank" title="https://ai4society.github.io/planning-ontology#Plan">Plan</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#composedOfSubPlans" title="https://purl.org/ai4s/ontology/planning/multi-agent#composedOfSubPlans">composed Of Sub Plans</a> <sup class="type-op" title="object property">op</sup>, <a href="#conflictResolutionProtocol" title="https://purl.org/ai4s/ontology/planning/multi-agent#conflictResolutionProtocol">conflict Resolution Protocol</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasGlobalMakespan" title="https://purl.org/ai4s/ontology/planning/multi-agent#hasGlobalMakespan">has Global Makespan</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#planData" title="https://purl.org/ai4s/ontology/planning/multi-agent#planData">plan Data</a> <sup class="type-op" title="object property">op</sup>, <a href="#usedAlertSet" title="https://purl.org/ai4s/ontology/planning/multi-agent#usedAlertSet">used Alert Set</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="MultiAgentPlanner">
+  <h3>Multi Agent Planner<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#MultiAgentPlanner</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://ai4society.github.io/planning-ontology#Planner" target="_blank" title="https://ai4society.github.io/planning-ontology#Planner">Planner</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#communicationOverhead" title="https://purl.org/ai4s/ontology/planning/multi-agent#communicationOverhead">communication Overhead</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#generatesPlan" title="https://purl.org/ai4s/ontology/planning/multi-agent#generatesPlan">generates Plan</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasPerformanceTradeoff" title="https://purl.org/ai4s/ontology/planning/multi-agent#hasPerformanceTradeoff">has Performance Tradeoff</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#implementsProcedure" title="https://purl.org/ai4s/ontology/planning/multi-agent#implementsProcedure">implements Procedure</a> <sup class="type-op" title="object property">op</sup>, <a href="#ofPlannerType" title="https://purl.org/ai4s/ontology/planning/multi-agent#ofPlannerType">of Planner Type</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#supportsConflictDetection" title="https://purl.org/ai4s/ontology/planning/multi-agent#supportsConflictDetection">supports Conflict Detection</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="OriginalSubPlan">
+  <h3>Original Sub Plan<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#OriginalSubPlan</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#AgentSubPlan" title="https://purl.org/ai4s/ontology/planning/multi-agent#AgentSubPlan">Agent Sub Plan</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#derivesFrom" title="https://purl.org/ai4s/ontology/planning/multi-agent#derivesFrom">derives From</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="ResolvedSubPlan">
+  <h3>Resolved Sub Plan<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#ResolvedSubPlan</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#AgentSubPlan" title="https://purl.org/ai4s/ontology/planning/multi-agent#AgentSubPlan">Agent Sub Plan</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#derivesFrom" title="https://purl.org/ai4s/ontology/planning/multi-agent#derivesFrom">derives From</a> <sup class="type-op" title="object property">op</sup>, <a href="#generatedBy" title="https://purl.org/ai4s/ontology/planning/multi-agent#generatedBy">generated By</a> <sup class="type-op" title="object property">op</sup>, <a href="#resolvesConflict" title="https://purl.org/ai4s/ontology/planning/multi-agent#resolvesConflict">resolves Conflict</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
+ <h3 id="properties" class="list">Object Properties</h3>
+ <ul class="hlist">
+  <li><a href="#agentAt" title="https://purl.org/ai4s/ontology/planning/multi-agent#agentAt"> <span>agent At</span> </a></li>
+  <li><a href="#alertsConflict" title="https://purl.org/ai4s/ontology/planning/multi-agent#alertsConflict"> <span>alerts Conflict</span> </a></li>
+  <li><a href="#atLocation" title="https://purl.org/ai4s/ontology/planning/multi-agent#atLocation"> <span>at Location</span> </a></li>
+  <li><a href="#belongsToAgent" title="https://purl.org/ai4s/ontology/planning/multi-agent#belongsToAgent"> <span>belongs To Agent</span> </a></li>
+  <li><a href="#belongsToAgentSegment" title="https://purl.org/ai4s/ontology/planning/multi-agent#belongsToAgentSegment"> <span>belongs To Agent Segment</span> </a></li>
+  <li><a href="#composedOfSubPlans" title="https://purl.org/ai4s/ontology/planning/multi-agent#composedOfSubPlans"> <span>composed Of Sub Plans</span> </a></li>
+  <li><a href="#conflictLocation" title="https://purl.org/ai4s/ontology/planning/multi-agent#conflictLocation"> <span>conflict Location</span> </a></li>
+  <li><a href="#derivesFrom" title="https://purl.org/ai4s/ontology/planning/multi-agent#derivesFrom"> <span>derives From</span> </a></li>
+  <li><a href="#executesAction" title="https://purl.org/ai4s/ontology/planning/multi-agent#executesAction"> <span>executes Action</span> </a></li>
+  <li><a href="#forbiddenRegion" title="https://purl.org/ai4s/ontology/planning/multi-agent#forbiddenRegion"> <span>forbidden Region</span> </a></li>
+  <li><a href="#generatedBy" title="https://purl.org/ai4s/ontology/planning/multi-agent#generatedBy"> <span>generated By</span> </a></li>
+  <li><a href="#generatesPlan" title="https://purl.org/ai4s/ontology/planning/multi-agent#generatesPlan"> <span>generates Plan</span> </a></li>
+  <li><a href="#hasAgentSet" title="https://purl.org/ai4s/ontology/planning/multi-agent#hasAgentSet"> <span>has Agent Set</span> </a></li>
+  <li><a href="#hasCapability" title="https://purl.org/ai4s/ontology/planning/multi-agent#hasCapability"> <span>has Capability</span> </a></li>
+  <li><a href="#hasConflictConstraint" title="https://purl.org/ai4s/ontology/planning/multi-agent#hasConflictConstraint"> <span>has Conflict Constraint</span> </a></li>
+  <li><a href="#hasGoalLocation" title="https://purl.org/ai4s/ontology/planning/multi-agent#hasGoalLocation"> <span>has Goal Location</span> </a></li>
+  <li><a href="#hasGoalStates" title="https://purl.org/ai4s/ontology/planning/multi-agent#hasGoalStates"> <span>has Goal States</span> </a></li>
+  <li><a href="#hasInitialLocation" title="https://purl.org/ai4s/ontology/planning/multi-agent#hasInitialLocation"> <span>has Initial Location</span> </a></li>
+  <li><a href="#hasInitialStates" title="https://purl.org/ai4s/ontology/planning/multi-agent#hasInitialStates"> <span>has Initial States</span> </a></li>
+  <li><a href="#hasPathSequence" title="https://purl.org/ai4s/ontology/planning/multi-agent#hasPathSequence"> <span>has Path Sequence</span> </a></li>
+  <li><a href="#hasValidTime" title="https://purl.org/ai4s/ontology/planning/multi-agent#hasValidTime"> <span>has Valid Time</span> </a></li>
+  <li><a href="#implementsProcedure" title="https://purl.org/ai4s/ontology/planning/multi-agent#implementsProcedure"> <span>implements Procedure</span> </a></li>
+  <li><a href="#involvesAgents" title="https://purl.org/ai4s/ontology/planning/multi-agent#involvesAgents"> <span>involves Agents</span> </a></li>
+  <li><a href="#involvesAgentsEvent" title="https://purl.org/ai4s/ontology/planning/multi-agent#involvesAgentsEvent"> <span>involves Agents Event</span> </a></li>
+  <li><a href="#observedForbiddenCells" title="https://purl.org/ai4s/ontology/planning/multi-agent#observedForbiddenCells"> <span>observed Forbidden Cells</span> </a></li>
+  <li><a href="#observedForbiddenSegment" title="https://purl.org/ai4s/ontology/planning/multi-agent#observedForbiddenSegment"> <span>observed Forbidden Segment</span> </a></li>
+  <li><a href="#occursAtTime" title="https://purl.org/ai4s/ontology/planning/multi-agent#occursAtTime"> <span>occurs At Time</span> </a></li>
+  <li><a href="#planData" title="https://purl.org/ai4s/ontology/planning/multi-agent#planData"> <span>plan Data</span> </a></li>
+  <li><a href="#resolvesConflict" title="https://purl.org/ai4s/ontology/planning/multi-agent#resolvesConflict"> <span>resolves Conflict</span> </a></li>
+  <li><a href="#targetAgent" title="https://purl.org/ai4s/ontology/planning/multi-agent#targetAgent"> <span>target Agent</span> </a></li>
+  <li><a href="#triggeredBy" title="https://purl.org/ai4s/ontology/planning/multi-agent#triggeredBy"> <span>triggered By</span> </a></li>
+  <li><a href="#usedAlertSet" title="https://purl.org/ai4s/ontology/planning/multi-agent#usedAlertSet"> <span>used Alert Set</span> </a></li>
+ </ul>
+ <div class="entity" id="agentAt">
+  <h3>agent At<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#agentAt</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#AgentState" title="https://purl.org/ai4s/ontology/planning/multi-agent#AgentState">Agent State</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#GridLocation" title="https://purl.org/ai4s/ontology/planning/multi-agent#GridLocation">Grid Location</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="alertsConflict">
+  <h3>alerts Conflict<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#alertsConflict</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert">Conflict Alert</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#CollisionEvent" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#CollisionEvent">Collision Event</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="atLocation">
+  <h3>at Location<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#atLocation</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2002/07/owl#Thing" target="_blank" title="http://www.w3.org/2002/07/owl#Thing">Thing</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#GridLocation" title="https://purl.org/ai4s/ontology/planning/multi-agent#GridLocation">Grid Location</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="belongsToAgent">
+  <h3>belongs To Agent<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#belongsToAgent</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#AgentSubPlan" title="https://purl.org/ai4s/ontology/planning/multi-agent#AgentSubPlan">Agent Sub Plan</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Agent" title="https://purl.org/ai4s/ontology/planning/multi-agent#Agent">Agent</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="belongsToAgentSegment">
+  <h3>belongs To Agent Segment<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#belongsToAgentSegment</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#AgentPathSegment" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#AgentPathSegment">Agent Path Segment</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Agent" title="https://purl.org/ai4s/ontology/planning/multi-agent#Agent">Agent</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="composedOfSubPlans">
+  <h3>composed Of Sub Plans<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#composedOfSubPlans</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#JointPlan" title="https://purl.org/ai4s/ontology/planning/multi-agent#JointPlan">Joint Plan</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#AgentSubPlan" title="https://purl.org/ai4s/ontology/planning/multi-agent#AgentSubPlan">Agent Sub Plan</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="conflictLocation">
+  <h3>conflict Location<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#conflictLocation</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#CollisionEvent" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#CollisionEvent">Collision Event</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#GridLocation" title="https://purl.org/ai4s/ontology/planning/multi-agent#GridLocation">Grid Location</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="derivesFrom">
+  <h3>derives From<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#derivesFrom</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/ns/prov#wasDerivedFrom" target="_blank" title="http://www.w3.org/ns/prov#wasDerivedFrom">was Derived From</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#ResolvedSubPlan" title="https://purl.org/ai4s/ontology/planning/multi-agent#ResolvedSubPlan">Resolved Sub Plan</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#OriginalSubPlan" title="https://purl.org/ai4s/ontology/planning/multi-agent#OriginalSubPlan">Original Sub Plan</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="executesAction">
+  <h3>executes Action<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#executesAction</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Agent" title="https://purl.org/ai4s/ontology/planning/multi-agent#Agent">Agent</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://ai4society.github.io/planning-ontology#Action" target="_blank" title="https://ai4society.github.io/planning-ontology#Action">Action</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="forbiddenRegion">
+  <h3>forbidden Region<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#forbiddenRegion</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#ConflictConstraint" title="https://purl.org/ai4s/ontology/planning/multi-agent#ConflictConstraint">Conflict Constraint</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://ai4society.github.io/planning-ontology#Region" target="_blank" title="https://ai4society.github.io/planning-ontology#Region">Region</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="generatedBy">
+  <h3>generated By<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#generatedBy</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/ns/prov#wasGeneratedBy" target="_blank" title="http://www.w3.org/ns/prov#wasGeneratedBy">was Generated By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#ResolvedSubPlan" title="https://purl.org/ai4s/ontology/planning/multi-agent#ResolvedSubPlan">Resolved Sub Plan</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/ns/prov#Activity" target="_blank" title="http://www.w3.org/ns/prov#Activity">Activity</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="generatesPlan">
+  <h3>generates Plan<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#generatesPlan</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#MultiAgentPlanner" title="https://purl.org/ai4s/ontology/planning/multi-agent#MultiAgentPlanner">Multi Agent Planner</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://ai4society.github.io/planning-ontology#Plan" target="_blank" title="https://ai4society.github.io/planning-ontology#Plan">Plan</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasAgentSet">
+  <h3>has Agent Set<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#hasAgentSet</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://ai4society.github.io/planning-ontology#PlanningProblem" target="_blank" title="https://ai4society.github.io/planning-ontology#PlanningProblem">Planning Problem</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Agent" title="https://purl.org/ai4s/ontology/planning/multi-agent#Agent">Agent</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasCapability">
+  <h3>has Capability<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#hasCapability</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Agent" title="https://purl.org/ai4s/ontology/planning/multi-agent#Agent">Agent</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://wwwIEEE1872-2015/cora#Capability" target="_blank" title="http://wwwIEEE1872-2015/cora#Capability">Capability</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasConflictConstraint">
+  <h3>has Conflict Constraint<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#hasConflictConstraint</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://ai4society.github.io/planning-ontology#PlanningProblem" target="_blank" title="https://ai4society.github.io/planning-ontology#PlanningProblem">Planning Problem</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#ConflictConstraint" title="https://purl.org/ai4s/ontology/planning/multi-agent#ConflictConstraint">Conflict Constraint</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasGoalLocation">
+  <h3>has Goal Location<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#hasGoalLocation</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Agent" title="https://purl.org/ai4s/ontology/planning/multi-agent#Agent">Agent</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#GridLocation" title="https://purl.org/ai4s/ontology/planning/multi-agent#GridLocation">Grid Location</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasGoalStates">
+  <h3>has Goal States<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#hasGoalStates</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://ai4society.github.io/planning-ontology#PlanningProblem" target="_blank" title="https://ai4society.github.io/planning-ontology#PlanningProblem">Planning Problem</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#AgentState" title="https://purl.org/ai4s/ontology/planning/multi-agent#AgentState">Agent State</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasInitialLocation">
+  <h3>has Initial Location<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#hasInitialLocation</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Agent" title="https://purl.org/ai4s/ontology/planning/multi-agent#Agent">Agent</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#GridLocation" title="https://purl.org/ai4s/ontology/planning/multi-agent#GridLocation">Grid Location</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasInitialStates">
+  <h3>has Initial States<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#hasInitialStates</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://ai4society.github.io/planning-ontology#PlanningProblem" target="_blank" title="https://ai4society.github.io/planning-ontology#PlanningProblem">Planning Problem</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#AgentState" title="https://purl.org/ai4s/ontology/planning/multi-agent#AgentState">Agent State</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasPathSequence">
+  <h3>has Path Sequence<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#hasPathSequence</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#AgentPathSegment" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#AgentPathSegment">Agent Path Segment</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#List" target="_blank" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#List">List</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasValidTime">
+  <h3>has Valid Time<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#hasValidTime</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#AgentPathSegment" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#AgentPathSegment">Agent Path Segment</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2006/time#Interval" target="_blank" title="http://www.w3.org/2006/time#Interval">Time interval</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="implementsProcedure">
+  <h3>implements Procedure<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#implementsProcedure</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#MultiAgentPlanner" title="https://purl.org/ai4s/ontology/planning/multi-agent#MultiAgentPlanner">Multi Agent Planner</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#PlannerProcedure" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#PlannerProcedure">Planner Procedure</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="involvesAgents">
+  <h3>involves Agents<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#involvesAgents</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#ConflictConstraint" title="https://purl.org/ai4s/ontology/planning/multi-agent#ConflictConstraint">Conflict Constraint</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Agent" title="https://purl.org/ai4s/ontology/planning/multi-agent#Agent">Agent</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="involvesAgentsEvent">
+  <h3>involves Agents Event<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#involvesAgentsEvent</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#CollisionEvent" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#CollisionEvent">Collision Event</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Agent" title="https://purl.org/ai4s/ontology/planning/multi-agent#Agent">Agent</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="observedForbiddenCells">
+  <h3>observed Forbidden Cells<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#observedForbiddenCells</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#ReplanningStrategy" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#ReplanningStrategy">Replanning Strategy</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://ai4society.github.io/planning-ontology#Cell" target="_blank" title="https://ai4society.github.io/planning-ontology#Cell">Cell</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="observedForbiddenSegment">
+  <h3>observed Forbidden Segment<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#observedForbiddenSegment</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#ReplanningStrategy" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#ReplanningStrategy">Replanning Strategy</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#AgentPathSegment" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#AgentPathSegment">Agent Path Segment</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="occursAtTime">
+  <h3>occurs At Time<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#occursAtTime</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#AgentState" title="https://purl.org/ai4s/ontology/planning/multi-agent#AgentState">Agent State</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#CollisionEvent" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#CollisionEvent">Collision Event</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2006/time#Instant" target="_blank" title="http://www.w3.org/2006/time#Instant">Time instant</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="planData">
+  <h3>plan Data<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#planData</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#AgentSubPlan" title="https://purl.org/ai4s/ontology/planning/multi-agent#AgentSubPlan">Agent Sub Plan</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#JointPlan" title="https://purl.org/ai4s/ontology/planning/multi-agent#JointPlan">Joint Plan</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#AgentPathSegment" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#AgentPathSegment">Agent Path Segment</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="resolvesConflict">
+  <h3>resolves Conflict<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#resolvesConflict</p>
+  <div class="comment">
+   <span class="markdown">Connects a revised plan to the conflict it solves.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#ResolvedSubPlan" title="https://purl.org/ai4s/ontology/planning/multi-agent#ResolvedSubPlan">Resolved Sub Plan</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#CollisionEvent" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#CollisionEvent">Collision Event</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="targetAgent">
+  <h3>target Agent<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#targetAgent</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert">Conflict Alert</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Agent" title="https://purl.org/ai4s/ontology/planning/multi-agent#Agent">Agent</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="triggeredBy">
+  <h3>triggered By<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#triggeredBy</p>
+  <div class="comment">
+   <span class="markdown">Shows which alert initiated a replanning action.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#ReplanningStrategy" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#ReplanningStrategy">Replanning Strategy</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert">Conflict Alert</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="usedAlertSet">
+  <h3>used Alert Set<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#usedAlertSet</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#JointPlan" title="https://purl.org/ai4s/ontology/planning/multi-agent#JointPlan">Joint Plan</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert">Conflict Alert</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="dataproperties">
+ <h3 id="dataproperties-headline" class="list">Data Properties</h3>
+ <ul class="hlist">
+  <li><a href="#actionSpace" title="https://purl.org/ai4s/ontology/planning/multi-agent#actionSpace"> <span>action Space</span> </a></li>
+  <li><a href="#agentSelectionPolicy" title="https://purl.org/ai4s/ontology/planning/multi-agent#agentSelectionPolicy"> <span>agent Selection Policy</span> </a></li>
+  <li><a href="#alertID" title="https://purl.org/ai4s/ontology/planning/multi-agent#alertID"> <span>alert I D</span> </a></li>
+  <li><a href="#alertType" title="https://purl.org/ai4s/ontology/planning/multi-agent#alertType"> <span>alert Type</span> </a></li>
+  <li><a href="#communicationOverhead" title="https://purl.org/ai4s/ontology/planning/multi-agent#communicationOverhead"> <span>communication Overhead</span> </a></li>
+  <li><a href="#conflictID" title="https://purl.org/ai4s/ontology/planning/multi-agent#conflictID"> <span>conflict I D</span> </a></li>
+  <li><a href="#conflictResolutionProtocol" title="https://purl.org/ai4s/ontology/planning/multi-agent#conflictResolutionProtocol"> <span>conflict Resolution Protocol</span> </a></li>
+  <li><a href="#conflictType" title="https://purl.org/ai4s/ontology/planning/multi-agent#conflictType"> <span>conflict Type</span> </a></li>
+  <li><a href="#conflictTypeEvent" title="https://purl.org/ai4s/ontology/planning/multi-agent#conflictTypeEvent"> <span>conflict Type Event</span> </a></li>
+  <li><a href="#dynamicForbiddenPath" title="https://purl.org/ai4s/ontology/planning/multi-agent#dynamicForbiddenPath"> <span>dynamic Forbidden Path</span> </a></li>
+  <li><a href="#hasAgentID" title="https://purl.org/ai4s/ontology/planning/multi-agent#hasAgentID"> <span>has Agent I D</span> </a></li>
+  <li><a href="#hasChannel" title="https://purl.org/ai4s/ontology/planning/multi-agent#hasChannel"> <span>has Channel</span> </a></li>
+  <li><a href="#hasGlobalMakespan" title="https://purl.org/ai4s/ontology/planning/multi-agent#hasGlobalMakespan"> <span>has Global Makespan</span> </a></li>
+  <li><a href="#hasPerformanceTradeoff" title="https://purl.org/ai4s/ontology/planning/multi-agent#hasPerformanceTradeoff"> <span>has Performance Tradeoff</span> </a></li>
+  <li><a href="#hasPlanCost" title="https://purl.org/ai4s/ontology/planning/multi-agent#hasPlanCost"> <span>has Plan Cost</span> </a></li>
+  <li><a href="#hasRationale" title="https://purl.org/ai4s/ontology/planning/multi-agent#hasRationale"> <span>has Rationale</span> </a></li>
+  <li><a href="#implementsStage" title="https://purl.org/ai4s/ontology/planning/multi-agent#implementsStage"> <span>implements Stage</span> </a></li>
+  <li><a href="#maskDimension" title="https://purl.org/ai4s/ontology/planning/multi-agent#maskDimension"> <span>mask Dimension</span> </a></li>
+  <li><a href="#observationChannels" title="https://purl.org/ai4s/ontology/planning/multi-agent#observationChannels"> <span>observation Channels</span> </a></li>
+  <li><a href="#ofPlannerType" title="https://purl.org/ai4s/ontology/planning/multi-agent#ofPlannerType"> <span>of Planner Type</span> </a></li>
+  <li><a href="#policyName" title="https://purl.org/ai4s/ontology/planning/multi-agent#policyName"> <span>policy Name</span> </a></li>
+  <li><a href="#procedureID" title="https://purl.org/ai4s/ontology/planning/multi-agent#procedureID"> <span>procedure I D</span> </a></li>
+  <li><a href="#rewindWindow" title="https://purl.org/ai4s/ontology/planning/multi-agent#rewindWindow"> <span>rewind Window</span> </a></li>
+  <li><a href="#rewindWindowDefault" title="https://purl.org/ai4s/ontology/planning/multi-agent#rewindWindowDefault"> <span>rewind Window Default</span> </a></li>
+  <li><a href="#selectionRationale" title="https://purl.org/ai4s/ontology/planning/multi-agent#selectionRationale"> <span>selection Rationale</span> </a></li>
+  <li><a href="#staticForbiddenCells" title="https://purl.org/ai4s/ontology/planning/multi-agent#staticForbiddenCells"> <span>static Forbidden Cells</span> </a></li>
+  <li><a href="#strategyID" title="https://purl.org/ai4s/ontology/planning/multi-agent#strategyID"> <span>strategy I D</span> </a></li>
+  <li><a href="#supportsConflictDetection" title="https://purl.org/ai4s/ontology/planning/multi-agent#supportsConflictDetection"> <span>supports Conflict Detection</span> </a></li>
+  <li><a href="#trainedOnEnvironment" title="https://purl.org/ai4s/ontology/planning/multi-agent#trainedOnEnvironment"> <span>trained On Environment</span> </a></li>
+  <li><a href="#usedDynamicReplanning" title="https://purl.org/ai4s/ontology/planning/multi-agent#usedDynamicReplanning"> <span>used Dynamic Replanning</span> </a></li>
+  <li><a href="#usedStaticReplanning" title="https://purl.org/ai4s/ontology/planning/multi-agent#usedStaticReplanning"> <span>used Static Replanning</span> </a></li>
+  <li><a href="#xCoordinate" title="https://purl.org/ai4s/ontology/planning/multi-agent#xCoordinate"> <span>x Coordinate</span> </a></li>
+  <li><a href="#yCoordinate" title="https://purl.org/ai4s/ontology/planning/multi-agent#yCoordinate"> <span>y Coordinate</span> </a></li>
+ </ul>
+ <div class="entity" id="actionSpace">
+  <h3>action Space<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#actionSpace</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#AgentPolicy" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#AgentPolicy">Agent Policy</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="agentSelectionPolicy">
+  <h3>agent Selection Policy<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#agentSelectionPolicy</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#PlannerProcedure" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#PlannerProcedure">Planner Procedure</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="alertID">
+  <h3>alert I D<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#alertID</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert">Conflict Alert</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="alertType">
+  <h3>alert Type<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#alertType</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert">Conflict Alert</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="communicationOverhead">
+  <h3>communication Overhead<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#communicationOverhead</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#MultiAgentPlanner" title="https://purl.org/ai4s/ontology/planning/multi-agent#MultiAgentPlanner">Multi Agent Planner</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="conflictID">
+  <h3>conflict I D<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#conflictID</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#CollisionEvent" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#CollisionEvent">Collision Event</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="conflictResolutionProtocol">
+  <h3>conflict Resolution Protocol<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#conflictResolutionProtocol</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#JointPlan" title="https://purl.org/ai4s/ontology/planning/multi-agent#JointPlan">Joint Plan</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="conflictType">
+  <h3>conflict Type<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#conflictType</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#ConflictConstraint" title="https://purl.org/ai4s/ontology/planning/multi-agent#ConflictConstraint">Conflict Constraint</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="conflictTypeEvent">
+  <h3>conflict Type Event<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#conflictTypeEvent</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#CollisionEvent" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#CollisionEvent">Collision Event</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="dynamicForbiddenPath">
+  <h3>dynamic Forbidden Path<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#dynamicForbiddenPath</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert">Conflict Alert</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasAgentID">
+  <h3>has Agent I D<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#hasAgentID</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Agent" title="https://purl.org/ai4s/ontology/planning/multi-agent#Agent">Agent</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasChannel">
+  <h3>has Channel<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#hasChannel</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#ObservationMaskSpec" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#ObservationMaskSpec">Observation Mask Spec</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasGlobalMakespan">
+  <h3>has Global Makespan<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#hasGlobalMakespan</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#JointPlan" title="https://purl.org/ai4s/ontology/planning/multi-agent#JointPlan">Joint Plan</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasPerformanceTradeoff">
+  <h3>has Performance Tradeoff<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#hasPerformanceTradeoff</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#MultiAgentPlanner" title="https://purl.org/ai4s/ontology/planning/multi-agent#MultiAgentPlanner">Multi Agent Planner</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasPlanCost">
+  <h3>has Plan Cost<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#hasPlanCost</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#AgentSubPlan" title="https://purl.org/ai4s/ontology/planning/multi-agent#AgentSubPlan">Agent Sub Plan</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasRationale">
+  <h3>has Rationale<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#hasRationale</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#PlannerProcedure" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#PlannerProcedure">Planner Procedure</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="implementsStage">
+  <h3>implements Stage<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#implementsStage</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#PlannerProcedure" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#PlannerProcedure">Planner Procedure</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="maskDimension">
+  <h3>mask Dimension<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#maskDimension</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#ObservationMaskSpec" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#ObservationMaskSpec">Observation Mask Spec</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="observationChannels">
+  <h3>observation Channels<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#observationChannels</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#AgentPolicy" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#AgentPolicy">Agent Policy</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="ofPlannerType">
+  <h3>of Planner Type<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#ofPlannerType</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#MultiAgentPlanner" title="https://purl.org/ai4s/ontology/planning/multi-agent#MultiAgentPlanner">Multi Agent Planner</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="policyName">
+  <h3>policy Name<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#policyName</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#AgentPolicy" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#AgentPolicy">Agent Policy</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="procedureID">
+  <h3>procedure I D<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#procedureID</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#PlannerProcedure" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#PlannerProcedure">Planner Procedure</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="rewindWindow">
+  <h3>rewind Window<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#rewindWindow</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert">Conflict Alert</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="rewindWindowDefault">
+  <h3>rewind Window Default<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#rewindWindowDefault</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#PlannerProcedure" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#PlannerProcedure">Planner Procedure</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="selectionRationale">
+  <h3>selection Rationale<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#selectionRationale</p>
+  <div class="comment">
+   <span class="markdown">Explains why a specific agent was chosen for a conflict alert.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert">Conflict Alert</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="staticForbiddenCells">
+  <h3>static Forbidden Cells<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#staticForbiddenCells</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert">Conflict Alert</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="strategyID">
+  <h3>strategy I D<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#strategyID</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#ReplanningStrategy" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#ReplanningStrategy">Replanning Strategy</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="supportsConflictDetection">
+  <h3>supports Conflict Detection<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#supportsConflictDetection</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#MultiAgentPlanner" title="https://purl.org/ai4s/ontology/planning/multi-agent#MultiAgentPlanner">Multi Agent Planner</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#boolean" target="_blank" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="trainedOnEnvironment">
+  <h3>trained On Environment<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#trainedOnEnvironment</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#AgentPolicy" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#AgentPolicy">Agent Policy</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="usedDynamicReplanning">
+  <h3>used Dynamic Replanning<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#usedDynamicReplanning</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#ReplanningStrategy" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#ReplanningStrategy">Replanning Strategy</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#boolean" target="_blank" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="usedStaticReplanning">
+  <h3>used Static Replanning<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#usedStaticReplanning</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://purl.org/ai4s/ontology/planning/multi-agent#ReplanningStrategy" target="_blank" title="https://purl.org/ai4s/ontology/planning/multi-agent#ReplanningStrategy">Replanning Strategy</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#boolean" target="_blank" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="xCoordinate">
+  <h3>x Coordinate<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#xCoordinate</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#GridLocation" title="https://purl.org/ai4s/ontology/planning/multi-agent#GridLocation">Grid Location</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="yCoordinate">
+  <h3>y Coordinate<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/ai4s/ontology/planning/multi-agent#yCoordinate</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#GridLocation" title="https://purl.org/ai4s/ontology/planning/multi-agent#GridLocation">Grid Location</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div   class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br/>
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
+<sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br/>
+</div>
+</div>

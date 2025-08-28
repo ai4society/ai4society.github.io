@@ -1,0 +1,569 @@
+@prefix : <https://purl.org/ai4s/ontology/planning/multi-agent#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://purl.org/ai4s/ontology/planning/multi-agent#> .
+
+<https://purl.org/ai4s/ontology/planning/multi-agent> rdf:type owl:Ontology ;
+                                                       owl:versionIRI <https://purl.org/ai4s/ontology/planning/multi-agent/v1.0.0> ;
+                                                       owl:imports <http://www.w3.org/2006/time#> ,
+                                                                   <http://www.w3.org/ns/prov#> ,
+                                                                   <http://www.w3.org/ns/sosa/> ;
+                                                       <http://purl.org/dc/terms/contributor> "This ontology extends the base Planning Ontology available at https://ai4society.github.io/planning-ontology#" ;
+                                                       <http://purl.org/dc/terms/creator> "Bharath Muppasani" ;
+                                                       <http://purl.org/dc/terms/description> "An ontology for representing knowledge in Multi-Agent Path Finding (MAPF) problems. This ontology defines concepts such as agents, plans, conflicts, and replanning strategies to support explainable AI in MAPF."@en ;
+                                                       <http://purl.org/dc/terms/issued> "2024-07-22"^^xsd:date ;
+                                                       <http://purl.org/dc/terms/license> <http://creativecommons.org/licenses/by/4.0/> ;
+                                                       <http://purl.org/dc/terms/title> "Multi-Agent Planning Ontology" ;
+                                                       <http://purl.org/vocab/vann/preferredNamespaceUri> "https://purl.org/ai4s/ontology/planning/multi-agent#" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/issued
+<http://purl.org/dc/terms/issued> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.w3.org/ns/prov#wasDerivedFrom
+<http://www.w3.org/ns/prov#wasDerivedFrom> rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/prov#wasGeneratedBy
+<http://www.w3.org/ns/prov#wasGeneratedBy> rdf:type owl:ObjectProperty .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#agentAt
+:agentAt rdf:type owl:ObjectProperty ;
+         rdfs:domain :AgentState ;
+         rdfs:range :GridLocation .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#alertsConflict
+:alertsConflict rdf:type owl:ObjectProperty ;
+                rdfs:domain :ConflictAlert ;
+                rdfs:range :CollisionEvent .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#atLocation
+:atLocation rdf:type owl:ObjectProperty ;
+            rdfs:domain owl:Thing ;
+            rdfs:range :GridLocation .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#belongsToAgent
+:belongsToAgent rdf:type owl:ObjectProperty ;
+                rdfs:domain :AgentSubPlan ;
+                rdfs:range :Agent .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#belongsToAgentSegment
+:belongsToAgentSegment rdf:type owl:ObjectProperty ;
+                       rdfs:domain :AgentPathSegment ;
+                       rdfs:range :Agent .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#composedOfSubPlans
+:composedOfSubPlans rdf:type owl:ObjectProperty ;
+                    rdfs:domain :JointPlan ;
+                    rdfs:range :AgentSubPlan .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#conflictLocation
+:conflictLocation rdf:type owl:ObjectProperty ;
+                  rdfs:domain :CollisionEvent ;
+                  rdfs:range :GridLocation .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#derivesFrom
+:derivesFrom rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasDerivedFrom> ;
+             rdfs:domain :ResolvedSubPlan ;
+             rdfs:range :OriginalSubPlan .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#executesAction
+:executesAction rdf:type owl:ObjectProperty ;
+                rdfs:domain :Agent ;
+                rdfs:range <https://ai4society.github.io/planning-ontology#Action> .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#forbiddenRegion
+:forbiddenRegion rdf:type owl:ObjectProperty ;
+                 rdfs:domain :ConflictConstraint ;
+                 rdfs:range <https://ai4society.github.io/planning-ontology#Region> .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#generatedBy
+:generatedBy rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasGeneratedBy> ;
+             rdfs:domain :ResolvedSubPlan ;
+             rdfs:range <http://www.w3.org/ns/prov#Activity> .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#generatesPlan
+:generatesPlan rdf:type owl:ObjectProperty ;
+               rdfs:domain :MultiAgentPlanner ;
+               rdfs:range <https://ai4society.github.io/planning-ontology#Plan> .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#hasAgentSet
+:hasAgentSet rdf:type owl:ObjectProperty ;
+             rdfs:domain <https://ai4society.github.io/planning-ontology#PlanningProblem> ;
+             rdfs:range :Agent .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#hasCapability
+:hasCapability rdf:type owl:ObjectProperty ;
+               rdfs:domain :Agent ;
+               rdfs:range <http://wwwIEEE1872-2015/cora#Capability> .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#hasConflictConstraint
+:hasConflictConstraint rdf:type owl:ObjectProperty ;
+                       rdfs:domain <https://ai4society.github.io/planning-ontology#PlanningProblem> ;
+                       rdfs:range :ConflictConstraint .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#hasGoalLocation
+:hasGoalLocation rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Agent ;
+                 rdfs:range :GridLocation .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#hasGoalStates
+:hasGoalStates rdf:type owl:ObjectProperty ;
+               rdfs:domain <https://ai4society.github.io/planning-ontology#PlanningProblem> ;
+               rdfs:range :AgentState .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#hasInitialLocation
+:hasInitialLocation rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Agent ;
+                    rdfs:range :GridLocation .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#hasInitialStates
+:hasInitialStates rdf:type owl:ObjectProperty ;
+                  rdfs:domain <https://ai4society.github.io/planning-ontology#PlanningProblem> ;
+                  rdfs:range :AgentState .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#hasPathSequence
+:hasPathSequence rdf:type owl:ObjectProperty ;
+                 rdfs:domain :AgentPathSegment ;
+                 rdfs:range rdf:List .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#hasValidTime
+:hasValidTime rdf:type owl:ObjectProperty ;
+              rdfs:domain :AgentPathSegment ;
+              rdfs:range <http://www.w3.org/2006/time#Interval> .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#implementsProcedure
+:implementsProcedure rdf:type owl:ObjectProperty ;
+                     rdfs:domain :MultiAgentPlanner ;
+                     rdfs:range :PlannerProcedure .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#involvesAgents
+:involvesAgents rdf:type owl:ObjectProperty ;
+                rdfs:domain :ConflictConstraint ;
+                rdfs:range :Agent .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#involvesAgentsEvent
+:involvesAgentsEvent rdf:type owl:ObjectProperty ;
+                     rdfs:domain :CollisionEvent ;
+                     rdfs:range :Agent .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#observedForbiddenCells
+:observedForbiddenCells rdf:type owl:ObjectProperty ;
+                        rdfs:domain :ReplanningStrategy ;
+                        rdfs:range <https://ai4society.github.io/planning-ontology#Cell> .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#observedForbiddenSegment
+:observedForbiddenSegment rdf:type owl:ObjectProperty ;
+                          rdfs:domain :ReplanningStrategy ;
+                          rdfs:range :AgentPathSegment .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#occursAtTime
+:occursAtTime rdf:type owl:ObjectProperty ;
+              rdfs:domain :AgentState ,
+                          :CollisionEvent ;
+              rdfs:range <http://www.w3.org/2006/time#Instant> .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#planData
+:planData rdf:type owl:ObjectProperty ;
+          rdfs:domain :AgentSubPlan ,
+                      :JointPlan ;
+          rdfs:range :AgentPathSegment .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#resolvesConflict
+:resolvesConflict rdf:type owl:ObjectProperty ;
+                  rdfs:domain :ResolvedSubPlan ;
+                  rdfs:range :CollisionEvent ;
+                  rdfs:comment "Connects a revised plan to the conflict it solves." .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#targetAgent
+:targetAgent rdf:type owl:ObjectProperty ;
+             rdfs:domain :ConflictAlert ;
+             rdfs:range :Agent .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#triggeredBy
+:triggeredBy rdf:type owl:ObjectProperty ;
+             rdfs:domain :ReplanningStrategy ;
+             rdfs:range :ConflictAlert ;
+             rdfs:comment "Shows which alert initiated a replanning action." .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#usedAlertSet
+:usedAlertSet rdf:type owl:ObjectProperty ;
+              rdfs:domain :JointPlan ;
+              rdfs:range :ConflictAlert .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#actionSpace
+:actionSpace rdf:type owl:DatatypeProperty ;
+             rdfs:domain :AgentPolicy ;
+             rdfs:range xsd:string .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#agentSelectionPolicy
+:agentSelectionPolicy rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :PlannerProcedure ;
+                      rdfs:range xsd:string .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#alertID
+:alertID rdf:type owl:DatatypeProperty ;
+         rdfs:domain :ConflictAlert ;
+         rdfs:range xsd:string .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#alertType
+:alertType rdf:type owl:DatatypeProperty ;
+           rdfs:domain :ConflictAlert ;
+           rdfs:range xsd:string .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#communicationOverhead
+:communicationOverhead rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :MultiAgentPlanner ;
+                       rdfs:range xsd:string .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#conflictID
+:conflictID rdf:type owl:DatatypeProperty ;
+            rdfs:domain :CollisionEvent ;
+            rdfs:range xsd:string .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#conflictResolutionProtocol
+:conflictResolutionProtocol rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :JointPlan ;
+                            rdfs:range xsd:string .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#conflictType
+:conflictType rdf:type owl:DatatypeProperty ;
+              rdfs:domain :ConflictConstraint ;
+              rdfs:range xsd:string .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#conflictTypeEvent
+:conflictTypeEvent rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :CollisionEvent ;
+                   rdfs:range xsd:string .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#dynamicForbiddenPath
+:dynamicForbiddenPath rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :ConflictAlert ;
+                      rdfs:range xsd:string .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#hasAgentID
+:hasAgentID rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Agent ;
+            rdfs:range xsd:string .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#hasChannel
+:hasChannel rdf:type owl:DatatypeProperty ;
+            rdfs:domain :ObservationMaskSpec ;
+            rdfs:range xsd:string .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#hasGlobalMakespan
+:hasGlobalMakespan rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :JointPlan ;
+                   rdfs:range xsd:decimal .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#hasPerformanceTradeoff
+:hasPerformanceTradeoff rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :MultiAgentPlanner ;
+                        rdfs:range xsd:string .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#hasPlanCost
+:hasPlanCost rdf:type owl:DatatypeProperty ;
+             rdfs:domain :AgentSubPlan ;
+             rdfs:range xsd:decimal .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#hasRationale
+:hasRationale rdf:type owl:DatatypeProperty ;
+              rdfs:domain :PlannerProcedure ;
+              rdfs:range xsd:string .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#implementsStage
+:implementsStage rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :PlannerProcedure ;
+                 rdfs:range xsd:string .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#maskDimension
+:maskDimension rdf:type owl:DatatypeProperty ;
+               rdfs:domain :ObservationMaskSpec ;
+               rdfs:range xsd:string .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#observationChannels
+:observationChannels rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :AgentPolicy ;
+                     rdfs:range xsd:string .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#ofPlannerType
+:ofPlannerType rdf:type owl:DatatypeProperty ;
+               rdfs:domain :MultiAgentPlanner ;
+               rdfs:range xsd:string .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#policyName
+:policyName rdf:type owl:DatatypeProperty ;
+            rdfs:domain :AgentPolicy ;
+            rdfs:range xsd:string .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#procedureID
+:procedureID rdf:type owl:DatatypeProperty ;
+             rdfs:domain :PlannerProcedure ;
+             rdfs:range xsd:string .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#rewindWindow
+:rewindWindow rdf:type owl:DatatypeProperty ;
+              rdfs:domain :ConflictAlert ;
+              rdfs:range xsd:integer .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#rewindWindowDefault
+:rewindWindowDefault rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :PlannerProcedure ;
+                     rdfs:range xsd:integer .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#selectionRationale
+:selectionRationale rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :ConflictAlert ;
+                    rdfs:range xsd:string ;
+                    rdfs:comment "Explains why a specific agent was chosen for a conflict alert." .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#staticForbiddenCells
+:staticForbiddenCells rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :ConflictAlert ;
+                      rdfs:range xsd:string .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#strategyID
+:strategyID rdf:type owl:DatatypeProperty ;
+            rdfs:domain :ReplanningStrategy ;
+            rdfs:range xsd:string .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#supportsConflictDetection
+:supportsConflictDetection rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :MultiAgentPlanner ;
+                           rdfs:range xsd:boolean .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#trainedOnEnvironment
+:trainedOnEnvironment rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :AgentPolicy ;
+                      rdfs:range xsd:string .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#usedDynamicReplanning
+:usedDynamicReplanning rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :ReplanningStrategy ;
+                       rdfs:range xsd:boolean .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#usedStaticReplanning
+:usedStaticReplanning rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :ReplanningStrategy ;
+                      rdfs:range xsd:boolean .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#xCoordinate
+:xCoordinate rdf:type owl:DatatypeProperty ;
+             rdfs:domain :GridLocation ;
+             rdfs:range xsd:integer .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#yCoordinate
+:yCoordinate rdf:type owl:DatatypeProperty ;
+             rdfs:domain :GridLocation ;
+             rdfs:range xsd:integer .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#List
+rdf:List rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/prov#Activity
+<http://www.w3.org/ns/prov#Activity> rdf:type owl:Class .
+
+
+###  http://wwwIEEE1872-2015/cora#Capability
+<http://wwwIEEE1872-2015/cora#Capability> rdf:type owl:Class .
+
+
+###  https://ai4society.github.io/planning-ontology#Action
+<https://ai4society.github.io/planning-ontology#Action> rdf:type owl:Class .
+
+
+###  https://ai4society.github.io/planning-ontology#Cell
+<https://ai4society.github.io/planning-ontology#Cell> rdf:type owl:Class .
+
+
+###  https://ai4society.github.io/planning-ontology#DomainRequirement
+<https://ai4society.github.io/planning-ontology#DomainRequirement> rdf:type owl:Class .
+
+
+###  https://ai4society.github.io/planning-ontology#Plan
+<https://ai4society.github.io/planning-ontology#Plan> rdf:type owl:Class .
+
+
+###  https://ai4society.github.io/planning-ontology#Planner
+<https://ai4society.github.io/planning-ontology#Planner> rdf:type owl:Class .
+
+
+###  https://ai4society.github.io/planning-ontology#PlanningProblem
+<https://ai4society.github.io/planning-ontology#PlanningProblem> rdf:type owl:Class .
+
+
+###  https://ai4society.github.io/planning-ontology#ProblemObject
+<https://ai4society.github.io/planning-ontology#ProblemObject> rdf:type owl:Class .
+
+
+###  https://ai4society.github.io/planning-ontology#Region
+<https://ai4society.github.io/planning-ontology#Region> rdf:type owl:Class .
+
+
+###  https://ai4society.github.io/planning-ontology#State
+<https://ai4society.github.io/planning-ontology#State> rdf:type owl:Class .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#Agent
+:Agent rdf:type owl:Class ;
+       rdfs:subClassOf <http://www.w3.org/ns/sosa/Platform> ,
+                       <https://ai4society.github.io/planning-ontology#ProblemObject> .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#AgentPathSegment
+:AgentPathSegment rdf:type owl:Class .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#AgentPolicy
+:AgentPolicy rdf:type owl:Class .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#AgentState
+:AgentState rdf:type owl:Class ;
+            rdfs:subClassOf <https://ai4society.github.io/planning-ontology#State> .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#AgentSubPlan
+:AgentSubPlan rdf:type owl:Class ;
+              rdfs:subClassOf <https://ai4society.github.io/planning-ontology#Plan> .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#CollisionEvent
+:CollisionEvent rdf:type owl:Class .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#ConflictAlert
+:ConflictAlert rdf:type owl:Class .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#ConflictConstraint
+:ConflictConstraint rdf:type owl:Class ;
+                    rdfs:subClassOf <https://ai4society.github.io/planning-ontology#DomainRequirement> .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#GridLocation
+:GridLocation rdf:type owl:Class ;
+              rdfs:comment "A structured representation of a grid cell with x and y coordinates." .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#JointPlan
+:JointPlan rdf:type owl:Class ;
+           rdfs:subClassOf <https://ai4society.github.io/planning-ontology#Plan> .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#MultiAgentPlanner
+:MultiAgentPlanner rdf:type owl:Class ;
+                   rdfs:subClassOf <https://ai4society.github.io/planning-ontology#Planner> .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#ObservationMaskSpec
+:ObservationMaskSpec rdf:type owl:Class .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#OriginalSubPlan
+:OriginalSubPlan rdf:type owl:Class ;
+                 rdfs:subClassOf :AgentSubPlan .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#PlannerProcedure
+:PlannerProcedure rdf:type owl:Class .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#ReplanningStrategy
+:ReplanningStrategy rdf:type owl:Class .
+
+
+###  https://purl.org/ai4s/ontology/planning/multi-agent#ResolvedSubPlan
+:ResolvedSubPlan rdf:type owl:Class ;
+                 rdfs:subClassOf :AgentSubPlan .
+
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
