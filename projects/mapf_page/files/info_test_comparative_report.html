@@ -1,0 +1,571 @@
+
+    <html><head><title>3-Way Comparative Performance Report</title><style>
+        body { font-family: Arial, sans-serif; margin: 40px; } h1, h2 { color: #333; }
+        table { border-collapse: collapse; width: 100%; margin: 20px 0 40px; font-size: 12px; }
+        th, td { border: 1px solid #ddd; padding: 6px; text-align: center; }
+        th.main-header { background-color: #e9ecef; }
+        th.sub-header { background-color: #f8f9fa; }
+        td.problem-id { text-align: left; font-weight: bold; }
+        .success { color: green; font-weight: bold; }
+        .failure { color: red; font-weight: bold; }
+        .best { font-weight: bold; background-color: #f0fff0; }
+        .summary-table th.main-header-bfs { background-color: #d4edda; }
+        .summary-table th.main-header-astar { background-color: #d1ecf1; }
+        .summary-table th.main-header-primal { background-color: #e6f7ff; }
+    </style></head><body>
+        <h1>Comparative Performance Report: Alert-BFS vs. Alert-A* vs. PRIMAL</h1>
+        
+    <p style="font-size: 16px; line-height: 1.6;">
+        This report presents a comparative analysis of <strong>Alert-BFS</strong>, <strong>Alert-A*</strong>, and the <strong>PRIMAL</strong> baseline.
+        The key performance indicators are success rate, solution cost (makespan), and information efficiency (Information Sharing Units - IU).
+        Lower makespan and lower IU values represent better performance. The tables below provide a detailed breakdown for each problem instance
+        and a summary of average performance on successful runs.
+    </p>
+    
+    
+    <h2>Comparative Summary (Averages of Successful Runs)</h2>
+    <table class="summary-table">
+        <thead>
+            <tr>
+                <th rowspan="2">Num Agents</th>
+                <th colspan="3" class="main-header-bfs">Alert-BFS (My Algo)</th>
+                <th colspan="3" class="main-header-astar">Alert-A*</th>
+                <th colspan="3" class="main-header-primal">PRIMAL</th>
+                <th rowspan="2" class="main-header">IU Reduction (vs PRIMAL)</th>
+            </tr>
+            <tr>
+                <th class="sub-header">Success</th><th class="sub-header">Avg Makespan</th><th class="sub-header">Avg IU</th>
+                <th class="sub-header">Success</th><th class="sub-header">Avg Makespan</th><th class="sub-header">Avg IU</th>
+                <th class="sub-header">Success</th><th class="sub-header">Avg Makespan</th><th class="sub-header">Avg IU</th>
+            </tr>
+        </thead>
+        <tbody>
+    
+                <tr>
+                    <td class="problem-id">5</td>
+                    <td>10</td>
+                    <td>15.2</td>
+                    <td>51</td>
+                    <td>10</td>
+                    <td>14.2</td>
+                    <td>50</td>
+                    <td>6</td>
+                    <td>48.3</td>
+                    <td>1650</td>
+                    <td>
+                        <b>BFS:</b> 96.9%<br>
+                        <b>A*:</b> 97.0%
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="problem-id">6</td>
+                    <td>10</td>
+                    <td>16.4</td>
+                    <td>82</td>
+                    <td>10</td>
+                    <td>15.4</td>
+                    <td>76</td>
+                    <td>7</td>
+                    <td>55.7</td>
+                    <td>2459</td>
+                    <td>
+                        <b>BFS:</b> 96.6%<br>
+                        <b>A*:</b> 96.9%
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="problem-id">7</td>
+                    <td>10</td>
+                    <td>15.3</td>
+                    <td>123</td>
+                    <td>10</td>
+                    <td>14.9</td>
+                    <td>96</td>
+                    <td>5</td>
+                    <td>170.8</td>
+                    <td>9213</td>
+                    <td>
+                        <b>BFS:</b> 98.7%<br>
+                        <b>A*:</b> 99.0%
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="problem-id">8</td>
+                    <td>10</td>
+                    <td>18.0</td>
+                    <td>108</td>
+                    <td>10</td>
+                    <td>16.8</td>
+                    <td>104</td>
+                    <td>7</td>
+                    <td>138.4</td>
+                    <td>8157</td>
+                    <td>
+                        <b>BFS:</b> 98.7%<br>
+                        <b>A*:</b> 98.7%
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="problem-id">9</td>
+                    <td>10</td>
+                    <td>20.7</td>
+                    <td>128</td>
+                    <td>10</td>
+                    <td>18.3</td>
+                    <td>129</td>
+                    <td>8</td>
+                    <td>111.9</td>
+                    <td>7537</td>
+                    <td>
+                        <b>BFS:</b> 98.3%<br>
+                        <b>A*:</b> 98.3%
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="problem-id">10</td>
+                    <td>10</td>
+                    <td>19.2</td>
+                    <td>168</td>
+                    <td>10</td>
+                    <td>19.2</td>
+                    <td>172</td>
+                    <td>9</td>
+                    <td>96.4</td>
+                    <td>7938</td>
+                    <td>
+                        <b>BFS:</b> 97.9%<br>
+                        <b>A*:</b> 97.8%
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="problem-id">11</td>
+                    <td>10</td>
+                    <td>22.6</td>
+                    <td>181</td>
+                    <td>10</td>
+                    <td>18.6</td>
+                    <td>167</td>
+                    <td>7</td>
+                    <td>69.4</td>
+                    <td>6035</td>
+                    <td>
+                        <b>BFS:</b> 97.0%<br>
+                        <b>A*:</b> 97.2%
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="problem-id">12</td>
+                    <td>10</td>
+                    <td>20.9</td>
+                    <td>200</td>
+                    <td>10</td>
+                    <td>18.8</td>
+                    <td>195</td>
+                    <td>3</td>
+                    <td>156.3</td>
+                    <td>15892</td>
+                    <td>
+                        <b>BFS:</b> 98.7%<br>
+                        <b>A*:</b> 98.8%
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="problem-id">13</td>
+                    <td>10</td>
+                    <td>24.5</td>
+                    <td>305</td>
+                    <td>10</td>
+                    <td>19.1</td>
+                    <td>235</td>
+                    <td>9</td>
+                    <td>146.2</td>
+                    <td>15117</td>
+                    <td>
+                        <b>BFS:</b> 98.0%<br>
+                        <b>A*:</b> 98.4%
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="problem-id">14</td>
+                    <td>10</td>
+                    <td>24.6</td>
+                    <td>337</td>
+                    <td>10</td>
+                    <td>19.1</td>
+                    <td>241</td>
+                    <td>4</td>
+                    <td>89.0</td>
+                    <td>10130</td>
+                    <td>
+                        <b>BFS:</b> 96.7%<br>
+                        <b>A*:</b> 97.6%
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="problem-id">15</td>
+                    <td>10</td>
+                    <td>22.1</td>
+                    <td>326</td>
+                    <td>10</td>
+                    <td>17.2</td>
+                    <td>239</td>
+                    <td>5</td>
+                    <td>145.2</td>
+                    <td>17881</td>
+                    <td>
+                        <b>BFS:</b> 98.2%<br>
+                        <b>A*:</b> 98.7%
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="problem-id">16</td>
+                    <td>10</td>
+                    <td>22.6</td>
+                    <td>323</td>
+                    <td>10</td>
+                    <td>19.0</td>
+                    <td>259</td>
+                    <td>5</td>
+                    <td>98.0</td>
+                    <td>13284</td>
+                    <td>
+                        <b>BFS:</b> 97.6%<br>
+                        <b>A*:</b> 98.0%
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="problem-id">17</td>
+                    <td>10</td>
+                    <td>24.4</td>
+                    <td>380</td>
+                    <td>10</td>
+                    <td>16.9</td>
+                    <td>264</td>
+                    <td>2</td>
+                    <td>80.0</td>
+                    <td>11157</td>
+                    <td>
+                        <b>BFS:</b> 96.6%<br>
+                        <b>A*:</b> 97.6%
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="problem-id">18</td>
+                    <td>10</td>
+                    <td>24.5</td>
+                    <td>427</td>
+                    <td>10</td>
+                    <td>16.4</td>
+                    <td>255</td>
+                    <td>3</td>
+                    <td>197.0</td>
+                    <td>29362</td>
+                    <td>
+                        <b>BFS:</b> 98.5%<br>
+                        <b>A*:</b> 99.1%
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="problem-id">19</td>
+                    <td>10</td>
+                    <td>25.5</td>
+                    <td>501</td>
+                    <td>10</td>
+                    <td>16.3</td>
+                    <td>285</td>
+                    <td>2</td>
+                    <td>211.0</td>
+                    <td>33725</td>
+                    <td>
+                        <b>BFS:</b> 98.5%<br>
+                        <b>A*:</b> 99.2%
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="problem-id">20</td>
+                    <td>10</td>
+                    <td>24.6</td>
+                    <td>513</td>
+                    <td>10</td>
+                    <td>17.3</td>
+                    <td>291</td>
+                    <td>4</td>
+                    <td>124.2</td>
+                    <td>21196</td>
+                    <td>
+                        <b>BFS:</b> 97.6%<br>
+                        <b>A*:</b> 98.6%
+                    </td>
+                </tr>
+            </tbody></table><h2>Comparative Detailed Report for 5 Agents</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2">Problem ID</th>
+                    <th colspan="3" class="main-header-bfs">Alert-BFS (My Algo)</th>
+                    <th colspan="3" class="main-header-astar">Alert-A*</th>
+                    <th colspan="3" class="main-header-primal">PRIMAL</th>
+                </tr>
+                <tr>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                </tr>
+            </thead>
+            <tbody>
+        <tr><td class='problem-id'>0</td><td class='success'>✔</td><td class=''>12.0</td><td class='best'>34</td><td class='success'>✔</td><td class=''>12.0</td><td class='best'>34</td><td class='success'>✔</td><td class='best'>11.0</td><td class=''>404</td></tr><tr><td class='problem-id'>1</td><td class='success'>✔</td><td class=''>23.0</td><td class=''>63</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>57</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>20018</td></tr><tr><td class='problem-id'>2</td><td class='success'>✔</td><td class='best'>14.0</td><td class='best'>54</td><td class='success'>✔</td><td class='best'>14.0</td><td class='best'>54</td><td class='success'>✔</td><td class=''>155.0</td><td class=''>4862</td></tr><tr><td class='problem-id'>3</td><td class='success'>✔</td><td class='best'>14.0</td><td class='best'>64</td><td class='success'>✔</td><td class='best'>14.0</td><td class='best'>64</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>16374</td></tr><tr><td class='problem-id'>4</td><td class='success'>✔</td><td class=''>18.0</td><td class=''>61</td><td class='success'>✔</td><td class='best'>14.0</td><td class='best'>57</td><td class='success'>✔</td><td class=''>35.0</td><td class=''>1384</td></tr><tr><td class='problem-id'>5</td><td class='success'>✔</td><td class='best'>16.0</td><td class='best'>33</td><td class='success'>✔</td><td class='best'>16.0</td><td class='best'>33</td><td class='success'>✔</td><td class=''>41.0</td><td class=''>1476</td></tr><tr><td class='problem-id'>6</td><td class='success'>✔</td><td class='best'>10.0</td><td class='best'>37</td><td class='success'>✔</td><td class='best'>10.0</td><td class='best'>37</td><td class='success'>✔</td><td class=''>22.0</td><td class=''>836</td></tr><tr><td class='problem-id'>7</td><td class='success'>✔</td><td class='best'>21.0</td><td class='best'>79</td><td class='success'>✔</td><td class='best'>21.0</td><td class='best'>79</td><td class='success'>✔</td><td class=''>26.0</td><td class=''>938</td></tr><tr><td class='problem-id'>8</td><td class='success'>✔</td><td class='best'>10.0</td><td class='best'>38</td><td class='success'>✔</td><td class='best'>10.0</td><td class='best'>38</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>18211</td></tr><tr><td class='problem-id'>9</td><td class='success'>✔</td><td class='best'>14.0</td><td class='best'>50</td><td class='success'>✔</td><td class='best'>14.0</td><td class='best'>50</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>15363</td></tr></tbody></table><h2>Comparative Detailed Report for 6 Agents</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2">Problem ID</th>
+                    <th colspan="3" class="main-header-bfs">Alert-BFS (My Algo)</th>
+                    <th colspan="3" class="main-header-astar">Alert-A*</th>
+                    <th colspan="3" class="main-header-primal">PRIMAL</th>
+                </tr>
+                <tr>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                </tr>
+            </thead>
+            <tbody>
+        <tr><td class='problem-id'>0</td><td class='success'>✔</td><td class='best'>21.0</td><td class=''>123</td><td class='success'>✔</td><td class=''>25.0</td><td class='best'>116</td><td class='success'>✔</td><td class=''>130.0</td><td class=''>5367</td></tr><tr><td class='problem-id'>1</td><td class='success'>✔</td><td class='best'>16.0</td><td class='best'>50</td><td class='success'>✔</td><td class='best'>16.0</td><td class='best'>50</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>17235</td></tr><tr><td class='problem-id'>2</td><td class='success'>✔</td><td class='best'>10.0</td><td class='best'>44</td><td class='success'>✔</td><td class='best'>10.0</td><td class='best'>44</td><td class='success'>✔</td><td class=''>23.0</td><td class=''>1028</td></tr><tr><td class='problem-id'>3</td><td class='success'>✔</td><td class='best'>13.0</td><td class='best'>65</td><td class='success'>✔</td><td class='best'>13.0</td><td class='best'>65</td><td class='success'>✔</td><td class=''>114.0</td><td class=''>4646</td></tr><tr><td class='problem-id'>4</td><td class='success'>✔</td><td class='best'>15.0</td><td class='best'>82</td><td class='success'>✔</td><td class=''>17.0</td><td class=''>88</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>20174</td></tr><tr><td class='problem-id'>5</td><td class='success'>✔</td><td class=''>19.0</td><td class=''>112</td><td class='success'>✔</td><td class='best'>15.0</td><td class='best'>94</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>18982</td></tr><tr><td class='problem-id'>6</td><td class='success'>✔</td><td class=''>23.0</td><td class=''>134</td><td class='success'>✔</td><td class='best'>11.0</td><td class='best'>75</td><td class='success'>✔</td><td class=''>34.0</td><td class=''>1787</td></tr><tr><td class='problem-id'>7</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>81</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>81</td><td class='success'>✔</td><td class=''>20.0</td><td class=''>890</td></tr><tr><td class='problem-id'>8</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>92</td><td class='success'>✔</td><td class='best'>17.0</td><td class=''>106</td><td class='success'>✔</td><td class=''>31.0</td><td class=''>1534</td></tr><tr><td class='problem-id'>9</td><td class='success'>✔</td><td class='best'>13.0</td><td class='best'>46</td><td class='success'>✔</td><td class='best'>13.0</td><td class='best'>46</td><td class='success'>✔</td><td class=''>38.0</td><td class=''>1961</td></tr></tbody></table><h2>Comparative Detailed Report for 7 Agents</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2">Problem ID</th>
+                    <th colspan="3" class="main-header-bfs">Alert-BFS (My Algo)</th>
+                    <th colspan="3" class="main-header-astar">Alert-A*</th>
+                    <th colspan="3" class="main-header-primal">PRIMAL</th>
+                </tr>
+                <tr>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                </tr>
+            </thead>
+            <tbody>
+        <tr><td class='problem-id'>0</td><td class='success'>✔</td><td class='best'>16.0</td><td class='best'>88</td><td class='success'>✔</td><td class='best'>16.0</td><td class='best'>88</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>30199</td></tr><tr><td class='problem-id'>1</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>87</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>87</td><td class='success'>✔</td><td class=''>246.0</td><td class=''>12390</td></tr><tr><td class='problem-id'>2</td><td class='success'>✔</td><td class=''>18.0</td><td class=''>386</td><td class='success'>✔</td><td class='best'>14.0</td><td class='best'>124</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>21741</td></tr><tr><td class='problem-id'>3</td><td class='success'>✔</td><td class='best'>18.0</td><td class='best'>110</td><td class='success'>✔</td><td class='best'>18.0</td><td class='best'>110</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>31779</td></tr><tr><td class='problem-id'>4</td><td class='success'>✔</td><td class='best'>15.0</td><td class='best'>100</td><td class='success'>✔</td><td class='best'>15.0</td><td class='best'>100</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>29923</td></tr><tr><td class='problem-id'>5</td><td class='success'>✔</td><td class='best'>11.0</td><td class='best'>64</td><td class='success'>✔</td><td class='best'>11.0</td><td class='best'>64</td><td class='success'>✔</td><td class=''>466.0</td><td class=''>26602</td></tr><tr><td class='problem-id'>6</td><td class='success'>✔</td><td class='best'>14.0</td><td class='best'>78</td><td class='success'>✔</td><td class='best'>14.0</td><td class='best'>78</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>23368</td></tr><tr><td class='problem-id'>7</td><td class='success'>✔</td><td class='best'>19.0</td><td class=''>151</td><td class='success'>✔</td><td class='best'>19.0</td><td class='best'>146</td><td class='success'>✔</td><td class=''>36.0</td><td class=''>1379</td></tr><tr><td class='problem-id'>8</td><td class='success'>✔</td><td class='best'>13.0</td><td class='best'>78</td><td class='success'>✔</td><td class='best'>13.0</td><td class=''>81</td><td class='success'>✔</td><td class=''>60.0</td><td class=''>3167</td></tr><tr><td class='problem-id'>9</td><td class='success'>✔</td><td class='best'>12.0</td><td class='best'>89</td><td class='success'>✔</td><td class='best'>12.0</td><td class='best'>89</td><td class='success'>✔</td><td class=''>46.0</td><td class=''>2529</td></tr></tbody></table><h2>Comparative Detailed Report for 8 Agents</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2">Problem ID</th>
+                    <th colspan="3" class="main-header-bfs">Alert-BFS (My Algo)</th>
+                    <th colspan="3" class="main-header-astar">Alert-A*</th>
+                    <th colspan="3" class="main-header-primal">PRIMAL</th>
+                </tr>
+                <tr>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                </tr>
+            </thead>
+            <tbody>
+        <tr><td class='problem-id'>0</td><td class='success'>✔</td><td class='best'>11.0</td><td class='best'>86</td><td class='success'>✔</td><td class=''>16.0</td><td class=''>104</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>24564</td></tr><tr><td class='problem-id'>1</td><td class='success'>✔</td><td class=''>24.0</td><td class=''>112</td><td class='success'>✔</td><td class='best'>15.0</td><td class='best'>79</td><td class='success'>✔</td><td class=''>336.0</td><td class=''>21896</td></tr><tr><td class='problem-id'>2</td><td class='success'>✔</td><td class='best'>16.0</td><td class='best'>91</td><td class='success'>✔</td><td class='best'>16.0</td><td class='best'>91</td><td class='success'>✔</td><td class=''>31.0</td><td class=''>1906</td></tr><tr><td class='problem-id'>3</td><td class='success'>✔</td><td class='best'>16.0</td><td class=''>110</td><td class='success'>✔</td><td class='best'>16.0</td><td class='best'>108</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>33397</td></tr><tr><td class='problem-id'>4</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>100</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>100</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>32384</td></tr><tr><td class='problem-id'>5</td><td class='success'>✔</td><td class=''>27.0</td><td class=''>183</td><td class='success'>✔</td><td class='best'>19.0</td><td class='best'>162</td><td class='success'>✔</td><td class=''>25.0</td><td class=''>1202</td></tr><tr><td class='problem-id'>6</td><td class='success'>✔</td><td class='best'>19.0</td><td class='best'>117</td><td class='success'>✔</td><td class='best'>19.0</td><td class='best'>117</td><td class='success'>✔</td><td class=''>26.0</td><td class=''>1744</td></tr><tr><td class='problem-id'>7</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>96</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>96</td><td class='success'>✔</td><td class=''>32.0</td><td class=''>1990</td></tr><tr><td class='problem-id'>8</td><td class='success'>✔</td><td class='best'>10.0</td><td class='best'>63</td><td class='success'>✔</td><td class='best'>10.0</td><td class='best'>63</td><td class='success'>✔</td><td class=''>223.0</td><td class=''>12036</td></tr><tr><td class='problem-id'>9</td><td class='success'>✔</td><td class='best'>23.0</td><td class='best'>126</td><td class='success'>✔</td><td class='best'>23.0</td><td class='best'>126</td><td class='success'>✔</td><td class=''>296.0</td><td class=''>16325</td></tr></tbody></table><h2>Comparative Detailed Report for 9 Agents</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2">Problem ID</th>
+                    <th colspan="3" class="main-header-bfs">Alert-BFS (My Algo)</th>
+                    <th colspan="3" class="main-header-astar">Alert-A*</th>
+                    <th colspan="3" class="main-header-primal">PRIMAL</th>
+                </tr>
+                <tr>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                </tr>
+            </thead>
+            <tbody>
+        <tr><td class='problem-id'>0</td><td class='success'>✔</td><td class='best'>18.0</td><td class='best'>86</td><td class='success'>✔</td><td class='best'>18.0</td><td class='best'>86</td><td class='success'>✔</td><td class=''>26.0</td><td class=''>1699</td></tr><tr><td class='problem-id'>1</td><td class='success'>✔</td><td class='best'>24.0</td><td class=''>162</td><td class='success'>✔</td><td class='best'>24.0</td><td class='best'>158</td><td class='success'>✔</td><td class=''>54.0</td><td class=''>3290</td></tr><tr><td class='problem-id'>2</td><td class='success'>✔</td><td class=''>21.0</td><td class='best'>123</td><td class='success'>✔</td><td class='best'>17.0</td><td class=''>132</td><td class='success'>✔</td><td class=''>94.0</td><td class=''>7899</td></tr><tr><td class='problem-id'>3</td><td class='success'>✔</td><td class='best'>15.0</td><td class='best'>98</td><td class='success'>✔</td><td class='best'>15.0</td><td class='best'>98</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>37955</td></tr><tr><td class='problem-id'>4</td><td class='success'>✔</td><td class=''>32.0</td><td class='best'>121</td><td class='success'>✔</td><td class='best'>23.0</td><td class=''>130</td><td class='success'>✔</td><td class=''>92.0</td><td class=''>5408</td></tr><tr><td class='problem-id'>5</td><td class='success'>✔</td><td class='best'>16.0</td><td class='best'>107</td><td class='success'>✔</td><td class='best'>16.0</td><td class='best'>107</td><td class='success'>✔</td><td class=''>60.0</td><td class=''>4336</td></tr><tr><td class='problem-id'>6</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>80</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>80</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>37044</td></tr><tr><td class='problem-id'>7</td><td class='success'>✔</td><td class=''>24.0</td><td class='best'>162</td><td class='success'>✔</td><td class='best'>19.0</td><td class=''>170</td><td class='success'>✔</td><td class=''>185.0</td><td class=''>11320</td></tr><tr><td class='problem-id'>8</td><td class='success'>✔</td><td class=''>23.0</td><td class='best'>188</td><td class='success'>✔</td><td class='best'>21.0</td><td class=''>204</td><td class='success'>✔</td><td class=''>260.0</td><td class=''>17397</td></tr><tr><td class='problem-id'>9</td><td class='success'>✔</td><td class=''>17.0</td><td class=''>155</td><td class='success'>✔</td><td class='best'>13.0</td><td class='best'>131</td><td class='success'>✔</td><td class=''>124.0</td><td class=''>8952</td></tr></tbody></table><h2>Comparative Detailed Report for 10 Agents</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2">Problem ID</th>
+                    <th colspan="3" class="main-header-bfs">Alert-BFS (My Algo)</th>
+                    <th colspan="3" class="main-header-astar">Alert-A*</th>
+                    <th colspan="3" class="main-header-primal">PRIMAL</th>
+                </tr>
+                <tr>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                </tr>
+            </thead>
+            <tbody>
+        <tr><td class='problem-id'>0</td><td class='success'>✔</td><td class=''>18.0</td><td class=''>216</td><td class='success'>✔</td><td class='best'>16.0</td><td class='best'>202</td><td class='success'>✔</td><td class=''>114.0</td><td class=''>9717</td></tr><tr><td class='problem-id'>1</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>145</td><td class='success'>✔</td><td class=''>23.0</td><td class=''>208</td><td class='success'>✔</td><td class=''>55.0</td><td class=''>4339</td></tr><tr><td class='problem-id'>2</td><td class='success'>✔</td><td class='best'>18.0</td><td class='best'>158</td><td class='success'>✔</td><td class=''>30.0</td><td class=''>191</td><td class='success'>✔</td><td class=''>301.0</td><td class=''>25576</td></tr><tr><td class='problem-id'>3</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>118</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>118</td><td class='success'>✔</td><td class=''>99.0</td><td class=''>8914</td></tr><tr><td class='problem-id'>4</td><td class='success'>✔</td><td class=''>18.0</td><td class='best'>163</td><td class='success'>✔</td><td class='best'>14.0</td><td class=''>171</td><td class='success'>✔</td><td class=''>86.0</td><td class=''>6240</td></tr><tr><td class='problem-id'>5</td><td class='success'>✔</td><td class='best'>22.0</td><td class='best'>138</td><td class='success'>✔</td><td class='best'>22.0</td><td class='best'>138</td><td class='success'>✔</td><td class=''>46.0</td><td class=''>3104</td></tr><tr><td class='problem-id'>6</td><td class='success'>✔</td><td class=''>20.0</td><td class='best'>180</td><td class='success'>✔</td><td class='best'>14.0</td><td class=''>205</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>33902</td></tr><tr><td class='problem-id'>7</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>199</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>199</td><td class='success'>✔</td><td class=''>30.0</td><td class=''>2622</td></tr><tr><td class='problem-id'>8</td><td class='success'>✔</td><td class=''>24.0</td><td class=''>195</td><td class='success'>✔</td><td class='best'>18.0</td><td class='best'>151</td><td class='success'>✔</td><td class=''>89.0</td><td class=''>7261</td></tr><tr><td class='problem-id'>9</td><td class='success'>✔</td><td class='best'>21.0</td><td class=''>172</td><td class='success'>✔</td><td class='best'>21.0</td><td class='best'>144</td><td class='success'>✔</td><td class=''>48.0</td><td class=''>3674</td></tr></tbody></table><h2>Comparative Detailed Report for 11 Agents</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2">Problem ID</th>
+                    <th colspan="3" class="main-header-bfs">Alert-BFS (My Algo)</th>
+                    <th colspan="3" class="main-header-astar">Alert-A*</th>
+                    <th colspan="3" class="main-header-primal">PRIMAL</th>
+                </tr>
+                <tr>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                </tr>
+            </thead>
+            <tbody>
+        <tr><td class='problem-id'>0</td><td class='success'>✔</td><td class='best'>22.0</td><td class='best'>132</td><td class='success'>✔</td><td class='best'>22.0</td><td class='best'>132</td><td class='success'>✔</td><td class=''>61.0</td><td class=''>4596</td></tr><tr><td class='problem-id'>1</td><td class='success'>✔</td><td class=''>46.0</td><td class=''>294</td><td class='success'>✔</td><td class='best'>24.0</td><td class='best'>196</td><td class='success'>✔</td><td class=''>46.0</td><td class=''>3759</td></tr><tr><td class='problem-id'>2</td><td class='success'>✔</td><td class=''>19.0</td><td class=''>179</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>161</td><td class='success'>✔</td><td class=''>25.0</td><td class=''>2212</td></tr><tr><td class='problem-id'>3</td><td class='success'>✔</td><td class=''>26.0</td><td class=''>181</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>177</td><td class='success'>✔</td><td class=''>40.0</td><td class=''>3229</td></tr><tr><td class='problem-id'>4</td><td class='success'>✔</td><td class='best'>20.0</td><td class=''>264</td><td class='success'>✔</td><td class=''>22.0</td><td class='best'>261</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>46899</td></tr><tr><td class='problem-id'>5</td><td class='success'>✔</td><td class='best'>22.0</td><td class='best'>144</td><td class='success'>✔</td><td class='best'>22.0</td><td class='best'>144</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>48304</td></tr><tr><td class='problem-id'>6</td><td class='success'>✔</td><td class=''>20.0</td><td class=''>143</td><td class='success'>✔</td><td class='best'>16.0</td><td class='best'>139</td><td class='success'>✔</td><td class=''>146.0</td><td class=''>13214</td></tr><tr><td class='problem-id'>7</td><td class='success'>✔</td><td class=''>21.0</td><td class=''>214</td><td class='success'>✔</td><td class='best'>18.0</td><td class='best'>211</td><td class='success'>✔</td><td class=''>70.0</td><td class=''>6034</td></tr><tr><td class='problem-id'>8</td><td class='success'>✔</td><td class='best'>13.0</td><td class=''>135</td><td class='success'>✔</td><td class='best'>13.0</td><td class='best'>119</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>43739</td></tr><tr><td class='problem-id'>9</td><td class='success'>✔</td><td class=''>17.0</td><td class=''>133</td><td class='success'>✔</td><td class='best'>15.0</td><td class='best'>131</td><td class='success'>✔</td><td class=''>98.0</td><td class=''>9205</td></tr></tbody></table><h2>Comparative Detailed Report for 12 Agents</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2">Problem ID</th>
+                    <th colspan="3" class="main-header-bfs">Alert-BFS (My Algo)</th>
+                    <th colspan="3" class="main-header-astar">Alert-A*</th>
+                    <th colspan="3" class="main-header-primal">PRIMAL</th>
+                </tr>
+                <tr>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                </tr>
+            </thead>
+            <tbody>
+        <tr><td class='problem-id'>0</td><td class='success'>✔</td><td class='best'>26.0</td><td class='best'>206</td><td class='success'>✔</td><td class='best'>26.0</td><td class='best'>206</td><td class='success'>✔</td><td class=''>124.0</td><td class=''>12489</td></tr><tr><td class='problem-id'>1</td><td class='success'>✔</td><td class=''>20.0</td><td class='best'>213</td><td class='success'>✔</td><td class='best'>15.0</td><td class=''>242</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>45226</td></tr><tr><td class='problem-id'>2</td><td class='success'>✔</td><td class=''>32.0</td><td class=''>363</td><td class='success'>✔</td><td class='best'>13.0</td><td class='best'>192</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>46238</td></tr><tr><td class='problem-id'>3</td><td class='success'>✔</td><td class='best'>14.0</td><td class='best'>130</td><td class='success'>✔</td><td class='best'>14.0</td><td class='best'>130</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>49958</td></tr><tr><td class='problem-id'>4</td><td class='success'>✔</td><td class='best'>25.0</td><td class='best'>193</td><td class='success'>✔</td><td class='best'>25.0</td><td class='best'>193</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>40351</td></tr><tr><td class='problem-id'>5</td><td class='success'>✔</td><td class=''>13.0</td><td class=''>123</td><td class='success'>✔</td><td class='best'>12.0</td><td class='best'>122</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>44408</td></tr><tr><td class='problem-id'>6</td><td class='success'>✔</td><td class='best'>20.0</td><td class='best'>156</td><td class='success'>✔</td><td class=''>24.0</td><td class=''>248</td><td class='success'>✔</td><td class=''>55.0</td><td class=''>5151</td></tr><tr><td class='problem-id'>7</td><td class='success'>✔</td><td class='best'>21.0</td><td class='best'>214</td><td class='success'>✔</td><td class=''>23.0</td><td class=''>221</td><td class='success'>✔</td><td class=''>290.0</td><td class=''>30038</td></tr><tr><td class='problem-id'>8</td><td class='success'>✔</td><td class=''>21.0</td><td class=''>226</td><td class='success'>✔</td><td class='best'>19.0</td><td class='best'>222</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>39798</td></tr><tr><td class='problem-id'>9</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>179</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>179</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>46243</td></tr></tbody></table><h2>Comparative Detailed Report for 13 Agents</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2">Problem ID</th>
+                    <th colspan="3" class="main-header-bfs">Alert-BFS (My Algo)</th>
+                    <th colspan="3" class="main-header-astar">Alert-A*</th>
+                    <th colspan="3" class="main-header-primal">PRIMAL</th>
+                </tr>
+                <tr>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                </tr>
+            </thead>
+            <tbody>
+        <tr><td class='problem-id'>0</td><td class='success'>✔</td><td class='best'>20.0</td><td class=''>262</td><td class='success'>✔</td><td class='best'>20.0</td><td class='best'>259</td><td class='success'>✔</td><td class=''>276.0</td><td class=''>24601</td></tr><tr><td class='problem-id'>1</td><td class='success'>✔</td><td class=''>25.0</td><td class=''>263</td><td class='success'>✔</td><td class='best'>23.0</td><td class='best'>227</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>42341</td></tr><tr><td class='problem-id'>2</td><td class='success'>✔</td><td class=''>27.0</td><td class=''>168</td><td class='success'>✔</td><td class='best'>20.0</td><td class='best'>144</td><td class='success'>✔</td><td class=''>45.0</td><td class=''>4425</td></tr><tr><td class='problem-id'>3</td><td class='success'>✔</td><td class='best'>23.0</td><td class=''>230</td><td class='success'>✔</td><td class='best'>23.0</td><td class='best'>228</td><td class='success'>✔</td><td class=''>76.0</td><td class=''>8370</td></tr><tr><td class='problem-id'>4</td><td class='success'>✔</td><td class=''>22.0</td><td class=''>372</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>244</td><td class='success'>✔</td><td class=''>33.0</td><td class=''>3474</td></tr><tr><td class='problem-id'>5</td><td class='success'>✔</td><td class=''>19.0</td><td class=''>215</td><td class='success'>✔</td><td class='best'>15.0</td><td class='best'>208</td><td class='success'>✔</td><td class=''>225.0</td><td class=''>25897</td></tr><tr><td class='problem-id'>6</td><td class='success'>✔</td><td class=''>29.0</td><td class=''>422</td><td class='success'>✔</td><td class='best'>16.0</td><td class='best'>227</td><td class='success'>✔</td><td class=''>289.0</td><td class=''>29751</td></tr><tr><td class='problem-id'>7</td><td class='success'>✔</td><td class=''>35.0</td><td class=''>361</td><td class='success'>✔</td><td class='best'>19.0</td><td class='best'>320</td><td class='success'>✔</td><td class=''>93.0</td><td class=''>9972</td></tr><tr><td class='problem-id'>8</td><td class='success'>✔</td><td class='best'>20.0</td><td class=''>356</td><td class='success'>✔</td><td class=''>22.0</td><td class='best'>271</td><td class='success'>✔</td><td class=''>89.0</td><td class=''>8843</td></tr><tr><td class='problem-id'>9</td><td class='success'>✔</td><td class=''>25.0</td><td class=''>403</td><td class='success'>✔</td><td class='best'>16.0</td><td class='best'>231</td><td class='success'>✔</td><td class=''>190.0</td><td class=''>20724</td></tr></tbody></table><h2>Comparative Detailed Report for 14 Agents</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2">Problem ID</th>
+                    <th colspan="3" class="main-header-bfs">Alert-BFS (My Algo)</th>
+                    <th colspan="3" class="main-header-astar">Alert-A*</th>
+                    <th colspan="3" class="main-header-primal">PRIMAL</th>
+                </tr>
+                <tr>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                </tr>
+            </thead>
+            <tbody>
+        <tr><td class='problem-id'>0</td><td class='success'>✔</td><td class=''>30.0</td><td class=''>453</td><td class='success'>✔</td><td class='best'>25.0</td><td class='best'>237</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>55772</td></tr><tr><td class='problem-id'>1</td><td class='success'>✔</td><td class='best'>20.0</td><td class=''>437</td><td class='success'>✔</td><td class='best'>20.0</td><td class='best'>238</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>58891</td></tr><tr><td class='problem-id'>2</td><td class='success'>✔</td><td class=''>32.0</td><td class=''>506</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>281</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>57850</td></tr><tr><td class='problem-id'>3</td><td class='success'>✔</td><td class=''>24.0</td><td class=''>248</td><td class='success'>✔</td><td class='best'>22.0</td><td class='best'>238</td><td class='success'>✔</td><td class=''>57.0</td><td class=''>6391</td></tr><tr><td class='problem-id'>4</td><td class='success'>✔</td><td class=''>21.0</td><td class=''>366</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>211</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>59055</td></tr><tr><td class='problem-id'>5</td><td class='success'>✔</td><td class=''>27.0</td><td class=''>350</td><td class='success'>✔</td><td class='best'>16.0</td><td class='best'>233</td><td class='success'>✔</td><td class=''>87.0</td><td class=''>10736</td></tr><tr><td class='problem-id'>6</td><td class='success'>✔</td><td class='best'>20.0</td><td class='best'>267</td><td class='success'>✔</td><td class='best'>20.0</td><td class='best'>267</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>49250</td></tr><tr><td class='problem-id'>7</td><td class='success'>✔</td><td class=''>26.0</td><td class='best'>198</td><td class='success'>✔</td><td class='best'>15.0</td><td class=''>229</td><td class='success'>✔</td><td class=''>97.0</td><td class=''>10832</td></tr><tr><td class='problem-id'>8</td><td class='success'>✔</td><td class=''>28.0</td><td class=''>368</td><td class='success'>✔</td><td class='best'>21.0</td><td class='best'>321</td><td class='success'>✔</td><td class=''>115.0</td><td class=''>12563</td></tr><tr><td class='problem-id'>9</td><td class='success'>✔</td><td class='best'>18.0</td><td class=''>186</td><td class='success'>✔</td><td class='best'>18.0</td><td class='best'>163</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>56118</td></tr></tbody></table><h2>Comparative Detailed Report for 15 Agents</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2">Problem ID</th>
+                    <th colspan="3" class="main-header-bfs">Alert-BFS (My Algo)</th>
+                    <th colspan="3" class="main-header-astar">Alert-A*</th>
+                    <th colspan="3" class="main-header-primal">PRIMAL</th>
+                </tr>
+                <tr>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                </tr>
+            </thead>
+            <tbody>
+        <tr><td class='problem-id'>0</td><td class='success'>✔</td><td class=''>21.0</td><td class=''>472</td><td class='success'>✔</td><td class='best'>16.0</td><td class='best'>247</td><td class='success'>✔</td><td class=''>204.0</td><td class=''>25571</td></tr><tr><td class='problem-id'>1</td><td class='success'>✔</td><td class=''>23.0</td><td class=''>355</td><td class='success'>✔</td><td class='best'>19.0</td><td class='best'>278</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>59791</td></tr><tr><td class='problem-id'>2</td><td class='success'>✔</td><td class=''>27.0</td><td class=''>582</td><td class='success'>✔</td><td class='best'>25.0</td><td class='best'>287</td><td class='success'>✔</td><td class=''>86.0</td><td class=''>10908</td></tr><tr><td class='problem-id'>3</td><td class='success'>✔</td><td class=''>20.0</td><td class=''>287</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>275</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>57828</td></tr><tr><td class='problem-id'>4</td><td class='success'>✔</td><td class=''>24.0</td><td class=''>299</td><td class='success'>✔</td><td class='best'>16.0</td><td class='best'>206</td><td class='success'>✔</td><td class=''>349.0</td><td class=''>41768</td></tr><tr><td class='problem-id'>5</td><td class='success'>✔</td><td class=''>23.0</td><td class='best'>224</td><td class='success'>✔</td><td class='best'>17.0</td><td class=''>248</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>65165</td></tr><tr><td class='problem-id'>6</td><td class='success'>✔</td><td class=''>22.0</td><td class=''>261</td><td class='success'>✔</td><td class='best'>13.0</td><td class='best'>258</td><td class='success'>✔</td><td class=''>48.0</td><td class=''>6538</td></tr><tr><td class='problem-id'>7</td><td class='success'>✔</td><td class=''>23.0</td><td class=''>391</td><td class='success'>✔</td><td class='best'>13.0</td><td class='best'>220</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>54043</td></tr><tr><td class='problem-id'>8</td><td class='success'>✔</td><td class='best'>24.0</td><td class=''>252</td><td class='success'>✔</td><td class='best'>24.0</td><td class='best'>243</td><td class='success'>✔</td><td class=''>39.0</td><td class=''>4620</td></tr><tr><td class='problem-id'>9</td><td class='success'>✔</td><td class=''>14.0</td><td class=''>144</td><td class='success'>✔</td><td class='best'>12.0</td><td class='best'>133</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>56241</td></tr></tbody></table><h2>Comparative Detailed Report for 16 Agents</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2">Problem ID</th>
+                    <th colspan="3" class="main-header-bfs">Alert-BFS (My Algo)</th>
+                    <th colspan="3" class="main-header-astar">Alert-A*</th>
+                    <th colspan="3" class="main-header-primal">PRIMAL</th>
+                </tr>
+                <tr>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                </tr>
+            </thead>
+            <tbody>
+        <tr><td class='problem-id'>0</td><td class='success'>✔</td><td class=''>17.0</td><td class=''>298</td><td class='success'>✔</td><td class='best'>15.0</td><td class='best'>237</td><td class='success'>✔</td><td class=''>86.0</td><td class=''>11941</td></tr><tr><td class='problem-id'>1</td><td class='success'>✔</td><td class=''>39.0</td><td class='best'>301</td><td class='success'>✔</td><td class='best'>25.0</td><td class=''>308</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>70388</td></tr><tr><td class='problem-id'>2</td><td class='success'>✔</td><td class='best'>12.0</td><td class='best'>182</td><td class='success'>✔</td><td class='best'>12.0</td><td class=''>184</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>67271</td></tr><tr><td class='problem-id'>3</td><td class='success'>✔</td><td class=''>35.0</td><td class=''>465</td><td class='success'>✔</td><td class='best'>22.0</td><td class='best'>251</td><td class='success'>✔</td><td class=''>146.0</td><td class=''>20967</td></tr><tr><td class='problem-id'>4</td><td class='success'>✔</td><td class='best'>19.0</td><td class=''>264</td><td class='success'>✔</td><td class='best'>19.0</td><td class='best'>240</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>70092</td></tr><tr><td class='problem-id'>5</td><td class='success'>✔</td><td class='best'>17.0</td><td class=''>287</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>285</td><td class='success'>✔</td><td class=''>108.0</td><td class=''>14178</td></tr><tr><td class='problem-id'>6</td><td class='success'>✔</td><td class=''>26.0</td><td class=''>456</td><td class='success'>✔</td><td class='best'>24.0</td><td class='best'>283</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>71203</td></tr><tr><td class='problem-id'>7</td><td class='success'>✔</td><td class=''>22.0</td><td class=''>376</td><td class='success'>✔</td><td class='best'>18.0</td><td class='best'>267</td><td class='success'>✔</td><td class=''>82.0</td><td class=''>10301</td></tr><tr><td class='problem-id'>8</td><td class='success'>✔</td><td class='best'>15.0</td><td class=''>310</td><td class='success'>✔</td><td class='best'>15.0</td><td class='best'>240</td><td class='success'>✔</td><td class=''>68.0</td><td class=''>9036</td></tr><tr><td class='problem-id'>9</td><td class='success'>✔</td><td class=''>24.0</td><td class='best'>295</td><td class='success'>✔</td><td class='best'>23.0</td><td class=''>298</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>68597</td></tr></tbody></table><h2>Comparative Detailed Report for 17 Agents</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2">Problem ID</th>
+                    <th colspan="3" class="main-header-bfs">Alert-BFS (My Algo)</th>
+                    <th colspan="3" class="main-header-astar">Alert-A*</th>
+                    <th colspan="3" class="main-header-primal">PRIMAL</th>
+                </tr>
+                <tr>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                </tr>
+            </thead>
+            <tbody>
+        <tr><td class='problem-id'>0</td><td class='success'>✔</td><td class=''>28.0</td><td class=''>555</td><td class='success'>✔</td><td class='best'>16.0</td><td class='best'>337</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>71243</td></tr><tr><td class='problem-id'>1</td><td class='success'>✔</td><td class=''>27.0</td><td class=''>403</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>263</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>74742</td></tr><tr><td class='problem-id'>2</td><td class='success'>✔</td><td class='best'>13.0</td><td class='best'>207</td><td class='success'>✔</td><td class=''>15.0</td><td class=''>246</td><td class='success'>✔</td><td class=''>33.0</td><td class=''>4472</td></tr><tr><td class='problem-id'>3</td><td class='success'>✔</td><td class=''>27.0</td><td class=''>472</td><td class='success'>✔</td><td class='best'>22.0</td><td class='best'>277</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>68387</td></tr><tr><td class='problem-id'>4</td><td class='success'>✔</td><td class=''>20.0</td><td class=''>362</td><td class='success'>✔</td><td class='best'>15.0</td><td class='best'>258</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>60970</td></tr><tr><td class='problem-id'>5</td><td class='success'>✔</td><td class=''>35.0</td><td class=''>379</td><td class='success'>✔</td><td class='best'>19.0</td><td class='best'>286</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>76897</td></tr><tr><td class='problem-id'>6</td><td class='success'>✔</td><td class=''>17.0</td><td class=''>275</td><td class='success'>✔</td><td class='best'>13.0</td><td class='best'>213</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>73132</td></tr><tr><td class='problem-id'>7</td><td class='success'>✔</td><td class=''>29.0</td><td class=''>584</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>262</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>74891</td></tr><tr><td class='problem-id'>8</td><td class='success'>✔</td><td class=''>22.0</td><td class=''>255</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>240</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>76778</td></tr><tr><td class='problem-id'>9</td><td class='success'>✔</td><td class=''>26.0</td><td class=''>312</td><td class='success'>✔</td><td class='best'>18.0</td><td class='best'>266</td><td class='success'>✔</td><td class=''>127.0</td><td class=''>17842</td></tr></tbody></table><h2>Comparative Detailed Report for 18 Agents</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2">Problem ID</th>
+                    <th colspan="3" class="main-header-bfs">Alert-BFS (My Algo)</th>
+                    <th colspan="3" class="main-header-astar">Alert-A*</th>
+                    <th colspan="3" class="main-header-primal">PRIMAL</th>
+                </tr>
+                <tr>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                </tr>
+            </thead>
+            <tbody>
+        <tr><td class='problem-id'>0</td><td class='success'>✔</td><td class=''>27.0</td><td class=''>311</td><td class='success'>✔</td><td class='best'>18.0</td><td class='best'>235</td><td class='success'>✔</td><td class=''>62.0</td><td class=''>9531</td></tr><tr><td class='problem-id'>1</td><td class='success'>✔</td><td class=''>32.0</td><td class=''>414</td><td class='success'>✔</td><td class='best'>19.0</td><td class='best'>250</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>82986</td></tr><tr><td class='problem-id'>2</td><td class='success'>✔</td><td class=''>29.0</td><td class=''>302</td><td class='success'>✔</td><td class='best'>15.0</td><td class='best'>277</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>69676</td></tr><tr><td class='problem-id'>3</td><td class='success'>✔</td><td class='best'>17.0</td><td class=''>327</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>195</td><td class='success'>✔</td><td class=''>336.0</td><td class=''>48191</td></tr><tr><td class='problem-id'>4</td><td class='success'>✔</td><td class=''>27.0</td><td class=''>496</td><td class='success'>✔</td><td class='best'>16.0</td><td class='best'>257</td><td class='success'>✔</td><td class=''>193.0</td><td class=''>30366</td></tr><tr><td class='problem-id'>5</td><td class='success'>✔</td><td class=''>16.0</td><td class=''>272</td><td class='success'>✔</td><td class='best'>12.0</td><td class='best'>219</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>77685</td></tr><tr><td class='problem-id'>6</td><td class='success'>✔</td><td class=''>21.0</td><td class=''>569</td><td class='success'>✔</td><td class='best'>14.0</td><td class='best'>252</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>71366</td></tr><tr><td class='problem-id'>7</td><td class='success'>✔</td><td class=''>28.0</td><td class=''>621</td><td class='success'>✔</td><td class='best'>15.0</td><td class='best'>288</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>80657</td></tr><tr><td class='problem-id'>8</td><td class='success'>✔</td><td class=''>18.0</td><td class=''>392</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>281</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>85670</td></tr><tr><td class='problem-id'>9</td><td class='success'>✔</td><td class=''>30.0</td><td class=''>569</td><td class='success'>✔</td><td class='best'>21.0</td><td class='best'>301</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>84446</td></tr></tbody></table><h2>Comparative Detailed Report for 19 Agents</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2">Problem ID</th>
+                    <th colspan="3" class="main-header-bfs">Alert-BFS (My Algo)</th>
+                    <th colspan="3" class="main-header-astar">Alert-A*</th>
+                    <th colspan="3" class="main-header-primal">PRIMAL</th>
+                </tr>
+                <tr>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                </tr>
+            </thead>
+            <tbody>
+        <tr><td class='problem-id'>0</td><td class='success'>✔</td><td class=''>26.0</td><td class=''>493</td><td class='success'>✔</td><td class='best'>15.0</td><td class='best'>262</td><td class='success'>✔</td><td class=''>94.0</td><td class=''>15600</td></tr><tr><td class='problem-id'>1</td><td class='success'>✔</td><td class=''>27.0</td><td class=''>540</td><td class='success'>✔</td><td class='best'>16.0</td><td class='best'>261</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>86552</td></tr><tr><td class='problem-id'>2</td><td class='success'>✔</td><td class=''>27.0</td><td class=''>575</td><td class='success'>✔</td><td class='best'>21.0</td><td class='best'>326</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>87025</td></tr><tr><td class='problem-id'>3</td><td class='success'>✔</td><td class=''>29.0</td><td class=''>552</td><td class='success'>✔</td><td class='best'>14.0</td><td class='best'>277</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>83259</td></tr><tr><td class='problem-id'>4</td><td class='success'>✔</td><td class=''>32.0</td><td class=''>489</td><td class='success'>✔</td><td class='best'>14.0</td><td class='best'>289</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>77089</td></tr><tr><td class='problem-id'>5</td><td class='success'>✔</td><td class=''>29.0</td><td class=''>389</td><td class='success'>✔</td><td class='best'>22.0</td><td class='best'>316</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>78867</td></tr><tr><td class='problem-id'>6</td><td class='success'>✔</td><td class=''>19.0</td><td class=''>424</td><td class='success'>✔</td><td class='best'>13.0</td><td class='best'>259</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>81890</td></tr><tr><td class='problem-id'>7</td><td class='success'>✔</td><td class=''>22.0</td><td class=''>572</td><td class='success'>✔</td><td class='best'>20.0</td><td class='best'>348</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>87836</td></tr><tr><td class='problem-id'>8</td><td class='success'>✔</td><td class=''>24.0</td><td class=''>452</td><td class='success'>✔</td><td class='best'>14.0</td><td class='best'>262</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>86233</td></tr><tr><td class='problem-id'>9</td><td class='success'>✔</td><td class=''>20.0</td><td class=''>533</td><td class='success'>✔</td><td class='best'>14.0</td><td class='best'>255</td><td class='success'>✔</td><td class=''>328.0</td><td class=''>51851</td></tr></tbody></table><h2>Comparative Detailed Report for 20 Agents</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2">Problem ID</th>
+                    <th colspan="3" class="main-header-bfs">Alert-BFS (My Algo)</th>
+                    <th colspan="3" class="main-header-astar">Alert-A*</th>
+                    <th colspan="3" class="main-header-primal">PRIMAL</th>
+                </tr>
+                <tr>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                    <th class="sub-header">Status</th><th class="sub-header">Makespan</th><th class="sub-header">Info IU</th>
+                </tr>
+            </thead>
+            <tbody>
+        <tr><td class='problem-id'>0</td><td class='success'>✔</td><td class=''>27.0</td><td class=''>599</td><td class='success'>✔</td><td class='best'>16.0</td><td class='best'>255</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>86981</td></tr><tr><td class='problem-id'>1</td><td class='success'>✔</td><td class=''>29.0</td><td class=''>511</td><td class='success'>✔</td><td class='best'>21.0</td><td class='best'>304</td><td class='success'>✔</td><td class=''>106.0</td><td class=''>18667</td></tr><tr><td class='problem-id'>2</td><td class='success'>✔</td><td class=''>29.0</td><td class=''>388</td><td class='success'>✔</td><td class='best'>19.0</td><td class='best'>292</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>82194</td></tr><tr><td class='problem-id'>3</td><td class='success'>✔</td><td class=''>27.0</td><td class=''>613</td><td class='success'>✔</td><td class='best'>17.0</td><td class='best'>318</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>84244</td></tr><tr><td class='problem-id'>4</td><td class='success'>✔</td><td class=''>28.0</td><td class=''>496</td><td class='success'>✔</td><td class='best'>20.0</td><td class='best'>267</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>89504</td></tr><tr><td class='problem-id'>5</td><td class='success'>✔</td><td class=''>26.0</td><td class=''>435</td><td class='success'>✔</td><td class='best'>18.0</td><td class='best'>325</td><td class='success'>✔</td><td class=''>84.0</td><td class=''>15007</td></tr><tr><td class='problem-id'>6</td><td class='success'>✔</td><td class=''>22.0</td><td class=''>575</td><td class='success'>✔</td><td class='best'>15.0</td><td class='best'>312</td><td class='success'>✔</td><td class=''>147.0</td><td class=''>24067</td></tr><tr><td class='problem-id'>7</td><td class='success'>✔</td><td class=''>20.0</td><td class=''>528</td><td class='success'>✔</td><td class='best'>15.0</td><td class='best'>277</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>91502</td></tr><tr><td class='problem-id'>8</td><td class='success'>✔</td><td class=''>18.0</td><td class=''>404</td><td class='success'>✔</td><td class='best'>16.0</td><td class='best'>275</td><td class='failure'>✖</td><td class=''>N/A</td><td class=''>83566</td></tr><tr><td class='problem-id'>9</td><td class='success'>✔</td><td class=''>20.0</td><td class=''>585</td><td class='success'>✔</td><td class='best'>16.0</td><td class='best'>287</td><td class='success'>✔</td><td class=''>160.0</td><td class=''>27043</td></tr></tbody></table></body></html>

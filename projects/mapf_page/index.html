@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>MAPF Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+
+<body class="container">
+  <table style="width:80%; border:0; border-spacing:0; border-collapse:separate; margin: 0 auto;">
+    <tbody>
+      <tr style="padding:0;">
+        <td style="padding-left:2.5%; padding-top:3%; width:63%; vertical-align:middle">
+          <p style="text-align:left">
+            <!-- Update these links to point to your actual home and projects pages -->
+            <a href='../../index.html'>Home</a> &nbsp;/&nbsp;
+            <a href='../index.html'>Projects</a> &nbsp;/&nbsp;
+          </p>
+        </td>
+      </tr>
+      
+      <tr style="padding:0;">
+        <td style="padding-left:2.5%; width:63%; vertical-align:middle">
+          <h2 style="display:flex; align-items:center;">
+            <!-- Using a different color to distinguish from the other project -->
+            <span style="background-color:hsl(265, 60%, 65%); height:20px; width:20px; margin-right:10px; border:1px solid black;"></span>
+            Multi-Agent Path Finding (MAPF)
+          </h2>
+          <p>
+            <!-- Add contact information for your project team -->
+            <b>Contact:</b> <i>Students:</i> Bharath Muppasani; Ritirupa Dey <i>Faculty:</i> Biplav Srivastava, Vignesh Narayanan
+          </p>
+          
+          <!-- Key Idea box -->
+          <div style="border: 2px solid hsl(265, 60%, 65%); border-radius: 5px; padding: 15px; background-color: hsl(265, 60%, 97%); box-shadow: 2px 2px 8px rgba(0,0,0,0.1); font-family: Arial, sans-serif;">
+            <h4 style="margin:0 0 5px 0; color: hsl(265, 60%, 65%);">Key Idea</h4>
+            <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #333;">
+              Our research enhances <strong>Multi-Agent Path Finding (MAPF)</strong> by developing a scalable hybrid framework that minimizes information sharing while ensuring collision-free solutions. We combine decentralized Reinforcement Learning with a lightweight central coordinator for dynamic conflict resolution. Additionally, we introduce the <strong>Multi-Agent Planning Ontology (maPO)</strong>, a unified semantic schema that transforms raw MAPF execution traces into a queryable knowledge graph, enabling on-demand, human-readable explanations for planner behavior and improving transparency.
+            </p>
+          </div>
+          <br>
+        </td>
+      </tr>
+
+      <!-- Section 1: Scalable MAPF -->
+      <tr>
+        <td style="padding-left:2.5%; width:63%; vertical-align:middle">
+          <p style="text-align: justify; font-size: 16px;">
+            <span style="background-color: hsla(265, 60%, 65%, 0.36);"><b>Scalable MAPF using a Hybrid Execution Strategy</b></span>
+          </p>
+          <p style="text-align: justify;">
+            Traditional centralized MAPF algorithms provide high-quality solutions but struggle to scale in large, multi-agent scenarios. To address this, we propose a hybrid framework that blends decentralized path planning with a lightweight centralized coordinator. Agents use a Reinforcement Learning (RL) policy to plan their paths based on local information. The central coordinator detects potential collisions and issues minimal, targeted alerts—such as conflict-cell flags or brief conflict tracks—to prompt agents to replan. This approach significantly reduces inter-agent information sharing compared to fully centralized or distributed methods, while still consistently finding feasible, collision-free solutions in large-scale scenarios.
+          </p>
+          
+          <!-- Image from the first paper -->
+          <img src="images/mapf_overview.png" alt="MAPF Problem Overview" style="max-width:80%; display: block; margin: 20px auto; border: 1px solid #ccc;">
+
+          <!-- Experimental Evaluation Box -->
+          <div style="border: 2px solid hsl(265, 60%, 65%); border-radius: 5px; padding: 15px; background-color: hsl(265, 60%, 99%); box-shadow: 2px 2px 8px rgba(0,0,0,0.1); font-family: Arial, sans-serif; margin-top: 20px; margin-bottom: 20px;">
+            <h4 style="margin: 0 0 10px 0; color: hsl(265, 60%, 65%);">Experimental Results</h4>
+            <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #333;">
+              See our comparative report on inter-agent information sharing tests: 
+              <a href="files/info_test_comparative_report.html" target="_blank" style="color: #007acc; text-decoration: none; font-weight: bold;">View Report</a>
+            </p>
+          </div>
+
+          <p><i><b>Representative Publication</b></i></p>
+          <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+            <li style="margin-bottom: 20px; font-size: 15px; line-height: 1.4;">
+              <strong>Scalable Multi-Agent Path Finding using Collision-Aware Dynamic Alert Mask and a Hybrid Execution Strategy</strong><br>
+              <i>Anonymous Submission</i><br>
+              <a href="files/MAPF_25.pdf" target="_blank">[Paper]</a>
+            </li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="100%" style="border-bottom: 1px solid #ccc; padding-top: 20px;"></td>
+      </tr>
+
+      <!-- Section 2: Explainable MAPF -->
+      <tr style="padding:0;">
+        <td style="padding-left:2.5%; width:63%; vertical-align:middle; padding-top: 20px;">
+          <p style="text-align: justify; font-size: 16px;">
+            <span style="background-color: hsla(265, 60%, 65%, 0.36);"><b>maPO: An Ontology for Explainable MAPF</b></span>
+          </p>
+          <p style="text-align: justify;">
+            As multi-agent systems become more autonomous, the need for transparent and interpretable decision-making is critical. To address this, we introduce the Multi-Agent Planning Ontology (maPO), a unified semantic schema that formalizes MAPF concepts like collision events, conflict alerts, and replanning strategies. Our framework includes a log-to-graph pipeline that ingests planner execution traces and transforms them into a rich knowledge graph. This allows stakeholders to ask complex questions about the planner's behavior (e.g., "Why did an agent wait?") using SPARQL queries, which are then translated into human-readable explanations. A user study confirmed that our generated explanations are significantly clearer and more useful than raw planner data.
+          </p>
+
+          <!-- Web Platform Box -->
+          <div style="border: 2px solid hsl(265, 60%, 65%); border-radius: 5px; padding: 15px; background-color: hsl(265, 60%, 99%); box-shadow: 2px 2px 8px rgba(0,0,0,0.1); font-family: Arial, sans-serif; margin-top: 20px; margin-bottom: 20px;">
+            <h4 style="margin: 0 0 10px 0; color: hsl(265, 60%, 65%);">Explore the Ontology</h4>
+            <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #333;">
+              Explore the maPO schema and generate explanations on our interactive web platform: 
+              <a href="https://bharathmuppasani.github.io/MA-Ontology/" target="_blank" style="color: #007acc; text-decoration: none; font-weight: bold;">Visit Web Platform</a>
+            </p>
+          </div>
+
+          <!-- Image from the second paper -->
+          <img src="images/mapo_schema.png" alt="MAPO Ontology Schema" style="max-width:90%; display: block; margin: 20px auto; border: 1px solid #ccc;">
+
+          <p><i><b>Representative Publication</b></i></p>
+          <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+            <li style="margin-bottom: 20px; font-size: 15px; line-height: 1.4;">
+              <strong>maPO: An Ontology for Multi-Agent Path Finding and Its Usage for Explaining Planner Behaviour</strong><br>
+              <i>Anonymous Submission</i><br>
+              <a href="files/MAPF_Ontology.pdf" target="_blank">[Paper]</a>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
