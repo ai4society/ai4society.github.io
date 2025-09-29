@@ -10,6 +10,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" type="text/css" href="../stylesheet.css">
+  
+  <style>
+    /* Style for the collapsible content area */
+    .collapsible-content {
+      display: none;
+    }
+
+    /* General button styling */
+    .details-button {
+      background-color: #3498db;
+      color: white !important;
+      padding: 5px 10px;
+      text-decoration: none;
+      border-radius: 5px;
+      margin: 5px 0;
+      display: inline-block;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .details-button:hover {
+      background-color: #2980b9;
+    }
+    
+    /* Styles for the colored section blocks from your stylesheet */
+    .highlight-planning, .highlight-rating, .highlight-others {
+      border-radius: 8px;
+    }
+
+    .highlight-planning { background-color: #faeaea; } /* Lighter Red */
+    .highlight-rating { background-color: #f0f0ff; } /* Lighter Purple/Blue */
+    .highlight-others { background-color: #fff8f0; } /* Lighter Orange/Tan */
+
+    /* Style for the toggle button */
+    .toggle-button {
+      cursor: pointer;
+      color: #333;
+      font-weight: bold;
+      text-align: center;
+      padding: 10px;
+      user-select: none; /* Prevents text selection on click */
+      background-color: #ffffff;
+      border-radius: 5px;
+      margin-top: 15px;
+      margin-bottom: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      border: 1px solid #eee;
+    }
+    .toggle-button:hover {
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+  </style>
+
 </head>
 
 <body class="container">
@@ -19,33 +72,23 @@
             <tr style="padding:0px">
                 <td style="padding-left:2.5%;width:63%;vertical-align:middle">
                     <p style="text-align:left">
-                        <a href='../index.html'>Home</a> &nbsp|&nbsp
-                      <a href='../activities/index.html'>Activities</a> &nbsp|&nbsp
-                      <a href='../awards/index.html'>Awards</a> &nbsp|&nbsp
-                      <a href='../demos/index.html'>Demos</a> &nbsp|&nbsp
-                      <a href='../funding/index.html'>Funding</a> &nbsp|&nbsp
-                      <a href='../members/index.html'>Members</a> &nbsp|&nbsp
-                      <a href='../news-journal/index.html'>NewsLog</a> &nbsp|&nbsp
-                      <a href='../patents/index.html'>Patents</a> &nbsp|&nbsp
+                        <a href='../index.html'>Home</a>  | 
+                      <a href='../activities/index.html'>Activities</a>  | 
+                      <a href='../awards/index.html'>Awards</a>  | 
+                      <a href='../demos/index.html'>Demos</a>  | 
+                      <a href='../funding/index.html'>Funding</a>  | 
+                      <a href='../members/index.html'>Members</a>  | 
+                      <a href='../news-journal/index.html'>NewsLog</a>  | 
+                      <a href='../patents/index.html'>Patents</a>  | 
                       <a href='../publications/index.html'>Publications</a>
                     </p>
                 </td>
             </tr>
             <tr style="padding:0px">
                 <td style="padding-left:2.5%;width:63%;vertical-align:middle">
-
                 <heading>Projects</heading>
                 </td>
             </tr>
-
-
-            <!-- <tr style="padding:0px">
-                <td style="padding-left:2.5%;width:63%;vertical-align:middle">
-                  
-                <h3>Content to be added </h3>
-                
-                </td>
-            </tr> -->
 
 
             <tr style="padding:0px">
@@ -55,17 +98,13 @@
             </tr>
 
             <tbody class="highlight-planning">
-            
                 <tr style="padding:0px">
-                    <td style="padding-left:2.5%;width:63%;vertical-align:middle">
+                    <td style="padding: 20px 20px 0 20px;width:63%;vertical-align:middle">
                         <h2>Neuro-Symbolic and Automated Planning</h2>
                     </td>
                 </tr>
-
-
-
                 <tr>
-                    <td style="padding-left:2.5%;width:63%;vertical-align:middle">
+                    <td style="padding: 0 20px;width:63%;vertical-align:middle">
                         <h3 style="display:flex;align-items:center;">
                             <span style="background-color:hsl(60, 100%, 50%);height:15px;width:15px;margin-right:10px;border:1px solid black;"></span>
                             Generalized Planning
@@ -74,15 +113,24 @@
                         </h3>
                         <i><b>Team: </b>University of South Carolina, IBM Research, University of Udine, University of Brescia</i>
                         <p><b>Description:</b> A suite of projects aimed at building foundation models and agentic frameworks that can reason, plan, and adapt across diverse domains. Our work spans the development of transformer-based architectures for learning sequential decision-making tasks, the design of agentic frameworks inspired by <i>Thinking, Fast and Slow</i> theories, and the creation of ontologies to support structured reasoning and planning.</p>
-                            <span>
-                                <a style="background-color: #3498db; color: white; padding: 2px 3px; text-decoration: none; border-radius: 4px; margin: 5px 0; display: inline-block;" href="./generalized_planning/index.html" target="_blank"><b>More Details</b></a>
-                            </span>
-                        
+                            <a class="details-button" href="./generalized_planning/index.html" target="_blank">More Details</a>
                     </td>
                 </tr>
-
                 <tr>
-                    <td style="padding-left:2.5%;width:63%;vertical-align:middle">
+                    <td style="padding: 0 20px;width:63%;vertical-align:middle">
+                        <h3 style="display:flex;align-items:center;">
+                            <span style="background-color:hsl(265, 60%, 65%);height:15px;width:15px;margin-right:10px;border:1px solid black;"></span>
+                            Knowledge Engineering for Planning
+                            <span class="tag tag-method">Automated Planning</span>
+                            <span class="tag tag-method">Knowledge Representation</span>
+                        </h3>
+                        <i><b>Team: </b>Bharath Muppasani, Vishal Pallagani, Ritirupa Dey, Biplav Srivastava, Vignesh Narayanan</i>
+                        <p><b>Description: </b>This project focuses on building ontologies to enhance AI planning systems. By structuring domain and planner knowledge, we improve planner selection, optimize performance via learned macros, and provide human-readable explanations for complex agent behaviors.</p>
+                            <a class="details-button" href="./ontology/index.html" target="_blank">More Details</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 0 20px;width:63%;vertical-align:middle">
                         <h3 style="display:flex;align-items:center;">
                             <span style="background-color:hsl(100, 100%, 50%);height:15px;width:15px;margin-right:10px;border:1px solid black;"></span>
                             Collaborative Assistants
@@ -91,66 +139,57 @@
                         </h3>
                         <i><b>Team: </b>Vishal Pallagani, Bharath Chandra, Kausik Lakkaraju, Biplav Srivastava</i>
                         <p><b>Description: </b>Collaborative Assistants, popularly known as chatbots provide an easy interface for users to obtain answers for their queries. At AI4Society, we build collaborative assistants for various applications such as information retrieval, answer election based questions, help learn puzzle solving through a series of conversations, and obtain information regarding sensor data.</p>
-                            <span>
-                                <a style="background-color: #3498db; color: white; padding: 2px 3px; text-decoration: none; border-radius: 4px; margin: 5px 0; display: inline-block;" href="chatbots_page/index.html" target="_blank"><b>More Details</b></a>
-                            </span>
-
+                            <a class="details-button" href="chatbots_page/index.html" target="_blank">More Details</a>
                     </td>
                 </tr>
-
-                <tr>
-                    <td style="padding-left:2.5%;width:63%;vertical-align:middle">
+            </tbody>
+            
+            <tbody id="planning-more" class="collapsible-content highlight-planning">
+                 <tr>
+                    <td style="padding: 0 20px;width:63%;vertical-align:middle">
                         <h3 style="display:flex;align-items:center;">
                             <span style="background-color:hsla(0, 81%, 65%, 0.835);height:15px;width:15px;margin-right:10px;border:1px solid black;"></span>
                             Rubik’s Cube
-
                             <span class="tag tag-method">Automated Planning</span>
                         </h3>
                         <i><b>Team: </b>Bharath Muppasani, Vishal Pallagani, Kausik Lakkaraju, Biplav Srivastava, Forest Agostinelli</i>
                         <p><b>Description: </b>Rubik’s Cube (RC) is a popular puzzle that is also computationally hard to solve. In this demonstration, we introduce the first PDDL formulation for the 3-dimension RC and solve it with off-the-shelf Fast-Downward planner. We also create a plan executor and visualizer to show how the plan achieves the intended goal. Our system has two audiences:(a) planning researchers who can explore a hard problem, and (b) RC learners wanting to learn how to solve the puzzle at their own pace.</p>
-                            <span>
-                                <a style="background-color: #3498db; color: white; padding: 2px 3px; text-decoration: none; border-radius: 4px; margin: 5px 0; display: inline-block;" href="./rubiks_cube/index.html" target="_blank"><b>More Details</b></a>
-                            </span>
-                        
+                            <a class="details-button" href="./rubiks_cube/index.html" target="_blank">More Details</a>
+                    </td>
+                </tr>
+            </tbody>
+            
+            <tbody class="highlight-planning">
+                <tr>
+                    <td style="padding: 0 20px 10px 20px;">
+                        <div class="toggle-button" onclick="toggleProjects('planning-more', this)">Show More Projects</div>
                     </td>
                 </tr>
             </tbody>
 
-            <tr style="padding: 0px">
-                <td style="padding-left:2.5%;width:63%;vertical-align:middle">
-                    <!-- <hr style="width: 100%; float: left;"> -->
-                    <br>
-                </td>
-            </tr>
+            <tr><td><br></td></tr>
 
             <tbody class="highlight-rating">
-
                 <tr style="padding:0px">
-                    <td style="padding-left:2.5%;width:63%;vertical-align:middle">
+                    <td style="padding: 20px 20px 0 20px;width:63%;vertical-align:middle">
                         <h2>Trusted AI</h2>
                     </td>
                 </tr>
-                
                 <tr>
-                    <td style="padding-left:2.5%;width:63%;vertical-align:middle">
+                    <td style="padding: 0 20px;width:63%;vertical-align:middle">
                         <h3 style="display:flex;align-items:center;">
                             <span style="background-color:hsla(272, 81%, 65%, 0.835);height:15px;width:15px;margin-right:10px;border:1px solid black;"></span>
                             Rating of AI Systems
-
                             <span class="tag tag-method">Neuro-Symbolic AI</span>
                             <span class="tag tag-method">Trusted AI</span>
                         </h3>
                         <i><b>Team: </b>Kausik Lakkaraju, Biplav Srivastava, Marco Valtorta</i>
                         <p><b>Description: </b>AI systems, such as facial recognition and sentiment analyzers, often show model uncertainty, leading to algorithmic bias, particularly concerning protected attributes like gender and race. This research seeks to understand and reduce bias by establishing causal relationships. Assigning ratings to AI systems based on this helps users make informed choices.</p>
-                            <span>
-                                <a style="background-color: #3498db; color: white; padding: 2px 3px; text-decoration: none; border-radius: 4px; margin: 5px 0; display: inline-block;" href="./rating_page/index.html" target="_blank"><b>More Details</b></a>
-                            </span>
-                        
+                            <a class="details-button" href="./rating_page/index.html" target="_blank">More Details</a>
                     </td>
                 </tr>
-
                 <tr>
-                    <td style="padding-left:2.5%;width:63%;vertical-align:middle">
+                    <td style="padding: 0 20px;width:63%;vertical-align:middle">
                         <h3 style="display:flex;align-items:center;">
                             <span style="background-color:aqua;height:15px;width:15px;margin-right:10px;border:1px solid black;"></span>
                             Trustworthy Group Recommendation
@@ -159,122 +198,106 @@
                         </h3>
                         <i><b>Team: </b>Siva Likitha Valluru, Sai Teja Paladi, Tarmo Koppel, Biplav Srivastava</i>
                         <p><b>Description: </b>We study the problem of trustworthy group recommendation, where the focus goes beyond individual user preferences and dives into collective tastes and interests. Our objective is to build novel methods and useful tools for group recommendation with fairness, and drive different use cases. We extend this problem to the team formation domain, where we present an AI-based system to aid in collaborative teaming for researchers responding to funding agency proposals. Our approach leverages NLP techniques to extract and normalize technical skills from various data sources, facilitating matching and teaming based on constraints. We have gathered initial feedback from university researchers to deploy the prototype system and published a dataset for broader use.</p>
-                            <span>
-                                <a style="background-color: #3498db; color: white; padding: 2px 3px; text-decoration: none; border-radius: 4px; margin: 5px 0; display: inline-block;" href="./group_rec/index.html" target="_blank"><b>More Details</b></a>
-                            </span>
-                        
+                            <a class="details-button" href="./group_rec/index.html" target="_blank">More Details</a>
                     </td>
                 </tr>
-
+            </tbody>
+            
+            <tbody id="trusted-ai-more" class="collapsible-content highlight-rating">
                 <tr>
-                    <td style="padding-left:2.5%;width:63%;vertical-align:middle">
+                    <td style="padding: 0 20px;width:63%;vertical-align:middle">
                         <h3 style="display:flex;align-items:center;">
                             <span style="background-color:hsla(221, 81%, 65%, 0.835);height:15px;width:15px;margin-right:10px;border:1px solid black;"></span>
                             LLM and Chatbot Testing
-
                             <span class="tag tag-method">Trusted AI</span>
                         </h3>
                         <i><b>Team: </b>Kausik Lakkaraju, Sara Rae Jones, Sai Krishna Revanth Vuruma, Vishal Pallagani, Bharath Muppasani, Biplav Srivastava</i>
                         <p><b>Description: </b>Increasingly powerful Large Language Model (LLM) based chatbots, like ChatGPT and Bard, are becoming available to users that have the potential to revolutionize the quality of decision-making achieved by the public. We find that although the outputs of the chatbots are fluent and plausible, there are still critical gaps in providing accurate and reliable information using LLM-based chatbots.</p>
-                            <span>
-                                <a style="background-color: #3498db; color: white; padding: 2px 3px; text-decoration: none; border-radius: 4px; margin: 5px 0; display: inline-block;" href="./llm_page/index.html" target="_blank"><b>More Details</b></a>
-                            </span>
-                        
+                            <a class="details-button" href="./llm_page/index.html" target="_blank">More Details</a>
+                    </td>
+                </tr>
+            </tbody>
+            
+            <tbody class="highlight-rating">
+                 <tr>
+                    <td style="padding: 0 20px 10px 20px;">
+                        <div class="toggle-button" onclick="toggleProjects('trusted-ai-more', this)">Show More Projects</div>
                     </td>
                 </tr>
             </tbody>
 
-            <tr style="padding: 0px">
-                <td style="padding-left:2.5%;width:63%;vertical-align:middle">
-                    <!-- <hr style="width: 100%; float: left;"> -->
-                    <br>
-                </td>
-            </tr>
+            <tr><td><br></td></tr>
 
             <tbody class="highlight-others">
-
                 <tr style="padding:0px">
-                    <td style="padding-left:2.5%;width:63%;vertical-align:middle">
+                    <td style="padding: 20px 20px 0 20px;width:63%;vertical-align:middle">
                         <h2>Applications and Others</h2>
                     </td>
                 </tr>
-
                 <tr>
-                    <td style="padding-left:2.5%;width:63%;vertical-align:middle">
+                    <td style="padding: 0 20px;width:63%;vertical-align:middle">
                         <h3 style="display:flex;align-items:center;">
                             <span style="background-color:hsl(15, 77%, 51%);height:15px;width:15px;margin-right:10px;border:1px solid black;"></span>
                             Opinion Network for Online User Safety
-
-                            <!-- <span class="tag tag-method">Time-Series</span> -->
                             <span class="tag tag-method">Planning</span>
                         </h3>
                         <i><b>Team: </b>Bharath Muppasani, Vignesh Narayanan, Biplav Srivastava, Michael N. Huhns</i>
-                         <!-- <i><b>Team: </b>University of South Carolina, South Carolina Department of Health and Environmental Control (DHEC), South Carolina Department of Public Safety (SCDPS), National Safety Council Southeastern Chapter (NSCSC)</i> -->
-                        <p><b>Description: </b>This project focuses on understanding and influencing information spread and opinion formation within networks by integrating the principles from Opinion Dynamics and Automated Planning.</p>
-                            <span>
-                                <a style="background-color: #3498db; color: white; padding: 2px 3px; text-decoration: none; border-radius: 4px; margin: 5px 0; display: inline-block;" href="./InfoSpread/index.html" target="_blank"><b>More Details</b></a>
-                            </span>
-                        
+                         <p><b>Description: </b>This project focuses on understanding and influencing information spread and opinion formation within networks by integrating the principles from Opinion Dynamics and Automated Planning.</p>
+                            <a class="details-button" href="./InfoSpread/index.html" target="_blank">More Details</a>
                     </td>
                 </tr>
-<!-- 
                 <tr>
-                    <td style="padding-left:2.5%;width:63%;vertical-align:middle">
+                    <td style="padding: 0 20px;width:63%;vertical-align:middle">
                         <h3 style="display:flex;align-items:center;">
-                            <span style="background-color:hsl(265, 60%, 65%);height:15px;width:15px;margin-right:10px;border:1px solid black;"></span>
-                            Multi-Agent Path Finding (MAPF)
-
-                            <span class="tag tag-method">Automated Planning</span>
-                            <span class="tag tag-method">Neuro-Symbolic AI</span>
+                            <span style="background-color:hsl(95, 99%, 35%);height:15px;width:15px;margin-right:10px;border:1px solid black;"></span>
+                            Traffic Data Analysis
+                            <span class="tag tag-method">Data Analysis</span>
                         </h3>
-                        <i><b>Team: </b>Bharath Muppasani, Ritirupa Dey, Biplav Srivastava, Vignesh Narayanan</i>
-                        <p><b>Description: </b>This project enhances MAPF by developing a scalable hybrid framework and the Multi-Agent Planning Ontology (maPO) to enable on-demand, human-readable explanations for planner behavior and improve transparency.</p>
-                            <span>
-                                <a style="background-color: #3498db; color: white; padding: 2px 3px; text-decoration: none; border-radius: 4px; margin: 5px 0; display: inline-block;" href="./mapf_page/index.html" target="_blank"><b>More Details</b></a>
-                            </span>
-                        
+                        <i><b>Team: </b>Bharath Muppasani, Nitin Gupta, Biplav Srivastava, Lucas Vasconcelos</i>
+                         <p><b>Description: </b>The project aims to enhance road safety in South Carolina by analysing traffic data provided by Department of Transportation. We focused on identifying collision patterns and evaluating the Alive@25 program's impact to develop targeted recommendations for reducing accidents and improving road safety initiatives across urban and rural areas.</p>
+                            <a class="details-button" href="./traffic-page/index.html" target="_blank">More Details</a>
                     </td>
-                </tr> -->
+                </tr>
+            </tbody>
 
+            <tbody id="others-more" class="collapsible-content highlight-others">
                 <tr>
-                    <td style="padding-left:2.5%;width:63%;vertical-align:middle">
+                    <td style="padding: 0 20px;width:63%;vertical-align:middle">
                         <h3 style="display:flex;align-items:center;">
                             <span style="background-color:hsl(37, 100%, 50%);height:15px;width:15px;margin-right:10px;border:1px solid black;"></span>
                             Insights with Power Data
-
                             <span class="tag tag-method">Time-Series</span>
                             <span class="tag tag-method">Data Analysis</span>
                         </h3>
                         <i><b>Team: </b>Bharath Muppasani, Cheyyur Jaya Anand, Chinmayi Appajigowda, Lokesh Johri, Biplav Srivastava</i>
                         <p><b>Description: </b>The project aims to identify power usage patterns of any system, like buildings or factories, of interest using the harmonics data obtained from MiDAS IoT sensor. We also make power usage dataset (electricity consumption data and harmonics data) available from 8 institutions in manufacturing, education and medical institutions from the US and India.</p>
-                            <span>
-                                <a style="background-color: #3498db; color: white; padding: 2px 3px; text-decoration: none; border-radius: 4px; margin: 5px 0; display: inline-block;" href="./power_page/index.html" target="_blank"><b>More Details</b></a>
-                            </span>
-                        
+                            <a class="details-button" href="./power_page/index.html" target="_blank">More Details</a>
                     </td>
                 </tr>
-
                 <tr>
-                    <td style="padding-left:2.5%;width:63%;vertical-align:middle">
+                    <td style="padding: 0 20px;width:63%;vertical-align:middle">
                         <h3 style="display:flex;align-items:center;">
-                            <span style="background-color:hsl(95, 99%, 35%);height:15px;width:15px;margin-right:10px;border:1px solid black;"></span>
-                            Traffic Data Analysis
-
-                            <!-- <span class="tag tag-method">Time-Series</span> -->
-                            <span class="tag tag-method">Data Analysis</span>
+                            <span style="background-color:hsl(265, 60%, 65%);height:15px;width:15px;margin-right:10px;border:1px solid black;"></span>
+                            Multi-Agent Path Finding (MAPF)
+                            <span class="tag tag-method">Automated Planning</span>
+                            <span class="tag tag-method">Neuro-Symbolic AI</span>
                         </h3>
-                        <i><b>Team: </b>Bharath Muppasani, Nitin Gupta, Biplav Srivastava, Lucas Vasconcelos</i>
-                         <!-- <i><b>Team: </b>University of South Carolina, South Carolina Department of Health and Environmental Control (DHEC), South Carolina Department of Public Safety (SCDPS), National Safety Council Southeastern Chapter (NSCSC)</i> -->
-                        <p><b>Description: </b>The project aims to enhance road safety in South Carolina by analysing traffic data provided by Department of Transportation. We focused on identifying collision patterns and evaluating the Alive@25 program's impact to develop targeted recommendations for reducing accidents and improving road safety initiatives across urban and rural areas.</p>
-                            <span>
-                                <a style="background-color: #3498db; color: white; padding: 2px 3px; text-decoration: none; border-radius: 4px; margin: 5px 0; display: inline-block;" href="./traffic-page/index.html" target="_blank"><b>More Details</b></a>
-                            </span>
-                        
+                        <i><b>Team: </b>Bharath Muppasani, Ritirupa Dey, Biplav Srivastava, Vignesh Narayanan</i>
+                        <p><b>Description: </b>This project enhances MAPF by developing a scalable hybrid framework and the Multi-Agent Planning Ontology (maPO) to enable on-demand, human-readable explanations for planner behavior and improve transparency.</p>
+                            <a class="details-button" href="./mapf_page/index.html" target="_blank">More Details</a>
                     </td>
                 </tr>
             </tbody>
 
-            <tr style="padding:0px">
+            <tbody class="highlight-others">
+                 <tr>
+                    <td style="padding: 0 20px 10px 20px;">
+                        <div class="toggle-button" onclick="toggleProjects('others-more', this)">Show More Projects</div>
+                    </td>
+                </tr>
+            </tbody>
+
+            <tr>
                 <td style="padding-left:2.5%;width:63%;vertical-align:middle">
                     <br>
                     <hr style="width: 100%; float: left;">
@@ -284,14 +307,29 @@
             <tr style="padding:0px">
                 <td style="padding-left:2.5%;width:63%;vertical-align:middle">
                   <p style="text-align:left">
-                    <!-- <a target="_blank" href="mailto:vishal.pallagani@gmail.com">Email</a> &nbsp|&nbsp -->
-                    <a target="_blank" href="https://github.com/ai4society">GitHub</a>&nbsp|&nbsp
+                    <a target="_blank" href="https://github.com/ai4society">GitHub</a> | 
                     <a target="_blank" href="https://maps.app.goo.gl/ZFgJm82yYJhoknvZA">Address</a>
                   </p>
                 </td>
               </tr>
         </tbody>
     </table>
+
+    <script>
+      // JavaScript function to toggle the visibility of project sections
+      function toggleProjects(contentId, buttonElement) {
+        var content = document.getElementById(contentId);
+        
+        // Check current display state and toggle it
+        if (content.style.display === "none" || content.style.display === "") {
+          content.style.display = "table-row-group"; // Use 'table-row-group' for tbody
+          buttonElement.textContent = "Show Less Projects";
+        } else {
+          content.style.display = "none";
+          buttonElement.textContent = "Show More Projects";
+        }
+      }
+    </script>
 
 </body>
 

@@ -1,0 +1,102 @@
+/* Import Lato Font */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* Define CSS Variables for the new color theme */
+:root {
+  --primary-color: hsl(265, 55%, 50%); /* A nice, modern purple */
+  --primary-color-light: hsl(265, 60%, 97%); /* A very light tint for backgrounds */
+  --text-color: #333;
+  --link-color: #1772d0;
+  --link-hover-color: #f09228; /* Contrasting orange for hover */
+  --border-color: #ccc;
+}
+
+/* General Body and Typography Styles */
+body, td, th, tr, p, a, li {
+  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+h2, h4 {
+  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+}
+
+body {
+  color: var(--text-color);
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:focus,
+a:hover {
+  color: var(--link-hover-color);
+  text-decoration: none;
+}
+
+strong {
+  font-weight: 700;
+}
+
+/* Main container for responsive layout */
+.container {
+  max-width: 1170px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Project Title Icon */
+.title-icon {
+  background-color: var(--primary-color);
+  height: 20px;
+  width: 20px;
+  margin-right: 12px;
+  border: 1px solid #555;
+  flex-shrink: 0; /* Prevents the icon from shrinking */
+}
+
+/* Style for Sub-section Titles */
+.subsection-title {
+  background-color: hsl(265, 60%, 95%);
+  border-left: 4px solid var(--primary-color);
+  padding: 4px 12px;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+
+/* Reusable Info Box for "Key Idea" and "Web Platform" */
+.info-box {
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+  padding: 20px;
+  background-color: var(--primary-color-light);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+}
+
+.info-box h4 {
+  margin: 0 0 10px 0;
+  color: var(--primary-color);
+  font-size: 18px;
+}
+
+.info-box p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* List styling */
+ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 15px;
+}

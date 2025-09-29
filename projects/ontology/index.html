@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Knowledge Engineering for Planning</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+
+<body class="container">
+  <table style="width:80%; border:0; border-spacing:0; border-collapse:separate; margin: 0 auto;">
+    <tbody>
+      <tr style="padding:0;">
+        <td style="padding-left:2.5%; padding-top:3%; width:63%; vertical-align:middle">
+          <p style="text-align:left">
+            <a href='../../index.html'>Home</a> &nbsp;/&nbsp;
+            <a href='../index.html'>Projects</a> &nbsp;/&nbsp;
+          </p>
+        </td>
+      </tr>
+
+      <tr style="padding:0;">
+        <td style="padding:20px 2.5% 20px 2.5%; width:63%; vertical-align:middle">
+          <h2 style="display:flex; align-items:center;">
+            <span class="title-icon"></span>
+            Knowledge Engineering for Planning
+          </h2>
+
+          <p>
+            <b>Contact:</b> <em>Students:</em> Bharath Muppasani, Vishal Pallagani, Ritirupa Dey; <em>Faculty:</em> Biplav Srivastava, Vignesh Narayanan
+          </p>
+
+          <div class="info-box">
+            <h4>Key Idea</h4>
+            <p>
+              This research focuses on leveraging knowledge engineering, specifically through the development of ontologies, to enhance the capabilities of AI planning systems. By structuring domain and planner knowledge, we aim to improve planner selection, optimize performance through learned constraints (macros), and provide transparent, human-readable explanations for complex behaviors in domains like Multi-Agent Path Finding (MAPF).
+            </p>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="100%" style="border-bottom: 1px solid #ddd; margin-top: 10px;"></td>
+      </tr>
+
+      <tr style="padding:0;">
+        <td style="padding:30px 2.5% 20px 2.5%; width:63%; vertical-align:middle">
+          <p class="subsection-title">Planning Ontology for Performance Improvement</p>
+          <p style="text-align: justify;">
+            We hypothesize that given a large number of available planners and diverse planning domains, they carry essential information that can be leveraged to identify suitable planners and improve their performance. We use data from the International Planning Competition (IPC) to construct a planning ontology and demonstrate that it can lead to the selection of promising planners and improve their performance using macros—a form of action ordering constraints extracted from the ontology.
+          </p>
+
+          <p style="margin-top: 20px;"><em><b>Representative Publications</b></em></p>
+          <ul>
+            <li>
+              Building a Plan Ontology to Represent and Exploit Planning Knowledge and Its Applications<br>
+              <em>Eighth International Conference on Data Science and Management of Data (CODS-COMAD '24), India, 2024.</em><br>
+              <a href="./files/CODS_24_AI_Planning_Ontology.pdf" target="_blank">[Paper]</a>
+              <a href="https://ai4society.github.io/planning-ontology/" target="_blank">[Website]</a>
+            </li>
+          </ul>
+
+          <p style="margin-top: 20px;"><em><b>Representative Patents</b></em></p>
+          <ul>
+            <li>
+              <b>USC 1649</b> Improving Planner Performance by Learning and Using Metadata of Experiences<br>
+              <em>Biplav Srivastava, Vishal Pallagani, Bharath Muppasani</em> <br>
+            </li>
+          </ul>
+          
+          <img src="./images/planning_ontology.png" alt="Planning Ontology Diagram" style="max-width: 90%; display: block; margin: 30px auto; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="100%" style="border-bottom: 1px solid #ccc;"></td>
+      </tr>
+
+      <tr style="padding:0;">
+        <td style="padding:40px 2.5% 20px 2.5%; width:63%; vertical-align:middle">
+          <p class="subsection-title">maPO: A Multi-Agent Planning Ontology for Explainable Path Finding</p>
+          <p style="text-align: justify;">
+            As multi-agent systems become more autonomous, the need for transparent and interpretable decision-making is critical. To address this, we introduce the Multi-Agent Planning Ontology (maPO), a unified semantic schema that formalizes MAPF concepts. Our framework includes a log-to-graph pipeline that ingests planner execution traces and transforms them into a rich knowledge graph. This allows stakeholders to ask complex questions about the planner's behavior and receive human-readable explanations.
+          </p>
+          
+          <p style="margin-top: 20px;"><em><b>Representative Publication</b></em></p>
+          <ul>
+            <li>
+              <strong>maPO: An Ontology for Multi-Agent Path Finding and Its Usage for Explaining Planner Behaviour</strong><br>
+              <a href="files/MAPF_Ontology.pdf" target="_blank">[Paper]</a>
+              <a href="https://ai4society.github.io/ma-planning-ontology/" target="_blank">[Website]</a>
+            </li>
+          </ul>
+
+          <img src="./images/maPO_schema.png" alt="Planning Ontology Diagram" style="max-width: 70%; display: block; margin: 30px auto;">
+
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+  <script type="text/javascript" src="../js/script.js"></script>
+</body>
+</html>
