@@ -984,3 +984,45 @@ button:hover {
     margin-right: 5px;
   }
 }
+
+/* Thematic highlighting for initiatives */
+.initiative-group {
+  font-weight: bold;
+  padding: 1px 6px;
+  border-radius: 4px;
+  text-decoration: none !important; 
+  border: 1px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.initiative-group:hover {
+  filter: brightness(95%); /* Gently darkens the highlight on hover */
+}
+
+/* Group 1: Planning & Ontology (Blue) */
+.group-planning {
+  background-color: #e0eaff;
+  color: #004085 !important;
+  border: 1px solid #b8daff;
+}
+
+/* Group 2: Assessment & Rating (Red) */
+.group-assessment {
+  background-color: #f8d7da;
+  color: #721c24 !important;
+  border: 1px solid #f5c6cb;
+}
+
+/* Group 3: Societal Applications (Green) */
+.group-societal {
+  background-color: #d4edda;
+  color: #155724 !important;
+  border: 1px solid #c3e6cb;
+}
+
+/* Group 4: Advanced Tools & Methods (Purple) */
+.group-tools {
+  background-color: #e2d9f3;
+  color: #493267 !important;
+  border: 1px solid #d6cadd;
+}
