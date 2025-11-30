@@ -1026,3 +1026,117 @@ button:hover {
   color: #493267 !important;
   border: 1px solid #d6cadd;
 }
+
+      .genealogy-popup {
+        position: fixed;
+        z-index: 9999;
+        background: #f9fafb;
+        border-radius: 12px;
+        padding: 12px 14px 14px;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.25);
+        font-size: 0.8rem;
+        color: #111827;
+        min-width: 260px;
+        max-width: 380px;
+        display: none; /* hidden by default */
+      }
+
+      .genealogy-popup.visible {
+        display: block;
+      }
+
+      .genealogy-popup::after {
+        content: "";
+        position: absolute;
+        bottom: -7px;
+        left: 24px;
+        border-width: 8px 8px 0 8px;
+        border-style: solid;
+        border-color: #f9fafb transparent transparent transparent;
+      }
+
+      .genealogy-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 6px;
+      }
+
+      .genealogy-title {
+        margin: 0;
+        font-size: 0.9rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .genealogy-title i {
+        font-size: 0.9rem;
+        color: #4b5563;
+      }
+
+      .genealogy-close {
+        cursor: pointer;
+        font-size: 1rem;
+        color: #6b7280;
+      }
+
+      .genealogy-close:hover {
+        color: #111827;
+      }
+
+      .genealogy-subtitle {
+        margin: 0 0 8px;
+        font-size: 0.75rem;
+        color: #6b7280;
+        line-height: 1.3;
+      }
+
+      .genealogy-chain {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        align-items: center;
+      }
+
+      .genealogy-node {
+        text-align: center;
+        min-width: 60px;
+      }
+
+      .genealogy-node-circle {
+        width: 38px;
+        height: 38px;
+        border-radius: 999px;
+        background: #ffffff;
+        border: 1.5px solid #4b5563;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 0.75rem;
+        margin: 0 auto 4px;
+      }
+
+      .genealogy-node-name {
+        font-size: 0.7rem;
+        font-weight: 500;
+        color: #111827;
+      }
+
+      .genealogy-node-role {
+        font-size: 0.65rem;
+        color: #6b7280;
+      }
+
+      .genealogy-arrow {
+        font-size: 0.8rem;
+        color: #9ca3af;
+      }
+
+      @media (max-width: 640px) {
+        .genealogy-popup {
+          max-width: 90%;
+        }
+      }
