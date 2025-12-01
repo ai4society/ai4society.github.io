@@ -12,7 +12,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
-
   </head>
 
   <body class="container">
@@ -66,7 +65,7 @@
                   </td>
                 </tr>
 
-                <!-- MAIN 2-COLUMN ROW: left (About + News), right (photos + spotlight) -->
+                <!-- MAIN 2-COLUMN ROW: left (About + News), right (photos + posters) -->
                 <tr style="padding: 0px">
                   <!-- LEFT COLUMN -->
                   <td
@@ -195,6 +194,23 @@
                         <div class="timeline-date year">2025</div>
                       </div>
 
+                      <!-- December 2025 -->
+                      <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date month">December</div>
+
+                        <div class="timeline-content">
+                          <p>
+                            <a href="https://www.linkedin.com/in/vishalpallagani/" target="_blank">
+                              Vishal Pallagani
+                            </a>
+                            will defend his dissertation proposal on Dec 03 –
+                            <i>"Generalized Planning Using Language Models and its Applications"</i>.
+                          </p>
+                        </div>
+
+                      </div>
+                      <!-- End of December 2025 -->
                       <!-- November 2025 -->
                       <div class="timeline-item">
                         <div class="timeline-dot"></div>
@@ -284,40 +300,6 @@
                         </div>
                       </div>
                       <!-- End of October 2025 -->
-
-                      <!-- September 2025 -->
-                      <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date month">September</div>
-
-                        <div class="timeline-content">
-                          <p>
-                            A book edited and contributed by AI4S titled <i>PROMISE</i> -
-                            <a
-                              href="https://link.springer.com/book/10.1007/978-3-031-89853-2"
-                              target="_blank"
-                              >PROMoting AI’s Safe usage for Elections</a
-                            >, is released by Springer Nature (
-                            <a
-                              href="https://sites.google.com/site/biplavsrivastava/research-1/ai-and-elections"
-                              target="_blank"
-                              >more</a
-                            >).
-                          </p>
-                        </div>
-
-                        <div class="timeline-content">
-                          <p>
-                            A paper on
-                            <i>A Neurosymbolic Fast and Slow Architecture for Graph Coloring</i> is
-                            accepted at
-                            <a href="http://cogsys.org/conference/2025/" target="_blank">ACS 2025</a
-                            >. Preprint at
-                            <a href="https://arxiv.org/abs/2412.01752">arXiv</a>.
-                          </p>
-                        </div>
-                      </div>
-                      <!-- End of September 2025 -->
                     </div>
                   </td>
 
@@ -386,9 +368,9 @@
                       <a class="next" onclick="plusSlides(1)">&#10095;</a>
                     </div>
 
-                    <!-- Poster slideshow (Research Spotlight) -->
+                    <!-- Posters stacked (Research Spotlight) -->
                     <div class="slideshow-container">
-                      <div class="research-spotlight research-spotlight-slide">
+                      <div class="research-spotlight">
                         <h3 class="spotlight-title">Research Spotlight</h3>
                         <a href="spotlight/NeurIPS-24-Poster.png" target="_blank">
                           <img
@@ -399,7 +381,7 @@
                         </a>
                       </div>
 
-                      <div class="research-spotlight research-spotlight-slide">
+                      <div class="research-spotlight" style="margin-top: 16px;">
                         <h3 class="spotlight-title">Research Spotlight</h3>
                         <a href="spotlight/power-IAAI.jpg" target="_blank">
                           <img
@@ -409,9 +391,6 @@
                           />
                         </a>
                       </div>
-
-                      <a class="prev" onclick="plusSpotlightSlides(-1)">&#10094;</a>
-                      <a class="next" onclick="plusSpotlightSlides(1)">&#10095;</a>
                     </div>
                   </td>
                 </tr>
@@ -441,115 +420,102 @@
       </tbody>
     </table>
 
-    <!-- Academic Genealogy Popover -->
-    <div id="genealogyPopup" class="genealogy-popup">
-      <div class="genealogy-header">
-        <h3 class="genealogy-title">
-          <i class="fas fa-project-diagram"></i>
-          Academic Genealogy
-        </h3>
-        <span class="genealogy-close">&times;</span>
+<!-- Academic Genealogy Popover -->
+<div id="genealogyPopup" class="genealogy-popup">
+  <div class="genealogy-header">
+    <h3 class="genealogy-title">
+      <i class="fas fa-project-diagram"></i>
+      Academic Genealogy
+    </h3>
+    <span class="genealogy-close">&times;</span>
+  </div>
+
+  <p class="genealogy-subtitle">
+    AI4Society builds on a lineage of pioneering researchers in AI and knowledge representation.
+  </p>
+
+  <div class="genealogy-chain">
+    <!-- Row 1: Minsky -> Charniak -> Hendler -->
+    <div class="genealogy-row">
+      <div class="genealogy-node">
+        <div class="genealogy-node-circle">MM</div>
+        <div class="genealogy-node-name">
+          <a href="https://en.wikipedia.org/wiki/Marvin_Minsky" target="_blank">
+            Minsky
+          </a>
+        </div>
+        <div class="genealogy-node-role">Advisor</div>
       </div>
-      <p class="genealogy-subtitle">
-        AI4Society builds on a lineage of pioneering researchers in AI and knowledge
-        representation.
-      </p>
 
-      <div class="genealogy-chain">
-        <!-- Row 1: MM -> EC -> (to next row) -->
-        <div class="genealogy-row">
-          <div class="genealogy-node">
-            <div class="genealogy-node-circle">MM</div>
-            <div class="genealogy-node-name">
-              <a href="https://en.wikipedia.org/wiki/Marvin_Minsky" target="_blank">
-                Marvin Minsky
-              </a>
-            </div>
-            <div class="genealogy-node-role">Advisor</div>
-          </div>
+      <div class="genealogy-arrow">
+        <i class="fas fa-long-arrow-alt-right"></i>
+      </div>
 
-          <div class="genealogy-arrow">
-            <i class="fas fa-long-arrow-alt-right"></i>
-          </div>
-
-          <div class="genealogy-node">
-            <div class="genealogy-node-circle">EC</div>
-            <div class="genealogy-node-name">
-              <a href="https://en.wikipedia.org/wiki/Eugene_Charniak" target="_blank">
-                Eugene Charniak
-              </a>
-            </div>
-            <div class="genealogy-node-role">Advisor</div>
-          </div>
-
-          <div class="genealogy-arrow genealogy-arrow-continue">
-            <i class="fas fa-long-arrow-alt-right"></i>
-          </div>
+      <div class="genealogy-node">
+        <div class="genealogy-node-circle">EC</div>
+        <div class="genealogy-node-name">
+          <a href="https://en.wikipedia.org/wiki/Eugene_Charniak" target="_blank">
+            Charniak
+          </a>
         </div>
+        <div class="genealogy-node-role">Advisor</div>
+      </div>
 
-        <!-- Row 2: JH -> SK -> (to next row) -->
-        <div class="genealogy-row">
-          <div class="genealogy-node">
-            <div class="genealogy-node-circle">JH</div>
-            <div class="genealogy-node-name">
-              <a href="https://en.wikipedia.org/wiki/James_Hendler" target="_blank">
-                James Hendler
-              </a>
-            </div>
-            <div class="genealogy-node-role">Advisor</div>
-          </div>
+      <div class="genealogy-arrow">
+        <i class="fas fa-long-arrow-alt-right"></i>
+      </div>
 
-          <div class="genealogy-arrow">
-            <i class="fas fa-long-arrow-alt-right"></i>
-          </div>
-
-          <div class="genealogy-node">
-            <div class="genealogy-node-circle">SK</div>
-            <div class="genealogy-node-name">
-              <a href="https://rakaposhi.eas.asu.edu/" target="_blank">
-                Subbarao Kambhampati
-              </a>
-            </div>
-            <div class="genealogy-node-role">Advisor</div>
-          </div>
-
-          <div class="genealogy-arrow genealogy-arrow-continue">
-            <i class="fas fa-long-arrow-alt-right"></i>
-          </div>
+      <div class="genealogy-node">
+        <div class="genealogy-node-circle">JH</div>
+        <div class="genealogy-node-name">
+          <a href="https://en.wikipedia.org/wiki/James_Hendler" target="_blank">
+            Hendler
+          </a>
         </div>
-
-        <!-- Row 3: BS -> AI4S (no further arrow) -->
-        <div class="genealogy-row">
-          <div class="genealogy-node">
-            <div class="genealogy-node-circle">BS</div>
-            <div class="genealogy-node-name">
-              <a
-                href="https://sites.google.com/site/biplavsrivastava/home"
-                target="_blank"
-              >
-                Biplav Srivastava
-              </a>
-            </div>
-            <div class="genealogy-node-role">Advisor</div>
-          </div>
-
-          <div class="genealogy-arrow">
-            <i class="fas fa-long-arrow-alt-right"></i>
-          </div>
-
-          <div class="genealogy-node">
-            <div class="genealogy-node-circle">AI4S</div>
-            <div class="genealogy-node-name">
-              AI4Society PhD Students
-            </div>
-            <div class="genealogy-node-role">Current</div>
-          </div>
-
-          <!-- empty cell to keep column alignment clean -->
-          <div class="genealogy-arrow"></div>
-        </div>
+        <div class="genealogy-node-role">Advisor</div>
       </div>
     </div>
+
+    <!-- Row 2: Kambhampati -> Srivastava -> AI4Society -->
+    <div class="genealogy-row">
+      <div class="genealogy-node">
+        <div class="genealogy-node-circle">SK</div>
+        <div class="genealogy-node-name">
+          <a href="https://rakaposhi.eas.asu.edu/" target="_blank">
+            Kambhampati
+          </a>
+        </div>
+        <div class="genealogy-node-role">Advisor</div>
+      </div>
+
+      <div class="genealogy-arrow">
+        <i class="fas fa-long-arrow-alt-right"></i>
+      </div>
+
+      <div class="genealogy-node">
+        <div class="genealogy-node-circle">BS</div>
+        <div class="genealogy-node-name">
+          <a href="https://sites.google.com/site/biplavsrivastava/home" target="_blank">
+            Srivastava
+          </a>
+        </div>
+        <div class="genealogy-node-role">Advisor</div>
+      </div>
+
+      <div class="genealogy-arrow">
+        <i class="fas fa-long-arrow-alt-right"></i>
+      </div>
+
+      <div class="genealogy-node">
+        <div class="genealogy-node-circle">AI4S</div>
+        <div class="genealogy-node-name">
+          AI4Society
+        </div>
+        <div class="genealogy-node-role">PhD Students</div>
+      </div>
+    </div>
+  </div>
+</div>
 
     <script>
       // Image Slideshow Variables
@@ -557,7 +523,7 @@
       var slides = document.getElementsByClassName("mySlides");
       var imgTimer;
 
-      // Research Spotlight Slideshow Variables
+      // Research Spotlight Slideshow Variables (kept but unused)
       var spotlightIndex = 0;
       var spotlightSlides =
         document.getElementsByClassName("research-spotlight-slide");
@@ -590,7 +556,7 @@
         startImageSlideshow();
       }
 
-      // Research Spotlight Slideshow Functions
+      // (Spotlight slideshow functions kept but not used)
       function showSpotlightSlides() {
         var i;
         for (i = 0; i < spotlightSlides.length; i++) {
@@ -618,7 +584,7 @@
       }
 
       startImageSlideshow();
-      startSpotlightSlideshow();
+      // NOTE: no startSpotlightSlideshow() call, posters are static now
 
       // ----- Academic Genealogy Popover Logic -----
       var genealogyPopup = document.getElementById("genealogyPopup");
