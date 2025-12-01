@@ -12,6 +12,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
+
   </head>
 
   <body class="container">
@@ -65,7 +66,9 @@
                   </td>
                 </tr>
 
+                <!-- MAIN 2-COLUMN ROW: left (About + News), right (photos + spotlight) -->
                 <tr style="padding: 0px">
+                  <!-- LEFT COLUMN -->
                   <td
                     style="
                       padding-left: 2.5%;
@@ -74,6 +77,7 @@
                       vertical-align: top;
                     "
                   >
+                    <!-- About section -->
                     <p style="text-align: left">
                       <name>About AI4Society</name>
                     </p>
@@ -450,51 +454,99 @@
         AI4Society builds on a lineage of pioneering researchers in AI and knowledge
         representation.
       </p>
+
       <div class="genealogy-chain">
-        <div class="genealogy-node">
-          <div class="genealogy-node-circle">MM</div>
-          <div class="genealogy-node-name">Minsky</div>
-          <div class="genealogy-node-role">Advisor</div>
+        <!-- Row 1: MM -> EC -> (to next row) -->
+        <div class="genealogy-row">
+          <div class="genealogy-node">
+            <div class="genealogy-node-circle">MM</div>
+            <div class="genealogy-node-name">
+              <a href="https://en.wikipedia.org/wiki/Marvin_Minsky" target="_blank">
+                Marvin Minsky
+              </a>
+            </div>
+            <div class="genealogy-node-role">Advisor</div>
+          </div>
+
+          <div class="genealogy-arrow">
+            <i class="fas fa-long-arrow-alt-right"></i>
+          </div>
+
+          <div class="genealogy-node">
+            <div class="genealogy-node-circle">EC</div>
+            <div class="genealogy-node-name">
+              <a href="https://en.wikipedia.org/wiki/Eugene_Charniak" target="_blank">
+                Eugene Charniak
+              </a>
+            </div>
+            <div class="genealogy-node-role">Advisor</div>
+          </div>
+
+          <div class="genealogy-arrow genealogy-arrow-continue">
+            <i class="fas fa-long-arrow-alt-right"></i>
+          </div>
         </div>
 
-        <div class="genealogy-arrow"><i class="fas fa-angle-right"></i></div>
+        <!-- Row 2: JH -> SK -> (to next row) -->
+        <div class="genealogy-row">
+          <div class="genealogy-node">
+            <div class="genealogy-node-circle">JH</div>
+            <div class="genealogy-node-name">
+              <a href="https://en.wikipedia.org/wiki/James_Hendler" target="_blank">
+                James Hendler
+              </a>
+            </div>
+            <div class="genealogy-node-role">Advisor</div>
+          </div>
 
-        <div class="genealogy-node">
-          <div class="genealogy-node-circle">EC</div>
-          <div class="genealogy-node-name">Charniak</div>
-          <div class="genealogy-node-role">Advisor</div>
+          <div class="genealogy-arrow">
+            <i class="fas fa-long-arrow-alt-right"></i>
+          </div>
+
+          <div class="genealogy-node">
+            <div class="genealogy-node-circle">SK</div>
+            <div class="genealogy-node-name">
+              <a href="https://rakaposhi.eas.asu.edu/" target="_blank">
+                Subbarao Kambhampati
+              </a>
+            </div>
+            <div class="genealogy-node-role">Advisor</div>
+          </div>
+
+          <div class="genealogy-arrow genealogy-arrow-continue">
+            <i class="fas fa-long-arrow-alt-right"></i>
+          </div>
         </div>
 
-        <div class="genealogy-arrow"><i class="fas fa-angle-right"></i></div>
+        <!-- Row 3: BS -> AI4S (no further arrow) -->
+        <div class="genealogy-row">
+          <div class="genealogy-node">
+            <div class="genealogy-node-circle">BS</div>
+            <div class="genealogy-node-name">
+              <a
+                href="https://sites.google.com/site/biplavsrivastava/home"
+                target="_blank"
+              >
+                Biplav Srivastava
+              </a>
+            </div>
+            <div class="genealogy-node-role">Advisor</div>
+          </div>
 
-        <div class="genealogy-node">
-          <div class="genealogy-node-circle">JH</div>
-          <div class="genealogy-node-name">Hendler</div>
-          <div class="genealogy-node-role">Advisor</div>
-        </div>
+          <div class="genealogy-arrow">
+            <i class="fas fa-long-arrow-alt-right"></i>
+          </div>
 
-        <div class="genealogy-arrow"><i class="fas fa-angle-right"></i></div>
+          <div class="genealogy-node">
+            <div class="genealogy-node-circle">AI4S</div>
+            <div class="genealogy-node-name">
+              AI4Society PhD Students
+            </div>
+            <div class="genealogy-node-role">Current</div>
+          </div>
 
-        <div class="genealogy-node">
-          <div class="genealogy-node-circle">SK</div>
-          <div class="genealogy-node-name">Kambhampati</div>
-          <div class="genealogy-node-role">Advisor</div>
-        </div>
-
-        <div class="genealogy-arrow"><i class="fas fa-angle-right"></i></div>
-
-        <div class="genealogy-node">
-          <div class="genealogy-node-circle">BS</div>
-          <div class="genealogy-node-name">Srivastava</div>
-          <div class="genealogy-node-role">Advisor</div>
-        </div>
-
-        <div class="genealogy-arrow"><i class="fas fa-angle-right"></i></div>
-
-        <div class="genealogy-node">
-          <div class="genealogy-node-circle">AI4S</div>
-          <div class="genealogy-node-name">AI4Society</div>
-          <div class="genealogy-node-role">PhD Students</div>
+          <!-- empty cell to keep column alignment clean -->
+          <div class="genealogy-arrow"></div>
         </div>
       </div>
     </div>
