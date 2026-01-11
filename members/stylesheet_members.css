@@ -35,9 +35,12 @@
 .grid img {
     width: 120px;
     height: 150px;
+    object-fit: cover;
+    object-position: top;
 }
 
 .grid figcaption {
     width: 320px;
+    max-width: 100%;
     height: auto;
 }
