@@ -159,15 +159,63 @@ span.highlight {
 
 @media (min-width: 1200px) {
   .container {
-    width: 1170px;
+    width: 1000px;
+    /* Reduced from 1170px to address "too wide" feedback */
   }
 }
 
+/* =========================================
+   Demos Page Styles (Added for Mobile Responsiveness)
+   ========================================= */
+
+.demo-row {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  /* Add some spacing between rows */
+}
+
+.demo-media {
+  flex: 0.8;
+}
+
+.demo-text {
+  flex: 1;
+}
+
+/* Mobile Stack for Demos */
+@media (max-width: 768px) {
+  .demo-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .demo-media,
+  .demo-text {
+    flex: 0 0 100%;
+    width: 100%;
+    text-align: center;
+    /* Optional: center text on mobile */
+  }
+
+  .demo-media img {
+    margin: 0 auto;
+  }
+}
+
+.section-wrapper {
+  margin-bottom: 30px;
+}
+
 input[type="text"] {
-  padding: 3px; /* reduce padding */
+  padding: 3px;
+  /* reduce padding */
   border: 1px solid #ccc;
-  border-radius: 3px; /* reduce border radius */
-  width: 200px; /* reduce width */
+  border-radius: 3px;
+  /* reduce border radius */
+  width: 200px;
+  /* reduce width */
 }
 
 
@@ -259,8 +307,10 @@ button:hover {
 /* Slideshow container */
 .slideshow-container {
   position: relative;
-  width: 300px; /* Increase the width as needed */
-  height: 150px; /* Set a fixed height */
+  width: 300px;
+  /* Increase the width as needed */
+  height: 150px;
+  /* Set a fixed height */
   margin: auto;
   margin-top: 50px;
 }
@@ -268,8 +318,10 @@ button:hover {
 /* Hide the images by default */
 .mySlides {
   display: none;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
   transition: opacity 1s ease-in-out;
 }
 
@@ -277,7 +329,8 @@ button:hover {
 .mySlides img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* This will cover the slide area, and might crop the image if it doesn't fit */
+  object-fit: cover;
+  /* This will cover the slide area, and might crop the image if it doesn't fit */
   transition: opacity 1s ease-in-out;
 }
 
@@ -287,27 +340,38 @@ button:hover {
 .caption {
   position: absolute;
   bottom: 0;
-  left: 0; /* Align left edge with the image */
-  right: 0; /* Align right edge with the image */
-  background: rgba(0, 0, 0, 0.7); /* Darker semi-transparent background */
+  left: 0;
+  /* Align left edge with the image */
+  right: 0;
+  /* Align right edge with the image */
+  background: rgba(0, 0, 0, 0.7);
+  /* Darker semi-transparent background */
   color: #fff;
   text-align: center;
-  padding: 5px; /* Reduced padding */
-  font-size: 0.8em; /* Smaller font size */
-  border-radius: 5px; /* Adjusted border-radius */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Subtle shadow */
-  font-family: 'Arial', sans-serif; /* Font choice */
-  transition: all 0.3s ease-in-out; /* Smooth transition */
+  padding: 5px;
+  /* Reduced padding */
+  font-size: 0.8em;
+  /* Smaller font size */
+  border-radius: 5px;
+  /* Adjusted border-radius */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  /* Subtle shadow */
+  font-family: 'Arial', sans-serif;
+  /* Font choice */
+  transition: all 0.3s ease-in-out;
+  /* Smooth transition */
 }
 
 /* Next & previous buttons */
-.prev, .next {
+.prev,
+.next {
   cursor: pointer;
   position: absolute;
   top: 50%;
   width: auto;
   padding: 16px;
-  margin-top: -22px; /* Adjust if necessary */
+  margin-top: -22px;
+  /* Adjust if necessary */
   color: rgb(255, 113, 36);
   font-weight: bold;
   font-size: 18px;
@@ -315,7 +379,8 @@ button:hover {
   border-radius: 0 3px 3px 0;
   user-select: none;
   -webkit-user-select: none;
-  z-index: 10; /* Ensure arrows are above the images */
+  z-index: 10;
+  /* Ensure arrows are above the images */
 }
 
 /* Position the "next button" to the right */
@@ -325,13 +390,16 @@ button:hover {
 }
 
 /* On hover, add a background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Responsive positioning of the prev/next buttons */
 @media only screen and (max-width: 300px) {
-  .prev, .next {
+
+  .prev,
+  .next {
     font-size: 11px;
   }
 }
@@ -350,27 +418,33 @@ button:hover {
   bottom: 0;
   left: 5px;
   width: 2px;
-  background: #C5CAE9; /* Color of the vertical line */
+  background: #C5CAE9;
+  /* Color of the vertical line */
 }
 
 .timeline-item {
   position: relative;
   margin-bottom: 20px;
-  padding-left: 15px; /* Reduced to bring content closer */
+  padding-left: 15px;
+  /* Reduced to bring content closer */
 }
 
 .timeline-content {
-  padding-left: 15px; /* Reduced to bring content closer */
+  padding-left: 15px;
+  /* Reduced to bring content closer */
 }
 
 .timeline-dot.year-dot {
   position: absolute;
-  left: -25px; /* Move the dot to the left of the timeline */
-  top: 4px; /* Adjust vertically as needed */
+  left: -25px;
+  /* Move the dot to the left of the timeline */
+  top: 4px;
+  /* Adjust vertically as needed */
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #007bff; /* Blue color for year dots */
+  background: #007bff;
+  /* Blue color for year dots */
 }
 
 .timeline-date {
@@ -389,6 +463,7 @@ button:hover {
 
 /* Responsive adjustments */
 @media (max-width: 600px) {
+
   /* Adjust these values as well if needed for mobile responsiveness */
   .timeline {
     padding-left: 15px;
@@ -399,7 +474,8 @@ button:hover {
   }
 
   .timeline-dot.year-dot {
-    left: -8px; /* Adjust if needed */
+    left: -8px;
+    /* Adjust if needed */
   }
 }
 
@@ -417,7 +493,8 @@ button:hover {
   bottom: 0;
   left: 5px;
   width: 2px;
-  background: #C5CAE9; /* Color of the vertical line */
+  background: #C5CAE9;
+  /* Color of the vertical line */
 }
 
 .newsjournal-item {
@@ -425,19 +502,20 @@ button:hover {
 }
 
 .newsjournal-dot {
-  position:relative;
+  position: relative;
   left: -26px;
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #3F51B5; /* Color of the dots */
+  background: #3F51B5;
+  /* Color of the dots */
   top: 5px;
 }
 
 .newsjournal-container {
   display: flex;
-  align-items:center;
-  justify-content:left;
+  align-items: center;
+  justify-content: left;
 }
 
 .newsjournal-month {
@@ -447,9 +525,12 @@ button:hover {
 }
 
 .newsjournal-year {
-  font-size: 20px; /* Smaller than the main title */
-  margin-top: 20px; /* Spacing before the year heading */
-  margin-bottom: 15px; /* Spacing after the year heading */
+  font-size: 20px;
+  /* Smaller than the main title */
+  margin-top: 20px;
+  /* Spacing before the year heading */
+  margin-bottom: 15px;
+  /* Spacing after the year heading */
   font-weight: bold;
   margin-left: -10px;
 }
@@ -479,11 +560,16 @@ button:hover {
 
 /* Style for the papers section */
 .papers-by-year h2 {
-  font-size: 20px; /* Smaller than the main title */
-  border-bottom: 1px solid #ccc; /* Light line under the year */
-  padding-bottom: 5px; /* Spacing from the line */
-  margin-top: 20px; /* Spacing before the year heading */
-  margin-bottom: 15px; /* Spacing after the year heading */
+  font-size: 20px;
+  /* Smaller than the main title */
+  border-bottom: 1px solid #ccc;
+  /* Light line under the year */
+  padding-bottom: 5px;
+  /* Spacing from the line */
+  margin-top: 20px;
+  /* Spacing before the year heading */
+  margin-bottom: 15px;
+  /* Spacing after the year heading */
 }
 
 .papers-list {
@@ -492,16 +578,22 @@ button:hover {
 }
 
 .papers-list li {
-  position: relative; /* Make the list item a relative container for absolute children */
-  margin-bottom: 10px; /* Spacing between paper entries */
-  padding-right: 120px; /* Provide space for the badge */
+  position: relative;
+  /* Make the list item a relative container for absolute children */
+  margin-bottom: 10px;
+  /* Spacing between paper entries */
+  padding-right: 120px;
+  /* Provide space for the badge */
 }
 
 .papers-list li::before {
-  content: "•"; /* Bullet */
-  color: #1772d0; /* Bullet color */
-  font-weight: bold; /* Bold bullet */
-  display: inline-block; 
+  content: "•";
+  /* Bullet */
+  color: #1772d0;
+  /* Bullet color */
+  font-weight: bold;
+  /* Bold bullet */
+  display: inline-block;
   width: 1em;
   margin-left: -1em;
 }
@@ -519,7 +611,7 @@ button:hover {
   transition: all 0.3s ease;
   border: 1px solid #C5A358;
   position: relative;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   animation: shine 2s ease-in-out infinite;
 }
 
@@ -542,27 +634,44 @@ button:hover {
 }
 
 @keyframes shine {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 @keyframes glow {
-  0%, 100% { opacity: 0.7; filter: blur(5px); }
-  50% { opacity: 0.9; filter: blur(10px); }
+
+  0%,
+  100% {
+    opacity: 0.7;
+    filter: blur(5px);
+  }
+
+  50% {
+    opacity: 0.9;
+    filter: blur(10px);
+  }
 }
 
 
 .paper-title {
-  font-size: 16px; /* Size of the paper title */
+  font-size: 16px;
+  /* Size of the paper title */
   font-weight: bold;
-  display: block; /* Make the title go on a new line */
+  display: block;
+  /* Make the title go on a new line */
   margin-bottom: 0.5em;
 }
 
 .paper-meta {
   font-style: italic;
   color: #555;
-  font-size: 14px; /* Smaller font size for meta */
+  font-size: 14px;
+  /* Smaller font size for meta */
 }
 
 .paper-authors {
@@ -583,26 +692,50 @@ button:hover {
 
 .tag {
   display: inline-block;
-  background-color: #ddd; /* A light gray background */
-  color: #333; /* Dark text color */
-  font-size: 0.75em; /* Smaller font size for the tags */
-  padding: 2px 4px; /* Smaller padding for a compact look */
-  margin-left: 5px; /* Reduced space between tags and other elements */
-  border-radius: 2px; /* Slightly rounded corners for the tag boxes */
-  vertical-align: middle; /* Aligns tags with the baseline of text */
+  background-color: #ddd;
+  /* A light gray background */
+  color: #333;
+  /* Dark text color */
+  font-size: 0.75em;
+  /* Smaller font size for the tags */
+  padding: 2px 4px;
+  /* Smaller padding for a compact look */
+  margin-left: 5px;
+  /* Reduced space between tags and other elements */
+  border-radius: 2px;
+  /* Slightly rounded corners for the tag boxes */
+  vertical-align: middle;
+  /* Aligns tags with the baseline of text */
 }
 
 /* Specific tag styles */
-.tag-type { background-color: #e74c3c; color: white; } /* Red background with white text */
-.tag-method { background-color: #3498db; color: white; } /* Blue background with white text */
-.tag-domain { background-color: rgb(9, 189, 84); color: white; } /* Blue background with white text */
+.tag-type {
+  background-color: #e74c3c;
+  color: white;
+}
+
+/* Red background with white text */
+.tag-method {
+  background-color: #3498db;
+  color: white;
+}
+
+/* Blue background with white text */
+.tag-domain {
+  background-color: rgb(9, 189, 84);
+  color: white;
+}
+
+/* Blue background with white text */
 /* Continue to add more specific styles for different tags */
 
 .legend {
   display: flex;
   justify-content: space-around;
-  flex-wrap: wrap; /* Wrap items to next line as needed */
-  align-items: flex-start; /* Align items at the top */
+  flex-wrap: wrap;
+  /* Wrap items to next line as needed */
+  align-items: flex-start;
+  /* Align items at the top */
   padding: 10px;
   border: 1px solid #ddd;
   margin-top: 20px;
@@ -617,25 +750,31 @@ button:hover {
 
 .sub-topics {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Adjust number of columns as needed */
+  grid-template-columns: repeat(2, 1fr);
+  /* Adjust number of columns as needed */
   gap: 5px;
-  padding-left: 20px; /* Indent sub-topics for hierarchy */
+  padding-left: 20px;
+  /* Indent sub-topics for hierarchy */
 }
 
 .sub-topics p {
   margin: 0;
   padding: 2px 5px;
-  background-color: #ecb2b2; /* Light background for sub-topics */
+  background-color: #ecb2b2;
+  /* Light background for sub-topics */
   border-radius: 3px;
-  font-size: 0.9em; /* Slightly smaller font size for sub-topics */
+  font-size: 0.9em;
+  /* Slightly smaller font size for sub-topics */
 }
 
-.tag-method + .sub-topics p {
-  background-color: #a1cef0; /* Lighter shade of blue */
+.tag-method+.sub-topics p {
+  background-color: #a1cef0;
+  /* Lighter shade of blue */
 }
 
-.tag-domain + .sub-topics p {
-  background-color: #9deec7; /* Lighter shade of green */
+.tag-domain+.sub-topics p {
+  background-color: #9deec7;
+  /* Lighter shade of green */
 }
 
 .reset-item {
@@ -645,26 +784,34 @@ button:hover {
   border-left: none;
   /* Center the button by setting it to flex */
   display: flex;
-  justify-content: center; /* Horizontally center the content */
-  order: 3; /* Ensure it comes after the legend-items */
-  width: 100%; /* Take the full width to align the button correctly */
+  justify-content: center;
+  /* Horizontally center the content */
+  order: 3;
+  /* Ensure it comes after the legend-items */
+  width: 100%;
+  /* Take the full width to align the button correctly */
 }
 
 /* Updated style for the reset button */
 .legend .reset-filters {
-  background-color: #f9f9f9; /* Slightly different background to stand out */
-  border: 4px solid #ccc; /* Subtle border for the button */
+  background-color: #f9f9f9;
+  /* Slightly different background to stand out */
+  border: 4px solid #ccc;
+  /* Subtle border for the button */
   border-radius: 5px;
   margin: 10px 0;
   padding: 3px 8px;
-  font-size: 0.8em; /* Smaller font size */
+  font-size: 0.8em;
+  /* Smaller font size */
   display: inline-block;
 }
 
 /* Enhanced hover effect for tags and reset button */
-.legend .sub-topics p:hover, .legend .tag:hover, .legend .reset-filters:hover {
+.legend .sub-topics p:hover,
+.legend .tag:hover,
+.legend .reset-filters:hover {
   text-decoration: underline;
-  box-shadow: 0px 0px 8px rgba(0,0,0,0.2);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.3s ease-in-out, text-decoration 0.2s ease-in-out;
 }
 
@@ -675,33 +822,47 @@ button:hover {
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
   margin-top: 10px;
   margin-bottom: 0;
-  width: 100%; /* Full width of the container */
-  order: 2; /* Place it between the items and the button */
+  width: 100%;
+  /* Full width of the container */
+  order: 2;
+  /* Place it between the items and the button */
 }
 
 /* Funding Section Styles */
 .funding-list {
-  list-style-type: disc; /* Enable standard bullet points */
-  padding-left: 20px; /* Add padding to align the bullet points */
+  list-style-type: disc;
+  /* Enable standard bullet points */
+  padding-left: 20px;
+  /* Add padding to align the bullet points */
   margin: 0 0 20px;
 }
 
 .funding-list li {
-  background-color: transparent; /* Remove background color */
-  border: none; /* Remove borders */
-  padding: 5px 0; /* Adjust padding */
-  margin-bottom: 5px; /* Adjust bottom margin */
-  border-radius: 0; /* Remove border radius */
-  box-shadow: none; /* Remove box shadow */
+  background-color: transparent;
+  /* Remove background color */
+  border: none;
+  /* Remove borders */
+  padding: 5px 0;
+  /* Adjust padding */
+  margin-bottom: 5px;
+  /* Adjust bottom margin */
+  border-radius: 0;
+  /* Remove border radius */
+  box-shadow: none;
+  /* Remove box shadow */
 }
 
 .funding-list li span.tag {
   display: inline-flex;
   align-items: center;
-  padding: 3px 8px; /* Padding for smaller box */
-  margin-right: 3px; /* Margin for closer spacing */
-  border-radius: 6px; /* Subtle rounded corners */
-  font-size: 0.75em; /* Smaller font size */
+  padding: 3px 8px;
+  /* Padding for smaller box */
+  margin-right: 3px;
+  /* Margin for closer spacing */
+  border-radius: 6px;
+  /* Subtle rounded corners */
+  font-size: 0.75em;
+  /* Smaller font size */
   color: white;
   font-weight: bold;
 }
@@ -712,9 +873,12 @@ button:hover {
 }
 
 .tag-fund-type::before {
-  content: '\f0d6'; /* FontAwesome icon code for a gift */
-  font-family: 'Font Awesome 5 Free'; /* Specify FontAwesome */
-  margin-right: 3px; /* Spacing between icon and text */
+  content: '\f0d6';
+  /* FontAwesome icon code for a gift */
+  font-family: 'Font Awesome 5 Free';
+  /* Specify FontAwesome */
+  margin-right: 3px;
+  /* Spacing between icon and text */
 }
 
 /* Fund Source Tag */
@@ -723,9 +887,12 @@ button:hover {
 }
 
 .tag-fund-source::before {
-  content: '\f1ad'; /* FontAwesome icon code for a building */
-  font-family: 'Font Awesome 5 Free'; /* Specify FontAwesome */
-  margin-right: 3px; /* Spacing between icon and text */
+  content: '\f1ad';
+  /* FontAwesome icon code for a building */
+  font-family: 'Font Awesome 5 Free';
+  /* Specify FontAwesome */
+  margin-right: 3px;
+  /* Spacing between icon and text */
 }
 
 /* Government Fund Source Tag */
@@ -734,9 +901,12 @@ button:hover {
 }
 
 .tag-government-source::before {
-  content: '\f0c0'; /* FontAwesome icon code for a government building (gavel) */
-  font-family: 'Font Awesome 5 Free'; /* Specify FontAwesome */
-  margin-right: 3px; /* Spacing between icon and text */
+  content: '\f0c0';
+  /* FontAwesome icon code for a government building (gavel) */
+  font-family: 'Font Awesome 5 Free';
+  /* Specify FontAwesome */
+  margin-right: 3px;
+  /* Spacing between icon and text */
 }
 
 
@@ -747,36 +917,58 @@ button:hover {
 }
 
 .poster-thumbnail {
-  max-width: 100%;        /* use full card width */
-  max-height: 360px;      /* ← key: cap height so portrait posters don't overflow */
+  max-width: 100%;
+  /* use full card width */
+  max-height: 360px;
+  /* ← key: cap height so portrait posters don't overflow */
   width: auto;
   height: auto;
   border-radius: 5px;
   display: block;
   margin: 0 auto;
-  object-fit: contain;    /* show whole poster, no cropping */
+  object-fit: contain;
+  /* show whole poster, no cropping */
   transition: transform 0.3s ease;
 }
 
 .highlight-planning {
   border: 2px solid red;
-  background-color: #f9e4e4; /* Light red background */
-  padding: 10px; /* Optional: for some spacing around the content */
-  margin-bottom: 10px; /* Optional: space between boxes */
+  background-color: #f9e4e4;
+  /* Light red background */
+  padding: 10px;
+  /* Optional: for some spacing around the content */
+  margin-bottom: 10px;
+  /* Optional: space between boxes */
 }
 
 .highlight-rating {
   border: 2px solid rgb(144, 0, 255);
-  background-color: rgb(232, 215, 245); /* Light red background */
-  padding: 10px; /* Optional: for some spacing around the content */
-  margin-bottom: 10px; /* Optional: space between boxes */
+  background-color: rgb(232, 215, 245);
+  /* Light red background */
+  padding: 10px;
+  /* Optional: for some spacing around the content */
+  margin-bottom: 10px;
+  /* Optional: space between boxes */
 }
 
 .highlight-others {
   border: 2px solid rgb(255, 217, 0);
-  background-color: rgb(245, 240, 220); /* Light red background */
-  padding: 10px; /* Optional: for some spacing around the content */
-  margin-bottom: 10px; /* Optional: space between boxes */
+  background-color: rgb(245, 240, 220);
+  /* Light red background */
+  padding: 10px;
+  /* Optional: for some spacing around the content */
+  margin-bottom: 10px;
+  /* Optional: space between boxes */
+}
+
+.booth-highlight {
+  background-color: #fff3cd;
+  /* Light yellow background */
+  color: #856404;
+  /* Dark yellow/brown text */
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-weight: bold;
 }
 
 /* Style for activities section */
@@ -792,8 +984,8 @@ button:hover {
 
 .activities-container {
   display: flex;
-  align-items:center;
-  justify-content:left;
+  align-items: center;
+  justify-content: left;
 }
 
 .activities-year {
@@ -803,9 +995,11 @@ button:hover {
 }
 
 .activities-type {
-  font-size: 20px; /* Smaller than the main title */
+  font-size: 20px;
+  /* Smaller than the main title */
   padding-bottom: 5px;
-  border-bottom: 1px solid #ccc; /* Light line under the activity type */
+  border-bottom: 1px solid #ccc;
+  /* Light line under the activity type */
   font-weight: bold;
   margin-left: -10px;
 }
@@ -814,15 +1008,16 @@ button:hover {
   padding-left: 40px;
 }
 
-.activities-content-title{
+.activities-content-title {
   font-weight: bold;
 }
 
-.activities-content-event{
+.activities-content-event {
   font-style: italic;
 }
 
-.activities-content-month, .activities-content-misc{
+.activities-content-month,
+.activities-content-misc {
   visibility: hidden;
 }
 
@@ -839,19 +1034,26 @@ button:hover {
 
 .patent-frame {
   flex: 1;
-  background: linear-gradient(145deg, #c19a6b, #8b4513); /* Elegant wood gradient */
-  border: 5px solid #5c3a19; /* Darker wood border for contrast */
-  border-radius: 3px; /* Sharp corners */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), inset 0 0 5px rgba(255, 255, 255, 0.2); /* Glossy effect with inset shadow */
+  background: linear-gradient(145deg, #c19a6b, #8b4513);
+  /* Elegant wood gradient */
+  border: 5px solid #5c3a19;
+  /* Darker wood border for contrast */
+  border-radius: 3px;
+  /* Sharp corners */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), inset 0 0 5px rgba(255, 255, 255, 0.2);
+  /* Glossy effect with inset shadow */
   max-width: 350px;
   margin-left: auto;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for interaction */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Smooth transition for interaction */
 }
 
 .patent-frame:hover {
-  transform: scale(1.05); /* Slightly enlarge the frame on hover */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.3); /* Enhance the glossy effect on hover */
+  transform: scale(1.05);
+  /* Slightly enlarge the frame on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.3);
+  /* Enhance the glossy effect on hover */
 }
 
 .patent-image {
@@ -864,10 +1066,12 @@ button:hover {
 .schedule-container {
   margin: 10px auto;
   max-width: 100%;
-  background: rgba(44, 62, 80, 0.1); /* Slight transparent background */
+  background: rgba(44, 62, 80, 0.1);
+  /* Slight transparent background */
   padding: 15px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow */
 }
 
 /* Schedule Grid: Aligns Date Sidebar and Event Details Side by Side */
@@ -881,47 +1085,60 @@ button:hover {
 .date-sidebar {
   display: flex;
   flex-direction: column;
-  width: 130px; /* Reduce width slightly */
+  width: 130px;
+  /* Reduce width slightly */
   padding-right: 10px;
-  gap: 4px; /* Reduce spacing between date tabs */
+  gap: 4px;
+  /* Reduce spacing between date tabs */
 }
 
 /* Date Tabs (Reduce height and padding) */
 .date-tab {
-  padding: 6px 8px; /* Reduce padding */
-  background-color: #f1f1f1; /* Light gray background */
+  padding: 6px 8px;
+  /* Reduce padding */
+  background-color: #f1f1f1;
+  /* Light gray background */
   cursor: pointer;
   border: 1px solid #ccc;
   text-align: center;
-  font-size: 0.85em; /* Reduce font size slightly */
-  border-radius: 4px; /* Smaller rounded edges */
+  font-size: 0.85em;
+  /* Reduce font size slightly */
+  border-radius: 4px;
+  /* Smaller rounded edges */
   transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); /* Lighter shadow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  /* Lighter shadow */
 }
 
 .date-tab:hover {
-  background-color: #34495e; /* Darker hover color */
+  background-color: #34495e;
+  /* Darker hover color */
   color: white;
-  transform: scale(1.03); /* Less aggressive zoom */
+  transform: scale(1.03);
+  /* Less aggressive zoom */
 }
 
 .date-tab.active {
-  background-color: #2c3e50; /* Active tab color */
+  background-color: #2c3e50;
+  /* Active tab color */
   color: white;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Slightly smaller shadow */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  /* Slightly smaller shadow */
 }
 
 /* Event Details Box */
 .event-details {
   flex-grow: 1;
-  background: rgba(255, 255, 255, 0.9); /* Almost white background */
+  background: rgba(255, 255, 255, 0.9);
+  /* Almost white background */
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1.1em;
   color: #333;
   min-height: 100px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow */
 }
 
 /* Header Styling for AAAI Section */
@@ -957,13 +1174,14 @@ button:hover {
   font-weight: bold;
   padding: 1px 6px;
   border-radius: 4px;
-  text-decoration: none !important; 
+  text-decoration: none !important;
   border: 1px solid transparent;
   transition: all 0.2s ease-in-out;
 }
 
 .initiative-group:hover {
-  filter: brightness(95%); /* Gently darkens the highlight on hover */
+  filter: brightness(95%);
+  /* Gently darkens the highlight on hover */
 }
 
 /* Group 1: Planning & Ontology (Blue) */
@@ -994,128 +1212,129 @@ button:hover {
   border: 1px solid #d6cadd;
 }
 
-  /* --- Academic Genealogy Popover --- */
+/* --- Academic Genealogy Popover --- */
+.genealogy-popup {
+  position: fixed;
+  z-index: 9999;
+  background: #f9fafb;
+  border-radius: 10px;
+  padding: 8px 10px 10px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.2);
+  font-size: 0.75rem;
+  color: #111827;
+  min-width: 260px;
+  max-width: 320px;
+  display: none;
+  /* hidden by default */
+}
+
+.genealogy-popup.visible {
+  display: block;
+}
+
+.genealogy-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.genealogy-title {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.genealogy-title i {
+  font-size: 0.85rem;
+  color: #4b5563;
+}
+
+.genealogy-close {
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.genealogy-close:hover {
+  color: #111827;
+}
+
+.genealogy-subtitle {
+  margin: 0 0 6px;
+  font-size: 0.7rem;
+  color: #6b7280;
+  line-height: 1.3;
+}
+
+.genealogy-chain {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.genealogy-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.genealogy-node {
+  text-align: center;
+  flex: 1 1 0;
+}
+
+.genealogy-node-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1.5px solid #4b5563;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.7rem;
+  margin: 0 auto 3px;
+}
+
+.genealogy-node-name {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #111827;
+}
+
+.genealogy-node-name a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.genealogy-node-name a:hover {
+  text-decoration: underline;
+}
+
+.genealogy-node-role {
+  font-size: 0.65rem;
+  color: #6b7280;
+}
+
+.genealogy-arrow {
+  flex: 0 0 auto;
+  font-size: 0.75rem;
+  color: #9ca3af;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
   .genealogy-popup {
-    position: fixed;
-    z-index: 9999;
-    background: #f9fafb;
-    border-radius: 10px;
-    padding: 8px 10px 10px;
-    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.2);
-    font-size: 0.75rem;
-    color: #111827;
-    min-width: 260px;
-    max-width: 320px;
-    display: none; /* hidden by default */
+    max-width: 90%;
   }
-
-  .genealogy-popup.visible {
-    display: block;
-  }
-
-  .genealogy-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 4px;
-  }
-
-  .genealogy-title {
-    margin: 0;
-    font-size: 0.8rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .genealogy-title i {
-    font-size: 0.85rem;
-    color: #4b5563;
-  }
-
-  .genealogy-close {
-    cursor: pointer;
-    font-size: 0.9rem;
-    color: #6b7280;
-  }
-
-  .genealogy-close:hover {
-    color: #111827;
-  }
-
-  .genealogy-subtitle {
-    margin: 0 0 6px;
-    font-size: 0.7rem;
-    color: #6b7280;
-    line-height: 1.3;
-  }
-
-  .genealogy-chain {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    width: 100%;
-  }
-
-  .genealogy-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 4px;
-  }
-
-  .genealogy-node {
-    text-align: center;
-    flex: 1 1 0;
-  }
-
-  .genealogy-node-circle {
-    width: 32px;
-    height: 32px;
-    border-radius: 999px;
-    background: #ffffff;
-    border: 1.5px solid #4b5563;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    font-size: 0.7rem;
-    margin: 0 auto 3px;
-  }
-
-  .genealogy-node-name {
-    font-size: 0.7rem;
-    font-weight: 500;
-    color: #111827;
-  }
-
-  .genealogy-node-name a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .genealogy-node-name a:hover {
-    text-decoration: underline;
-  }
-
-  .genealogy-node-role {
-    font-size: 0.65rem;
-    color: #6b7280;
-  }
-
-  .genealogy-arrow {
-    flex: 0 0 auto;
-    font-size: 0.75rem;
-    color: #9ca3af;
-    text-align: center;
-  }
-
-  @media (max-width: 640px) {
-    .genealogy-popup {
-      max-width: 90%;
-    }
-  }
+}
 
 /* ---------- Unified Spotlight Card ---------- */
 .spotlight-card {
@@ -1142,6 +1361,7 @@ button:hover {
     opacity: 0;
     transform: translateY(10px) scale(0.985);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -1180,7 +1400,7 @@ button:hover {
 .spotlight-divider {
   height: 1px;
   margin: 12px 0 10px 0;
-  background: linear-gradient(to right, rgba(0,0,0,0.08), rgba(0,0,0,0.12), rgba(0,0,0,0.08));
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.08));
 }
 
 /* Activity block */
@@ -1245,6 +1465,107 @@ button:hover {
 }
 
 @keyframes posterFadeIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   New Layout System (Flexbox) - Added for Responsiveness
+   ========================================= */
+
+/* Main Flex Container for 2-column layouts */
+.row-flex {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  justify-content: space-between;
+  /* Ensures columns spread out */
+}
+
+/* Columns */
+.col-base {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  box-sizing: border-box;
+  /* Critical for padding included in width */
+}
+
+/* Specific Sizes mimicking the table layout */
+.col-md-8 {
+  width: 63%;
+  /* Matching original 63% roughly */
+  flex: 0 0 63%;
+  max-width: 63%;
+  padding-right: 2.5%;
+  /* Match original padding logic if needed, or stick to bootstrap style */
+}
+
+.col-md-4 {
+  width: 37%;
+  /* Approx 100 - 63? actually original was 40% with padding. Let's stick to flex basis */
+  flex: 0 0 37%;
+  max-width: 40%;
+  /* Original had max-width: 40% */
+}
+
+/* Navigation Container */
+.nav-container {
+  padding: 15px 0;
+  text-align: left;
+  line-height: 1.8;
+  width: 100%;
+}
+
+.nav-container a {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+
+  /* Stack columns on mobile */
+  .col-md-8,
+  .col-md-4 {
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .row-flex {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  /* Adjust padding for mobile */
+  .container {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: auto !important;
+    /* Force auto width override */
+  }
+
+  /* Ensure images in sidebar don't overflow */
+  .slideshow-container,
+  .spotlight-card {
+    width: 100% !important;
+    margin: 20px auto;
+  }
+
+  .nav-container {
+    text-align: center;
+    /* Center nav on mobile looks better usually, or keep left */
+  }
 }

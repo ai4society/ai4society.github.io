@@ -1,660 +1,481 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-    <title>AI4Society</title>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI4Society</title>
 
-    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-  </head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <body class="container">
-    <table
-      style="
-        width: 100%;
-        max-width: 800px;
-        border: 0px;
-        border-spacing: 0px;
-        border-collapse: separate;
-        margin-right: auto;
-        margin-left: auto;
-      "
-    >
-      <tbody>
-        <tr style="padding: 0px">
-          <td style="padding: 0px">
-            <table
-              style="
-                width: 100%;
-                border: 0px;
-                border-spacing: 0px;
-                border-collapse: separate;
-                margin-right: auto;
-                margin-left: auto;
-              "
-            >
-              <tbody>
-                <!-- Top nav -->
-                <tr style="padding: 0px">
-                  <td
-                    style="
-                      padding-left: 2.5%;
-                      padding-top: 3%;
-                      width: 100%;
-                      vertical-align: middle;
-                    "
-                  >
-                    <p style="text-align: left">
-                      <a href="index.html">Home</a> &nbsp|&nbsp
-                      <a href="activities/index.html">Activities</a> &nbsp|&nbsp
-                      <a href="awards/index.html">Awards</a> &nbsp|&nbsp
-                      <a href="demos/index.html">Demos</a> &nbsp|&nbsp
-                      <a href="funding/index.html">Funding</a> &nbsp|&nbsp
-                      <a href="members/index.html">Members</a> &nbsp|&nbsp
-                      <a href="news-journal/index.html">NewsLog</a> &nbsp|&nbsp
-                      <a href="patents/index.html">Patents</a> &nbsp|&nbsp
-                      <a href="projects/index.html">Projects</a> &nbsp|&nbsp
-                      <a href="publications/index.html">Publications</a>
-                    </p>
-                  </td>
-                </tr>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
 
-                <!-- MAIN 2-COLUMN ROW: left (About + News), right (photos + spotlight) -->
-                <tr style="padding: 0px">
-                  <!-- LEFT COLUMN -->
-                  <td
-                    style="
-                      padding-left: 2.5%;
-                      padding-right: 2.5%;
-                      width: 63%;
-                      vertical-align: top;
-                    "
-                  >
-                    <!-- About section -->
-                    <p style="text-align: left">
-                      <name>About AI4Society</name>
-                    </p>
-                    <p align="justify">
-                      Historically, AI has done well only when not near humans. AI for Society
-                      (AI4S) group at the <a href="//aiisc.ai/" target="_blank">AI Institute</a> is
-                      focused on enabling people to make rational decisions despite real-world
-                      complexities of poor data, changing goals, and limited resources by augmenting
-                      their cognitive limitations with technology. Lead by
-                      <a href="https://sites.google.com/site/biplavsrivastava" target="_blank">
-                        Prof. Biplav Srivastava</a
-                      >, the group works in neuro-symbolic methods, trusted AI, and applications of
-                      data-driven methods to society. We innovate as well as apply AI techniques for
-                      hard problems facing the society with an inclusive, value-driven, focus.
-                    </p>
+<body class="container">
 
-                    <div
-                      style="
-                        padding: 6px 10px;
-                        border-radius: 5px;
-                        margin: 10px 0 24px 0;
-                      "
-                    >
-                      <p align="justify" style="margin: 0; line-height: 1.3">
-                        Our <b>differentiating initiatives</b> are in working with, including
-                        <a
-                          href="https://ai4society.github.io/planfm/"
-                          target="_blank"
-                          class="initiative-group group-planning"
-                          >training</a
-                        >, large language models and
-                        <a
-                          href="https://ai4society.github.io/projects/ontology/index.html"
-                          target="_blank"
-                          class="initiative-group group-planning"
-                          >creating ontology</a
-                        >
-                        for automated planning (<a
-                          href="https://ai4society.github.io/projects/generalized_planning/index.html"
-                          target="_blank"
-                          class="initiative-group group-planning"
-                          >generalized planning</a
-                        >), black-box
-                        <a
-                          href="https://ai4society.github.io/projects/rating_page/index.html"
-                          target="_blank"
-                          class="initiative-group group-assessment"
-                          >assessment and rating for AI</a
-                        >
-                        (<a
-                          href="https://pypi.org/project/GAICo/"
-                          target="_blank"
-                          class="initiative-group group-assessment"
-                          >GAICO</a
-                        >
-                        and
-                        <a
-                          href="http://casy.cse.sc.edu/causal_rating"
-                          target="_blank"
-                          class="initiative-group group-assessment"
-                          >ARC</a
-                        >
-                        tools),
-                        <a
-                          href="https://ai4society.github.io/projects/group_rec/index.html"
-                          target="_blank"
-                          class="initiative-group group-tools"
-                          >group recommendation</a
-                        >, metacognition-based
-                        <a
-                          href="https://github.com/ai4society/sofai_tool/"
-                          target="_blank"
-                          class="initiative-group group-tools"
-                          >SOFAI tool</a
-                        >
-                        to combine fast (e.g., LLMs) and slow thinking (e.g., reasoners), and
-                        exploring AI like
-                        <a
-                          href="https://ai4society.github.io/projects/chatbots_page/index.html"
-                          target="_blank"
-                          class="initiative-group group-societal"
-                          >chatbots</a
-                        >
-                        in trust-sensitive domains, viz.
-                        <a
-                          href="https://sites.google.com/site/biplavsrivastava/research-1/ai-and-elections"
-                          target="_blank"
-                          class="initiative-group group-societal"
-                          >elections</a
-                        >,
-                        <a
-                          href="https://ai4society.github.io/projects/InfoSpread/index.html"
-                          target="_blank"
-                          class="initiative-group group-societal"
-                          >opinion networks</a
-                        >, and
-                        <a
-                          href="https://ai4society.github.io/projects/traffic-page/index.html"
-                          target="_blank"
-                          class="initiative-group group-societal"
-                          >traffic (for SC)</a
-                        >.
-                      </p>
-                    </div>
+  <!-- Navigation -->
+  <div class="nav-container">
+    <p>
+      <a href="index.html">Home</a> &nbsp;|&nbsp;
+      <a href="activities/index.html">Activities</a> &nbsp;|&nbsp;
+      <a href="awards/index.html">Awards</a> &nbsp;|&nbsp;
+      <a href="demos/index.html">Demos</a> &nbsp;|&nbsp;
+      <a href="funding/index.html">Funding</a> &nbsp;|&nbsp;
+      <a href="members/index.html">Members</a> &nbsp;|&nbsp;
+      <a href="news-journal/index.html">NewsLog</a> &nbsp;|&nbsp;
+      <a href="patents/index.html">Patents</a> &nbsp;|&nbsp;
+      <a href="projects/index.html">Projects</a> &nbsp;|&nbsp;
+      <a href="publications/index.html">Publications</a>
+    </p>
+  </div>
 
-                    <!-- News directly below About -->
-                    <p style="text-align: left; margin-top: 0">
-                      <heading>News</heading>
-                    </p>
+  <!-- Main Content Row -->
+  <div class="row-flex">
 
-                    <div class="timeline">
-                      <!-- Year 2025 -->
-                      <div class="timeline-item">
-                        <div class="timeline-dot year-dot"></div>
-                        <div class="timeline-date year">2025</div>
-                      </div>
+    <!-- LEFT COLUMN: About + News -->
+    <div class="col-base col-md-8">
 
-                      <!-- December 2025 -->
-                      <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date month">December</div>
-
-                        <div class="timeline-content">
-                          <p>
-                            <a href="https://www.linkedin.com/in/vishalpallagani/" target="_blank">
-                              Vishal Pallagani
-                            </a>
-                            will defend his dissertation proposal on Dec 03 –
-                            <i>"Generalized Planning Using Language Models and its Applications"</i>.
-                          </p>
-                        </div>
-                      </div>
-                      <!-- End of December 2025 -->
-
-                      <!-- November 2025 -->
-                      <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date month">November</div>
-
-                        <div class="timeline-content">
-                          <p>
-                            A day-long, free, hybrid event,
-                            <b
-                              ><a
-                                href="https://sites.google.com/cse.sc.edu/safe-ai-for-seniors"
-                                target="_blank"
-                                >AIx: Safe AI for Seniors</a
-                              ></b
-                            >, was held on November 14 (Friday). Sponsored by AAAI and local
-                            organizations, this community outreach initiative focused on the role
-                            of AI in keeping senior citizens safe and independent.
-                          </p>
-                        </div>
-
-                        <div class="timeline-content">
-                          <p>
-                            Three demo papers accepted at AAAI 2026 on
-                            <a
-                              href="https://drive.google.com/file/d/1m93agi6H4-HDpIvZCiYOOw6RpYEIQbvD/view"
-                              target="_blank"
-                              >GAICO</a
-                            >,
-                            <a
-                              href="https://drive.google.com/file/d/1FJ-Qm154FZXwJw94spUKh3PO3YzoqkcB/view"
-                              target="_blank"
-                              >Omega</a
-                            >
-                            and
-                            <a
-                              href="https://www.youtube.com/watch?v=ktqkZyYWDDE"
-                              target="_blank"
-                              >Chatsparent</a
-                            >.
-                          </p>
-                        </div>
-
-                        <div class="timeline-content">
-                          <p>
-                            Biplav gave a keynote talk,
-                            <i>Extending Transparency Beyond Developers in AI-Driven Decision Making</i>,
-                            in
-                            <a
-                              href="https://sites.google.com/view/aaai-atracc/technical-program"
-                              target="_blank"
-                              >'AI Trustworthiness and Risk Assessment for Challenged Contexts
-                              (ATRACC)'</a
-                            >, and served on a panel discussion on AI safety in
-                            <a
-                              href="https://www.sei.cmu.edu/events/aaai-fall-symposium-engineering-safety-critical-ai-systems/"
-                              target="_blank"
-                              >'Engineering Safety-Critical AI Systems</a
-                            >
-                            at AAAI 2025 Fall Symposium, on Nov 7, 2025.
-                          </p>
-                        </div>
-                      </div>
-                      <!-- End of November 2025 -->
-
-                      <!-- October 2025 -->
-                      <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date month">October</div>
-
-                        <div class="timeline-content">
-                          <p>
-                            A paper on
-                            <i>GAICo: A Deployed and Extensible Framework for Evaluating Diverse and
-                              Multimodal Generative AI Outputs</i>
-                            is accepted at
-                            <a
-                              href="https://aaai.org/conference/aaai/aaai-26/iaai-26-call/"
-                              target="_blank"
-                              >IAAI/AAAI 2026</a
-                            >. Preprint at
-                            <a href="https://arxiv.org/abs/2508.16753">arXiv</a>.
-                          </p>
-                        </div>
-                      </div>
-                      <!-- End of October 2025 -->
-                    </div>
-                  </td>
-
-                  <!-- RIGHT COLUMN -->
-                  <td
-                    style="
-                      padding: 2.5%;
-                      width: 40%;
-                      max-width: 40%;
-                      vertical-align: top;
-                    "
-                  >
-                    <!-- Photo slideshow (group photos) -->
-                    <div class="slideshow-container" style="margin-bottom: 18px">
-                      <div class="mySlides">
-                        <img src="images/aix-2025-1.jpg" style="width: 100%" />
-                        <div class="caption">AIx - Nov '25</div>
-                      </div>
-
-                      <div class="mySlides">
-                        <img src="images/aix-2025-2.jpg" style="width: 100%" />
-                        <div class="caption">AIx - Nov '25</div>
-                      </div>
-
-                      <div class="mySlides">
-                        <img src="images/undergraduates_may2025.jpg" style="width: 100%" />
-                        <div class="caption">Recent Graduates - May '25</div>
-                      </div>
-
-                      <div class="mySlides">
-                        <img src="images/aaai23.jpg" style="width: 100%" />
-                        <div class="caption">AI4Society @ AAAI 2023</div>
-                      </div>
-
-                      <div class="mySlides">
-                        <img src="images/techninlaw_oct2024.jpg" style="width: 100%" />
-                        <div class="caption">ElectionBot-SC Demo @TechInLaw '24</div>
-                      </div>
-
-                      <div class="mySlides">
-                        <img src="images/aaai23_elections.JPG" style="width: 100%" />
-                        <div class="caption">AI for Credible Elections Workshop @AAAI '23</div>
-                      </div>
-
-                      <div class="mySlides">
-                        <img src="images/team_lunch_spring2025.jpg" style="width: 100%" />
-                        <div class="caption">Team Lunch - Spring '25</div>
-                      </div>
-
-                      <div class="mySlides">
-                        <img src="images/holi2024.jpeg" style="width: 100%" />
-                        <div class="caption">Holi Celebration @ 2024</div>
-                      </div>
-
-                      <div class="mySlides">
-                        <img src="images/all-aiisc-2022-1.jpg" style="width: 100%" />
-                        <div class="caption">All AIISC faculty families @ 2022</div>
-                      </div>
-
-                      <div class="mySlides">
-                        <img src="images/all-aiisc-2022-2.jpg" style="width: 100%" />
-                        <div class="caption">All AIISC faculty families @ 2022</div>
-                      </div>
-
-                      <!-- Next button -->
-                      <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                    </div>
-
-                    <!-- Unified Spotlight Box -->
-                    <div class="spotlight-card" id="spotlightCard">
-                      <div class="spotlight-header">
-                        <div class="spotlight-title">
-                          Spotlight
-                        </div>
-                        <div class="spotlight-subtitle">Highlights from AI4Society</div>
-                      </div>
-
-                      <!-- Activity Spotlight -->
-                      <div class="spotlight-section">
-                        <div class="spotlight-section-title">
-                          Activity Spotlight
-                        </div>
-
-                        <div class="spotlight-activity">
-                          AI4Society is organizing <a href="https://icaps27.icaps-conference.org/home/" target="_blank"> <b>ICAPS 2027</b></a> at <b>Columbia, South Carolina</b>.
-                        </div>
-
-                        <div class="spotlight-activity">
-                            We organized a highly successful, day-long, free community outreach event focused on the role
-                            of AI in keeping senior citizens safe and independent called
-                            <b><a
-                                href="https://sites.google.com/cse.sc.edu/safe-ai-for-seniors"
-                                target="_blank"
-                                >AIx: Safe AI for Seniors</a></b>, on Nov 14, 2025. 
-                         </div>
-
-                      </div>
-
-                      <div class="spotlight-divider"></div>
-
-                      <!-- Research Spotlight -->
-                      <div class="spotlight-section">
-                        <div class="spotlight-section-title">
-                          Research Spotlight
-                        </div>
-
-                        <div class="spotlight-posters">
-                          <a
-                            class="spotlight-poster"
-                            href="spotlight/NeurIPS-24-Poster.png"
-                            target="_blank"
-                          >
-                            <img
-                              src="spotlight/NeurIPS-24-Poster.png"
-                              alt="NeurIPS Poster"
-                              class="poster-thumbnail"
-                            />
-                            <div class="poster-caption">NeurIPS 2024 Poster</div>
-                          </a>
-
-                          <a
-                            class="spotlight-poster"
-                            href="spotlight/power-IAAI.jpg"
-                            target="_blank"
-                          >
-                            <img
-                              src="spotlight/power-IAAI.jpg"
-                              alt="IAAI Poster"
-                              class="poster-thumbnail"
-                            />
-                            <div class="poster-caption">IAAI/AAAI 2023 Poster</div>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-
-                <!-- Footer -->
-                <tr style="padding: 0px">
-                  <td colspan="2" style="padding-left: 2.5%; width: 100%; vertical-align: middle">
-                    <hr />
-                  </td>
-                </tr>
-                <tr style="padding: 0px">
-                  <td colspan="2" style="padding-left: 2.5%; width: 100%; vertical-align: middle">
-                    <p style="text-align: left">
-                      <a target="_blank" href="https://github.com/ai4society">GitHub</a>&nbsp|&nbsp
-                      <a target="_blank" href="https://maps.app.goo.gl/ZFgJm82yYJhoknvZA">Address</a
-                      >&nbsp|&nbsp
-                      <a href="#" id="openGenealogy">Academic Genealogy</a>
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-        </tr>
-        <td></td>
-      </tbody>
-    </table>
-
-    <!-- Academic Genealogy Popover -->
-    <div id="genealogyPopup" class="genealogy-popup">
-      <div class="genealogy-header">
-        <h3 class="genealogy-title">
-          <i class="fas fa-project-diagram"></i>
-          Academic Genealogy
-        </h3>
-        <span class="genealogy-close">&times;</span>
-      </div>
-
-      <p class="genealogy-subtitle">
-        AI4Society builds on a lineage of pioneering researchers in AI and knowledge representation.
+      <!-- About section -->
+      <p style="text-align: left">
+        <name>About AI4Society</name>
+      </p>
+      <p align="justify">
+        Historically, AI has done well only when not near humans. AI for Society
+        (AI4S) group at the <a href="//aiisc.ai/" target="_blank">AI Institute</a> is
+        focused on enabling people to make rational decisions despite real-world
+        complexities of poor data, changing goals, and limited resources by augmenting
+        their cognitive limitations with technology. Lead by
+        <a href="https://sites.google.com/site/biplavsrivastava" target="_blank">
+          Prof. Biplav Srivastava</a>, the group works in neuro-symbolic methods, trusted AI, and
+        applications of
+        data-driven methods to society. We innovate as well as apply AI techniques for
+        hard problems facing the society with an inclusive, value-driven, focus.
       </p>
 
-      <div class="genealogy-chain">
-        <!-- Row 1: Minsky -> Charniak -> Hendler -->
-        <div class="genealogy-row">
-          <div class="genealogy-node">
-            <div class="genealogy-node-circle">MM</div>
-            <div class="genealogy-node-name">
-              <a href="https://en.wikipedia.org/wiki/Marvin_Minsky" target="_blank">Minsky</a>
-            </div>
-            <div class="genealogy-node-role">Advisor</div>
-          </div>
+      <div style="
+            padding: 6px 10px;
+            border-radius: 5px;
+            margin: 10px 0 24px 0;
+          ">
+        <p align="justify" style="margin: 0; line-height: 1.3">
+          Our <b>differentiating initiatives</b> are in working with, including
+          <a href="https://ai4society.github.io/planfm/" target="_blank"
+            class="initiative-group group-planning">training</a>, large language models and
+          <a href="https://ai4society.github.io/projects/ontology/index.html" target="_blank"
+            class="initiative-group group-planning">creating ontology</a>
+          for automated planning (<a href="https://ai4society.github.io/projects/generalized_planning/index.html"
+            target="_blank" class="initiative-group group-planning">generalized planning</a>), black-box
+          <a href="https://ai4society.github.io/projects/rating_page/index.html" target="_blank"
+            class="initiative-group group-assessment">assessment and rating for AI</a>
+          (<a href="https://pypi.org/project/GAICo/" target="_blank" class="initiative-group group-assessment">GAICO</a>
+          and
+          <a href="http://casy.cse.sc.edu/causal_rating" target="_blank"
+            class="initiative-group group-assessment">ARC</a>
+          tools),
+          <a href="https://ai4society.github.io/projects/group_rec/index.html" target="_blank"
+            class="initiative-group group-tools">group recommendation</a>, metacognition-based
+          <a href="https://github.com/ai4society/sofai_tool/" target="_blank" class="initiative-group group-tools">SOFAI
+            tool</a>
+          to combine fast (e.g., LLMs) and slow thinking (e.g., reasoners), and
+          exploring AI like
+          <a href="https://ai4society.github.io/projects/chatbots_page/index.html" target="_blank"
+            class="initiative-group group-societal">chatbots</a>
+          in trust-sensitive domains, viz.
+          <a href="https://sites.google.com/site/biplavsrivastava/research-1/ai-and-elections" target="_blank"
+            class="initiative-group group-societal">elections</a>,
+          <a href="https://ai4society.github.io/projects/InfoSpread/index.html" target="_blank"
+            class="initiative-group group-societal">opinion networks</a>, and
+          <a href="https://ai4society.github.io/projects/traffic-page/index.html" target="_blank"
+            class="initiative-group group-societal">traffic (for SC)</a>.
+        </p>
+      </div>
 
-          <div class="genealogy-arrow">
-            <i class="fas fa-long-arrow-alt-right"></i>
-          </div>
+      <!-- News directly below About -->
+      <p style="text-align: left; margin-top: 0">
+        <heading>News</heading>
+      </p>
 
-          <div class="genealogy-node">
-            <div class="genealogy-node-circle">EC</div>
-            <div class="genealogy-node-name">
-              <a href="https://en.wikipedia.org/wiki/Eugene_Charniak" target="_blank">Charniak</a>
-            </div>
-            <div class="genealogy-node-role">Advisor</div>
-          </div>
-
-          <div class="genealogy-arrow">
-            <i class="fas fa-long-arrow-alt-right"></i>
-          </div>
-
-          <div class="genealogy-node">
-            <div class="genealogy-node-circle">JH</div>
-            <div class="genealogy-node-name">
-              <a href="https://en.wikipedia.org/wiki/James_Hendler" target="_blank">Hendler</a>
-            </div>
-            <div class="genealogy-node-role">Advisor</div>
-          </div>
+      <div class="timeline">
+        <!-- Year 2026 -->
+        <div class="timeline-item">
+          <div class="timeline-dot year-dot"></div>
+          <div class="timeline-date year">2026</div>
         </div>
 
-        <!-- Row 2: Kambhampati -> Srivastava -> AI4Society -->
-        <div class="genealogy-row">
-          <div class="genealogy-node">
-            <div class="genealogy-node-circle">SK</div>
-            <div class="genealogy-node-name">
-              <a href="https://rakaposhi.eas.asu.edu/" target="_blank">Kambhampati</a>
-            </div>
-            <div class="genealogy-node-role">Advisor</div>
+        <!-- February 2026 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date month">February</div>
+
+          <div class="timeline-content">
+            <p>
+              <a href="https://kausik-l.github.io/" target="_blank">Kausik Lakkaraju</a>
+              will defend his dissertation, "<i>Rating AI Models for Robustness Through a Causal Lens</i>",
+              on Feb 04.
+            </p>
+          </div>
+        </div>
+        <!-- End of February 2026 -->
+
+        <!-- January 2026 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date month">January</div>
+
+          <div class="timeline-content">
+            <p>
+              Our group will be attending AAAI-26 to present the following works:
+            </p>
+            <ul>
+              <li>
+                <a href="https://arxiv.org/abs/2508.16753" target="_blank"><b>GAICo: A Deployed and
+                    Extensible Framework for Evaluating Diverse and Multimodal Generative AI Outputs</b></a>
+                (IAAI/AAAI-26)
+              </li>
+              <li>
+                <a href="publications/papers_local/chatsparent_aaai_demo.pdf" target="_blank"><b>Chatsparent: An
+                    Interactive System for Detecting and Mitigating
+                    Cognitive Fatigue in LLMs</b></a> (Demo)
+                <br><span class="booth-highlight">Jan 23 - Booth 5 (Hall 2)</span>
+              </li>
+              <li>
+                <a href="https://arxiv.org/abs/2508.16753" target="_blank"><b>GAICo: Demonstrating a Unified
+                    Framework for Multi-Modal GenAI Evaluation</b></a> (Demo)
+                <br><span class="booth-highlight">Jan 23 Friday - Booth 12 (Hall 3)</span>
+              </li>
+              <li>
+                <a href="publications/papers_local/AAAI_26_Demo_MAPF_Ontology.pdf" target="_blank"><b>OMEGA:
+                    An Ontology-Driven Tool for Explaining Multi-Agent Path Finding</b></a> (Demo)
+                <br><span class="booth-highlight">Saturday, Jan 24 - Booth 6 (Hall 2)</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- End of January 2026 -->
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN: Photos + Spotlight -->
+    <div class="col-base col-md-4">
+
+      <!-- Photo slideshow (group photos) -->
+      <div class="slideshow-container" style="margin-bottom: 18px">
+        <div class="mySlides">
+          <img src="images/aix-2025-1.jpg" style="width: 100%" />
+          <div class="caption">AIx - Nov '25</div>
+        </div>
+
+        <div class="mySlides">
+          <img src="images/aix-2025-2.jpg" style="width: 100%" />
+          <div class="caption">AIx - Nov '25</div>
+        </div>
+
+        <div class="mySlides">
+          <img src="images/undergraduates_may2025.jpg" style="width: 100%" />
+          <div class="caption">Recent Graduates - May '25</div>
+        </div>
+
+        <div class="mySlides">
+          <img src="images/aaai23.jpg" style="width: 100%" />
+          <div class="caption">AI4Society @ AAAI 2023</div>
+        </div>
+
+        <div class="mySlides">
+          <img src="images/techninlaw_oct2024.jpg" style="width: 100%" />
+          <div class="caption">ElectionBot-SC Demo @TechInLaw '24</div>
+        </div>
+
+        <div class="mySlides">
+          <img src="images/aaai23_elections.JPG" style="width: 100%" />
+          <div class="caption">AI for Credible Elections Workshop @AAAI '23</div>
+        </div>
+
+        <div class="mySlides">
+          <img src="images/team_lunch_spring2025.jpg" style="width: 100%" />
+          <div class="caption">Team Lunch - Spring '25</div>
+        </div>
+
+        <div class="mySlides">
+          <img src="images/holi2024.jpeg" style="width: 100%" />
+          <div class="caption">Holi Celebration @ 2024</div>
+        </div>
+
+        <div class="mySlides">
+          <img src="images/all-aiisc-2022-1.jpg" style="width: 100%" />
+          <div class="caption">All AIISC faculty families @ 2022</div>
+        </div>
+
+        <div class="mySlides">
+          <img src="images/all-aiisc-2022-2.jpg" style="width: 100%" />
+          <div class="caption">All AIISC faculty families @ 2022</div>
+        </div>
+
+        <!-- Next button -->
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+
+      <!-- Unified Spotlight Box -->
+      <div class="spotlight-card" id="spotlightCard">
+        <div class="spotlight-header">
+          <div class="spotlight-title">
+            Spotlight
+          </div>
+          <div class="spotlight-subtitle">Highlights from AI4Society</div>
+        </div>
+
+        <!-- Activity Spotlight -->
+        <div class="spotlight-section">
+          <div class="spotlight-section-title">
+            Activity Spotlight
           </div>
 
-          <div class="genealogy-arrow">
-            <i class="fas fa-long-arrow-alt-right"></i>
+          <div class="spotlight-activity">
+            AI4Society is organizing <a href="https://icaps27.icaps-conference.org/home/" target="_blank">
+              <b>ICAPS 2027</b></a> at <b>Columbia, South Carolina</b>.
           </div>
 
-          <div class="genealogy-node">
-            <div class="genealogy-node-circle">BS</div>
-            <div class="genealogy-node-name">
-              <a href="https://sites.google.com/site/biplavsrivastava/home" target="_blank"
-                >Srivastava</a
-              >
-            </div>
-            <div class="genealogy-node-role">Advisor</div>
+          <div class="spotlight-activity">
+            We organized a highly successful, day-long, free community outreach event focused on the role
+            of AI in keeping senior citizens safe and independent called
+            <b><a href="https://sites.google.com/cse.sc.edu/safe-ai-for-seniors" target="_blank">AIx: Safe
+                AI for Seniors</a></b>, on Nov 14, 2025.
           </div>
 
-          <div class="genealogy-arrow">
-            <i class="fas fa-long-arrow-alt-right"></i>
+        </div>
+
+        <div class="spotlight-divider"></div>
+
+        <!-- Research Spotlight -->
+        <div class="spotlight-section">
+          <div class="spotlight-section-title">
+            Research Spotlight
           </div>
 
-          <div class="genealogy-node">
-            <div class="genealogy-node-circle">AI4S</div>
-            <div class="genealogy-node-name">AI4Society</div>
-            <div class="genealogy-node-role">PhD Students</div>
+          <div class="spotlight-posters">
+            <a class="spotlight-poster" href="spotlight/NeurIPS-24-Poster.png" target="_blank">
+              <img src="spotlight/NeurIPS-24-Poster.png" alt="NeurIPS Poster" class="poster-thumbnail" />
+              <div class="poster-caption">NeurIPS 2024 Poster</div>
+            </a>
+
+            <a class="spotlight-poster" href="spotlight/power-IAAI.jpg" target="_blank">
+              <img src="spotlight/power-IAAI.jpg" alt="IAAI Poster" class="poster-thumbnail" />
+              <div class="poster-caption">IAAI/AAAI 2023 Poster</div>
+            </a>
           </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer-section">
+    <hr />
+    <p style="text-align: left">
+      <a target="_blank" href="https://github.com/ai4society">GitHub</a>&nbsp;|&nbsp;
+      <a target="_blank" href="https://maps.app.goo.gl/ZFgJm82yYJhoknvZA">Address</a>&nbsp;|&nbsp;
+      <a href="#" id="openGenealogy">Academic Genealogy</a>
+    </p>
+  </div>
+
+  <!-- Academic Genealogy Popover -->
+  <div id="genealogyPopup" class="genealogy-popup">
+    <div class="genealogy-header">
+      <h3 class="genealogy-title">
+        <i class="fas fa-project-diagram"></i>
+        Academic Genealogy
+      </h3>
+      <span class="genealogy-close">&times;</span>
+    </div>
+
+    <p class="genealogy-subtitle">
+      AI4Society builds on a lineage of pioneering researchers in AI and knowledge representation.
+    </p>
+
+    <div class="genealogy-chain">
+      <!-- Row 1: Minsky -> Charniak -> Hendler -->
+      <div class="genealogy-row">
+        <div class="genealogy-node">
+          <div class="genealogy-node-circle">MM</div>
+          <div class="genealogy-node-name">
+            <a href="https://en.wikipedia.org/wiki/Marvin_Minsky" target="_blank">Minsky</a>
+          </div>
+          <div class="genealogy-node-role">Advisor</div>
+        </div>
+
+        <div class="genealogy-arrow">
+          <i class="fas fa-long-arrow-alt-right"></i>
+        </div>
+
+        <div class="genealogy-node">
+          <div class="genealogy-node-circle">EC</div>
+          <div class="genealogy-node-name">
+            <a href="https://en.wikipedia.org/wiki/Eugene_Charniak" target="_blank">Charniak</a>
+          </div>
+          <div class="genealogy-node-role">Advisor</div>
+        </div>
+
+        <div class="genealogy-arrow">
+          <i class="fas fa-long-arrow-alt-right"></i>
+        </div>
+
+        <div class="genealogy-node">
+          <div class="genealogy-node-circle">JH</div>
+          <div class="genealogy-node-name">
+            <a href="https://en.wikipedia.org/wiki/James_Hendler" target="_blank">Hendler</a>
+          </div>
+          <div class="genealogy-node-role">Advisor</div>
+        </div>
+      </div>
+
+      <!-- Row 2: Kambhampati -> Srivastava -> AI4Society -->
+      <div class="genealogy-row">
+        <div class="genealogy-node">
+          <div class="genealogy-node-circle">SK</div>
+          <div class="genealogy-node-name">
+            <a href="https://rakaposhi.eas.asu.edu/" target="_blank">Kambhampati</a>
+          </div>
+          <div class="genealogy-node-role">Advisor</div>
+        </div>
+
+        <div class="genealogy-arrow">
+          <i class="fas fa-long-arrow-alt-right"></i>
+        </div>
+
+        <div class="genealogy-node">
+          <div class="genealogy-node-circle">BS</div>
+          <div class="genealogy-node-name">
+            <a href="https://sites.google.com/site/biplavsrivastava/home" target="_blank">Srivastava</a>
+          </div>
+          <div class="genealogy-node-role">Advisor</div>
+        </div>
+
+        <div class="genealogy-arrow">
+          <i class="fas fa-long-arrow-alt-right"></i>
+        </div>
+
+        <div class="genealogy-node">
+          <div class="genealogy-node-circle">AI4S</div>
+          <div class="genealogy-node-name">AI4Society</div>
+          <div class="genealogy-node-role">PhD Students</div>
         </div>
       </div>
     </div>
+  </div>
 
-    <script>
-      // Image Slideshow Variables
-      var slideIndex = 0;
-      var slides = document.getElementsByClassName("mySlides");
-      var imgTimer;
+  <script>
+    // Image Slideshow Variables
+    var slideIndex = 0;
+    var slides = document.getElementsByClassName("mySlides");
+    var imgTimer;
 
-      // Research Spotlight Slideshow Variables (kept but unused)
-      var spotlightIndex = 0;
-      var spotlightSlides = document.getElementsByClassName("research-spotlight-slide");
-      var spotlightTimer;
+    // Research Spotlight Slideshow Variables (kept but unused)
+    var spotlightIndex = 0;
+    var spotlightSlides = document.getElementsByClassName("research-spotlight-slide");
+    var spotlightTimer;
 
-      // Image Slideshow Functions
-      function showSlides() {
-        var i;
-        for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) {
-          slideIndex = 1;
-        }
-        if (slides.length > 0) {
-          slides[slideIndex - 1].style.display = "block";
-        }
+    // Image Slideshow Functions
+    function showSlides() {
+      var i;
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
       }
-
-      function startImageSlideshow() {
-        showSlides();
-        imgTimer = setInterval(showSlides, 4000);
+      slideIndex++;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
       }
-
-      function plusSlides(n) {
-        clearInterval(imgTimer);
-        slideIndex += n - 1;
-        showSlides();
-        startImageSlideshow();
+      if (slides.length > 0) {
+        slides[slideIndex - 1].style.display = "block";
       }
+    }
 
-      // (Spotlight slideshow functions kept but not used)
-      function showSpotlightSlides() {
-        var i;
-        for (i = 0; i < spotlightSlides.length; i++) {
-          spotlightSlides[i].style.display = "none";
-        }
-        spotlightIndex++;
-        if (spotlightIndex > spotlightSlides.length) {
-          spotlightIndex = 1;
-        }
-        if (spotlightSlides.length > 0) {
-          spotlightSlides[spotlightIndex - 1].style.display = "block";
-        }
-      }
+    function startImageSlideshow() {
+      showSlides();
+      imgTimer = setInterval(showSlides, 4000);
+    }
 
-      function startSpotlightSlideshow() {
-        showSpotlightSlides();
-        spotlightTimer = setInterval(showSpotlightSlides, 4000);
-      }
-
-      function plusSpotlightSlides(n) {
-        clearInterval(spotlightTimer);
-        spotlightIndex += n - 1;
-        showSpotlightSlides();
-        startSpotlightSlideshow();
-      }
-
+    function plusSlides(n) {
+      clearInterval(imgTimer);
+      slideIndex += n - 1;
+      showSlides();
       startImageSlideshow();
-      // NOTE: no startSpotlightSlideshow() call, posters are static now
+    }
 
-      // ----- Academic Genealogy Popover Logic -----
-      var genealogyPopup = document.getElementById("genealogyPopup");
-      var openGenealogy = document.getElementById("openGenealogy");
-      var genealogyClose = document.querySelector(".genealogy-close");
+    // (Spotlight slideshow functions kept but not used)
+    function showSpotlightSlides() {
+      var i;
+      for (i = 0; i < spotlightSlides.length; i++) {
+        spotlightSlides[i].style.display = "none";
+      }
+      spotlightIndex++;
+      if (spotlightIndex > spotlightSlides.length) {
+        spotlightIndex = 1;
+      }
+      if (spotlightSlides.length > 0) {
+        spotlightSlides[spotlightIndex - 1].style.display = "block";
+      }
+    }
 
-      openGenealogy.onclick = function (e) {
-        e.preventDefault();
+    function startSpotlightSlideshow() {
+      showSpotlightSlides();
+      spotlightTimer = setInterval(showSpotlightSlides, 4000);
+    }
 
-        // Position the popup just above the link
-        var rect = openGenealogy.getBoundingClientRect();
+    function plusSpotlightSlides(n) {
+      clearInterval(spotlightTimer);
+      spotlightIndex += n - 1;
+      showSpotlightSlides();
+      startSpotlightSlideshow();
+    }
 
-        // show temporarily to measure height
-        genealogyPopup.style.display = "block";
-        genealogyPopup.style.visibility = "hidden";
+    startImageSlideshow();
+    // NOTE: no startSpotlightSlideshow() call, posters are static now
 
-        var popupHeight = genealogyPopup.offsetHeight;
-        var top = rect.top - popupHeight - 10;
-        if (top < 10) top = 10;
+    // ----- Academic Genealogy Popover Logic -----
+    var genealogyPopup = document.getElementById("genealogyPopup");
+    var openGenealogy = document.getElementById("openGenealogy");
+    var genealogyClose = document.querySelector(".genealogy-close");
 
-        genealogyPopup.style.top = top + "px";
-        genealogyPopup.style.left = rect.left + "px";
+    openGenealogy.onclick = function (e) {
+      e.preventDefault();
 
-        genealogyPopup.style.visibility = "visible";
-        genealogyPopup.classList.add("visible");
-      };
+      // Position the popup just above the link
+      var rect = openGenealogy.getBoundingClientRect();
 
-      genealogyClose.onclick = function () {
+      // show temporarily to measure height
+      genealogyPopup.style.display = "block";
+      genealogyPopup.style.visibility = "hidden";
+
+      var popupHeight = genealogyPopup.offsetHeight;
+      var top = rect.top - popupHeight - 10;
+      if (top < 10) top = 10;
+
+      genealogyPopup.style.top = top + "px";
+      genealogyPopup.style.left = rect.left + "px";
+
+      genealogyPopup.style.visibility = "visible";
+      genealogyPopup.classList.add("visible");
+    };
+
+    genealogyClose.onclick = function () {
+      genealogyPopup.classList.remove("visible");
+      genealogyPopup.style.display = "none";
+    };
+
+    // close when clicking outside
+    document.addEventListener("click", function (e) {
+      if (
+        genealogyPopup.classList.contains("visible") &&
+        !genealogyPopup.contains(e.target) &&
+        e.target !== openGenealogy
+      ) {
         genealogyPopup.classList.remove("visible");
         genealogyPopup.style.display = "none";
-      };
+      }
+    });
+  </script>
+</body>
 
-      // close when clicking outside
-      document.addEventListener("click", function (e) {
-        if (
-          genealogyPopup.classList.contains("visible") &&
-          !genealogyPopup.contains(e.target) &&
-          e.target !== openGenealogy
-        ) {
-          genealogyPopup.classList.remove("visible");
-          genealogyPopup.style.display = "none";
-        }
-      });
-    </script>
-  </body>
 </html>

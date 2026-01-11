@@ -6,6 +6,32 @@
     grid-gap: 5px;
 }
 
+/* Responsive Grid */
+@media (max-width: 992px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .grid img,
+    .grid figcaption {
+        width: 100%;
+        /* Adjust width for mobile */
+        height: auto;
+    }
+}
+
 .grid img {
     width: 120px;
     height: 150px;
@@ -13,5 +39,5 @@
 
 .grid figcaption {
     width: 320px;
-    height: 150px;
+    height: auto;
 }
