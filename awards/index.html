@@ -9,9 +9,65 @@
   <meta name="author" content="Vishal Pallagani">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" type="text/css" href="./stylesheet.css">
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
+  <style>
+    /* Awards page specific modal styles */
+    #myImg0, #myImg1, #myImg2, #myImg3, #myImg4 {
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+      float: right;
+      border: 1px dotted black;
+      margin: 0px 0px 15px 20px;
+    }
+    #myImg0:hover, #myImg1:hover, #myImg2:hover, #myImg3:hover, #myImg4:hover {
+      opacity: 0.7;
+      border: 3px solid violet;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      padding-top: 100px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+    }
+    #caption {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+      text-align: center;
+      color: #ccc;
+      padding: 10px 0;
+      height: 150px;
+    }
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .close:hover, .close:focus {
+      color: #bbb;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body class="container">
@@ -19,57 +75,57 @@
         function setupModal(imageId, modalId, modalImgId, captionId, closeClass) {
           // Get the modal
           var modal = document.getElementById(modalId);
-    
+
           // Get the image and insert it inside the modal - use its "alt" text as a caption
           var img = document.getElementById(imageId);
           var modalImg = document.getElementById(modalImgId);
           var captionText = document.getElementById(captionId);
-    
+
           // Function to open the modal with the clicked image
           function openModal() {
             modal.style.display = "block";
             modalImg.src = this.src;
             captionText.innerHTML = this.alt;
           }
-    
+
           // Function to close the modal
           function closeModal() {
             modal.style.display = "none";
           }
-    
+
           // Set up event listener for image click
           img.onclick = openModal;
-    
+
           // Get the <span> element that closes the modal
           var span = document.getElementsByClassName(closeClass)[0];
-    
+
           // Set up event listener for span click
           span.onclick = closeModal;
         }
       </script>
 
-    <table style="width:80%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-        <tbody>
-            <tr style="padding:0px">
-                <td style="padding-left:2.5%;width:63%;vertical-align:middle">
-                    <p style="text-align:left">
-                        <a href='../index.html'>Home</a> &nbsp|&nbsp
-                        <a href='../activities/index.html'>Activities</a> &nbsp|&nbsp
-                        <a href='../demos/index.html'>Demos</a> &nbsp|&nbsp
-                        <a href='../funding/index.html'>Funding</a> &nbsp|&nbsp
-                        <a href='../members/index.html'>Members</a> &nbsp|&nbsp
-                        <a href='../news-journal/index.html'>NewsLog</a> &nbsp|&nbsp
-                        <a href='../patents/index.html'>Patents</a> &nbsp|&nbsp
-                        <a href='../projects/index.html'>Projects</a> &nbsp|&nbsp
-                        <a href='../publications/index.html'>Publications</a>
-                    </p>
-                </td>
-            </tr>
-            <tr style="padding:0px">
-                <td style="padding-left:2.5%;width:63%;vertical-align:middle">
-                    <h2>Awards</h2>
-                    <hr>
-                    <ul>
+    <!-- Navigation -->
+    <div class="nav-container">
+      <p>
+        <a href='../index.html'>Home</a> &nbsp;|&nbsp;
+        <a href='../activities/index.html'>Activities</a> &nbsp;|&nbsp;
+        <a href='../demos/index.html'>Demos</a> &nbsp;|&nbsp;
+        <a href='../funding/index.html'>Funding</a> &nbsp;|&nbsp;
+        <a href='../members/index.html'>Members</a> &nbsp;|&nbsp;
+        <a href='../news-journal/index.html'>NewsLog</a> &nbsp;|&nbsp;
+        <a href='../patents/index.html'>Patents</a> &nbsp;|&nbsp;
+        <a href='../projects/index.html'>Projects</a> &nbsp;|&nbsp;
+        <a href='../publications/index.html'>Publications</a>
+      </p>
+    </div>
+
+    <div class="page-header">
+      <h2>Awards</h2>
+      <hr>
+    </div>
+
+    <div class="page-content">
+      <ul>
 
                         <li style="margin-bottom: 20px"><img id="myImg0" src="./certificates/AAAI-IAAI-2024.jpeg"
                             alt="🎉 2024 IAAI Deployed Application Award for our AI application, <i>Promoting Research Collaboration with Open Data Driven Team Recommendation in Response to Call for Proposals</i> 🎉"
@@ -136,28 +192,16 @@
                       <li style="margin-bottom: 20px">In February 2024, Vishal Pallagani got elected to the <a href="https://aaai.org/about-aaai/aaai-officers-and-committees/">Student Committee of AAAI - the International Association for the Advancement of Artificial Intelligence.</a></li>
                       <li style="margin-bottom: 20px">In February 2024, we started in lead PI role University of South Carolina's participation in National Institute of Standards and Technology (<a href="https://www.nist.gov/">NIST</a>)'s Artificial Intelligence Safety Institute Consortium (AISIC) where we are contributing to many task groups [<a href="https://www.nist.gov/aisi">announcement</a>, <a href="https://www.nist.gov/artificial-intelligence-safety-institute/aisic-members">members</a>].</li>
 
-                    </ul>
+      </ul>
+    </div>
 
-
-
-            <tr style="padding:0px">
-                <td style="padding-left:2.5%;width:63%;vertical-align:middle">
-                    <hr style="width: 100%; float: left;">
-                </td>
-            </tr>
-
-
-            <tr style="padding:0px">
-                <td style="padding-left:2.5%;width:63%;vertical-align:middle">
-                  <p style="text-align:left">
-                    
-                    <a target="_blank" href="https://github.com/ai4society">GitHub</a>&nbsp|&nbsp
-                    <a target="_blank" href="https://maps.app.goo.gl/ZFgJm82yYJhoknvZA">Address</a>
-                  </p>
-                </td>
-              </tr>
-        </tbody>
-    </table>
+    <div class="footer-section">
+      <hr style="width: 100%; float: left;">
+      <p style="text-align:left">
+        <a target="_blank" href="https://github.com/ai4society">GitHub</a>&nbsp;|&nbsp;
+        <a target="_blank" href="https://maps.app.goo.gl/ZFgJm82yYJhoknvZA">Address</a>
+      </p>
+    </div>
 
 </body>
 

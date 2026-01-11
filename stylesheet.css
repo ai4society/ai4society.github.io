@@ -164,6 +164,22 @@ span.highlight {
   }
 }
 
+/* Consistent page content wrapper for all pages */
+.page-content {
+  padding: 0 2.5%;
+  text-align: left;
+}
+
+.page-header {
+  padding: 0 2.5%;
+  text-align: left;
+}
+
+/* Footer section for consistency */
+.footer-section {
+  padding: 0 2.5%;
+}
+
 /* =========================================
    Demos Page Styles (Added for Mobile Responsiveness)
    ========================================= */
@@ -484,6 +500,7 @@ button:hover {
   position: relative;
   padding-left: 20px;
   list-style: none;
+  text-align: left;
 }
 
 .newsjournal:before {
@@ -502,20 +519,21 @@ button:hover {
 }
 
 .newsjournal-dot {
-  position: relative;
-  left: -26px;
   width: 10px;
   height: 10px;
   border-radius: 50%;
   background: #3F51B5;
   /* Color of the dots */
-  top: 5px;
+  flex-shrink: 0;
 }
 
 .newsjournal-container {
   display: flex;
   align-items: center;
-  justify-content: left;
+  justify-content: flex-start;
+  position: relative;
+  width: 100%;
+  text-align: left;
 }
 
 .newsjournal-month {
@@ -532,7 +550,7 @@ button:hover {
   margin-bottom: 15px;
   /* Spacing after the year heading */
   font-weight: bold;
-  margin-left: -10px;
+  margin-left: 10px;
 }
 
 .newsjournal-content {
@@ -543,14 +561,20 @@ button:hover {
 @media (max-width: 600px) {
   .newsjournal {
     padding-left: 25px;
+    text-align: left;
   }
 
   .newsjournal:before {
     left: 10px;
   }
 
-  .newsjournal-dot {
-    left: -8px;
+  .newsjournal-container {
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .newsjournal-year {
+    text-align: left;
   }
 
   .newsjournal-content {
@@ -976,6 +1000,7 @@ button:hover {
   position: relative;
   padding-left: 20px;
   list-style: none;
+  text-align: left;
 }
 
 .activities-item {
@@ -985,7 +1010,9 @@ button:hover {
 .activities-container {
   display: flex;
   align-items: center;
-  justify-content: left;
+  justify-content: flex-start;
+  width: 100%;
+  text-align: left;
 }
 
 .activities-year {
@@ -1001,7 +1028,7 @@ button:hover {
   border-bottom: 1px solid #ccc;
   /* Light line under the activity type */
   font-weight: bold;
-  margin-left: -10px;
+  margin-left: 0;
 }
 
 .activities-content {
@@ -1019,6 +1046,28 @@ button:hover {
 .activities-content-month,
 .activities-content-misc {
   visibility: hidden;
+}
+
+/* Activities responsive adjustments */
+@media (max-width: 600px) {
+  .activities {
+    padding-left: 10px;
+    text-align: left;
+  }
+
+  .activities-container {
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .activities-type {
+    text-align: left;
+    margin-left: 0;
+  }
+
+  .activities-content {
+    padding-left: 10px;
+  }
 }
 
 .patent-section {
