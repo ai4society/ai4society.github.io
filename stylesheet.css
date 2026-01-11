@@ -712,6 +712,17 @@ button:hover {
   text-decoration: underline;
 }
 
+@media (max-width: 600px) {
+  .papers-list li {
+    padding-right: 0;
+    /* Let titles span full width on narrow screens */
+  }
+
+  .papers-list li::before {
+    margin-left: 0;
+  }
+}
+
 
 
 .tag {
