@@ -1580,6 +1580,13 @@ button:hover {
   white-space: nowrap;
 }
 
+.nav-container a.nav-active {
+  color: #f09228;
+  font-weight: bold;
+  pointer-events: none;
+  cursor: default;
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
 
