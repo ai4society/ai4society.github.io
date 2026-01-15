@@ -283,6 +283,8 @@
             <div class="caption">All AIISC faculty families @ 2022</div>
           </div>
 
+          <!-- Previous button -->
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
           <!-- Next button -->
           <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
@@ -319,25 +321,30 @@
 
           <div class="spotlight-divider"></div>
 
-          <!-- Research Spotlight -->
+          <!-- Research Spotlight - Poster Carousel -->
           <div class="spotlight-section">
-            <div class="spotlight-section-title">Research Spotlight</div>
-
-            <div class="spotlight-posters">
-              <a class="spotlight-poster" href="spotlight/NeurIPS-24-Poster.png" target="_blank">
-                <img
-                  src="spotlight/NeurIPS-24-Poster.png"
-                  alt="NeurIPS Poster"
-                  class="poster-thumbnail"
-                />
-                <div class="poster-caption">NeurIPS 2024 Poster</div>
-              </a>
-
-              <a class="spotlight-poster" href="spotlight/power-IAAI.jpg" target="_blank">
-                <img src="spotlight/power-IAAI.jpg" alt="IAAI Poster" class="poster-thumbnail" />
-                <div class="poster-caption">IAAI/AAAI 2023 Poster</div>
-              </a>
+            <div class="spotlight-section-header">
+              <div class="spotlight-section-title">Research Spotlight</div>
+              <span class="view-all-posters" onclick="openPosterPopup()">View all</span>
             </div>
+
+            <div class="poster-carousel-container" id="posterCarouselContainer">
+              <div class="poster-carousel-wrapper">
+                <div class="poster-slide active" data-poster-url="spotlight/omega_poster_AAAI-2026.png" data-caption="OMEGA - AAAI 2026">
+                  <img src="spotlight/omega_poster_AAAI-2026.png" alt="OMEGA Poster AAAI 2026" class="poster-carousel-img" />
+                </div>
+                <div class="poster-slide" data-poster-url="spotlight/AAAI-24_Demo_Poster.png" data-caption="Demo - AAAI 2024">
+                  <img src="spotlight/AAAI-24_Demo_Poster.png" alt="AAAI 24 Demo Poster" class="poster-carousel-img" />
+                </div>
+                <div class="poster-slide" data-poster-url="spotlight/AAAI-IAAI-2024-ULTRA-Poster.png" data-caption="ULTRA - IAAI/AAAI 2024">
+                  <img src="spotlight/AAAI-IAAI-2024-ULTRA-Poster.png" alt="ULTRA Poster AAAI 2024" class="poster-carousel-img" />
+                </div>
+              </div>
+
+              <a class="poster-carousel-prev" onclick="plusPosterSlides(-1)">&#10094;</a>
+              <a class="poster-carousel-next" onclick="plusPosterSlides(1)">&#10095;</a>
+            </div>
+            <div class="poster-carousel-caption" id="posterCarouselCaption">OMEGA - AAAI 2026</div>
           </div>
         </div>
       </div>
@@ -440,6 +447,54 @@
       </div>
     </div>
 
+    <!-- Research Posters Popup -->
+    <div id="posterPopup" class="poster-popup">
+      <div class="poster-popup-content">
+        <div class="poster-popup-header">
+          <h3 class="poster-popup-title">
+            <i class="fas fa-images"></i>
+            Research Posters
+          </h3>
+          <span class="poster-popup-close">&times;</span>
+        </div>
+
+        <p class="poster-popup-subtitle">
+          Our research presentations at major AI conferences
+        </p>
+
+        <div class="poster-popup-grid">
+          <!-- AAAI 2026 -->
+          <a href="projects/ontology/files/omega_poster_AAAI-2026.pdf" target="_blank" class="poster-popup-item">
+            <img src="spotlight/omega_poster_AAAI-2026.png" alt="OMEGA Poster" class="poster-popup-thumbnail" />
+            <div class="poster-popup-caption">OMEGA - AAAI 2026</div>
+          </a>
+
+          <!-- AAAI 2024 -->
+          <a href="publications/papers_local/AAAI-24_Demo_Poster.pdf" target="_blank" class="poster-popup-item">
+            <img src="spotlight/AAAI-24_Demo_Poster.png" alt="AAAI 24 Demo" class="poster-popup-thumbnail" />
+            <div class="poster-popup-caption">Demo - AAAI 2024</div>
+          </a>
+
+          <a href="publications/papers_local/AAAI-IAAI-2024-ULTRA-Poster.pdf" target="_blank" class="poster-popup-item">
+            <img src="spotlight/AAAI-IAAI-2024-ULTRA-Poster.png" alt="ULTRA Poster" class="poster-popup-thumbnail" />
+            <div class="poster-popup-caption">ULTRA - IAAI/AAAI 2024</div>
+          </a>
+
+          <!-- NeurIPS 2024 -->
+          <a href="spotlight/NeurIPS-24-Poster.png" target="_blank" class="poster-popup-item">
+            <img src="spotlight/NeurIPS-24-Poster.png" alt="NeurIPS 2024" class="poster-popup-thumbnail" />
+            <div class="poster-popup-caption">NeurIPS 2024</div>
+          </a>
+
+          <!-- IAAI 2023 -->
+          <a href="spotlight/power-IAAI.jpg" target="_blank" class="poster-popup-item">
+            <img src="spotlight/power-IAAI.jpg" alt="PowerIoT IAAI" class="poster-popup-thumbnail" />
+            <div class="poster-popup-caption">PowerIoT - IAAI 2023</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
     <script>
       // Image Slideshow Variables
       var slideIndex = 0;
@@ -506,7 +561,96 @@
       }
 
       startImageSlideshow();
-      // NOTE: no startSpotlightSlideshow() call, posters are static now
+
+      // ===== Poster Carousel Variables and Functions =====
+      var posterSlideIndex = 1;
+      var posterSlides = document.getElementsByClassName("poster-slide");
+      var posterCaptionEl = document.getElementById("posterCarouselCaption");
+      var posterTimer;
+      var posterAutoScrollInterval = 5000; // 5 seconds
+
+      function showPosterSlide(n) {
+        var i;
+        if (n > posterSlides.length) { posterSlideIndex = 1; }
+        if (n < 1) { posterSlideIndex = posterSlides.length; }
+
+        for (i = 0; i < posterSlides.length; i++) {
+          posterSlides[i].classList.remove("active");
+        }
+
+        if (posterSlides.length > 0) {
+          var activeSlide = posterSlides[posterSlideIndex - 1];
+          activeSlide.classList.add("active");
+          // Update caption
+          var caption = activeSlide.getAttribute("data-caption");
+          if (posterCaptionEl && caption) {
+            posterCaptionEl.textContent = caption;
+          }
+        }
+      }
+
+      function plusPosterSlides(n) {
+        clearInterval(posterTimer);
+        posterSlideIndex += n;
+        showPosterSlide(posterSlideIndex);
+        startPosterCarousel();
+      }
+
+      function autoPosterScroll() {
+        posterSlideIndex++;
+        showPosterSlide(posterSlideIndex);
+      }
+
+      function startPosterCarousel() {
+        showPosterSlide(posterSlideIndex);
+        posterTimer = setInterval(autoPosterScroll, posterAutoScrollInterval);
+      }
+
+      startPosterCarousel();
+
+      // ===== Poster Popup Logic =====
+      var posterPopup = document.getElementById("posterPopup");
+      var posterPopupClose = document.querySelector(".poster-popup-close");
+      var posterCarouselContainer = document.getElementById("posterCarouselContainer");
+
+      function openPosterPopup() {
+        posterPopup.classList.add("visible");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closePosterPopup() {
+        posterPopup.classList.remove("visible");
+        document.body.style.overflow = "";
+      }
+
+      posterPopupClose.onclick = closePosterPopup;
+
+      posterCarouselContainer.addEventListener("click", function(e) {
+        if (e.target.classList.contains("poster-carousel-prev") ||
+            e.target.classList.contains("poster-carousel-next")) {
+          return;
+        }
+        // Open the current poster directly
+        var activeSlide = document.querySelector(".poster-slide.active");
+        if (activeSlide) {
+          var posterUrl = activeSlide.getAttribute("data-poster-url");
+          if (posterUrl) {
+            window.open(posterUrl, "_blank");
+          }
+        }
+      });
+
+      posterPopup.addEventListener("click", function(e) {
+        if (e.target === posterPopup) {
+          closePosterPopup();
+        }
+      });
+
+      document.addEventListener("keydown", function(e) {
+        if (e.key === "Escape" && posterPopup.classList.contains("visible")) {
+          closePosterPopup();
+        }
+      });
 
       // ----- Academic Genealogy Popover Logic -----
       var genealogyPopup = document.getElementById("genealogyPopup");

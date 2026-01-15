@@ -384,39 +384,56 @@ button:hover {
   cursor: pointer;
   position: absolute;
   top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  /* Adjust if necessary */
-  color: rgb(255, 113, 36);
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 12px;
+  transition: all 0.2s ease;
+  border-radius: 50%;
   user-select: none;
   -webkit-user-select: none;
   z-index: 10;
-  /* Ensure arrows are above the images */
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  opacity: 0;
+}
+
+.slideshow-container:hover .prev,
+.slideshow-container:hover .next {
+  opacity: 1;
 }
 
 /* Position the "next button" to the right */
 .next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
+  right: 6px;
 }
 
-/* On hover, add a background color with a little bit see-through */
+/* Position the "prev button" to the left */
+.prev {
+  left: 6px;
+}
+
+/* On hover, add a background color */
 .prev:hover,
 .next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #fff;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  color: #333;
 }
 
 /* Responsive positioning of the prev/next buttons */
-@media only screen and (max-width: 300px) {
-
+@media only screen and (max-width: 480px) {
   .prev,
   .next {
-    font-size: 11px;
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+    opacity: 1;
   }
 }
 
@@ -1457,11 +1474,31 @@ button:hover {
   padding-top: 8px;
 }
 
+.spotlight-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
 .spotlight-section-title {
   font-size: 13px;
   font-weight: 700;
   opacity: 0.9;
-  margin-bottom: 8px;
+}
+
+.view-all-posters {
+  font-size: 10px;
+  color: #fff;
+  background: #22c55e;
+  padding: 3px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.view-all-posters:hover {
+  background: #16a34a;
 }
 
 /* Internal divider */
@@ -1541,6 +1578,283 @@ button:hover {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* =========================================
+   Poster Carousel
+   ========================================= */
+.poster-carousel-container {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #f8f9fa;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+
+.poster-carousel-container:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
+  transform: translateY(-2px);
+}
+
+.poster-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.poster-slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+  animation: posterCarouselFade 0.5s ease-in-out;
+}
+
+.poster-slide.active {
+  display: block;
+}
+
+.poster-carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background: #f8f9fa;
+}
+
+.poster-carousel-caption {
+  text-align: center;
+  font-size: 11px;
+  color: #666;
+  margin-top: 8px;
+}
+
+@keyframes posterCarouselFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.poster-carousel-prev,
+.poster-carousel-next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 12px;
+  transition: all 0.2s ease;
+  border-radius: 50%;
+  user-select: none;
+  -webkit-user-select: none;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  opacity: 0;
+}
+
+.poster-carousel-container:hover .poster-carousel-prev,
+.poster-carousel-container:hover .poster-carousel-next {
+  opacity: 1;
+}
+
+.poster-carousel-prev {
+  left: 6px;
+}
+
+.poster-carousel-next {
+  right: 6px;
+}
+
+.poster-carousel-prev:hover,
+.poster-carousel-next:hover {
+  background-color: #fff;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  color: #333;
+}
+
+/* Poster Carousel Responsive */
+@media (max-width: 768px) {
+  .poster-carousel-container {
+    height: 220px;
+  }
+  .poster-carousel-prev,
+  .poster-carousel-next {
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .poster-carousel-container {
+    height: 180px;
+  }
+}
+
+/* =========================================
+   Research Posters Popup
+   ========================================= */
+.poster-popup {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow: auto;
+  animation: posterPopupFadeIn 0.3s ease;
+}
+
+.poster-popup.visible {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes posterPopupFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.poster-popup-content {
+  background: #f9fafb;
+  border-radius: 14px;
+  padding: 20px 24px;
+  max-width: 800px;
+  width: 90%;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  animation: posterPopupSlideIn 0.3s ease;
+}
+
+@keyframes posterPopupSlideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.poster-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding-bottom: 12px;
+}
+
+.poster-popup-title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #111827;
+}
+
+.poster-popup-title i {
+  color: rgb(255, 113, 36);
+}
+
+.poster-popup-close {
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #6b7280;
+  line-height: 1;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.poster-popup-close:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #111827;
+}
+
+.poster-popup-subtitle {
+  margin: 0 0 16px;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.poster-popup-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.poster-popup-item {
+  display: block;
+  text-decoration: none;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.poster-popup-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.poster-popup-thumbnail {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  background: #f8f9fa;
+  display: block;
+}
+
+.poster-popup-caption {
+  padding: 10px 12px;
+  font-size: 0.8rem;
+  text-align: center;
+  color: #333;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+/* Poster Popup Responsive */
+@media (max-width: 600px) {
+  .poster-popup-content {
+    padding: 16px;
+    width: 95%;
+  }
+  .poster-popup-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+  }
+  .poster-popup-thumbnail {
+    height: 120px;
   }
 }
 
