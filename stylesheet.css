@@ -450,6 +450,14 @@ button:hover {
   /* Reduced to bring content closer */
 }
 
+.aaai-event-list li {
+  margin-bottom: 12px;
+}
+
+.aaai-event-list li:last-child {
+  margin-bottom: 0;
+}
+
 .timeline-dot.year-dot {
   position: absolute;
   left: -25px;
