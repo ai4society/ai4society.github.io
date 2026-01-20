@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://ai4society.github.io/projects/GenAIResultsComparator/news/">
+        <link rel="canonical" href="https://ai4society.github.io/projects/GenAIResultsComparator/developer-guide/">
       
       
-        <link rel="prev" href="../faq/">
+        <link rel="prev" href="../news/">
       
       
-        <link rel="next" href="../developer-guide/">
+        <link rel="next" href="../api/metrics/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>News & Releases - GAICo Documentation</title>
+        <title>Developer Guide - GAICo Documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gaico-release-news" class="md-skip">
+        <a href="#developer-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              News & Releases
+              Developer Guide
             
           </span>
         </div>
@@ -299,11 +299,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../news/" class="md-tabs__link">
         
   
   
@@ -320,9 +318,11 @@
   
   
   
+    
   
-    <li class="md-tabs__item">
-      <a href="../developer-guide/" class="md-tabs__link">
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
         
   
   
@@ -553,6 +553,33 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../news/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    News & Releases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -572,7 +599,7 @@
   <span class="md-ellipsis">
     
   
-    News & Releases
+    Developer Guide
   
 
     
@@ -590,7 +617,7 @@
   <span class="md-ellipsis">
     
   
-    News & Releases
+    Developer Guide
   
 
     
@@ -616,89 +643,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#v030-august-2025" class="md-nav__link">
+  <a href="#project-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        v0.3.0 - August 2025
+        Project Structure
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="v0.3.0 - August 2025">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Features:
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#quick-start-examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quick Start Examples
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Quick Start Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-multimedia-image-only" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Multimedia (Image-only)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-experiment-enhancements-batch-summarize" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2) Experiment Enhancements (batch + summarize)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#v020-july-2025" class="md-nav__link">
+  <a href="#running-tests" class="md-nav__link">
     <span class="md-ellipsis">
       
-        v0.2.0 - July 2025
+        Running Tests
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="v0.2.0 - July 2025">
+    <nav class="md-nav" aria-label="Running Tests">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#key-features_1" class="md-nav__link">
+  <a href="#basic-test-commands" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Key Features:
+        Basic Test Commands
       
     </span>
   </a>
@@ -706,10 +677,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#quick-start-example" class="md-nav__link">
+  <a href="#targeting-specific-tests" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quick Start Example:
+        Targeting Specific Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-markers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Markers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writing Tests
       
     </span>
   </a>
@@ -722,22 +715,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#v015-june-2025" class="md-nav__link">
+  <a href="#code-style" class="md-nav__link">
     <span class="md-ellipsis">
       
-        v0.1.5 - June 2025
+        Code Style
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="v0.1.5 - June 2025">
+    <nav class="md-nav" aria-label="Code Style">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#key-features_2" class="md-nav__link">
+  <a href="#pre-commit-hooks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Key Features:
+        Pre-commit Hooks
       
     </span>
   </a>
@@ -745,10 +738,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#quick-start-example_1" class="md-nav__link">
+  <a href="#code-style-tools" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quick Start Example:
+        Code Style Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#style-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Style Guidelines
       
     </span>
   </a>
@@ -757,6 +761,161 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development Workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Development Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-a-feature-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Create a Feature Branch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-make-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Make Changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-run-tests-and-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Run Tests and Checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-commit-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Commit Changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-push-and-create-pr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Push and Create PR
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-a-new-metric" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding a New Metric
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-documentation-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local Documentation Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-documentation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building Documentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Process
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Help
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-of-conduct" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code of Conduct
+      
+    </span>
+  </a>
   
 </li>
       
@@ -764,33 +923,6 @@
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../developer-guide/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Developer Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -1644,163 +1776,288 @@
   
 
 
-<h1 id="gaico-release-news">GAICo Release News<a class="headerlink" href="#gaico-release-news" title="Permanent link">&para;</a></h1>
-<p>This page details the major releases of the GAICo library, highlighting key features and providing quick start examples. <em>Use the table of contents in the left sidebar to navigate.</em></p>
-<h2 id="v030-august-2025">v0.3.0 - August 2025<a class="headerlink" href="#v030-august-2025" title="Permanent link">&para;</a></h2>
-<p>This release significantly expands GAICo's capabilities by introducing new multimedia metrics for image and audio. It also contains enhancement to the <code>Experiment</code> class by adding support for batch-processing, summarization, and allowing dynamic registration of custom metrics.</p>
-<h3 id="key-features">Key Features:<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h3>
+<h1 id="developer-guide">Developer Guide<a class="headerlink" href="#developer-guide" title="Permanent link">&para;</a></h1>
+<p>This guide covers everything you need to contribute to GAICo, including project structure, testing, code style, and development workflows. <em>Use the table of contents in the left sidebar to navigate.</em></p>
+<p>For development setup, wee the <a href="../installation-guide/#developer-installation">Developer Installation</a> section.</p>
+<h2 id="project-structure">Project Structure<a class="headerlink" href="#project-structure" title="Permanent link">&para;</a></h2>
+<p>The <a href="https://github.com/ai4society/GenAIResultsComparator">project</a> is organized as follows:</p>
+<div class="highlight"><pre><span></span><code>.
+├──<span class="w"> </span>README.md<span class="w">               </span><span class="c1"># Project overview and quick start</span>
+├──<span class="w"> </span>LICENSE<span class="w">                 </span><span class="c1"># MIT License</span>
+├──<span class="w"> </span>.gitignore<span class="w">              </span><span class="c1"># Git ignore rules</span>
+├──<span class="w"> </span>uv.lock<span class="w">                 </span><span class="c1"># UV dependency lock file</span>
+├──<span class="w"> </span>pyproject.toml<span class="w">          </span><span class="c1"># Project metadata and dependencies</span>
+├──<span class="w"> </span>project_macros.py<span class="w">       </span><span class="c1"># Used by mkdocs-macros-plugin (documentation)</span>
+├──<span class="w"> </span>PYPI_DESCRIPTION.MD<span class="w">     </span><span class="c1"># PyPI package description</span>
+├──<span class="w"> </span>.pre-commit-config.yaml<span class="w"> </span><span class="c1"># Pre-commit hook configuration</span>
+├──<span class="w"> </span>mkdocs.yml<span class="w">              </span><span class="c1"># MkDocs documentation configuration</span>
+├──<span class="w"> </span>gaico/<span class="w">                  </span><span class="c1"># Main library code</span>
+│<span class="w">   </span>├──<span class="w"> </span>__init__.py<span class="w">         </span><span class="c1"># Package initialization</span>
+│<span class="w">   </span>├──<span class="w"> </span>base.py<span class="w">             </span><span class="c1"># BaseMetric abstract class</span>
+│<span class="w">   </span>├──<span class="w"> </span>experiment.py<span class="w">       </span><span class="c1"># Experiment class for streamlined evaluation</span>
+│<span class="w">   </span>├──<span class="w"> </span>metrics/<span class="w">            </span><span class="c1"># Individual metric implementations</span>
+│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>text/<span class="w">           </span><span class="c1"># Text-based metrics</span>
+│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>structured/<span class="w">     </span><span class="c1"># Structured data metrics</span>
+│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>multimedia/<span class="w">     </span><span class="c1"># Image and audio metrics</span>
+│<span class="w">   </span>└──<span class="w"> </span>utils/<span class="w">              </span><span class="c1"># Utility functions</span>
+├──<span class="w"> </span>examples/<span class="w">               </span><span class="c1"># Jupyter notebook examples</span>
+│<span class="w">   </span>├──<span class="w"> </span>quickstart.ipynb<span class="w">    </span><span class="c1"># Quick introduction</span>
+│<span class="w">   </span>├──<span class="w"> </span>example-1.ipynb<span class="w">     </span><span class="c1"># Multiple models, single metric</span>
+│<span class="w">   </span>├──<span class="w"> </span>example-2.ipynb<span class="w">     </span><span class="c1"># Single model, all metrics</span>
+│<span class="w">   </span>└──<span class="w"> </span>data/<span class="w">               </span><span class="c1"># Sample data for examples</span>
+├──<span class="w"> </span>tests/<span class="w">                  </span><span class="c1"># Test suite</span>
+│<span class="w">   </span>├──<span class="w"> </span>test_metrics/<span class="w">       </span><span class="c1"># Metric-specific tests</span>
+│<span class="w">   </span>├──<span class="w"> </span>test_experiment.py<span class="w">  </span><span class="c1"># Experiment class tests</span>
+│<span class="w">   </span>└──<span class="w"> </span>conftest.py<span class="w">         </span><span class="c1"># Pytest configuration</span>
+├──<span class="w"> </span>docs/<span class="w">                   </span><span class="c1"># Documentation source files</span>
+│<span class="w">   </span>├──<span class="w"> </span>index.md<span class="w">            </span><span class="c1"># Documentation homepage</span>
+│<span class="w">   </span>├──<span class="w"> </span>installation-guide.md
+│<span class="w">   </span>├──<span class="w"> </span>developer-guide.md
+│<span class="w">   </span>├──<span class="w"> </span>resources.md
+│<span class="w">   </span>├──<span class="w"> </span>faq.md
+│<span class="w">   </span>└──<span class="w"> </span>news.md
+├──<span class="w"> </span>scripts/<span class="w">                </span><span class="c1"># Utility scripts</span>
+│<span class="w">   </span>├──<span class="w"> </span>deploy-docs.sh<span class="w">      </span><span class="c1"># Documentation deployment</span>
+│<span class="w">   </span>└──<span class="w"> </span>generate-readme.py<span class="w">  </span><span class="c1"># README generation</span>
+└──<span class="w"> </span>.github/workflows/<span class="w">      </span><span class="c1"># CI/CD workflows</span>
+<span class="w">    </span>├──<span class="w"> </span>deploy-docs.yml<span class="w">     </span><span class="c1"># Documentation deployment</span>
+<span class="w">    </span>└──<span class="w"> </span>publish-pypi.yml<span class="w">    </span><span class="c1"># PyPI publishing</span>
+</code></pre></div>
+<h2 id="running-tests">Running Tests<a class="headerlink" href="#running-tests" title="Permanent link">&para;</a></h2>
+<p>We use <a href="https://docs.pytest.org/">Pytest</a> for testing. Tests are located in the <code>tests/</code> directory.</p>
+<h3 id="basic-test-commands">Basic Test Commands<a class="headerlink" href="#basic-test-commands" title="Permanent link">&para;</a></h3>
+<p>Navigate to the project root and use <code>uv</code> to run tests:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Run all tests</span>
+uv<span class="w"> </span>run<span class="w"> </span>pytest
+
+<span class="c1"># Run with verbose output</span>
+uv<span class="w"> </span>run<span class="w"> </span>pytest<span class="w"> </span>-v
+
+<span class="c1"># Run with coverage report</span>
+uv<span class="w"> </span>run<span class="w"> </span>pytest<span class="w"> </span>--cov<span class="o">=</span>gaico<span class="w"> </span>--cov-report<span class="o">=</span>html
+
+<span class="c1"># If pytest gives import errors, use:</span>
+uv<span class="w"> </span>run<span class="w"> </span>-m<span class="w"> </span>pytest
+</code></pre></div>
+<h3 id="targeting-specific-tests">Targeting Specific Tests<a class="headerlink" href="#targeting-specific-tests" title="Permanent link">&para;</a></h3>
+<p>You can run or skip tests based on markers:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Skip slow BERTScore tests</span>
+uv<span class="w"> </span>run<span class="w"> </span>pytest<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;not bertscore&quot;</span>
+
+<span class="c1"># Run ONLY BERTScore tests</span>
+uv<span class="w"> </span>run<span class="w"> </span>pytest<span class="w"> </span>-m<span class="w"> </span>bertscore
+
+<span class="c1"># Run tests for a specific file</span>
+uv<span class="w"> </span>run<span class="w"> </span>pytest<span class="w"> </span>tests/test_experiment.py
+
+<span class="c1"># Run a specific test function</span>
+uv<span class="w"> </span>run<span class="w"> </span>pytest<span class="w"> </span>tests/test_experiment.py::test_experiment_init
+</code></pre></div>
+<h3 id="test-markers">Test Markers<a class="headerlink" href="#test-markers" title="Permanent link">&para;</a></h3>
+<p>We use the following pytest markers:</p>
 <ul>
-<li><strong>Multimedia Metrics:</strong><ul>
-<li>Image: Added <code>ImageSSIM</code>, <code>ImageAverageHash</code>, and <code>ImageHistogramMatch</code> for comparing visual content.</li>
-<li>Audio: Introduced <code>AudioSNRNormalized</code> and <code>AudioSpectrogramDistance</code> for evaluating audio signals.</li>
+<li><code>bertscore</code>: Tests for BERTScore metric (can be slow)</li>
+<li><code>integration</code>: Integration tests that test multiple components</li>
+<li><code>unit</code>: Fast unit tests for individual functions</li>
 </ul>
-</li>
-<li><strong>Experiment Class Enhancements:</strong><ul>
-<li>Batch Processing: Added support for processing multiple experiments in a single run.</li>
-<li>Summarization: Introduced methods for generating summary reports of experiment results.</li>
-<li>Dynamic Metric Registration: Enabled users to register custom metrics dynamically.</li>
-</ul>
-</li>
-</ul>
-<h3 id="quick-start-examples">Quick Start Examples<a class="headerlink" href="#quick-start-examples" title="Permanent link">&para;</a></h3>
-<h4 id="1-multimedia-image-only">1. Multimedia (Image-only)<a class="headerlink" href="#1-multimedia-image-only" title="Permanent link">&para;</a></h4>
-<p>Evaluate image outputs against a reference using the new image metrics.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">gaico</span><span class="w"> </span><span class="kn">import</span> <span class="n">Experiment</span>
+<h3 id="writing-tests">Writing Tests<a class="headerlink" href="#writing-tests" title="Permanent link">&para;</a></h3>
+<p>When adding new features:</p>
+<ol>
+<li><strong>Create tests first</strong> (TDD approach recommended)</li>
+<li><strong>Place tests</strong> in the appropriate <code>tests/test_*.py</code> file</li>
+<li><strong>Use descriptive names</strong>: <code>test_feature_behavior_expected_result</code></li>
+<li><strong>Include edge cases</strong>: Empty inputs, None values, type mismatches</li>
+<li><strong>Add docstrings</strong> explaining what the test validates</li>
+</ol>
+<p>Example test structure:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gaico.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YourNewMetric</span>
 
-<span class="c1"># Tiny demo images</span>
-<span class="n">ref</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGB&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>    <span class="c1"># pure red</span>
-<span class="n">img_a</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGB&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">254</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>   <span class="c1"># nearly red</span>
-<span class="n">img_b</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGB&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>   <span class="c1"># blue</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_your_metric_basic_functionality</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Test that YourNewMetric calculates scores correctly.&quot;&quot;&quot;</span>
+    <span class="n">metric</span> <span class="o">=</span> <span class="n">YourNewMetric</span><span class="p">()</span>
+    <span class="n">generated</span> <span class="o">=</span> <span class="s2">&quot;test output&quot;</span>
+    <span class="n">reference</span> <span class="o">=</span> <span class="s2">&quot;test reference&quot;</span>
 
-<span class="n">exp</span> <span class="o">=</span> <span class="n">Experiment</span><span class="p">(</span>
-  <span class="n">llm_responses</span><span class="o">=</span><span class="p">{</span>
-    <span class="s2">&quot;Model A&quot;</span><span class="p">:</span> <span class="n">img_a</span><span class="p">,</span>
-    <span class="s2">&quot;Model B&quot;</span><span class="p">:</span> <span class="n">img_b</span><span class="p">,</span>
-  <span class="p">},</span>
-  <span class="n">reference_answer</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span>
-<span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">metric</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="n">generated</span><span class="p">,</span> <span class="n">reference</span><span class="p">)</span>
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span>
-  <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ImageSSIM&quot;</span><span class="p">,</span> <span class="s2">&quot;ImageAverageHash&quot;</span><span class="p">,</span> <span class="s2">&quot;ImageHistogramMatch&quot;</span><span class="p">],</span>
-  <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+    <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">result</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Score should be between 0 and 1&quot;</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span> <span class="s2">&quot;Result should be a float&quot;</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s2">&quot;generated,reference,expected&quot;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;exact&quot;</span><span class="p">,</span> <span class="s2">&quot;exact&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;different&quot;</span><span class="p">,</span> <span class="s2">&quot;words&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+<span class="p">])</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_your_metric_edge_cases</span><span class="p">(</span><span class="n">generated</span><span class="p">,</span> <span class="n">reference</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Test edge cases for YourNewMetric.&quot;&quot;&quot;</span>
+    <span class="n">metric</span> <span class="o">=</span> <span class="n">YourNewMetric</span><span class="p">()</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">metric</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="n">generated</span><span class="p">,</span> <span class="n">reference</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">rel</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="2-experiment-enhancements-batch-summarize">2) Experiment Enhancements (batch + summarize)<a class="headerlink" href="#2-experiment-enhancements-batch-summarize" title="Permanent link">&para;</a></h4>
-<p>Run batch comparisons and get a compact summary with aggregated scores and pass rates.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">gaico</span><span class="w"> </span><span class="kn">import</span> <span class="n">Experiment</span>
-
-<span class="c1"># Batch of 3 reference items</span>
-<span class="n">refs</span> <span class="o">=</span> <span class="p">[</span>
-  <span class="s2">&quot;The capital is Paris.&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;2+2=4&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;Blue is a color.&quot;</span><span class="p">,</span>
-<span class="p">]</span>
-
-<span class="c1"># Two models with 3 outputs each (same length as refs)</span>
-<span class="n">model_a</span> <span class="o">=</span> <span class="p">[</span>
-  <span class="s2">&quot;Paris is the capital.&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;2 + 2 equals four&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;Blue is a color.&quot;</span><span class="p">,</span>
-<span class="p">]</span>
-<span class="n">model_b</span> <span class="o">=</span> <span class="p">[</span>
-  <span class="s2">&quot;London is the capital.&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;2+2=5&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;Sky is blue.&quot;</span><span class="p">,</span>
-<span class="p">]</span>
-
-<span class="n">exp</span> <span class="o">=</span> <span class="n">Experiment</span><span class="p">(</span>
-  <span class="n">llm_responses</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="n">model_a</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="n">model_b</span><span class="p">},</span>
-  <span class="n">reference_answer</span><span class="o">=</span><span class="n">refs</span><span class="p">,</span>
-<span class="p">)</span>
-
-<span class="c1"># Detailed per-item scores (subset of metrics)</span>
-<span class="n">scores</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">(</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Jaccard&quot;</span><span class="p">,</span> <span class="s2">&quot;ROUGE&quot;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">scores</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
-
-<span class="c1"># Compact summary with pass rates and custom thresholds</span>
-<span class="n">summary</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">summarize</span><span class="p">(</span>
-  <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Jaccard&quot;</span><span class="p">,</span> <span class="s2">&quot;ROUGE&quot;</span><span class="p">],</span>
-  <span class="n">custom_thresholds</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Jaccard&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;ROUGE_rouge1&quot;</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">},</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">summary</span><span class="p">)</span>
-
-<span class="c1"># Optional: one-call compare + CSV report</span>
-<span class="n">exp</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Jaccard&quot;</span><span class="p">,</span> <span class="s2">&quot;ROUGE&quot;</span><span class="p">],</span> <span class="n">output_csv_path</span><span class="o">=</span><span class="s2">&quot;v030_example.csv&quot;</span><span class="p">)</span>
+<h2 id="code-style">Code Style<a class="headerlink" href="#code-style" title="Permanent link">&para;</a></h2>
+<p>We maintain code quality using pre-commit hooks. Configuration is in <code>.pre-commit-config.yaml</code>.</p>
+<h3 id="pre-commit-hooks">Pre-commit Hooks<a class="headerlink" href="#pre-commit-hooks" title="Permanent link">&para;</a></h3>
+<p><strong>Setup</strong> (run once after cloning):</p>
+<div class="highlight"><pre><span></span><code>pre-commit<span class="w"> </span>install
 </code></pre></div>
-<h2 id="v020-july-2025">v0.2.0 - July 2025<a class="headerlink" href="#v020-july-2025" title="Permanent link">&para;</a></h2>
-<p>This release expands GAICo's capabilities by introducing specialized metrics for structured data: automated planning and time series.</p>
-<h3 id="key-features_1">Key Features:<a class="headerlink" href="#key-features_1" title="Permanent link">&para;</a></h3>
+<p><strong>Running hooks manually:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Run on all files</span>
+pre-commit<span class="w"> </span>run<span class="w"> </span>--all-files
+
+<span class="c1"># Run on staged files only</span>
+pre-commit<span class="w"> </span>run
+
+<span class="c1"># Run a specific hook</span>
+pre-commit<span class="w"> </span>run<span class="w"> </span>black<span class="w"> </span>--all-files
+</code></pre></div>
+<h3 id="code-style-tools">Code Style Tools<a class="headerlink" href="#code-style-tools" title="Permanent link">&para;</a></h3>
+<p>Our pre-commit hooks include:</p>
 <ul>
-<li><strong>Structured Data Metrics:</strong></li>
-<li><strong>Automated Planning:</strong> Added <code>PlanningLCS</code> and <code>PlanningJaccard</code> for analyzing planning sequences.</li>
-<li><strong>Time-Series:</strong> Introduced metrics like <code>TimeSeriesElementDiff</code> and <code>TimeSeriesDTW</code> for evaluating time-series data.</li>
+<li><strong>Black</strong>: Code formatting (line length: 88)</li>
+<li><strong>isort</strong>: Import sorting</li>
+<li><strong>Flake8</strong>: Linting</li>
+<li><strong>mypy</strong>: Type checking (optional)</li>
+<li><strong>trailing-whitespace</strong>: Remove trailing spaces</li>
+<li><strong>end-of-file-fixer</strong>: Ensure files end with newline</li>
 </ul>
-<h3 id="quick-start-example">Quick Start Example:<a class="headerlink" href="#quick-start-example" title="Permanent link">&para;</a></h3>
-<p>This example demonstrates using the <code>Experiment</code> class with a mix of general and specialized metrics.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">gaico</span><span class="w"> </span><span class="kn">import</span> <span class="n">Experiment</span>
-
-<span class="n">exp</span> <span class="o">=</span> <span class="n">Experiment</span><span class="p">(</span>
-    <span class="n">llm_responses</span><span class="o">=</span><span class="p">{</span>
-        <span class="s2">&quot;Model A&quot;</span><span class="p">:</span> <span class="s2">&quot;t1:1, t2:2, t3:3, t4:4, t5:3, t6:2&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Model B&quot;</span><span class="p">:</span> <span class="s2">&quot;t1:1, t2:2.1, t3:3.4, t4:8, t5:5&quot;</span><span class="p">,</span>
-    <span class="p">},</span>
-    <span class="n">reference_answer</span><span class="o">=</span><span class="s2">&quot;t1:1, t2:2.2, t3:3.1, t4:4, t5:3.5&quot;</span><span class="p">,</span>
-<span class="p">)</span>
-
-<span class="c1"># Compare using general text metrics and specialized metrics</span>
-<span class="n">results_df</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span>
-    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;BLEU&#39;</span><span class="p">,</span> <span class="s1">&#39;JSD&#39;</span><span class="p">,</span> <span class="s1">&#39;Levenshtein&#39;</span><span class="p">,</span> <span class="s1">&#39;TimeSeriesDTW&#39;</span><span class="p">,</span> <span class="s1">&#39;TimeSeriesElementDiff&#39;</span><span class="p">],</span>
-    <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">output_csv_path</span><span class="o">=</span><span class="s2">&quot;experiment_release_020.csv&quot;</span>
-<span class="p">)</span>
-</code></pre></div>
-<figure>
-  <img alt="Quick Start Example Output" src="https://raw.githubusercontent.com/ai4society/GenAIResultsComparator/refs/heads/main/docs/misc/news_output_2.png" width="600" />
-<br />
-<figcaption><em>GAICo v0.2.0 Quick Start Example Output</em></figcaption>
-</figure>
-<hr />
-<h2 id="v015-june-2025">v0.1.5 - June 2025<a class="headerlink" href="#v015-june-2025" title="Permanent link">&para;</a></h2>
-<p>This initial release of GAICo focused on providing a solid foundation for comparing general text outputs from LLMs, including core similarity metrics, the <code>Experiment</code> class, and basic visualization tools.</p>
-<h3 id="key-features_2">Key Features:<a class="headerlink" href="#key-features_2" title="Permanent link">&para;</a></h3>
+<h3 id="style-guidelines">Style Guidelines<a class="headerlink" href="#style-guidelines" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Core Text Similarity Metrics:</strong> Included fundamental metrics such as Jaccard, Levenshtein, Cosine Similarity, and ROUGE.</li>
-<li><strong><code>Experiment</code> Class:</strong> Introduced a high-level abstraction for simplifying evaluation workflows, including multi-model comparison and report generation.</li>
-<li><strong>Basic Visualizations:</strong> Enabled the creation of bar charts and radar plots for visualizing metric scores.</li>
-<li><strong>Extensible Architecture:</strong> Designed for easy addition of new metrics.</li>
+<li><strong>Formatting</strong>: Use Black's defaults (88 character line length)</li>
+<li><strong>Imports</strong>: Group stdlib, third-party, local (enforced by isort)</li>
+<li><strong>Type hints</strong>: Add type hints for public APIs</li>
+<li><strong>Docstrings</strong>: Use Google-style docstrings</li>
+<li><strong>Variable names</strong>:</li>
+<li><code>snake_case</code> for functions and variables</li>
+<li><code>PascalCase</code> for classes</li>
+<li><code>UPPER_CASE</code> for constants</li>
 </ul>
-<h3 id="quick-start-example_1">Quick Start Example:<a class="headerlink" href="#quick-start-example_1" title="Permanent link">&para;</a></h3>
-<p>This example showcases the basic usage of the <code>Experiment</code> class for comparing general text responses.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">gaico</span><span class="w"> </span><span class="kn">import</span> <span class="n">Experiment</span>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="c1"># Sample data from https://arxiv.org/abs/2504.07995</span>
-<span class="n">llm_responses</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;Google&quot;</span><span class="p">:</span> <span class="s2">&quot;Title: Jimmy Kimmel Reacts to Donald Trump Winning the Presidential ... Snippet: Nov 6, 2024 ...&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Mixtral 8x7b&quot;</span><span class="p">:</span> <span class="s2">&quot;I&#39;m an Al and I don&#39;t have the ability to predict the outcome of elections.&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;SafeChat&quot;</span><span class="p">:</span> <span class="s2">&quot;Sorry, I am designed not to answer such a question.&quot;</span><span class="p">,</span>
-<span class="p">}</span>
-<span class="n">reference_answer</span> <span class="o">=</span> <span class="s2">&quot;Sorry, I am unable to answer such a question as it is not appropriate.&quot;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ExampleMetric</span><span class="p">(</span><span class="n">BaseMetric</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Brief description of the metric.</span>
 
-<span class="c1"># 1. Initialize Experiment</span>
-<span class="n">exp</span> <span class="o">=</span> <span class="n">Experiment</span><span class="p">(</span>
-    <span class="n">llm_responses</span><span class="o">=</span><span class="n">llm_responses</span><span class="p">,</span>
-    <span class="n">reference_answer</span><span class="o">=</span><span class="n">reference_answer</span>
-<span class="p">)</span>
+<span class="sd">    More detailed explanation of what this metric does,</span>
+<span class="sd">    its use cases, and any important notes.</span>
 
-<span class="c1"># 2. Compare models using specific metrics</span>
-<span class="n">results_df</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span>
-    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Jaccard&#39;</span><span class="p">,</span> <span class="s1">&#39;ROUGE&#39;</span><span class="p">],</span>  <span class="c1"># Specify metrics, or None for all defaults</span>
-    <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">output_csv_path</span><span class="o">=</span><span class="s2">&quot;experiment_report_015.csv&quot;</span>
-<span class="p">)</span>
+<span class="sd">    Args:</span>
+<span class="sd">        parameter1: Description of parameter1</span>
+<span class="sd">        parameter2: Description of parameter2</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        attribute1: Description of attribute1</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">DEFAULT_THRESHOLD</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1"># Class constant</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parameter1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">parameter2</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the metric.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameter1</span> <span class="o">=</span> <span class="n">parameter1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameter2</span> <span class="o">=</span> <span class="n">parameter2</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">calculate</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">generated_texts</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
+        <span class="n">reference_texts</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate the metric score.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            generated_texts: Model-generated output(s)</span>
+<span class="sd">            reference_texts: Reference output(s) or None</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Score(s) between 0 and 1</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If inputs are invalid</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Implementation here</span>
+        <span class="k">pass</span>
 </code></pre></div>
-<figure>
-  <img alt="Quick Start Example Output" src="https://raw.githubusercontent.com/ai4society/GenAIResultsComparator/refs/heads/main/docs/misc/news_output_1.png" width="600" />
-<br />
-<figcaption><em>GAICo v0.1.5 Quick Start Example Output</em></figcaption>
-</figure>
+<h2 id="development-workflow">Development Workflow<a class="headerlink" href="#development-workflow" title="Permanent link">&para;</a></h2>
+<h3 id="1-create-a-feature-branch">1. Create a Feature Branch<a class="headerlink" href="#1-create-a-feature-branch" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/your-feature-name
+</code></pre></div>
+<h3 id="2-make-changes">2. Make Changes<a class="headerlink" href="#2-make-changes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Write code following style guidelines</li>
+<li>Add/update tests</li>
+<li>Update documentation if needed</li>
+</ul>
+<h3 id="3-run-tests-and-checks">3. Run Tests and Checks<a class="headerlink" href="#3-run-tests-and-checks" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Run tests</span>
+uv<span class="w"> </span>run<span class="w"> </span>pytest
+
+<span class="c1"># Run pre-commit checks</span>
+pre-commit<span class="w"> </span>run<span class="w"> </span>--all-files
+
+<span class="c1"># Check if documentation builds</span>
+mkdocs<span class="w"> </span>serve
+</code></pre></div>
+<h3 id="4-commit-changes">4. Commit Changes<a class="headerlink" href="#4-commit-changes" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add: Brief description of changes&quot;</span>
+</code></pre></div>
+<p>Pre-commit hooks will run automatically. Fix any issues they report.</p>
+<h3 id="5-push-and-create-pr">5. Push and Create PR<a class="headerlink" href="#5-push-and-create-pr" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feature/your-feature-name
+</code></pre></div>
+<p>Then create a Pull Request on GitHub.</p>
+<h2 id="adding-a-new-metric">Adding a New Metric<a class="headerlink" href="#adding-a-new-metric" title="Permanent link">&para;</a></h2>
+<p>See our <a href="../faq/#q-how-do-i-add-a-new-custom-metric">FAQ guide on adding custom metrics</a> for detailed instructions.</p>
+<p>Quick checklist:</p>
+<ol>
+<li>Create new file in <code>gaico/metrics/[category]/</code></li>
+<li>Inherit from <code>BaseMetric</code></li>
+<li>Implement <code>calculate()</code> method</li>
+<li>Add tests in <code>tests/test_metrics/</code></li>
+<li>Update documentation</li>
+<li>Register in <code>__init__.py</code> if needed</li>
+</ol>
+<h2 id="building-documentation">Building Documentation<a class="headerlink" href="#building-documentation" title="Permanent link">&para;</a></h2>
+<p>We use <a href="https://www.mkdocs.org/">MkDocs</a> with the Material theme.</p>
+<h3 id="local-documentation-server">Local Documentation Server<a class="headerlink" href="#local-documentation-server" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Install documentation dependencies (included in dev install)</span>
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[dev]&quot;</span>
+
+<span class="c1"># Serve documentation locally</span>
+mkdocs<span class="w"> </span>serve
+</code></pre></div>
+<p>Visit <code>http://127.0.0.1:8000</code> to view the docs.</p>
+<h3 id="building-documentation_1">Building Documentation<a class="headerlink" href="#building-documentation_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Build static site</span>
+mkdocs<span class="w"> </span>build
+
+<span class="c1"># Build and deploy to GitHub Pages (maintainers only)</span>
+mkdocs<span class="w"> </span>gh-deploy
+</code></pre></div>
+<h2 id="release-process">Release Process<a class="headerlink" href="#release-process" title="Permanent link">&para;</a></h2>
+<p>For maintainers releasing new versions:</p>
+<ol>
+<li><strong>Update version</strong> in <code>pyproject.toml</code></li>
+<li><strong>Update changelog</strong> in <code>docs/news.md</code></li>
+<li><strong>Run full test suite</strong>: <code>uv run pytest</code></li>
+<li><strong>Build package</strong>: <code>uv build</code></li>
+<li><strong>Create git tag</strong>: <code>git tag v0.x.x</code></li>
+<li><strong>Push tag</strong>: <code>git push origin v0.x.x</code></li>
+<li><strong>GitHub Actions</strong> will automatically publish to PyPI</li>
+</ol>
+<h2 id="getting-help">Getting Help<a class="headerlink" href="#getting-help" title="Permanent link">&para;</a></h2>
+<ul>
+<li>💬 Open an issue on <a href="https://github.com/ai4society/GenAIResultsComparator/issues">GitHub</a></li>
+<li>📧 Email us at <a href="mailto:ai4societyteam@gmail.com">ai4societyteam@gmail.com</a></li>
+<li>📖 Check the <a href="../faq/">FAQ</a></li>
+</ul>
+<h2 id="code-of-conduct">Code of Conduct<a class="headerlink" href="#code-of-conduct" title="Permanent link">&para;</a></h2>
+<p>We follow a standard code of conduct:</p>
+<ul>
+<li>Be respectful and inclusive</li>
+<li>Provide constructive feedback</li>
+<li>Focus on what's best for the community</li>
+<li>Show empathy towards other community members</li>
+</ul>
 
 
 
