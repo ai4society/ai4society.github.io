@@ -517,11 +517,24 @@
         imgTimer = setInterval(showSlides, 4000);
       }
 
+      function showSlideAtIndex(n) {
+        var i;
+        if (n > slides.length) { slideIndex = 1; }
+        if (n < 1) { slideIndex = slides.length; }
+
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        if (slides.length > 0) {
+          slides[slideIndex - 1].style.display = "block";
+        }
+      }
+
       function plusSlides(n) {
         clearInterval(imgTimer);
-        slideIndex += n - 1;
-        showSlides();
-        startImageSlideshow();
+        slideIndex += n;
+        showSlideAtIndex(slideIndex);
+        imgTimer = setInterval(showSlides, 4000);
       }
 
       // (Spotlight slideshow functions kept but not used)
