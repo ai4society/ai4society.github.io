@@ -767,6 +767,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#gaico.Experiment-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#gaico.Experiment.__init__" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -818,6 +830,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1625,17 +1642,17 @@ for comparing LLM responses against reference answers using various metrics.</p>
 
 
 
-
+<h3 id="gaico.Experiment-functions">Functions<a href="#gaico.Experiment-functions" class="headerlink" title="Permanent link">&para;</a></h3>
 
 <div class="doc doc-object doc-function">
 
 
-<h3 id="gaico.Experiment.__init__" class="doc doc-heading">
+<h4 id="gaico.Experiment.__init__" class="doc doc-heading">
             <span class="doc doc-object-name doc-function-name">__init__</span>
 
 
-<a href="#gaico.Experiment.__init__" class="headerlink" title="Permanent link">&para;</a></h3>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">__init__</span><span class="p">(</span><span class="n">llm_responses</span><span class="p">,</span> <span class="n">reference_answer</span><span class="p">)</span>
+<a href="#gaico.Experiment.__init__" class="headerlink" title="Permanent link">&para;</a></h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">__init__</span><span class="p">(</span><span class="n">llm_responses</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">reference_answer</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="n">seed</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -1663,7 +1680,7 @@ for comparing LLM responses against reference answers using various metrics.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>A dictionary mapping model names (str) to their generated outputs. For batch evaluation, values should be lists of outputs. e.g., {"ModelA": ["resp1", "resp2"], "ModelB": ["resp1", "resp2"]}</p>
+                <p>A dictionary mapping model names (str) to their generated outputs. For batch evaluation, values should be lists of outputs. Ex., {"ModelA": ["resp1", "resp2"], "ModelB": ["resp1", "resp2"]}</p>
               </div>
             </td>
             <td>
@@ -1684,6 +1701,22 @@ for comparing LLM responses against reference answers using various metrics.</p>
             </td>
             <td>
                 <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>seed</code>
+            </td>
+            <td>
+                  <code><span title="typing.Optional">Optional</span>[<span title="int">int</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Random seed for deterministic execution (if applicable).</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
             </td>
           </tr>
       </tbody>
@@ -1730,12 +1763,12 @@ for comparing LLM responses against reference answers using various metrics.</p>
 <div class="doc doc-object doc-function">
 
 
-<h3 id="gaico.Experiment.to_dataframe" class="doc doc-heading">
+<h4 id="gaico.Experiment.to_dataframe" class="doc doc-heading">
             <span class="doc doc-object-name doc-function-name">to_dataframe</span>
 
 
-<a href="#gaico.Experiment.to_dataframe" class="headerlink" title="Permanent link">&para;</a></h3>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">to_dataframe</span><span class="p">(</span><span class="n">metrics</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<a href="#gaico.Experiment.to_dataframe" class="headerlink" title="Permanent link">&para;</a></h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">to_dataframe</span><span class="p">(</span><span class="n">metrics</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -1805,12 +1838,12 @@ If metrics is None, scores for all default metrics are returned.</p>
 <div class="doc doc-object doc-function">
 
 
-<h3 id="gaico.Experiment.register_metric" class="doc doc-heading">
+<h4 id="gaico.Experiment.register_metric" class="doc doc-heading">
             <span class="doc doc-object-name doc-function-name">register_metric</span>
 
 
-<a href="#gaico.Experiment.register_metric" class="headerlink" title="Permanent link">&para;</a></h3>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">register_metric</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">metric_class</span><span class="p">)</span>
+<a href="#gaico.Experiment.register_metric" class="headerlink" title="Permanent link">&para;</a></h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">register_metric</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">metric_class</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">BaseMetric</span><span class="p">])</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -1897,12 +1930,12 @@ and use them seamlessly with the Experiment's <code>compare()</code> and <code>s
 <div class="doc doc-object doc-function">
 
 
-<h3 id="gaico.Experiment.summarize" class="doc doc-heading">
+<h4 id="gaico.Experiment.summarize" class="doc doc-heading">
             <span class="doc doc-object-name doc-function-name">summarize</span>
 
 
-<a href="#gaico.Experiment.summarize" class="headerlink" title="Permanent link">&para;</a></h3>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">summarize</span><span class="p">(</span><span class="n">metrics</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">custom_thresholds</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">agg_funcs</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<a href="#gaico.Experiment.summarize" class="headerlink" title="Permanent link">&para;</a></h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">summarize</span><span class="p">(</span><span class="n">metrics</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">custom_thresholds</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">agg_funcs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -2004,12 +2037,12 @@ for each model and metric.</p>
 <div class="doc doc-object doc-function">
 
 
-<h3 id="gaico.Experiment.compare" class="doc doc-heading">
+<h4 id="gaico.Experiment.compare" class="doc doc-heading">
             <span class="doc doc-object-name doc-function-name">compare</span>
 
 
-<a href="#gaico.Experiment.compare" class="headerlink" title="Permanent link">&para;</a></h3>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">compare</span><span class="p">(</span><span class="n">metrics</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">custom_thresholds</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">output_csv_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">aggregate_func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">plot_title_suffix</span><span class="o">=</span><span class="s1">&#39;Comparison&#39;</span><span class="p">,</span> <span class="n">radar_metrics_limit</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<a href="#gaico.Experiment.compare" class="headerlink" title="Permanent link">&para;</a></h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">compare</span><span class="p">(</span><span class="n">metrics</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">custom_thresholds</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">output_csv_path</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">aggregate_func</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">plot_title_suffix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Comparison&#39;</span><span class="p">,</span> <span class="n">radar_metrics_limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">

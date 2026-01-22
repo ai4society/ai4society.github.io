@@ -616,6 +616,34 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#v040-january-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v0.4.0 - January 2026
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.4.0 - January 2026">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Features:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#v030-august-2025" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -628,7 +656,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
+  <a href="#key-features_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         Key Features:
@@ -695,7 +723,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#key-features_1" class="md-nav__link">
+  <a href="#key-features_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         Key Features:
@@ -734,7 +762,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#key-features_2" class="md-nav__link">
+  <a href="#key-features_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         Key Features:
@@ -1646,9 +1674,18 @@
 
 <h1 id="gaico-release-news">GAICo Release News<a class="headerlink" href="#gaico-release-news" title="Permanent link">&para;</a></h1>
 <p>This page details the major releases of the GAICo library, highlighting key features and providing quick start examples. <em>Use the table of contents in the left sidebar to navigate.</em></p>
+<h2 id="v040-january-2026">v0.4.0 - January 2026<a class="headerlink" href="#v040-january-2026" title="Permanent link">&para;</a></h2>
+<p>This release introduces optional seeding for reproducible results across runs. By setting a random seed, users can ensure that any stochastic elements in metric calculations yield consistent outputs.</p>
+<h3 id="key-features">Key Features:<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The <code>Experiment</code> class now accepts an optional <code>seed</code> parameter (e.g., <code>Experiment(..., seed=4)</code>).</li>
+<li>All metric classes now accept a <code>seed</code> argument during initialization.</li>
+<li>Setting a seed automatically initializes Python's <code>random</code>, <code>numpy.random</code>, and <code>torch</code> (for BERTScore) to ensure consistent behavior.</li>
+</ul>
+<p>Furthermore, this release includes documentation refresh for better clarity on existing features and usage patterns.</p>
 <h2 id="v030-august-2025">v0.3.0 - August 2025<a class="headerlink" href="#v030-august-2025" title="Permanent link">&para;</a></h2>
 <p>This release significantly expands GAICo's capabilities by introducing new multimedia metrics for image and audio. It also contains enhancement to the <code>Experiment</code> class by adding support for batch-processing, summarization, and allowing dynamic registration of custom metrics.</p>
-<h3 id="key-features">Key Features:<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h3>
+<h3 id="key-features_1">Key Features:<a class="headerlink" href="#key-features_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Multimedia Metrics:</strong><ul>
 <li>Image: Added <code>ImageSSIM</code>, <code>ImageAverageHash</code>, and <code>ImageHistogramMatch</code> for comparing visual content.</li>
@@ -1731,7 +1768,7 @@
 </code></pre></div>
 <h2 id="v020-july-2025">v0.2.0 - July 2025<a class="headerlink" href="#v020-july-2025" title="Permanent link">&para;</a></h2>
 <p>This release expands GAICo's capabilities by introducing specialized metrics for structured data: automated planning and time series.</p>
-<h3 id="key-features_1">Key Features:<a class="headerlink" href="#key-features_1" title="Permanent link">&para;</a></h3>
+<h3 id="key-features_2">Key Features:<a class="headerlink" href="#key-features_2" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Structured Data Metrics:</strong></li>
 <li><strong>Automated Planning:</strong> Added <code>PlanningLCS</code> and <code>PlanningJaccard</code> for analyzing planning sequences.</li>
@@ -1764,7 +1801,7 @@
 <hr />
 <h2 id="v015-june-2025">v0.1.5 - June 2025<a class="headerlink" href="#v015-june-2025" title="Permanent link">&para;</a></h2>
 <p>This initial release of GAICo focused on providing a solid foundation for comparing general text outputs from LLMs, including core similarity metrics, the <code>Experiment</code> class, and basic visualization tools.</p>
-<h3 id="key-features_2">Key Features:<a class="headerlink" href="#key-features_2" title="Permanent link">&para;</a></h3>
+<h3 id="key-features_3">Key Features:<a class="headerlink" href="#key-features_3" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Core Text Similarity Metrics:</strong> Included fundamental metrics such as Jaccard, Levenshtein, Cosine Similarity, and ROUGE.</li>
 <li><strong><code>Experiment</code> Class:</strong> Introduced a high-level abstraction for simplifying evaluation workflows, including multi-model comparison and report generation.</li>
