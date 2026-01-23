@@ -971,6 +971,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#gaico.metrics.ngram_metrics.BLEU-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#gaico.metrics.ngram_metrics.BLEU.__init__" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -978,6 +990,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -999,6 +1016,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#gaico.metrics.ngram_metrics.ROUGE-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#gaico.metrics.ngram_metrics.ROUGE.__init__" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1006,6 +1035,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1027,6 +1061,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#gaico.metrics.ngram_metrics.JSDivergence-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#gaico.metrics.ngram_metrics.JSDivergence.__init__" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1034,6 +1080,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1644,17 +1695,17 @@ It uses the NLTK library to calculate BLEU scores.</p>
 
 
 
-
+<h3 id="gaico.metrics.ngram_metrics.BLEU-functions">Functions<a href="#gaico.metrics.ngram_metrics.BLEU-functions" class="headerlink" title="Permanent link">&para;</a></h3>
 
 <div class="doc doc-object doc-function">
 
 
-<h3 id="gaico.metrics.ngram_metrics.BLEU.__init__" class="doc doc-heading">
+<h4 id="gaico.metrics.ngram_metrics.BLEU.__init__" class="doc doc-heading">
             <span class="doc doc-object-name doc-function-name">__init__</span>
 
 
-<a href="#gaico.metrics.ngram_metrics.BLEU.__init__" class="headerlink" title="Permanent link">&para;</a></h3>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">__init__</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">smoothing_function</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<a href="#gaico.metrics.ngram_metrics.BLEU.__init__" class="headerlink" title="Permanent link">&para;</a></h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">__init__</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">smoothing_function</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -1703,6 +1754,22 @@ It uses the NLTK library to calculate BLEU scores.</p>
             </td>
             <td>
                   <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>kwargs</code>
+            </td>
+            <td>
+                  <code><span title="typing.Any">Any</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Additional arguments (e.g., seed) passed to BaseMetric.</p>
+              </div>
+            </td>
+            <td>
+                  <code>{}</code>
             </td>
           </tr>
       </tbody>
@@ -1759,17 +1826,17 @@ It uses the NLTK library to calculate BLEU scores.</p>
 
 
 
-
+<h3 id="gaico.metrics.ngram_metrics.ROUGE-functions">Functions<a href="#gaico.metrics.ngram_metrics.ROUGE-functions" class="headerlink" title="Permanent link">&para;</a></h3>
 
 <div class="doc doc-object doc-function">
 
 
-<h3 id="gaico.metrics.ngram_metrics.ROUGE.__init__" class="doc doc-heading">
+<h4 id="gaico.metrics.ngram_metrics.ROUGE.__init__" class="doc doc-heading">
             <span class="doc doc-object-name doc-function-name">__init__</span>
 
 
-<a href="#gaico.metrics.ngram_metrics.ROUGE.__init__" class="headerlink" title="Permanent link">&para;</a></h3>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">__init__</span><span class="p">(</span><span class="n">rouge_types</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">use_stemmer</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<a href="#gaico.metrics.ngram_metrics.ROUGE.__init__" class="headerlink" title="Permanent link">&para;</a></h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">__init__</span><span class="p">(</span><span class="n">rouge_types</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">use_stemmer</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -1829,7 +1896,7 @@ It uses the NLTK library to calculate BLEU scores.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Additional parameters to pass to the ROUGE calculation, defaults to None Default only passes the <code>use_stemmer</code> parameter</p>
+                <p>Additional parameters. 'seed' is passed to BaseMetric; others are passed to rouge_scorer. Defaults to None which only passes the <code>use_stemmer</code> parameter</p>
               </div>
             </td>
             <td>
@@ -1890,17 +1957,17 @@ It uses the NLTK library to calculate BLEU scores.</p>
 
 
 
-
+<h3 id="gaico.metrics.ngram_metrics.JSDivergence-functions">Functions<a href="#gaico.metrics.ngram_metrics.JSDivergence-functions" class="headerlink" title="Permanent link">&para;</a></h3>
 
 <div class="doc doc-object doc-function">
 
 
-<h3 id="gaico.metrics.ngram_metrics.JSDivergence.__init__" class="doc doc-heading">
+<h4 id="gaico.metrics.ngram_metrics.JSDivergence.__init__" class="doc doc-heading">
             <span class="doc doc-object-name doc-function-name">__init__</span>
 
 
-<a href="#gaico.metrics.ngram_metrics.JSDivergence.__init__" class="headerlink" title="Permanent link">&para;</a></h3>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">__init__</span><span class="p">()</span>
+<a href="#gaico.metrics.ngram_metrics.JSDivergence.__init__" class="headerlink" title="Permanent link">&para;</a></h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
