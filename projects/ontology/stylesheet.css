@@ -91,6 +91,66 @@ strong {
   font-size: 14px;
 }
 
+/* Website Highlight Callout */
+.website-callout {
+  position: relative;
+  display: block;
+  background: linear-gradient(135deg, hsl(265, 55%, 50%), hsl(265, 45%, 40%));
+  color: #fff;
+  padding: 16px 24px;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0 2px 8px rgba(100, 60, 180, 0.25);
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              background 0.3s ease;
+  overflow: hidden;
+}
+
+.website-callout::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, hsl(265, 60%, 58%), hsl(280, 50%, 45%));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 10px;
+}
+
+.website-callout:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(100, 60, 180, 0.4),
+              0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+}
+
+.website-callout:hover::before {
+  opacity: 1;
+}
+
+.website-callout p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.website-callout a {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  padding-bottom: 1px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  transition: border-color 0.2s ease;
+}
+
+.website-callout:hover a {
+  border-bottom-color: #fff;
+}
+
 /* List styling */
 ul {
   list-style-type: disc;
