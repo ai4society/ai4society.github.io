@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State-Transition Generalized Planning Pipeline - Blocksworld Example</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: center;
+            background: #f8f9fa;
+            padding: 20px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            padding: 12px 24px;
+            background: white;
+            border: 2px solid #667eea;
+            color: #667eea;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .nav-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .stage {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .stage.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .stage-title {
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .problem-box {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #667eea;
+        }
+
+        .problem-box h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .blocks-visual {
+            display: flex;
+            justify-content: center;
+            gap: 100px;
+            margin: 30px 0;
+            padding: 40px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .block-stack {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .block {
+            width: 80px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5em;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+
+        .table {
+            width: 200px;
+            height: 20px;
+            background: #8b4513;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .arrow {
+            font-size: 3em;
+            color: #667eea;
+            align-self: center;
+        }
+
+        .state-list {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .predicate {
+            background: white;
+            padding: 10px 15px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border-left: 3px solid #667eea;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+        }
+
+        .graph-container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .graph-visual {
+            width: 100%;
+            min-height: 600px;
+            position: relative;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            background: #f8f9fa;
+        }
+
+        .node-circle {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .node-circle:hover {
+            filter: brightness(1.1);
+            stroke-width: 3px;
+        }
+
+        .node-label {
+            pointer-events: none;
+            user-select: none;
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        .node-sublabel {
+            pointer-events: none;
+            user-select: none;
+            font-size: 9px;
+            fill: #666;
+        }
+
+        .edge-line {
+            stroke: #667eea;
+            stroke-width: 2;
+            fill: none;
+            marker-end: url(#arrowhead);
+        }
+
+        .edge-line:hover {
+            stroke-width: 3;
+            stroke: #764ba2;
+        }
+
+        .edge-label-bg {
+            fill: white;
+            stroke: #667eea;
+            stroke-width: 1;
+        }
+
+        .edge-label-text {
+            fill: #667eea;
+            font-weight: bold;
+            font-size: 11px;
+            pointer-events: none;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .legend-color {
+            width: 40px;
+            height: 20px;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        .wl-iteration {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .wl-iteration h4 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .color-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .color-table th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .color-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .color-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .embedding-visual {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .vector-representation {
+            display: flex;
+            gap: 3px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .vector-cell {
+            width: 30px;
+            height: 30px;
+            background: #e9ecef;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7em;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .vector-cell.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: scale(1.2);
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 30px 0;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+
+        .timeline-item {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+
+        .timeline-item:not(:last-child)::after {
+            content: '→';
+            position: absolute;
+            right: -20px;
+            top: 20px;
+            font-size: 2em;
+            color: #667eea;
+        }
+
+        .timeline-circle {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .code-block {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .code-block .keyword {
+            color: #c678dd;
+        }
+
+        .code-block .function {
+            color: #61afef;
+        }
+
+        .code-block .string {
+            color: #98c379;
+        }
+
+        .inference-flow {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .inference-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 4px solid #667eea;
+        }
+
+        .inference-card h4 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .highlight-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .highlight-box h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .blocks-visual {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .navigation {
+                flex-direction: column;
+            }
+
+            .nav-btn {
+                width: 100%;
+            }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #0f2648;
+            --ink-soft: #425a7b;
+            --line: #d7e1f1;
+            --line-strong: #c5d4ec;
+            --surface: #ffffff;
+            --surface-soft: #f4f8ff;
+            --accent: #1d4fb6;
+            --accent-2: #0c89aa;
+            --accent-soft: #eaf1ff;
+            --shadow: 0 14px 34px rgba(16, 53, 110, 0.14);
+        }
+
+        body {
+            font-family: 'Manrope', 'Segoe UI', system-ui, sans-serif;
+            background:
+                radial-gradient(circle at 12% 8%, rgba(29, 79, 182, 0.18), transparent 32%),
+                radial-gradient(circle at 88% 100%, rgba(12, 137, 170, 0.16), transparent 28%),
+                #eff4fb;
+            color: var(--ink);
+            padding: 22px;
+        }
+
+        .container {
+            background: #f9fbff;
+            border: 1px solid var(--line);
+            box-shadow: 0 24px 54px rgba(13, 46, 97, 0.2);
+        }
+
+        header {
+            background: linear-gradient(120deg, #123472 0%, #1f56b3 50%, #1382a5 100%);
+            padding: 46px 38px 36px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 18% 20%, rgba(255, 255, 255, 0.2), transparent 36%);
+            pointer-events: none;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 3.2vw, 3rem);
+            letter-spacing: -0.02em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.02rem;
+            color: rgba(255, 255, 255, 0.92);
+            position: relative;
+            z-index: 1;
+        }
+
+        .navigation {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            padding: 14px 16px;
+            gap: 8px;
+            border-top: 1px solid rgba(255, 255, 255, 0.22);
+            border-bottom: 1px solid var(--line);
+            background: rgba(246, 250, 255, 0.95);
+            backdrop-filter: blur(8px);
+        }
+
+        .nav-btn {
+            padding: 9px 15px;
+            border: 1px solid var(--line-strong);
+            color: #19447f;
+            font-weight: 700;
+            font-size: 0.84rem;
+            border-radius: 999px;
+            background: #ffffff;
+            box-shadow: 0 3px 8px rgba(16, 52, 107, 0.08);
+        }
+
+        .nav-btn:hover {
+            background: #edf4ff;
+            border-color: #adc3e8;
+            color: #12386f;
+            transform: translateY(-1px);
+            box-shadow: 0 7px 15px rgba(16, 52, 107, 0.14);
+        }
+
+        .nav-btn.active {
+            border-color: #1d4fb6;
+            background: linear-gradient(120deg, #1a4aa8 0%, #1f6bb3 100%);
+            color: #ffffff;
+        }
+
+        .content {
+            padding: clamp(20px, 3vw, 38px);
+        }
+
+        .stage-title {
+            color: #113f85;
+            border-bottom: 1px solid var(--line);
+            font-size: clamp(1.5rem, 2.4vw, 2.12rem);
+            margin-bottom: 16px;
+        }
+
+        .problem-box,
+        .graph-container,
+        .embedding-visual,
+        .wl-iteration,
+        .inference-card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow);
+        }
+
+        .problem-box {
+            border-left: 4px solid var(--accent);
+            border-radius: 14px;
+            padding: 22px;
+        }
+
+        .problem-box h3,
+        .wl-iteration h4,
+        .inference-card h4 {
+            color: #164489;
+        }
+
+        .blocks-visual {
+            background: var(--surface-soft);
+            border: 1px solid var(--line);
+            box-shadow: none;
+            gap: 40px;
+            align-items: flex-start;
+            padding: 22px;
+        }
+
+        .block {
+            border-radius: 10px;
+            background: linear-gradient(135deg, #2258b5 0%, #0f8fad 100%);
+            box-shadow: 0 8px 16px rgba(17, 66, 138, 0.24);
+        }
+
+        .table {
+            background: linear-gradient(180deg, #9d6a3a 0%, #805027 100%);
+        }
+
+        .arrow {
+            color: #2357b8;
+            font-size: 2.35em;
+            font-weight: 700;
+        }
+
+        .state-list {
+            background: #f4f7fd;
+            border: 1px solid var(--line);
+        }
+
+        .predicate {
+            border-left: 3px solid var(--accent);
+            color: #17365f;
+        }
+
+        .graph-container,
+        .embedding-visual,
+        .wl-iteration {
+            border-radius: 14px;
+        }
+
+        .graph-visual {
+            border: 1px solid var(--line-strong);
+            background: #f8fbff;
+        }
+
+        .color-table {
+            border: 1px solid var(--line);
+            border-radius: 10px;
+        }
+
+        .color-table th {
+            background: linear-gradient(120deg, #1d4fb6 0%, #177fa8 100%);
+            font-size: 0.9rem;
+            letter-spacing: 0.01em;
+        }
+
+        .color-table td {
+            color: #213f68;
+        }
+
+        .color-table tr:hover {
+            background: #f3f7ff;
+        }
+
+        .code-block {
+            background: #0f172a;
+            color: #dde7f9;
+            border: 1px solid #223456;
+            border-radius: 11px;
+            font-family: 'IBM Plex Mono', Consolas, monospace;
+            line-height: 1.5;
+        }
+
+        .timeline {
+            border: 1px solid var(--line);
+            background: #f4f8ff;
+            border-radius: 14px;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .timeline-item {
+            min-width: 92px;
+        }
+
+        .timeline-item:not(:last-child)::after {
+            content: '->';
+            color: #1d4fb6;
+            right: -15px;
+            top: 18px;
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        .timeline-circle {
+            background: linear-gradient(135deg, #1d4fb6 0%, #0e8dae 100%);
+            box-shadow: 0 8px 18px rgba(21, 71, 146, 0.22);
+        }
+
+        .highlight-box {
+            background: var(--accent-soft);
+            border: 1px solid #c9d9f3;
+            border-left: 4px solid var(--accent);
+            border-radius: 12px;
+        }
+
+        .highlight-box h4 {
+            color: #17498f;
+        }
+
+        .inference-card {
+            border-radius: 12px;
+            border-top: 3px solid var(--accent);
+        }
+
+        @media (max-width: 1000px) {
+            .timeline-item:not(:last-child)::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 12px;
+            }
+
+            header {
+                padding: 30px 20px 25px;
+            }
+
+            .content {
+                padding: 16px;
+            }
+
+            .navigation {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>State-Transition Generalized Planning Pipeline</h1>
+            <div class="subtitle">Interactive Visualization of Blocksworld Example</div>
+        </header>
+
+        <div class="navigation">
+            <button class="nav-btn active" onclick="showStage(0)">Problem Setup</button>
+            <button class="nav-btn" onclick="showStage(1)">Stage 1: Plan Generation</button>
+            <button class="nav-btn" onclick="showStage(2)">Stage 2: State Trajectory</button>
+            <button class="nav-btn" onclick="showStage(3)">Stage 3: ILG Construction</button>
+            <button class="nav-btn" onclick="showStage(4)">Stage 4: WL Refinement</button>
+            <button class="nav-btn" onclick="showStage(5)">Stage 5: Embeddings</button>
+            <button class="nav-btn" onclick="showStage(6)">Training & Inference</button>
+        </div>
+
+        <div class="content">
+            <!-- Stage 0: Problem Setup -->
+            <div class="stage active" id="stage-0">
+                <h2 class="stage-title">Problem Setup</h2>
+                
+                <div class="problem-box">
+                    <h3>Domain: Blocksworld</h3>
+                    <p><strong>Objects:</strong> O = {A, B}</p>
+                    <p><strong>Predicates:</strong> P = {on(x,y), ontable(x), clear(x), handempty, holding(x)}</p>
+                    <p><strong>Operators:</strong> A = {pickup, putdown, stack, unstack}</p>
+                </div>
+
+                <div class="blocks-visual">
+                    <div>
+                        <h3 style="text-align: center; margin-bottom: 20px; color: #667eea;">Initial State (s₀)</h3>
+                        <div class="block-stack">
+                            <div class="table"></div>
+                            <div style="display: flex; gap: 20px;">
+                                <div class="block">A</div>
+                                <div class="block">B</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="arrow">→</div>
+
+                    <div>
+                        <h3 style="text-align: center; margin-bottom: 20px; color: #667eea;">Goal State (g)</h3>
+                        <div class="block-stack">
+                            <div class="table"></div>
+                            <div class="block">B</div>
+                            <div class="block">A</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="problem-box">
+                    <h3>Initial State Predicates</h3>
+                    <div class="state-list">
+                        <div class="predicate">ontable(A)</div>
+                        <div class="predicate">ontable(B)</div>
+                        <div class="predicate">clear(A)</div>
+                        <div class="predicate">clear(B)</div>
+                        <div class="predicate">handempty</div>
+                    </div>
+                </div>
+
+                <div class="problem-box">
+                    <h3>Goal Condition</h3>
+                    <div class="state-list">
+                        <div class="predicate">on(A, B)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stage 1: Plan Generation -->
+            <div class="stage" id="stage-1">
+                <h2 class="stage-title">Stage 1: Symbolic Plan Generation</h2>
+                
+                <div class="problem-box">
+                    <h3>Using Fast Downward Planner</h3>
+                    <p>Configuration: A* search with landmark-cut heuristic (60s timeout)</p>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-circle">s₀</div>
+                        <div>Initial State</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-circle">a₁</div>
+                        <div>pickup(A)</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-circle">s₁</div>
+                        <div>Intermediate</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-circle">a₂</div>
+                        <div>stack(A, B)</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-circle">s₂</div>
+                        <div>Goal Reached!</div>
+                    </div>
+                </div>
+
+                <div class="code-block">
+<span class="keyword">Plan</span> π = ⟨<span class="function">pickup</span>(<span class="string">A</span>), <span class="function">stack</span>(<span class="string">A</span>, <span class="string">B</span>)⟩
+
+<span class="keyword">Plan Length:</span> 2 actions
+<span class="keyword">Optimal:</span> Yes
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Key Point</h4>
+                    <p>The planner generates a valid action sequence, but we need the intermediate states for learning the transition model. That's what Stage 2 provides!</p>
+                </div>
+            </div>
+
+            <!-- Stage 2: State Trajectory -->
+            <div class="stage" id="stage-2">
+                <h2 class="stage-title">Stage 2: State Trajectory Reconstruction</h2>
+                
+                <div class="problem-box">
+                    <h3>Using VAL (Plan Validator)</h3>
+                    <p>VAL applies each action symbolically and outputs the complete state sequence</p>
+                </div>
+
+                <div class="blocks-visual">
+                    <div>
+                        <h3 style="text-align: center; margin-bottom: 20px; color: #667eea;">State s₀</h3>
+                        <div class="block-stack">
+                            <div class="table"></div>
+                            <div style="display: flex; gap: 20px;">
+                                <div class="block">A</div>
+                                <div class="block">B</div>
+                            </div>
+                        </div>
+                        <div class="state-list" style="margin-top: 20px;">
+                            <div class="predicate">ontable(A)</div>
+                            <div class="predicate">ontable(B)</div>
+                            <div class="predicate">clear(A)</div>
+                            <div class="predicate">clear(B)</div>
+                            <div class="predicate">handempty</div>
+                        </div>
+                    </div>
+
+                    <div class="arrow">→</div>
+
+                    <div>
+                        <h3 style="text-align: center; margin-bottom: 20px; color: #667eea;">State s₁</h3>
+                        <div class="block-stack">
+                            <div class="table"></div>
+                            <div class="block">B</div>
+                            <div style="margin-top: 40px; text-align: center;">
+                                <div class="block" style="display: inline-flex;">A</div>
+                                <div style="font-size: 0.8em; color: #667eea; margin-top: 5px;">holding(A)</div>
+                            </div>
+                        </div>
+                        <div class="state-list" style="margin-top: 20px;">
+                            <div class="predicate">ontable(B)</div>
+                            <div class="predicate">clear(B)</div>
+                            <div class="predicate">holding(A)</div>
+                        </div>
+                    </div>
+
+                    <div class="arrow">→</div>
+
+                    <div>
+                        <h3 style="text-align: center; margin-bottom: 20px; color: #667eea;">State s₂ (Goal)</h3>
+                        <div class="block-stack">
+                            <div class="table"></div>
+                            <div class="block">B</div>
+                            <div class="block">A</div>
+                        </div>
+                        <div class="state-list" style="margin-top: 20px;">
+                            <div class="predicate">ontable(B)</div>
+                            <div class="predicate">on(A, B)</div>
+                            <div class="predicate">clear(A)</div>
+                            <div class="predicate">handempty</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Key Point</h4>
+                    <p>Notice how predicates change between states:</p>
+                    <ul style="margin-top: 10px; margin-left: 20px;">
+                        <li><strong>s₀ → s₁:</strong> Deleted {ontable(A), clear(A), handempty}, Added {holding(A)}</li>
+                        <li><strong>s₁ → s₂:</strong> Deleted {clear(B), holding(A)}, Added {on(A,B), clear(A), handempty}</li>
+                    </ul>
+                    <p style="margin-top: 10px;">This sparse structure motivates the <strong>residual (delta) prediction</strong> approach!</p>
+                </div>
+            </div>
+
+            <!-- Stage 3: ILG Construction -->
+            <div class="stage" id="stage-3">
+                <h2 class="stage-title">Stage 3: Instance Learning Graph (ILG) Construction</h2>
+                
+                <div class="problem-box">
+                    <h3>Building the Relational Graph Gs₀,g = (V, E, Fcat, L)</h3>
+                    <p>We encode the state-goal pair (s₀, g) as a graph where nodes represent objects and predicates, and edges connect predicates to their arguments.</p>
+                </div>
+
+                <div class="graph-container">
+                    <h3 style="color: #667eea; margin-bottom: 20px; text-align: center;">Interactive Graph Visualization for (s₀, g)</h3>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="color: #667eea; margin-bottom: 10px;">Legend:</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                            <div class="legend-item">
+                                <div class="legend-color" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                                <span>Object Nodes</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                                <span>State Predicates (apn)</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"></div>
+                                <span>Goal Predicates (upg)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <svg id="graph-visual" class="graph-visual"></svg>
+                </div>
+
+                <div class="problem-box">
+                    <h3>Node Categories</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px;">
+                        <div style="padding: 15px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; border-radius: 10px;">
+                            <strong>Object Nodes</strong><br>
+                            A, B
+                        </div>
+                        <div style="padding: 15px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; border-radius: 10px;">
+                            <strong>State Predicates</strong><br>
+                            ontable(A), ontable(B), clear(A), clear(B), handempty
+                        </div>
+                        <div style="padding: 15px; background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white; border-radius: 10px;">
+                            <strong>Goal Predicates</strong><br>
+                            on(A, B)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="problem-box">
+                    <h3>Edge List with Labels</h3>
+                    <table class="color-table">
+                        <thead>
+                            <tr>
+                                <th>Source (Predicate)</th>
+                                <th>Target (Object)</th>
+                                <th>Edge Label (Arg Position)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>ontable(A)</td><td>A</td><td>1</td></tr>
+                            <tr><td>ontable(B)</td><td>B</td><td>1</td></tr>
+                            <tr><td>clear(A)</td><td>A</td><td>1</td></tr>
+                            <tr><td>clear(B)</td><td>B</td><td>1</td></tr>
+                            <tr><td>on(A, B)</td><td>A</td><td>1</td></tr>
+                            <tr><td>on(A, B)</td><td>B</td><td>2</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Key Point</h4>
+                    <p><strong>Node Features (Fcat):</strong> Each node has a categorical feature:</p>
+                    <ul style="margin-top: 10px; margin-left: 20px;">
+                        <li><strong>"apn"</strong> = achieved & present in state, but not in goal</li>
+                        <li><strong>"upg"</strong> = unachieved & present in goal</li>
+                        <li><strong>"apg"</strong> = achieved & present in both state and goal</li>
+                    </ul>
+                    <p style="margin-top: 10px;">This rich encoding captures both current state and goal information!</p>
+                </div>
+            </div>
+
+            <!-- Stage 4: WL Refinement -->
+            <div class="stage" id="stage-4">
+                <h2 class="stage-title">Stage 4: Weisfeiler-Leman Color Refinement</h2>
+                
+                <div class="problem-box">
+                    <h3>Iterative Color Refinement (k=2 iterations)</h3>
+                    <p>WL algorithm iteratively refines node colors by aggregating neighborhood information, creating unique structural fingerprints.</p>
+                </div>
+
+                <div class="wl-iteration">
+                    <h4>Iteration 0: Initial Colors (based on Fcat)</h4>
+                    <table class="color-table">
+                        <thead>
+                            <tr>
+                                <th>Node</th>
+                                <th>Initial Color c⁽⁰⁾</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>A</td><td>"object"</td></tr>
+                            <tr><td>B</td><td>"object"</td></tr>
+                            <tr><td>ontable(A)</td><td>("ontable", "apn")</td></tr>
+                            <tr><td>ontable(B)</td><td>("ontable", "apn")</td></tr>
+                            <tr><td>clear(A)</td><td>("clear", "apn")</td></tr>
+                            <tr><td>clear(B)</td><td>("clear", "apn")</td></tr>
+                            <tr><td>handempty</td><td>("handempty", "apn")</td></tr>
+                            <tr><td>on(A, B)</td><td>("on", "upg")</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="wl-iteration">
+                    <h4>Iteration 1: First Refinement</h4>
+                    <p style="margin-bottom: 15px;">Formula: c⁽¹⁾(v) = HASH(c⁽⁰⁾(v), {{(c⁽⁰⁾(u), label(u,v)) | u ∈ neighbors(v)}})</p>
+                    
+                    <div style="background: white; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                        <strong>Example for node A:</strong><br>
+                        <div style="margin-top: 10px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+                            <p><strong>Own color:</strong> "object"</p>
+                            <p><strong>Neighbors:</strong> {ontable(A), clear(A), on(A,B)}</p>
+                            <p><strong>Neighborhood multiset:</strong><br>
+                            {{(("ontable", "apn"), 1), (("clear", "apn"), 1), (("on", "upg"), 1)}}</p>
+                            <p><strong>New color c⁽¹⁾(A):</strong> HASH("object", neighborhood) → <span style="color: #667eea; font-weight: bold;">"obj_A_config1"</span></p>
+                        </div>
+                    </div>
+
+                    <div style="background: white; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                        <strong>Example for node B:</strong><br>
+                        <div style="margin-top: 10px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+                            <p><strong>Own color:</strong> "object"</p>
+                            <p><strong>Neighbors:</strong> {ontable(B), clear(B), on(A,B)}</p>
+                            <p><strong>Neighborhood multiset:</strong><br>
+                            {{(("ontable", "apn"), 1), (("clear", "apn"), 1), (("on", "upg"), 2)}}</p>
+                            <p><strong>New color c⁽¹⁾(B):</strong> HASH("object", neighborhood) → <span style="color: #667eea; font-weight: bold;">"obj_B_config1"</span></p>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box" style="margin-top: 20px;">
+                        <h4>📝 Important Observation</h4>
+                        <p>Notice that A and B get <strong>different colors</strong> in iteration 1, even though they both start as "object"!</p>
+                        <p style="margin-top: 10px;">This is because they have different roles in on(A, B):</p>
+                        <ul style="margin-left: 20px; margin-top: 5px;">
+                            <li>A connects to on(A,B) at <strong>position 1</strong></li>
+                            <li>B connects to on(A,B) at <strong>position 2</strong></li>
+                        </ul>
+                        <p style="margin-top: 10px;">This structural difference is captured by WL!</p>
+                    </div>
+                </div>
+
+                <div class="wl-iteration">
+                    <h4>Iteration 2: Second Refinement</h4>
+                    <p>The process continues, using c⁽¹⁾ colors to compute c⁽²⁾. Each iteration creates more specific structural signatures.</p>
+                    
+                    <div style="background: white; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                        <p>After k=2 iterations, we collect all colors from all iterations:</p>
+                        <div class="code-block" style="margin-top: 15px;">
+C⁽²⁾ = {{
+    c⁽⁰⁾(A), c⁽¹⁾(A), c⁽²⁾(A),
+    c⁽⁰⁾(B), c⁽¹⁾(B), c⁽²⁾(B),
+    c⁽⁰⁾(ontable(A)), c⁽¹⁾(ontable(A)), c⁽²⁾(ontable(A)),
+    ... (all nodes across all iterations)
+}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stage 5: Embeddings -->
+            <div class="stage" id="stage-5">
+                <h2 class="stage-title">Stage 5: Fixed-Dimensional Embeddings</h2>
+                
+                <div class="problem-box">
+                    <h3>From Color Multisets to Vectors</h3>
+                    <p>We transform the color multiset C⁽²⁾ into a fixed-dimensional vector φ(s, g) ∈ ℝ⁵⁸⁷</p>
+                </div>
+
+                <div class="embedding-visual">
+                    <h4 style="color: #667eea; margin-bottom: 15px;">Step 1: Vocabulary Construction (during training)</h4>
+                    <p>Collect all unique colors across ALL training graphs to form vocabulary V:</p>
+                    <div class="code-block" style="margin-top: 15px;">
+V = {color_1, color_2, color_3, ..., color_587}
+
+<span class="keyword">Example colors in vocabulary:</span>
+- <span class="string">"object"</span>
+- <span class="string">"obj_A_config1"</span>
+- <span class="string">("ontable", "apn")</span>
+- <span class="string">("on", "upg")</span>
+- ... (587 unique color strings total for Blocksworld)
+                    </div>
+                </div>
+
+                <div class="embedding-visual">
+                    <h4 style="color: #667eea; margin-bottom: 15px;">Step 2: Histogram Embedding</h4>
+                    <p>For each graph, compute a count vector:</p>
+                    <div class="code-block" style="margin-top: 15px;">
+φ(s₀, g)[i] = COUNT(C⁽²⁾, color_i)  for i ∈ [1, 587]
+                    </div>
+
+                    <div style="margin-top: 20px;">
+                        <p><strong>Visual representation (showing first 50 dimensions):</strong></p>
+                        <div class="vector-representation">
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell active">2</div>
+                            <div class="vector-cell active">1</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell active">1</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell active">3</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell active">1</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell active">2</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell active">1</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell active">1</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell active">2</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell active">1</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell active">3</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell active">1</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell active">1</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell">0</div>
+                            <div class="vector-cell">0</div>
+                        </div>
+                        <p style="text-align: center; color: #667eea; margin-top: 10px; font-style: italic;">
+                            ... continues for 587 total dimensions ...
+                        </p>
+                    </div>
+                </div>
+
+                <div class="problem-box">
+                    <h3>Embeddings for Each State</h3>
+                    <table class="color-table">
+                        <thead>
+                            <tr>
+                                <th>Component</th>
+                                <th>Dimension</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>φ(s₀)</td><td>ℝ⁵⁸⁷</td><td>Embedding of initial state</td></tr>
+                            <tr><td>φ(s₁)</td><td>ℝ⁵⁸⁷</td><td>Embedding after pickup(A)</td></tr>
+                            <tr><td>φ(s₂)</td><td>ℝ⁵⁸⁷</td><td>Embedding of goal state</td></tr>
+                            <tr><td>φ(g)</td><td>ℝ⁵⁸⁷</td><td>Embedding of goal condition</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Key Properties of WL Embeddings</h4>
+                    <ul style="margin-top: 10px; margin-left: 20px;">
+                        <li><strong>Size Invariant:</strong> Dimension D=587 is fixed, regardless of |O|. A 100-block problem also maps to ℝ⁵⁸⁷</li>
+                        <li><strong>Permutation Invariant:</strong> Swapping A↔B doesn't change the histogram counts</li>
+                        <li><strong>Sparse for STRIPS:</strong> Only a few dimensions change between states, perfect for delta prediction!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Stage 6: Training & Inference -->
+            <div class="stage" id="stage-6">
+                <h2 class="stage-title">Training & Inference Pipeline</h2>
+                
+                <div class="problem-box">
+                    <h3>Training Data Construction</h3>
+                    <p>We create training examples from the state trajectory:</p>
+                </div>
+
+                <div class="code-block">
+<span class="keyword">Training Example 1:</span>
+<span class="function">Input:</span>  [φ(s₀), φ(g)]  <span class="comment">// concatenated embeddings</span>
+<span class="function">Target (state mode):</span>  φ(s₁)
+<span class="function">Target (delta mode):</span>  Δ₀ = φ(s₁) - φ(s₀)
+
+<span class="keyword">Training Example 2:</span>
+<span class="function">Input:</span>  [φ(s₁), φ(g)]
+<span class="function">Target (state mode):</span>  φ(s₂)
+<span class="function">Target (delta mode):</span>  Δ₁ = φ(s₂) - φ(s₁)
+                </div>
+
+                <div class="embedding-visual">
+                    <h4 style="color: #667eea; margin-bottom: 15px;">Model Architectures</h4>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                        <div style="background: white; padding: 25px; border-radius: 15px; border-top: 4px solid #667eea;">
+                            <h4 style="color: #667eea;">LSTM (Parametric)</h4>
+                            <ul style="margin-top: 15px; line-height: 1.8;">
+                                <li><strong>Layers:</strong> 2-layer LSTM</li>
+                                <li><strong>Hidden units:</strong> 256</li>
+                                <li><strong>Embedding dim:</strong> 32</li>
+                                <li><strong>Parameters:</strong> 927K</li>
+                                <li><strong>Loss (state):</strong> Cosine</li>
+                                <li><strong>Loss (delta):</strong> MSE</li>
+                            </ul>
+                        </div>
+
+                        <div style="background: white; padding: 25px; border-radius: 15px; border-top: 4px solid #764ba2;">
+                            <h4 style="color: #764ba2;">XGBoost (Non-parametric)</h4>
+                            <ul style="margin-top: 15px; line-height: 1.8;">
+                                <li><strong>Type:</strong> Gradient boosting</li>
+                                <li><strong>Tree depth:</strong> 8</li>
+                                <li><strong>Learning rate:</strong> 0.1</li>
+                                <li><strong>Nodes:</strong> ~115K</li>
+                                <li><strong>Loss:</strong> MSE</li>
+                                <li><strong>Early stopping:</strong> 10 rounds</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="problem-box">
+                    <h3>Inference: Neuro-Symbolic Plan Decoding (Algorithm 1)</h3>
+                </div>
+
+                <div class="inference-flow">
+                    <div class="inference-card">
+                        <h4>Step 1: Encode State</h4>
+                        <p>Current symbolic state: s₀</p>
+                        <p style="margin-top: 10px;">Embed: φ(s₀), φ(g)</p>
+                    </div>
+
+                    <div class="inference-card">
+                        <h4>Step 2: Neural Prediction</h4>
+                        <p>Predict successor embedding:</p>
+                        <div class="code-block" style="margin-top: 10px; font-size: 0.85em;">
+v₀ = φ(s₀) + f_θ(φ(s₀), φ(g))
+                        </div>
+                    </div>
+
+                    <div class="inference-card">
+                        <h4>Step 3: Enumerate Successors</h4>
+                        <p>Symbolic successors:</p>
+                        <div style="margin-top: 10px; font-size: 0.9em;">
+                            Succ(s₀) = {<br>
+                            &nbsp;&nbsp;γ(s₀, pickup(A)),<br>
+                            &nbsp;&nbsp;γ(s₀, pickup(B))<br>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="inference-card">
+                        <h4>Step 4: Nearest Neighbor</h4>
+                        <p>Find closest symbolic successor:</p>
+                        <div class="code-block" style="margin-top: 10px; font-size: 0.85em;">
+s₁ = argmin ||φ(s') - v₀||₂
+     s'∈Succ(s₀)
+                        </div>
+                    </div>
+
+                    <div class="inference-card">
+                        <h4>Step 5: Recover Action</h4>
+                        <p>Extract the action that led to s₁:</p>
+                        <p style="margin-top: 10px; font-weight: bold; color: #667eea;">a₀ = pickup(A)</p>
+                    </div>
+
+                    <div class="inference-card">
+                        <h4>Step 6: Update & Repeat</h4>
+                        <p>Update current state:</p>
+                        <p style="margin-top: 10px;">s_current ← s₁</p>
+                        <p style="margin-top: 5px;">Append action to plan</p>
+                        <p style="margin-top: 5px;">Repeat until goal reached!</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Why This Works</h4>
+                    <ul style="margin-top: 10px; margin-left: 20px;">
+                        <li><strong>Symbolic Validity:</strong> Every action is guaranteed to be applicable because we enumerate from Succ(s)</li>
+                        <li><strong>Neural Guidance:</strong> The learned model steers search toward the goal</li>
+                        <li><strong>Error Correction:</strong> If neural prediction is slightly off, nearest-neighbor matching corrects it</li>
+                        <li><strong>Generalization:</strong> WL embeddings enable transfer to larger problem instances!</li>
+                    </ul>
+                </div>
+
+                <div class="embedding-visual">
+                    <h4 style="color: #667eea; margin-bottom: 15px;">Complete Pipeline Summary</h4>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-circle">1</div>
+                            <div>Symbolic Planning</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-circle">2</div>
+                            <div>State Trajectory</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-circle">3</div>
+                            <div>ILG Graph</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-circle">4</div>
+                            <div>WL Refinement</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-circle">5</div>
+                            <div>Embeddings</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-circle">6</div>
+                            <div>Learn & Infer</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="problem-box" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none;">
+                    <h3 style="color: white;">Key Results from the Paper</h3>
+                    <ul style="margin-top: 15px; line-height: 1.8;">
+                        <li><strong>Blocksworld Extrapolation:</strong> WL-XGB (delta) achieves 0.45 success rate vs 0.13 for SATr</li>
+                        <li><strong>VisitAll Extrapolation:</strong> WL-XGB (delta) achieves 0.87 success rate vs 0.64 for SATr</li>
+                        <li><strong>Model Size:</strong> 115K nodes (XGBoost) vs 25-35M parameters (SATr)</li>
+                        <li><strong>Training Data:</strong> Competitive with orders of magnitude fewer training instances</li>
+                        <li><strong>Key Insight:</strong> Explicit transition modeling + size-invariant representations = sample-efficient generalization!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+        function stageIndexFromHash() {
+            const match = window.location.hash.match(/^#stage-(\d+)$/);
+            if (!match) return 0;
+            const idx = Number(match[1]);
+            if (Number.isNaN(idx) || idx < 0 || idx > 6) return 0;
+            return idx;
+        }
+
+        function showStage(stageIndex, updateHash = true, scrollToTop = true) {
+            // Hide all stages
+            const stages = document.querySelectorAll('.stage');
+            stages.forEach(stage => stage.classList.remove('active'));
+
+            // Remove active from all buttons
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Show selected stage
+            document.getElementById(`stage-${stageIndex}`).classList.add('active');
+            buttons[stageIndex].classList.add('active');
+
+            // If showing stage 3, render the graph
+            if (stageIndex === 3) {
+                setTimeout(() => renderGraph(), 100);
+            }
+
+            if (updateHash) {
+                history.replaceState(null, '', `#stage-${stageIndex}`);
+            }
+
+            if (scrollToTop) {
+                // Scroll to top smoothly
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function renderGraph() {
+            // Clear any existing SVG content
+            d3.select('#graph-visual').selectAll('*').remove();
+
+            const svg = d3.select('#graph-visual');
+            const container = document.querySelector('.graph-visual');
+            const width = container.clientWidth;
+            const height = 600;
+
+            svg.attr('width', width).attr('height', height);
+
+            // Define arrow marker for directed edges
+            svg.append('defs').append('marker')
+                .attr('id', 'arrowhead')
+                .attr('viewBox', '-0 -5 10 10')
+                .attr('refX', 25)
+                .attr('refY', 0)
+                .attr('orient', 'auto')
+                .attr('markerWidth', 8)
+                .attr('markerHeight', 8)
+                .append('svg:path')
+                .attr('d', 'M 0,-5 L 10,0 L 0,5')
+                .attr('fill', '#667eea');
+
+            // Define nodes with positions
+            const nodes = [
+                // Objects
+                { id: 'A', label: 'A', sublabel: 'object', type: 'object', x: width * 0.35, y: 100 },
+                { id: 'B', label: 'B', sublabel: 'object', type: 'object', x: width * 0.65, y: 100 },
+                
+                // State predicates
+                { id: 'ontable_A', label: 'ontable(A)', sublabel: '("ontable", "apn")', type: 'predicate', x: width * 0.2, y: 250 },
+                { id: 'ontable_B', label: 'ontable(B)', sublabel: '("ontable", "apn")', type: 'predicate', x: width * 0.45, y: 250 },
+                { id: 'clear_A', label: 'clear(A)', sublabel: '("clear", "apn")', type: 'predicate', x: width * 0.15, y: 400 },
+                { id: 'clear_B', label: 'clear(B)', sublabel: '("clear", "apn")', type: 'predicate', x: width * 0.4, y: 400 },
+                { id: 'handempty', label: 'handempty', sublabel: '("handempty", "apn")', type: 'predicate', x: width * 0.8, y: 250 },
+                
+                // Goal predicate
+                { id: 'on_AB', label: 'on(A, B)', sublabel: '("on", "upg")', type: 'goal', x: width * 0.65, y: 400 }
+            ];
+
+            // Define edges with labels
+            const edges = [
+                { source: 'ontable_A', target: 'A', label: '1' },
+                { source: 'ontable_B', target: 'B', label: '1' },
+                { source: 'clear_A', target: 'A', label: '1' },
+                { source: 'clear_B', target: 'B', label: '1' },
+                { source: 'on_AB', target: 'A', label: '1' },
+                { source: 'on_AB', target: 'B', label: '2' }
+            ];
+
+            // Create a map for quick node lookup
+            const nodeMap = {};
+            nodes.forEach(n => nodeMap[n.id] = n);
+
+            // Draw edges first (so they appear behind nodes)
+            const edgeGroup = svg.append('g').attr('class', 'edges');
+
+            edges.forEach(edge => {
+                const source = nodeMap[edge.source];
+                const target = nodeMap[edge.target];
+
+                // Calculate edge path (curved for better visibility)
+                const dx = target.x - source.x;
+                const dy = target.y - source.y;
+                const dr = Math.sqrt(dx * dx + dy * dy) * 0.3; // Curve radius
+
+                // Draw curved path
+                const path = edgeGroup.append('path')
+                    .attr('class', 'edge-line')
+                    .attr('d', `M ${source.x} ${source.y} Q ${(source.x + target.x) / 2} ${(source.y + target.y) / 2 - dr} ${target.x} ${target.y}`);
+
+                // Calculate label position (midpoint of curve)
+                const labelX = (source.x + target.x) / 2;
+                const labelY = (source.y + target.y) / 2 - dr / 2;
+
+                // Draw edge label background
+                edgeGroup.append('circle')
+                    .attr('class', 'edge-label-bg')
+                    .attr('cx', labelX)
+                    .attr('cy', labelY)
+                    .attr('r', 12);
+
+                // Draw edge label text
+                edgeGroup.append('text')
+                    .attr('class', 'edge-label-text')
+                    .attr('x', labelX)
+                    .attr('y', labelY)
+                    .attr('text-anchor', 'middle')
+                    .attr('dominant-baseline', 'middle')
+                    .text(edge.label);
+            });
+
+            // Draw nodes
+            const nodeGroup = svg.append('g').attr('class', 'nodes');
+
+            nodes.forEach(node => {
+                const g = nodeGroup.append('g')
+                    .attr('transform', `translate(${node.x}, ${node.y})`);
+
+                // Determine node color based on type
+                let gradient;
+                if (node.type === 'object') {
+                    gradient = 'url(#gradient-object)';
+                } else if (node.type === 'goal') {
+                    gradient = 'url(#gradient-goal)';
+                } else {
+                    gradient = 'url(#gradient-predicate)';
+                }
+
+                // Create gradients
+                if (!svg.select('#gradient-object').node()) {
+                    const defs = svg.select('defs');
+                    
+                    const gradientObject = defs.append('linearGradient')
+                        .attr('id', 'gradient-object')
+                        .attr('x1', '0%').attr('y1', '0%')
+                        .attr('x2', '100%').attr('y2', '100%');
+                    gradientObject.append('stop').attr('offset', '0%').attr('style', 'stop-color:#f093fb;stop-opacity:1');
+                    gradientObject.append('stop').attr('offset', '100%').attr('style', 'stop-color:#f5576c;stop-opacity:1');
+
+                    const gradientPredicate = defs.append('linearGradient')
+                        .attr('id', 'gradient-predicate')
+                        .attr('x1', '0%').attr('y1', '0%')
+                        .attr('x2', '100%').attr('y2', '100%');
+                    gradientPredicate.append('stop').attr('offset', '0%').attr('style', 'stop-color:#4facfe;stop-opacity:1');
+                    gradientPredicate.append('stop').attr('offset', '100%').attr('style', 'stop-color:#00f2fe;stop-opacity:1');
+
+                    const gradientGoal = defs.append('linearGradient')
+                        .attr('id', 'gradient-goal')
+                        .attr('x1', '0%').attr('y1', '0%')
+                        .attr('x2', '100%').attr('y2', '100%');
+                    gradientGoal.append('stop').attr('offset', '0%').attr('style', 'stop-color:#43e97b;stop-opacity:1');
+                    gradientGoal.append('stop').attr('offset', '100%').attr('style', 'stop-color:#38f9d7;stop-opacity:1');
+                }
+
+                // Draw node circle/ellipse
+                const isObject = node.type === 'object';
+                const width = isObject ? 50 : 90;
+                const height = isObject ? 50 : 60;
+
+                g.append('ellipse')
+                    .attr('class', 'node-circle')
+                    .attr('rx', width)
+                    .attr('ry', height)
+                    .attr('fill', gradient)
+                    .attr('stroke', '#fff')
+                    .attr('stroke-width', 2);
+
+                // Draw node label
+                g.append('text')
+                    .attr('class', 'node-label')
+                    .attr('text-anchor', 'middle')
+                    .attr('y', isObject ? 5 : -8)
+                    .attr('fill', 'white')
+                    .text(node.label);
+
+                // Draw node sublabel
+                if (node.sublabel) {
+                    g.append('text')
+                        .attr('class', 'node-sublabel')
+                        .attr('text-anchor', 'middle')
+                        .attr('y', isObject ? 18 : 8)
+                        .attr('fill', 'white')
+                        .text(node.sublabel);
+                }
+
+                // Add hover effect
+                g.on('mouseenter', function() {
+                    d3.select(this).select('ellipse')
+                        .transition()
+                        .duration(200)
+                        .attr('stroke-width', 4)
+                        .attr('stroke', '#FFD700');
+                })
+                .on('mouseleave', function() {
+                    d3.select(this).select('ellipse')
+                        .transition()
+                        .duration(200)
+                        .attr('stroke-width', 2)
+                        .attr('stroke', '#fff');
+                });
+            });
+        }
+
+        // Add some interactivity on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            showStage(stageIndexFromHash(), false, false);
+            window.addEventListener('hashchange', function() {
+                showStage(stageIndexFromHash(), false, false);
+            });
+
+            // Animate vector cells on hover
+            const vectorCells = document.querySelectorAll('.vector-cell');
+            vectorCells.forEach(cell => {
+                cell.addEventListener('mouseenter', function() {
+                    if (this.classList.contains('active')) {
+                        this.style.transform = 'scale(1.3) rotate(5deg)';
+                    }
+                });
+                cell.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
