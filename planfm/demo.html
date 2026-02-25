@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Demo | PlanFM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Research demos for PlanFM">
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="header-container">
+      <div class="logos">
+        <img src="../images/university_logo.png" alt="University Logo">
+        <img src="../images/nsf_logo.png" alt="NSF Logo" class="nsf-logo">
+      </div>
+      <div class="nav-wrapper">
+        <a href="index.html" class="home-link">Home</a>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="project.html" class="nav-link">Project</a></li>
+            <li><a href="publications.html" class="nav-link">Publications</a></li>
+            <li><a href="team.html" class="nav-link">Team</a></li>
+            <li><a href="demo.html" class="nav-link">Demo</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="demo-hero">
+      <p class="demo-kicker">PlanFM Research Demos</p>
+      <h1 class="demo-title">Interactive Research Demonstrations</h1>
+      <p class="demo-intro">
+        Focused demonstrations that expose methods, metrics, and generalization behavior for planning-like tasks.
+        Each card below links to a full interactive walkthrough.
+      </p>
+    </section>
+
+    <section class="demo-catalog">
+      <article class="demo-feature-card">
+        <p class="demo-card-kicker">Demo 01</p>
+        <h2 class="demo-card-title">On the Choice of Tokenizers for Generalized Planning via Learned Transition Models</h2>
+        <p class="demo-card-summary">
+          Systematic evaluation of WL, Shortest Path, GraphBPE, and SimHash across Blocks, Gripper, Logistics, and
+          Visitall with LSTM and XGBoost in delta/state prediction modes.
+        </p>
+        <div class="demo-tag-row">
+          <span class="demo-tag">WL</span>
+          <span class="demo-tag">Shortest Path</span>
+          <span class="demo-tag">GraphBPE</span>
+          <span class="demo-tag">SimHash</span>
+          <span class="demo-tag">LSTM</span>
+          <span class="demo-tag">XGBoost</span>
+        </div>
+        <div class="demo-action-row">
+          <a class="demo-action-primary" href="tokenization_analysis.html">Open interactive analysis</a>
+          <a class="demo-action-secondary" href="tokenization_analysis.html#heatmap_root">Jump to full heatmap</a>
+        </div>
+      </article>
+
+      <article class="demo-feature-card">
+        <p class="demo-card-kicker">Demo 02</p>
+        <h2 class="demo-card-title">State-Transition Learning</h2>
+        <p class="demo-card-summary">
+          End-to-end walkthrough of the generalized planning pipeline: symbolic plan generation, state trajectory
+          reconstruction, ILG construction, WL color refinement, fixed-dimensional embeddings, and neuro-symbolic
+          transition inference.
+        </p>
+        <div class="demo-tag-row">
+          <span class="demo-tag">Blocksworld</span>
+          <span class="demo-tag">ILG</span>
+          <span class="demo-tag">WL Refinement</span>
+          <span class="demo-tag">State Embeddings</span>
+          <span class="demo-tag">LSTM</span>
+          <span class="demo-tag">XGBoost</span>
+        </div>
+        <div class="demo-action-row">
+          <a class="demo-action-primary" href="state_transition_learning.html">Open interactive walkthrough</a>
+          <a class="demo-action-secondary" href="state_transition_learning.html#stage-3">Jump to ILG stage</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <p>&copy; 2025 AI4Society</p>
+    </div>
+  </footer>
+</body>
+
+</html>
