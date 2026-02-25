@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>On the Choice of Tokenizers for Generalized Planning via Learned Transition Models</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+:root {
+  --bg:      #f6f8fc;
+  --s1:      #ffffff;
+  --s2:      #f4f6fb;
+  --s3:      #edf1f9;
+  --border:  #d9dfeb;
+  --border2: #e6ebf4;
+
+  /* Tokenizer colors — vivid, distinct */
+  --wl:   #6e8efb;   /* blue-violet */
+  --sp:   #2ed9a3;   /* teal-green */
+  --bpe:  #ff6b9d;   /* hot pink */
+  --sh:   #ffb347;   /* amber-orange */
+
+  /* Model colors */
+  --lstm: #c084fc;   /* lavender */
+  --xgb:  #4ade80;   /* bright green */
+
+  /* Mode colors */
+  --delta: #38bdf8;  /* sky blue */
+  --state: #fb923c;  /* orange */
+
+  /* Domain colors */
+  --blocks:  #f87171; /* red */
+  --gripper: #a78bfa; /* purple */
+  --logist:  #fbbf24; /* yellow */
+  --visitall:#34d399; /* emerald */
+
+  --text:  #0b1220;
+  --muted: #334155;
+  --dim:   #475569;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Sora',sans-serif;
+  font-weight:400;
+  line-height:1.6;
+}
+
+/* subtle radial glow */
+body::before{
+  content:'';position:fixed;inset:0;
+  background:
+    radial-gradient(ellipse 900px 500px at 20% 0%, rgba(110,142,251,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 600px 400px at 80% 100%, rgba(46,217,163,0.04) 0%, transparent 60%);
+  pointer-events:none;z-index:0;
+}
+
+.page{max-width:1420px;margin:0 auto;padding:0 40px 100px;position:relative;z-index:1;}
+
+/* ─── HEADER ─────────────────────────────────────────── */
+header{
+  padding:80px 0 56px;
+  border-bottom:1px solid var(--border);
+}
+.eyebrow{
+  font-family:'DM Mono',monospace;font-size:10px;
+  letter-spacing:0.24em;text-transform:uppercase;
+  color:var(--wl);margin-bottom:20px;
+}
+h1{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(28px,3.8vw,52px);
+  line-height:1.1;margin-bottom:18px;
+  max-width:900px;
+}
+h1 em{font-style:italic;color:var(--wl);}
+.header-desc{
+  font-size:13.5px;color:var(--muted);
+  max-width:740px;margin-bottom:40px;line-height:1.8;
+}
+.header-desc strong{color:var(--text);font-weight:500;}
+
+/* ─── LEGEND CHIPS ────────────────────────────────────── */
+.legend-group{margin-bottom:18px;}
+.legend-group-label{
+  font-family:'DM Mono',monospace;font-size:9px;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:8px;
+}
+.chip-row{display:flex;flex-wrap:wrap;gap:8px;}
+.chip{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 12px 5px 8px;border-radius:4px;
+  font-family:'DM Mono',monospace;font-size:10.5px;
+  border:1px solid;font-weight:500;
+}
+.chip-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+
+/* ─── SECTION ─────────────────────────────────────────── */
+.section{padding-top:68px;}
+.section+.section{margin-top:52px;border-top:1px solid var(--border2);}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:10px;}
+.sec-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:0.1em;}
+h2{font-family:'DM Serif Display',serif;font-size:26px;}
+.annotation{
+  font-size:13px;color:var(--muted);line-height:1.82;
+  max-width:820px;margin-bottom:32px;
+  padding-left:14px;border-left:2px solid var(--border);
+}
+.annotation strong{color:var(--text);font-weight:500;}
+.annotation em{color:var(--text);font-style:italic;}
+
+/* ─── KPI BAR ─────────────────────────────────────────── */
+.kpi-row{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--border);margin-bottom:56px;overflow:hidden;
+}
+.kpi{padding:22px 26px;border-right:1px solid var(--border);position:relative;}
+.kpi:last-child{border-right:none;}
+.kpi-bar{position:absolute;top:0;left:0;right:0;height:2.5px;}
+.kpi-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:9px;}
+.kpi-val{font-family:'DM Serif Display',serif;font-size:36px;line-height:1;margin-bottom:7px;}
+.kpi-desc{font-size:11.5px;color:var(--muted);line-height:1.58;}
+
+/* ─── GRIDS ───────────────────────────────────────────── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;}
+.g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:22px;}
+.g3x1{display:grid;grid-template-columns:3fr 1fr;gap:22px;}
+.s2{grid-column:span 2;}
+.s3{grid-column:span 3;}
+.sf{grid-column:1/-1;}
+
+/* ─── CARDS ───────────────────────────────────────────── */
+.card{
+  background:var(--s1);
+  border:1px solid var(--border);
+  padding:26px 28px 24px;
+  position:relative;overflow:hidden;
+}
+.card-bar{position:absolute;top:0;left:0;right:0;height:2px;}
+.card-ey{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
+.card-ti{font-family:'DM Serif Display',serif;font-size:18px;margin-bottom:4px;}
+.card-no{font-size:11.5px;color:var(--muted);margin-bottom:18px;font-style:italic;line-height:1.5;}
+
+/* ─── CALLOUTS ────────────────────────────────────────── */
+.callout{
+  margin-top:14px;padding:12px 15px;
+  background:var(--s2);
+  border-left:2.5px solid var(--wl);
+  font-size:11.5px;color:var(--muted);line-height:1.68;
+}
+.callout strong{color:var(--text);font-weight:500;}
+.callout.sp {border-left-color:var(--sp);}
+.callout.bpe{border-left-color:var(--bpe);}
+.callout.sh {border-left-color:var(--sh);}
+.callout.blocks  {border-left-color:var(--blocks);}
+.callout.gripper {border-left-color:var(--gripper);}
+.callout.logist  {border-left-color:var(--logist);}
+.callout.visitall{border-left-color:var(--visitall);}
+
+/* ─── SUMMARY TABLE ───────────────────────────────────── */
+.sum-table{width:100%;border-collapse:collapse;font-family:'DM Mono',monospace;font-size:12px;}
+.sum-table th{
+  padding:10px 14px;text-align:left;
+  font-size:9px;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--muted);border-bottom:1px solid var(--border);white-space:nowrap;
+}
+.sum-table td{padding:11px 14px;border-bottom:1px solid rgba(17,24,39,0.08);white-space:nowrap;}
+.sum-table tr:last-child td{border-bottom:none;}
+.sum-table tr:hover td{background:rgba(17,24,39,0.03);}
+.tok-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:3px 10px 3px 6px;border-radius:3px;
+  font-family:'DM Mono',monospace;font-size:10.5px;font-weight:500;
+}
+.tok-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+.sval{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:3px 10px;border-radius:3px;
+  font-family:'DM Mono',monospace;font-size:11px;font-weight:500;
+  border:1px solid rgba(15,23,42,0.18);
+  min-width:58px;
+}
+.rank-badge{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:22px;height:22px;border-radius:50%;
+  font-family:'DM Mono',monospace;font-size:10px;font-weight:500;
+}
+.domain-sep td{
+  padding:6px 14px;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+}
+
+/* ─── HEATMAP ─────────────────────────────────────────── */
+.hm-block{border:1px solid var(--border);overflow:hidden;margin-bottom:20px;}
+.hm-block:last-child{margin-bottom:0;}
+.hm-banner{
+  display:flex;align-items:center;gap:14px;
+  padding:12px 22px;border-bottom:1px solid;
+}
+.hm-icon{
+  width:32px;height:32px;border-radius:3px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'DM Mono',monospace;font-size:11px;font-weight:500;
+}
+.hm-name{font-family:'DM Serif Display',serif;font-size:17px;line-height:1.1;}
+.hm-sub{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-top:2px;}
+.hm-stats{margin-left:auto;display:flex;gap:24px;}
+.hm-stat{text-align:right;}
+.hm-sv{font-family:'DM Serif Display',serif;font-size:20px;line-height:1;}
+.hm-sl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-top:1px;}
+table.hm{width:100%;border-collapse:collapse;font-family:'DM Mono',monospace;font-size:11px;}
+table.hm th{padding:8px 14px;text-align:left;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border);white-space:nowrap;}
+table.hm td{padding:8px 14px;border-bottom:1px solid rgba(17,24,39,0.08);white-space:nowrap;}
+table.hm tr:last-child td{border-bottom:none;}
+table.hm tr:hover td{background:rgba(17,24,39,0.03);}
+.tok-hdr td{padding:7px 14px;font-size:9px;letter-spacing:0.13em;text-transform:uppercase;border-top:1px solid rgba(17,24,39,0.1);border-bottom:1px solid rgba(17,24,39,0.1);}
+.tok-hdr.first td{border-top:none;}
+.tok-pill{display:inline-flex;align-items:center;gap:5px;padding:2px 9px 2px 5px;border-radius:3px;font-size:10px;font-weight:500;}
+.tok-pill .d{width:5px;height:5px;border-radius:50%;flex-shrink:0;}
+.hval{display:inline-flex;align-items:center;justify-content:center;padding:3px 10px;border-radius:3px;min-width:60px;font-family:'DM Mono',monospace;font-size:11px;font-weight:500;border:1px solid rgba(15,23,42,0.18);}
+
+/* ─── SCALE ───────────────────────────────────────────── */
+.scale-row{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:20px;}
+.scale-item{display:flex;align-items:center;gap:7px;font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);}
+.scale-sw{width:30px;height:13px;border-radius:2px;border:1px solid rgba(17,24,39,0.14);}
+
+/* ─── FOOTER ──────────────────────────────────────────── */
+footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.fn{font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:0.07em;}
+
+@media(max-width:1000px){
+  .g2,.g3,.g4,.g3x1{grid-template-columns:1fr;}
+  .kpi-row{grid-template-columns:1fr 1fr;}
+  .s2,.s3,.sf{grid-column:span 1;}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ══════════ HEADER ══════════ -->
+<header>
+  <div class="eyebrow">Research Analysis · PDDL Planning · State Encoding Methods</div>
+  <h1>On the Choice of <em>Tokenizers</em> for Generalized Planning via Learned Transition Models</h1>
+  <p class="header-desc">
+    A systematic evaluation of four graph-based state encoding methods — <strong>WL, Shortest Path, GraphBPE, SimHash</strong> — across four PDDL planning domains (Blocks, Gripper, Logistics, Visitall), two model architectures (LSTM, XGBoost), and two prediction modes (delta, state). All analyses focus on <strong>interpolation and extrapolation Solved%</strong>. Extrapolation is the primary measure of generalization to unseen problem scales.
+  </p>
+
+  <div class="legend-group">
+    <div class="legend-group-label">Tokenizers</div>
+    <div class="chip-row">
+      <span class="chip" style="color:var(--wl);background:rgba(110,142,251,0.1);border-color:rgba(110,142,251,0.35)"><span class="chip-dot" style="background:var(--wl)"></span>WL</span>
+      <span class="chip" style="color:var(--sp);background:rgba(46,217,163,0.1);border-color:rgba(46,217,163,0.35)"><span class="chip-dot" style="background:var(--sp)"></span>Shortest Path</span>
+      <span class="chip" style="color:var(--bpe);background:rgba(255,107,157,0.1);border-color:rgba(255,107,157,0.35)"><span class="chip-dot" style="background:var(--bpe)"></span>GraphBPE</span>
+      <span class="chip" style="color:var(--sh);background:rgba(255,179,71,0.1);border-color:rgba(255,179,71,0.35)"><span class="chip-dot" style="background:var(--sh)"></span>SimHash</span>
+    </div>
+  </div>
+  <div class="legend-group" style="margin-bottom:0">
+    <div class="legend-group-label">Models &amp; Modes</div>
+    <div class="chip-row">
+      <span class="chip" style="color:var(--lstm);background:rgba(192,132,252,0.1);border-color:rgba(192,132,252,0.3)"><span class="chip-dot" style="background:var(--lstm)"></span>LSTM</span>
+      <span class="chip" style="color:var(--xgb);background:rgba(74,222,128,0.08);border-color:rgba(74,222,128,0.3)"><span class="chip-dot" style="background:var(--xgb)"></span>XGBoost</span>
+      <span class="chip" style="color:var(--delta);background:rgba(56,189,248,0.08);border-color:rgba(56,189,248,0.3)"><span class="chip-dot" style="background:var(--delta)"></span>Δ delta</span>
+      <span class="chip" style="color:var(--state);background:rgba(251,146,60,0.08);border-color:rgba(251,146,60,0.3)"><span class="chip-dot" style="background:var(--state)"></span>S state</span>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════ KPI ══════════ -->
+<div class="section">
+<div class="kpi-row">
+  <div class="kpi">
+    <div class="kpi-bar" style="background:var(--sp)"></div>
+    <div class="kpi-label">Highest Extrap (any config)</div>
+    <div class="kpi-val" style="color:var(--sp)">87.2%</div>
+    <div class="kpi-desc">Shortest Path on Visitall — robust across 3/4 configs. WL+XGBoost+Δ also reaches 87.2% on Visitall.</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-bar" style="background:var(--wl)"></div>
+    <div class="kpi-label">Only tokenizer on Blocks</div>
+    <div class="kpi-val" style="color:var(--wl)">WL</div>
+    <div class="kpi-desc">WL is the sole tokenizer achieving any nonzero score on Blocks (up to 45% extrap). All others: 0%.</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-bar" style="background:var(--blocks)"></div>
+    <div class="kpi-label">Logistics extrap (all 16 configs)</div>
+    <div class="kpi-val" style="color:var(--blocks)">0%</div>
+    <div class="kpi-desc">Every tokenizer × model × mode combination fails to extrapolate on Logistics.</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-bar" style="background:var(--bpe)"></div>
+    <div class="kpi-label">GraphBPE Visitall extrap</div>
+    <div class="kpi-val" style="color:var(--bpe)">0%</div>
+    <div class="kpi-desc">59.5% interpolation on Visitall but zero extrap — the starkest misleading interpolation in the study.</div>
+  </div>
+</div>
+
+<!-- ══════════ §1: TOKENIZER OVERVIEW ══════════ -->
+<div class="sec-head"><span class="sec-num">01 —</span><h2>Tokenizer Overview: Coverage and Generalization</h2></div>
+<p class="annotation">
+  Two aggregate views of each tokenizer: <strong>mean Solved% across all 16 configs</strong> (4 domains × 2 models × 2 modes) for interpolation and extrapolation separately, plus <strong>breadth</strong> (how many of 16 configs achieve nonzero performance). This answers: which tokenizer is most broadly capable, and which is most reliable at out-of-distribution generalization?
+</p>
+
+<div class="g2" style="margin-bottom:22px;">
+  <div class="card">
+    <div class="card-bar" style="background:var(--wl)"></div>
+    <div class="card-ey">All tokenizers · mean Interp and Extrap Solved%</div>
+    <div class="card-ti">Mean Solved% by Tokenizer</div>
+    <div class="card-no">Averaged across all 16 configs per tokenizer (4 domains × 2 models × 2 modes). Interpolation vs Extrapolation shown side-by-side.</div>
+    <canvas id="c_tok_mean" height="230"></canvas>
+    <div class="callout">
+      <strong>WL has the highest mean interpolation (70.0%)</strong> but Shortest Path leads on mean extrapolation (22.7% vs WL's 16.8%), suggesting Shortest Path generalizes more reliably out-of-distribution. GraphBPE and SimHash trail significantly on both metrics.
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-bar" style="background:var(--sp)"></div>
+    <div class="card-ey">All tokenizers · breadth of nonzero configs</div>
+    <div class="card-ti">Config Breadth: Nonzero Solved% Counts</div>
+    <div class="card-no">How many of 16 configs achieve nonzero performance. Reveals reliability vs peak-only performance.</div>
+    <canvas id="c_tok_breadth" height="230"></canvas>
+    <div class="callout sp">
+      <strong>WL has the widest interpolation coverage (13/16 configs nonzero)</strong> but Shortest Path achieves 5 nonzero extrap configs with much higher values. GraphBPE's 2 nonzero extrap configs are both the same domain (Gripper+LSTM), revealing narrow specialization.
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ §2: TOKENIZER × DOMAIN MATRIX ══════════ -->
+</div>
+
+<div class="section">
+<div class="sec-head"><span class="sec-num">02 —</span><h2>Which Tokenizer Works Best for Which Domain?</h2></div>
+<p class="annotation">
+  The central question of the paper. Each cell in the matrix shows the <em>best achievable Solved%</em> for that (tokenizer, domain) pair — the ceiling across all 4 configs (2 models × 2 modes). Two matrices: one for interpolation, one for extrapolation. Together they reveal where each tokenizer's representations are sufficient versus structurally limited.
+</p>
+
+<div class="g2" style="margin-bottom:22px;">
+  <div class="card">
+    <div class="card-bar" style="background:var(--wl)"></div>
+    <div class="card-ey">Best achievable across 4 configs per cell</div>
+    <div class="card-ti">Interpolation Matrix</div>
+    <div class="card-no">Best Interp Solved% per (tokenizer × domain). Rows = tokenizers, columns = domains.</div>
+    <canvas id="c_matrix_interp" height="240"></canvas>
+  </div>
+  <div class="card">
+    <div class="card-bar" style="background:var(--sp)"></div>
+    <div class="card-ey">Best achievable across 4 configs per cell</div>
+    <div class="card-ti">Extrapolation Matrix <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--sp)">← primary metric</span></div>
+    <div class="card-no">Best Extrap Solved% per (tokenizer × domain). Logistics column is zero for all tokenizers.</div>
+    <canvas id="c_matrix_extrap" height="240"></canvas>
+  </div>
+</div>
+
+<!-- Ranking table -->
+<div class="card sf" style="padding:0;overflow:hidden;margin-bottom:0;">
+  <div class="card-bar sf" style="background:linear-gradient(90deg,var(--wl),var(--sp),var(--bpe),var(--sh));height:2px;position:relative;"></div>
+  <div style="padding:22px 28px 10px;">
+    <div class="card-ey">Tokenizer ranking per domain (extrap) with interp context</div>
+    <div class="card-ti">Domain-by-Domain Tokenizer Ranking</div>
+    <div class="card-no">Ranked by best extrap Solved%. Best config (model+mode) shown in parentheses. ★ = domain winner.</div>
+  </div>
+  <div style="overflow-x:auto;padding:0 28px 24px;">
+    <table class="sum-table" id="ranking_table"></table>
+  </div>
+</div>
+</div>
+
+<!-- ══════════ §3: TOKENIZER DEEP DIVES ══════════ -->
+<div class="section">
+<div class="sec-head"><span class="sec-num">03 —</span><h2>Tokenizer Deep Dives: All Configs per Domain</h2></div>
+<p class="annotation">
+  For each tokenizer, all 16 individual configurations (4 domains × 2 models × 2 modes) are shown. Bars display both interpolation and extrapolation for every config, colored by prediction mode (Δ delta = <span style="color:var(--delta)">sky blue</span>, S state = <span style="color:var(--state)">orange</span>), with model shown via bar pattern. This reveals the model×mode sensitivity within each tokenizer.
+</p>
+
+<div class="g2" style="margin-bottom:22px;">
+  <div class="card">
+    <div class="card-bar" style="background:var(--wl)"></div>
+    <div class="card-ey">Tokenizer: WL</div>
+    <div class="card-ti">WL — All 16 Configurations</div>
+    <div class="card-no">Bars show Interp (left, lighter) and Extrap (right, solid) per config. Colors = mode.</div>
+    <canvas id="c_wl_all" height="260"></canvas>
+    <div class="callout">
+      <strong>WL is the only tokenizer with nonzero Blocks performance.</strong> On Visitall, extreme model×mode variance: XGBoost+Δ reaches 87.2% extrap but LSTM+Δ only 3.2% — same tokenizer, same domain. Logistics achieves strong interpolation (up to 88.9%) but zero extrap universally.
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-bar" style="background:var(--sp)"></div>
+    <div class="card-ey">Tokenizer: Shortest Path</div>
+    <div class="card-ti">Shortest Path — All 16 Configurations</div>
+    <div class="card-no">The most consistent tokenizer on Visitall — all 4 configs cluster near 87% extrap.</div>
+    <canvas id="c_sp_all" height="260"></canvas>
+    <div class="callout sp">
+      <strong>Shortest Path is uniquely consistent on Visitall</strong> — 3 configs at 87.21%, 1 at 82.65%, variance &lt;5 points. Completely fails on Blocks (0% everywhere). Gripper extrap only via LSTM+Δ (18.75%). Logistics: modest interpolation, zero extrap.
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-bar" style="background:var(--bpe)"></div>
+    <div class="card-ey">Tokenizer: GraphBPE</div>
+    <div class="card-ti">GraphBPE — All 16 Configurations</div>
+    <div class="card-no">Highly LSTM-dependent. XGBoost achieves zero extrap across all domains.</div>
+    <canvas id="c_bpe_all" height="260"></canvas>
+    <div class="callout bpe">
+      <strong>GraphBPE is uniquely specialized for Gripper via LSTM</strong> — 43.75% extrap, the best gripper result in the study. Visitall shows a stark misleading signal: 59.46% interp but 0% extrap for all 4 configs. XGBoost is completely ineffective with GraphBPE across all domains.
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-bar" style="background:var(--sh)"></div>
+    <div class="card-ey">Tokenizer: SimHash</div>
+    <div class="card-ti">SimHash — All 16 Configurations</div>
+    <div class="card-no">Anomaly: Gripper+LSTM+Δ extrapolates (31.25%) despite zero interpolation.</div>
+    <canvas id="c_sh_all" height="260"></canvas>
+    <div class="callout sh">
+      <strong>SimHash exhibits the only extrap-without-interp case</strong>: Gripper+LSTM+Δ scores 31.25% extrap but 0% interp. This suggests SimHash's hash-based encoding occasionally aligns with test-distribution structure despite failing on near-distribution instances. Broadly weak — zero on Blocks and Logistics extrap.
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════ §4: INTERP–EXTRAP GAP ══════════ -->
+<div class="section">
+<div class="sec-head"><span class="sec-num">04 —</span><h2>The Interpolation–Extrapolation Gap by Tokenizer</h2></div>
+<p class="annotation">
+  High interpolation does <em>not</em> imply high extrapolation. This section quantifies the gap for each (tokenizer × domain) pair using the best achievable configs for each split. A large gap signals a tokenizer whose representations fit near-distribution instances but fail to capture the structural regularities needed for out-of-distribution generalization.
+</p>
+
+<div class="g2" style="margin-bottom:22px;">
+  <div class="card s2">
+    <div class="card-bar" style="background:linear-gradient(90deg,var(--wl),var(--sp))"></div>
+    <div class="card-ey">Best Interp vs Best Extrap per (tokenizer × domain) — scatter</div>
+    <div class="card-ti">Interpolation vs Extrapolation: Best Achievable Configs</div>
+    <div class="card-no">Each point = one (tokenizer × domain) pair. Points on the dashed diagonal would mean perfect interp→extrap transfer. Distance below diagonal = generalization gap. Colored by tokenizer.</div>
+    <canvas id="c_scatter" height="310"></canvas>
+    <div class="callout">
+      <strong>Two clusters emerge:</strong> (1) bottom-left: failed pairs (both metrics zero); (2) top-right: successful pairs. Critically, several points fall along the left axis — high interp but near-zero extrap. The <strong>Logistics+WL point</strong> (89% interp, 0% extrap) and <strong>Visitall+GraphBPE point</strong> (59% interp, 0% extrap) are the most misleading. Only Visitall+Shortest Path and Visitall+WL approach the diagonal.
+    </div>
+  </div>
+</div>
+
+<div class="g4" style="margin-bottom:22px;">
+  <div class="card">
+    <div class="card-bar" style="background:var(--wl)"></div>
+    <div class="card-ey">WL · gap per domain</div>
+    <div class="card-ti" style="font-size:15px;">WL Gap</div>
+    <canvas id="c_gap_wl" height="190"></canvas>
+  </div>
+  <div class="card">
+    <div class="card-bar" style="background:var(--sp)"></div>
+    <div class="card-ey">Shortest Path · gap per domain</div>
+    <div class="card-ti" style="font-size:15px;">Shortest Path Gap</div>
+    <canvas id="c_gap_sp" height="190"></canvas>
+  </div>
+  <div class="card">
+    <div class="card-bar" style="background:var(--bpe)"></div>
+    <div class="card-ey">GraphBPE · gap per domain</div>
+    <div class="card-ti" style="font-size:15px;">GraphBPE Gap</div>
+    <canvas id="c_gap_bpe" height="190"></canvas>
+  </div>
+  <div class="card">
+    <div class="card-bar" style="background:var(--sh)"></div>
+    <div class="card-ey">SimHash · gap per domain</div>
+    <div class="card-ti" style="font-size:15px;">SimHash Gap</div>
+    <canvas id="c_gap_sh" height="190"></canvas>
+  </div>
+</div>
+<div class="callout">
+  <strong>Shortest Path has the smallest gap on Visitall (12.8%)</strong> — the best interp→extrap transfer in the study. WL's Logistics gap (88.9%) is the largest, signaling that high interpolation performance on Logistics is structurally uninformative about generalization. GraphBPE's Visitall gap (59.5%) represents 59 interpolation points that never convert to extrapolation.
+</div>
+</div>
+
+<!-- ══════════ §5: MODEL × MODE PER TOKENIZER ══════════ -->
+<div class="section">
+<div class="sec-head"><span class="sec-num">05 —</span><h2>Model and Mode Sensitivity per Tokenizer</h2></div>
+<p class="annotation">
+  The choice of model (LSTM vs XGBoost) and prediction mode (delta vs state) interacts strongly with tokenizer. This section asks: <em>for each tokenizer, which model+mode combination generalizes best?</em> And crucially: does the tokenizer impose a constraint on which model or mode can be used?
+</p>
+
+<div class="g2" style="margin-bottom:22px;">
+  <div class="card">
+    <div class="card-bar" style="background:var(--lstm)"></div>
+    <div class="card-ey">LSTM vs XGBoost · mean extrap by tokenizer</div>
+    <div class="card-ti">Model Sensitivity by Tokenizer</div>
+    <div class="card-no">Mean extrap across all 4 domains and 2 modes per (tokenizer × model). Reveals which tokenizers impose a model constraint.</div>
+    <canvas id="c_model_tok" height="230"></canvas>
+    <div class="callout">
+      <strong>GraphBPE and SimHash are LSTM-dependent</strong> — XGBoost achieves near-zero extrap with both. WL strongly favors XGBoost+Δ for extrapolation. Shortest Path is model-agnostic — both LSTM and XGBoost reach 87%+ on Visitall.
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-bar" style="background:var(--delta)"></div>
+    <div class="card-ey">Delta vs State mode · mean extrap by tokenizer</div>
+    <div class="card-ti">Mode Sensitivity by Tokenizer</div>
+    <div class="card-no">Mean extrap across all 4 domains and 2 models per (tokenizer × mode). Delta and state modes behave very differently for WL.</div>
+    <canvas id="c_mode_tok" height="230"></canvas>
+    <div class="callout">
+      <strong>WL is highly mode-sensitive</strong> — XGBoost+Δ reaches 87.2% on Visitall but XGBoost+S drops to 8.2% (same domain, same model, same tokenizer). Shortest Path is mode-robust. GraphBPE is mode-neutral (both modes equally functional with LSTM).
+    </div>
+  </div>
+</div>
+
+<div class="g4" style="margin-bottom:16px;">
+  <div class="card">
+    <div class="card-bar" style="background:var(--wl)"></div>
+    <div class="card-ey">WL: extrap by model+mode per domain</div>
+    <div class="card-ti" style="font-size:15px;">WL</div>
+    <canvas id="c_mm_wl" height="185"></canvas>
+  </div>
+  <div class="card">
+    <div class="card-bar" style="background:var(--sp)"></div>
+    <div class="card-ey">Shortest Path: extrap by model+mode</div>
+    <div class="card-ti" style="font-size:15px;">Shortest Path</div>
+    <canvas id="c_mm_sp" height="185"></canvas>
+  </div>
+  <div class="card">
+    <div class="card-bar" style="background:var(--bpe)"></div>
+    <div class="card-ey">GraphBPE: extrap by model+mode</div>
+    <div class="card-ti" style="font-size:15px;">GraphBPE</div>
+    <canvas id="c_mm_bpe" height="185"></canvas>
+  </div>
+  <div class="card">
+    <div class="card-bar" style="background:var(--sh)"></div>
+    <div class="card-ey">SimHash: extrap by model+mode</div>
+    <div class="card-ti" style="font-size:15px;">SimHash</div>
+    <canvas id="c_mm_sh" height="185"></canvas>
+  </div>
+</div>
+<div class="callout" style="margin-bottom:0;">
+  <strong>Key per-tokenizer model×mode findings:</strong> WL — XGBoost+Δ on Visitall (87.2%) vs LSTM+Δ on same (3.2%): 84pt gap, largest in study. Shortest Path — all 4 configs tightly cluster on Visitall (82–87%), most stable tokenizer. GraphBPE — LSTM-only effective (XGBoost extrap = 0 for all 8 configs). SimHash — only LSTM achieves any extrap; anomalous 31.25% extrap with 0% interp on Gripper+LSTM+Δ.
+</div>
+</div>
+
+<!-- ══════════ §6: HEATMAP ══════════ -->
+<div class="section">
+<div class="sec-head"><span class="sec-num">06 —</span><h2>Complete Configuration Heatmap</h2></div>
+<p class="annotation">
+  All 64 individual configurations. Organized by domain, then by tokenizer (ranked best extrap first within each domain), then sorted by extrap descending within each tokenizer. Every result shown without collapsing. The ★ marks the best extrap config per tokenizer per domain.
+</p>
+<div class="scale-row">
+  <span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.15em;color:var(--muted);text-transform:uppercase;">Solved% →</span>
+  <span class="scale-item"><span class="scale-sw" style="background:#fee2e2"></span>0%</span>
+  <span class="scale-item"><span class="scale-sw" style="background:#fef3c7"></span>1–24%</span>
+  <span class="scale-item"><span class="scale-sw" style="background:#dbeafe"></span>25–59%</span>
+  <span class="scale-item"><span class="scale-sw" style="background:#dcfce7"></span>60–89%</span>
+  <span class="scale-item"><span class="scale-sw" style="background:#bbf7d0"></span>90–100%</span>
+</div>
+<div id="heatmap_root"></div>
+</div>
+
+<footer>
+  <span class="fn">Planning Domain Tokenization Study · 4 Tokenizers · 4 Domains · 2 Models · 2 Modes · 64 Configurations</span>
+  <span class="fn">Metrics shown: Interpolation Solved% · Extrapolation Solved% (Validation omitted)</span>
+</footer>
+</div>
+
+<script>
+// ─── DATA ──────────────────────────────────────────────────────────────────
+const RAW = [
+  {domain:'Blocks',   tok:'WL',          model:'LSTM',    mode:'delta', interp:100,   extrap:25},
+  {domain:'Blocks',   tok:'WL',          model:'LSTM',    mode:'state', interp:100,   extrap:5},
+  {domain:'Blocks',   tok:'WL',          model:'XGBoost', mode:'delta', interp:100,   extrap:45},
+  {domain:'Blocks',   tok:'WL',          model:'XGBoost', mode:'state', interp:100,   extrap:25},
+  {domain:'Blocks',   tok:'Shortest Path',model:'LSTM',   mode:'delta', interp:0,     extrap:0},
+  {domain:'Blocks',   tok:'Shortest Path',model:'LSTM',   mode:'state', interp:0,     extrap:0},
+  {domain:'Blocks',   tok:'Shortest Path',model:'XGBoost',mode:'delta', interp:0,     extrap:0},
+  {domain:'Blocks',   tok:'Shortest Path',model:'XGBoost',mode:'state', interp:0,     extrap:0},
+  {domain:'Blocks',   tok:'GraphBPE',    model:'LSTM',    mode:'delta', interp:0,     extrap:0},
+  {domain:'Blocks',   tok:'GraphBPE',    model:'LSTM',    mode:'state', interp:0,     extrap:0},
+  {domain:'Blocks',   tok:'GraphBPE',    model:'XGBoost', mode:'delta', interp:0,     extrap:0},
+  {domain:'Blocks',   tok:'GraphBPE',    model:'XGBoost', mode:'state', interp:0,     extrap:0},
+  {domain:'Blocks',   tok:'SimHash',     model:'LSTM',    mode:'delta', interp:0,     extrap:0},
+  {domain:'Blocks',   tok:'SimHash',     model:'LSTM',    mode:'state', interp:0,     extrap:0},
+  {domain:'Blocks',   tok:'SimHash',     model:'XGBoost', mode:'delta', interp:0,     extrap:0},
+  {domain:'Blocks',   tok:'SimHash',     model:'XGBoost', mode:'state', interp:0,     extrap:0},
+  {domain:'Gripper',  tok:'WL',          model:'LSTM',    mode:'delta', interp:100,   extrap:6.25},
+  {domain:'Gripper',  tok:'WL',          model:'LSTM',    mode:'state', interp:100,   extrap:12.5},
+  {domain:'Gripper',  tok:'WL',          model:'XGBoost', mode:'delta', interp:0,     extrap:0},
+  {domain:'Gripper',  tok:'WL',          model:'XGBoost', mode:'state', interp:0,     extrap:0},
+  {domain:'Gripper',  tok:'Shortest Path',model:'LSTM',   mode:'delta', interp:100,   extrap:18.75},
+  {domain:'Gripper',  tok:'Shortest Path',model:'LSTM',   mode:'state', interp:66.67, extrap:0},
+  {domain:'Gripper',  tok:'Shortest Path',model:'XGBoost',mode:'delta', interp:0,     extrap:0},
+  {domain:'Gripper',  tok:'Shortest Path',model:'XGBoost',mode:'state', interp:0,     extrap:0},
+  {domain:'Gripper',  tok:'GraphBPE',    model:'LSTM',    mode:'delta', interp:100,   extrap:43.75},
+  {domain:'Gripper',  tok:'GraphBPE',    model:'LSTM',    mode:'state', interp:100,   extrap:43.75},
+  {domain:'Gripper',  tok:'GraphBPE',    model:'XGBoost', mode:'delta', interp:0,     extrap:0},
+  {domain:'Gripper',  tok:'GraphBPE',    model:'XGBoost', mode:'state', interp:0,     extrap:0},
+  {domain:'Gripper',  tok:'SimHash',     model:'LSTM',    mode:'delta', interp:0,     extrap:31.25},
+  {domain:'Gripper',  tok:'SimHash',     model:'LSTM',    mode:'state', interp:100,   extrap:25},
+  {domain:'Gripper',  tok:'SimHash',     model:'XGBoost', mode:'delta', interp:0,     extrap:0},
+  {domain:'Gripper',  tok:'SimHash',     model:'XGBoost', mode:'state', interp:0,     extrap:0},
+  {domain:'Logistics',tok:'WL',          model:'LSTM',    mode:'delta', interp:22.22, extrap:0},
+  {domain:'Logistics',tok:'WL',          model:'LSTM',    mode:'state', interp:88.89, extrap:0},
+  {domain:'Logistics',tok:'WL',          model:'XGBoost', mode:'delta', interp:0,     extrap:0},
+  {domain:'Logistics',tok:'WL',          model:'XGBoost', mode:'state', interp:11.11, extrap:0},
+  {domain:'Logistics',tok:'Shortest Path',model:'LSTM',   mode:'delta', interp:11.11, extrap:0},
+  {domain:'Logistics',tok:'Shortest Path',model:'LSTM',   mode:'state', interp:22.22, extrap:0},
+  {domain:'Logistics',tok:'Shortest Path',model:'XGBoost',mode:'delta', interp:0,     extrap:0},
+  {domain:'Logistics',tok:'Shortest Path',model:'XGBoost',mode:'state', interp:33.33, extrap:0},
+  {domain:'Logistics',tok:'GraphBPE',    model:'LSTM',    mode:'delta', interp:0,     extrap:0},
+  {domain:'Logistics',tok:'GraphBPE',    model:'LSTM',    mode:'state', interp:0,     extrap:0},
+  {domain:'Logistics',tok:'GraphBPE',    model:'XGBoost', mode:'delta', interp:11.11, extrap:0},
+  {domain:'Logistics',tok:'GraphBPE',    model:'XGBoost', mode:'state', interp:11.11, extrap:0},
+  {domain:'Logistics',tok:'SimHash',     model:'LSTM',    mode:'delta', interp:0,     extrap:0},
+  {domain:'Logistics',tok:'SimHash',     model:'LSTM',    mode:'state', interp:22.22, extrap:0},
+  {domain:'Logistics',tok:'SimHash',     model:'XGBoost', mode:'delta', interp:0,     extrap:0},
+  {domain:'Logistics',tok:'SimHash',     model:'XGBoost', mode:'state', interp:22.22, extrap:0},
+  {domain:'Visitall', tok:'WL',          model:'LSTM',    mode:'delta', interp:97.3,  extrap:3.2},
+  {domain:'Visitall', tok:'WL',          model:'LSTM',    mode:'state', interp:100,   extrap:51.6},
+  {domain:'Visitall', tok:'WL',          model:'XGBoost', mode:'delta', interp:100,   extrap:87.21},
+  {domain:'Visitall', tok:'WL',          model:'XGBoost', mode:'state', interp:100,   extrap:8.22},
+  {domain:'Visitall', tok:'Shortest Path',model:'LSTM',   mode:'delta', interp:100,   extrap:87.21},
+  {domain:'Visitall', tok:'Shortest Path',model:'LSTM',   mode:'state', interp:100,   extrap:87.21},
+  {domain:'Visitall', tok:'Shortest Path',model:'XGBoost',mode:'delta', interp:100,   extrap:87.21},
+  {domain:'Visitall', tok:'Shortest Path',model:'XGBoost',mode:'state', interp:100,   extrap:82.65},
+  {domain:'Visitall', tok:'GraphBPE',    model:'LSTM',    mode:'delta', interp:59.46, extrap:0},
+  {domain:'Visitall', tok:'GraphBPE',    model:'LSTM',    mode:'state', interp:59.46, extrap:0},
+  {domain:'Visitall', tok:'GraphBPE',    model:'XGBoost', mode:'delta', interp:59.46, extrap:0},
+  {domain:'Visitall', tok:'GraphBPE',    model:'XGBoost', mode:'state', interp:59.46, extrap:0},
+  {domain:'Visitall', tok:'SimHash',     model:'LSTM',    mode:'delta', interp:45.95, extrap:0},
+  {domain:'Visitall', tok:'SimHash',     model:'LSTM',    mode:'state', interp:75.68, extrap:7.76},
+  {domain:'Visitall', tok:'SimHash',     model:'XGBoost', mode:'delta', interp:45.95, extrap:0},
+  {domain:'Visitall', tok:'SimHash',     model:'XGBoost', mode:'state', interp:81.08, extrap:4.11},
+];
+
+const TOKS    = ['WL','Shortest Path','GraphBPE','SimHash'];
+const DOMAINS = ['Blocks','Gripper','Logistics','Visitall'];
+const TC = {'WL':'#6e8efb','Shortest Path':'#2ed9a3','GraphBPE':'#ff6b9d','SimHash':'#ffb347'};
+const DC = {'Blocks':'#f87171','Gripper':'#a78bfa','Logistics':'#fbbf24','Visitall':'#34d399'};
+const MC = {'LSTM':'#c084fc','XGBoost':'#4ade80'};
+const MdC = {'delta':'#38bdf8','state':'#fb923c'};
+
+// ─── CHART BASE ──────────────────────────────────────────────────────────────
+const BASE = {
+  responsive:true, maintainAspectRatio:true, animation:{duration:600},
+  plugins:{
+    legend:{labels:{color:'#334155',font:{family:'DM Mono',size:10},boxWidth:9,padding:11}},
+    tooltip:{
+      backgroundColor:'#161622',borderColor:'#26263a',borderWidth:1,
+      titleColor:'#e2e0f0',bodyColor:'#8888aa',padding:10,
+      titleFont:{family:'DM Mono',size:11},bodyFont:{family:'DM Mono',size:11},
+    }
+  },
+  scales:{
+    x:{ticks:{color:'#334155',font:{family:'DM Mono',size:10}},grid:{color:'rgba(17,24,39,0.1)'}},
+    y:{min:0,max:100,ticks:{color:'#334155',font:{family:'DM Mono',size:10},callback:v=>v+'%'},grid:{color:'rgba(17,24,39,0.1)'}}
+  }
+};
+
+// ─── §1a: MEAN SOLVED% BY TOKENIZER ─────────────────────────────────────────
+{
+  const labels = TOKS;
+  const interpMeans = TOKS.map(tok=>{
+    const v=RAW.filter(r=>r.tok===tok).map(r=>r.interp);
+    return +(v.reduce((a,b)=>a+b,0)/v.length).toFixed(2);
+  });
+  const extrapMeans = TOKS.map(tok=>{
+    const v=RAW.filter(r=>r.tok===tok).map(r=>r.extrap);
+    return +(v.reduce((a,b)=>a+b,0)/v.length).toFixed(2);
+  });
+  new Chart(document.getElementById('c_tok_mean'),{
+    type:'bar',
+    data:{labels, datasets:[
+      {label:'Mean Interp',data:interpMeans,backgroundColor:TOKS.map(t=>TC[t]+'60'),borderColor:TOKS.map(t=>TC[t]),borderWidth:2,borderRadius:3},
+      {label:'Mean Extrap',data:extrapMeans,backgroundColor:TOKS.map(t=>TC[t]+'cc'),borderColor:TOKS.map(t=>TC[t]),borderWidth:2,borderRadius:3},
+    ]},
+    options:{...BASE,
+      plugins:{...BASE.plugins,tooltip:{...BASE.plugins.tooltip,callbacks:{label:ctx=>` ${ctx.dataset.label}: ${ctx.parsed.y.toFixed(2)}%`}}}
+    }
+  });
+}
+
+// ─── §1b: BREADTH ────────────────────────────────────────────────────────────
+{
+  const nzInterp = TOKS.map(tok=>RAW.filter(r=>r.tok===tok&&r.interp>0).length);
+  const nzExtrap = TOKS.map(tok=>RAW.filter(r=>r.tok===tok&&r.extrap>0).length);
+  new Chart(document.getElementById('c_tok_breadth'),{
+    type:'bar',
+    data:{labels:TOKS,datasets:[
+      {label:'Nonzero Interp configs (of 16)',data:nzInterp,backgroundColor:TOKS.map(t=>TC[t]+'55'),borderColor:TOKS.map(t=>TC[t]),borderWidth:2,borderRadius:3},
+      {label:'Nonzero Extrap configs (of 16)',data:nzExtrap,backgroundColor:TOKS.map(t=>TC[t]+'cc'),borderColor:TOKS.map(t=>TC[t]),borderWidth:2,borderRadius:3},
+    ]},
+    options:{...BASE,
+      scales:{...BASE.scales,y:{...BASE.scales.y,max:16,ticks:{color:'#334155',font:{family:'DM Mono',size:10},callback:v=>v}}},
+      plugins:{...BASE.plugins,tooltip:{...BASE.plugins.tooltip,callbacks:{label:ctx=>` ${ctx.dataset.label}: ${ctx.parsed.y} / 16 configs`}}}
+    }
+  });
+}
+
+// ─── §2: MATRICES ────────────────────────────────────────────────────────────
+function makeMatrix(id, split) {
+  const domLabels = DOMAINS;
+  const datasets = TOKS.map(tok=>({
+    label:tok,
+    data:DOMAINS.map(domain=>{
+      const v=RAW.filter(r=>r.tok===tok&&r.domain===domain).map(r=>r[split]);
+      return +Math.max(...v).toFixed(2);
+    }),
+    backgroundColor:TC[tok]+'99',borderColor:TC[tok],borderWidth:2,borderRadius:3,
+  }));
+  new Chart(document.getElementById(id),{
+    type:'bar',data:{labels:domLabels,datasets},
+    options:{...BASE,
+      plugins:{...BASE.plugins,tooltip:{...BASE.plugins.tooltip,callbacks:{label:ctx=>` ${ctx.dataset.label}: ${ctx.parsed.y.toFixed(2)}% (best of 4 configs)`}}}
+    }
+  });
+}
+makeMatrix('c_matrix_interp','interp');
+makeMatrix('c_matrix_extrap','extrap');
+
+// ─── §2: RANKING TABLE ───────────────────────────────────────────────────────
+{
+  const rankColors = ['#ffd700','#c0c0c0','#cd7f32','#334155'];
+  const table = document.getElementById('ranking_table');
+  table.innerHTML = `<thead><tr>
+    <th>Domain</th><th>Rank</th><th>Tokenizer</th>
+    <th>Best Interp</th><th>Best Config (Interp)</th>
+    <th>Best Extrap</th><th>Best Config (Extrap)</th>
+    <th>I→E Gap</th>
+  </tr></thead>`;
+  const tbody = document.createElement('tbody');
+
+  DOMAINS.forEach((domain,di) => {
+    const tokRanked = TOKS.map(tok=>{
+      const dr = RAW.filter(r=>r.tok===tok&&r.domain===domain);
+      const bi_r = dr.reduce((a,b)=>a.interp>b.interp?a:b);
+      const be_r = dr.reduce((a,b)=>a.extrap>b.extrap?a:b);
+      return {tok, bi:bi_r.interp, bi_cfg:`${bi_r.model}+${bi_r.mode[0].toUpperCase()}`, be:be_r.extrap, be_cfg:`${be_r.model}+${be_r.mode[0].toUpperCase()}`};
+    }).sort((a,b)=>b.be-a.be);
+
+    if(di>0){
+      const sep=document.createElement('tr');
+      sep.className='domain-sep';
+      sep.innerHTML=`<td colspan="8" style="background:${DC[domain]}10;color:${DC[domain]}">▸ ${domain}</td>`;
+      tbody.appendChild(sep);
+    } else {
+      const sep=document.createElement('tr');
+      sep.className='domain-sep';
+      sep.innerHTML=`<td colspan="8" style="background:${DC[domain]}10;color:${DC[domain]}">▸ ${domain}</td>`;
+      tbody.appendChild(sep);
+    }
+
+    tokRanked.forEach((row,ri)=>{
+      const isWinner = ri===0 && row.be>0;
+      const gap = row.bi - row.be;
+      const tr=document.createElement('tr');
+      if(isWinner) tr.style.background=TC[row.tok]+'0a';
+
+      function sc(val){
+        if(val===0)  return{bg:'#fee2e2',fg:'#991b1b',bd:'#fca5a5'};
+        if(val<25)   return{bg:'#fef3c7',fg:'#92400e',bd:'#fcd34d'};
+        if(val<60)   return{bg:'#dbeafe',fg:'#1e40af',bd:'#93c5fd'};
+        if(val<90)   return{bg:'#dcfce7',fg:'#166534',bd:'#86efac'};
+        return           {bg:'#bbf7d0',fg:'#14532d',bd:'#4ade80'};
+      }
+      const si=sc(row.bi), se=sc(row.be);
+
+      tr.innerHTML=`
+        <td style="color:${DC[domain]};font-family:'DM Mono',monospace;font-size:10px;">${domain}</td>
+        <td><span class="rank-badge" style="background:${rankColors[ri]}22;color:${rankColors[ri]};border:1px solid ${rankColors[ri]}55;">#${ri+1}</span>${isWinner?'<span style="margin-left:6px;font-size:12px">★</span>':''}</td>
+        <td><span class="tok-badge" style="background:${TC[row.tok]}18;color:${TC[row.tok]};border:1px solid ${TC[row.tok]}40"><span class="tok-dot" style="background:${TC[row.tok]}"></span>${row.tok}</span></td>
+        <td><span class="sval" style="background:${si.bg};color:${si.fg};border-color:${si.bd}">${row.bi.toFixed(1)}%</span></td>
+        <td style="color:#334155;font-size:10px">${row.bi_cfg}</td>
+        <td><span class="sval" style="background:${se.bg};color:${se.fg};border-color:${se.bd}">${row.be.toFixed(1)}%</span></td>
+        <td style="color:#334155;font-size:10px">${row.be>0?row.be_cfg:'—'}</td>
+        <td style="font-family:'DM Mono',monospace;color:${gap>50?'#f87171':gap>20?'#fbbf24':'#34d399'}">${gap.toFixed(1)}pp</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  });
+  table.appendChild(tbody);
+}
+
+// ─── §3: TOKENIZER DEEP DIVE CHARTS ──────────────────────────────────────────
+function tokDeepDive(id, tok) {
+  // x-axis: domain + model labels (8 groups of 2)
+  // For each domain: LSTM (delta, state) and XGBoost (delta, state) = 4 bars
+  const labels = [];
+  const interpData = [], extrapData = [], interpColors = [], extrapColors = [];
+
+  DOMAINS.forEach(domain => {
+    [['LSTM','delta'],['LSTM','state'],['XGBoost','delta'],['XGBoost','state']].forEach(([model,mode])=>{
+      const r = RAW.find(x=>x.tok===tok&&x.domain===domain&&x.model===model&&x.mode===mode);
+      labels.push(`${domain[0]} ${model[0]}${mode[0].toUpperCase()}`);
+      interpData.push(r?r.interp:0);
+      extrapData.push(r?r.extrap:0);
+      // color by mode
+      const mc = mode==='delta'?'#38bdf8':'#fb923c';
+      interpColors.push(mc+'55');
+      extrapColors.push(mc+'dd');
+    });
+  });
+
+  new Chart(document.getElementById(id),{
+    type:'bar',
+    data:{labels,datasets:[
+      {label:'Interp',data:interpData,backgroundColor:interpColors,borderColor:interpColors.map(c=>c.replace('55','ff')),borderWidth:1,borderRadius:2},
+      {label:'Extrap',data:extrapData,backgroundColor:extrapColors,borderColor:extrapColors.map(c=>c.replace('dd','ff')),borderWidth:1,borderRadius:2},
+    ]},
+    options:{...BASE,
+      plugins:{...BASE.plugins,
+        legend:{...BASE.plugins.legend,
+          labels:{...BASE.plugins.legend.labels,
+            generateLabels:()=>[
+              {text:'Interp (Δ delta)',fillStyle:'#38bdf855',strokeStyle:'#38bdf8',lineWidth:1,fontColor:'#334155'},
+              {text:'Extrap (Δ delta)',fillStyle:'#38bdf8dd',strokeStyle:'#38bdf8',lineWidth:1,fontColor:'#334155'},
+              {text:'Interp (S state)',fillStyle:'#fb923c55',strokeStyle:'#fb923c',lineWidth:1,fontColor:'#334155'},
+              {text:'Extrap (S state)',fillStyle:'#fb923cdd',strokeStyle:'#fb923c',lineWidth:1,fontColor:'#334155'},
+            ]
+          }
+        },
+        tooltip:{...BASE.plugins.tooltip,callbacks:{label:ctx=>` ${ctx.dataset.label}: ${ctx.parsed.y.toFixed(2)}%`}}
+      },
+      scales:{
+        x:{...BASE.scales.x,ticks:{color:'#334155',font:{family:'DM Mono',size:8},maxRotation:70}},
+        y:BASE.scales.y
+      }
+    }
+  });
+}
+tokDeepDive('c_wl_all','WL');
+tokDeepDive('c_sp_all','Shortest Path');
+tokDeepDive('c_bpe_all','GraphBPE');
+tokDeepDive('c_sh_all','SimHash');
+
+// ─── §4: SCATTER ─────────────────────────────────────────────────────────────
+{
+  // Best config per (tok × domain)
+  const pts = TOKS.flatMap(tok=>
+    DOMAINS.map(domain=>{
+      const dr=RAW.filter(r=>r.tok===tok&&r.domain===domain);
+      return {
+        x:Math.max(...dr.map(r=>r.interp)),
+        y:Math.max(...dr.map(r=>r.extrap)),
+        tok, domain,
+      };
+    })
+  );
+  const datasets = TOKS.map(tok=>({
+    label:tok,
+    data:pts.filter(p=>p.tok===tok).map(p=>({x:p.x,y:p.y,domain:p.domain})),
+    backgroundColor:TC[tok]+'cc',borderColor:TC[tok],borderWidth:1.5,
+    pointRadius:8,pointHoverRadius:11,
+  }));
+  datasets.push({
+    label:'extrap = interp (ref.)',
+    data:[{x:0,y:0},{x:100,y:100}],
+    type:'line',borderColor:'rgba(17,24,39,0.25)',borderDash:[5,5],
+    borderWidth:1.5,pointRadius:0,fill:false,showLine:true,
+  });
+  new Chart(document.getElementById('c_scatter'),{
+    type:'scatter',data:{datasets},
+    options:{...BASE,
+      scales:{
+        x:{...BASE.scales.x,min:0,max:108,title:{display:true,text:'Best Interpolation Solved%',color:'#334155',font:{family:'DM Mono',size:10}},ticks:{...BASE.scales.x.ticks,callback:v=>v+'%'}},
+        y:{...BASE.scales.y,title:{display:true,text:'Best Extrapolation Solved%',color:'#334155',font:{family:'DM Mono',size:10}}}
+      },
+      plugins:{...BASE.plugins,tooltip:{...BASE.plugins.tooltip,
+        callbacks:{label:ctx=>ctx.raw.domain?` ${ctx.dataset.label} · ${ctx.raw.domain}  →  interp=${ctx.raw.x?.toFixed(1)}%  extrap=${ctx.raw.y?.toFixed(1)}%`:` ${ctx.dataset.label}`}
+      }}
+    }
+  });
+}
+
+// ─── §4: GAP CHARTS ──────────────────────────────────────────────────────────
+function gapChart(id, tok){
+  const labels = DOMAINS;
+  const bestI = DOMAINS.map(domain=>Math.max(...RAW.filter(r=>r.tok===tok&&r.domain===domain).map(r=>r.interp)));
+  const bestE = DOMAINS.map(domain=>Math.max(...RAW.filter(r=>r.tok===tok&&r.domain===domain).map(r=>r.extrap)));
+
+  new Chart(document.getElementById(id),{
+    type:'bar',
+    data:{labels,datasets:[
+      {label:'Best Interp',data:bestI,backgroundColor:TC[tok]+'44',borderColor:TC[tok],borderWidth:2,borderRadius:2},
+      {label:'Best Extrap',data:bestE,backgroundColor:TC[tok]+'cc',borderColor:TC[tok],borderWidth:2,borderRadius:2},
+    ]},
+    options:{...BASE,
+      plugins:{...BASE.plugins,legend:{...BASE.plugins.legend,labels:{...BASE.plugins.legend.labels,font:{family:'DM Mono',size:9},padding:8}}},
+      scales:{
+        x:{...BASE.scales.x,ticks:{color:'#334155',font:{family:'DM Mono',size:9}}},
+        y:BASE.scales.y
+      }
+    }
+  });
+}
+gapChart('c_gap_wl','WL'); gapChart('c_gap_sp','Shortest Path');
+gapChart('c_gap_bpe','GraphBPE'); gapChart('c_gap_sh','SimHash');
+
+// ─── §5a: MODEL SENSITIVITY BY TOKENIZER ─────────────────────────────────────
+{
+  const datasets = ['LSTM','XGBoost'].map(model=>({
+    label:model,
+    data:TOKS.map(tok=>{
+      const v=RAW.filter(r=>r.tok===tok&&r.model===model).map(r=>r.extrap);
+      return +(v.reduce((a,b)=>a+b,0)/v.length).toFixed(2);
+    }),
+    backgroundColor:MC[model]+'99',borderColor:MC[model],borderWidth:2,borderRadius:3,
+  }));
+  new Chart(document.getElementById('c_model_tok'),{
+    type:'bar',data:{labels:TOKS,datasets},
+    options:{...BASE,plugins:{...BASE.plugins,tooltip:{...BASE.plugins.tooltip,callbacks:{label:ctx=>` ${ctx.dataset.label}: ${ctx.parsed.y.toFixed(2)}% mean extrap`}}}}
+  });
+}
+
+// ─── §5b: MODE SENSITIVITY BY TOKENIZER ──────────────────────────────────────
+{
+  const datasets = ['delta','state'].map(mode=>({
+    label:mode==='delta'?'Δ delta':'S state',
+    data:TOKS.map(tok=>{
+      const v=RAW.filter(r=>r.tok===tok&&r.mode===mode).map(r=>r.extrap);
+      return +(v.reduce((a,b)=>a+b,0)/v.length).toFixed(2);
+    }),
+    backgroundColor:MdC[mode]+'88',borderColor:MdC[mode],borderWidth:2,borderRadius:3,
+  }));
+  new Chart(document.getElementById('c_mode_tok'),{
+    type:'bar',data:{labels:TOKS,datasets},
+    options:{...BASE,plugins:{...BASE.plugins,tooltip:{...BASE.plugins.tooltip,callbacks:{label:ctx=>` ${ctx.dataset.label}: ${ctx.parsed.y.toFixed(2)}% mean extrap`}}}}
+  });
+}
+
+// ─── §5c: PER-TOKENIZER MODEL×MODE ───────────────────────────────────────────
+function mmChart(id,tok){
+  const combos=[
+    {model:'LSTM',   mode:'delta',label:'LSTM+Δ',bg:MC['LSTM']+'88',  bd:MC['LSTM']},
+    {model:'LSTM',   mode:'state',label:'LSTM+S', bg:MC['LSTM']+'44',  bd:MC['LSTM']+'bb'},
+    {model:'XGBoost',mode:'delta',label:'XGB+Δ',  bg:MC['XGBoost']+'88',bd:MC['XGBoost']},
+    {model:'XGBoost',mode:'state',label:'XGB+S',  bg:MC['XGBoost']+'44',bd:MC['XGBoost']+'bb'},
+  ];
+  const datasets=combos.map(c=>({
+    label:c.label,
+    data:DOMAINS.map(domain=>{
+      const r=RAW.find(x=>x.tok===tok&&x.domain===domain&&x.model===c.model&&x.mode===c.mode);
+      return r?r.extrap:0;
+    }),
+    backgroundColor:c.bg,borderColor:c.bd,borderWidth:1.5,borderRadius:2,
+  }));
+  new Chart(document.getElementById(id),{
+    type:'bar',data:{labels:DOMAINS.map(d=>d.slice(0,4)),datasets},
+    options:{...BASE,
+      plugins:{...BASE.plugins,legend:{...BASE.plugins.legend,labels:{...BASE.plugins.legend.labels,font:{family:'DM Mono',size:9},padding:8}}},
+      scales:{x:{...BASE.scales.x,ticks:{color:'#334155',font:{family:'DM Mono',size:9}}},y:BASE.scales.y}
+    }
+  });
+}
+mmChart('c_mm_wl','WL'); mmChart('c_mm_sp','Shortest Path');
+mmChart('c_mm_bpe','GraphBPE'); mmChart('c_mm_sh','SimHash');
+
+// ─── §6: HEATMAP ─────────────────────────────────────────────────────────────
+{
+  function cs(val){
+    if(val===0)  return{bg:'#fee2e2',fg:'#991b1b',bd:'#fca5a5'};
+    if(val<25)   return{bg:'#fef3c7',fg:'#92400e',bd:'#fcd34d'};
+    if(val<60)   return{bg:'#dbeafe',fg:'#1e40af',bd:'#93c5fd'};
+    if(val<90)   return{bg:'#dcfce7',fg:'#166534',bd:'#86efac'};
+    return           {bg:'#bbf7d0',fg:'#14532d',bd:'#4ade80'};
+  }
+
+  const DCFG={
+    'Blocks':   {col:'#f87171',icon:'BLK',sub:'WL only — all others zero'},
+    'Gripper':  {col:'#a78bfa',icon:'GRP',sub:'LSTM-dependent — XGBoost extrap=0 universally'},
+    'Logistics':{col:'#fbbf24',icon:'LOG',sub:'Extrap = 0% for all 16 configs'},
+    'Visitall': {col:'#34d399',icon:'VST',sub:'Most tractable — Shortest Path most consistent'},
+  };
+
+  const root=document.getElementById('heatmap_root');
+  DOMAINS.forEach(domain=>{
+    const dc=DCFG[domain];
+    const domRows=RAW.filter(r=>r.domain===domain);
+    const bestE=Math.max(...domRows.map(r=>r.extrap));
+    const bestI=Math.max(...domRows.map(r=>r.interp));
+
+    const tokSorted=[...TOKS].sort((a,b)=>{
+      const am=Math.max(...domRows.filter(r=>r.tok===a).map(r=>r.extrap));
+      const bm=Math.max(...domRows.filter(r=>r.tok===b).map(r=>r.extrap));
+      return bm-am;
+    });
+
+    const block=document.createElement('div');
+    block.className='hm-block';
+    block.style.borderColor=dc.col+'44';
+
+    const banner=document.createElement('div');
+    banner.className='hm-banner';
+    banner.style.background=dc.col+'0e';
+    banner.style.borderBottomColor=dc.col+'30';
+    banner.innerHTML=`
+      <div class="hm-icon" style="background:${dc.col}1c;color:${dc.col};border:1px solid ${dc.col}40">${dc.icon}</div>
+      <div>
+        <div class="hm-name" style="color:${dc.col}">${domain}</div>
+        <div class="hm-sub">${dc.sub}</div>
+      </div>
+      <div class="hm-stats">
+        <div class="hm-stat">
+          <div class="hm-sv" style="color:${bestE>0?dc.col:'#f87171'}">${bestE>0?bestE.toFixed(1)+'%':'0%'}</div>
+          <div class="hm-sl">Best Extrap</div>
+        </div>
+        <div class="hm-stat">
+          <div class="hm-sv" style="color:${bestI>=90?'#34d399':'#334155'}">${bestI>0?bestI.toFixed(1)+'%':'0%'}</div>
+          <div class="hm-sl">Best Interp</div>
+        </div>
+      </div>`;
+    block.appendChild(banner);
+
+    const wrap=document.createElement('div');
+    wrap.style.overflowX='auto';
+    const table=document.createElement('table');
+    table.className='hm';
+    table.innerHTML=`<thead><tr>
+      <th style="width:26px"></th><th>Tokenizer</th><th>Model</th><th>Mode</th>
+      <th>Interp Solved%</th><th>Extrap Solved%</th>
+    </tr></thead>`;
+    const tbody=document.createElement('tbody');
+    let idx=1;
+
+    tokSorted.forEach((tok,ti)=>{
+      const tokRows=domRows.filter(r=>r.tok===tok).sort((a,b)=>b.extrap-a.extrap||b.interp-a.interp);
+      const tokBest=Math.max(...tokRows.map(r=>r.extrap));
+      const gh=document.createElement('tr');
+      gh.className='tok-hdr'+(ti===0?' first':'');
+      gh.innerHTML=`<td colspan="6" style="background:${TC[tok]}0d">
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <span class="tok-pill" style="background:${TC[tok]}1c;border:1px solid ${TC[tok]}44;color:${TC[tok]}">
+            <span class="d" style="background:${TC[tok]}"></span>${tok}
+          </span>
+          <span style="font-family:'DM Mono',monospace;font-size:9px;color:#334155">
+            best extrap: <span style="color:${tokBest>0?TC[tok]:'#f87171'};font-weight:500">${tokBest>0?tokBest.toFixed(1)+'%':'0%'}</span>
+          </span>
+        </div></td>`;
+      tbody.appendChild(gh);
+
+      tokRows.forEach(r=>{
+        const isBest=r.extrap===tokBest&&tokBest>0;
+        const is=cs(r.interp), es=cs(r.extrap);
+        const modeColor=r.mode==='delta'?'#38bdf8':'#fb923c';
+        const tr=document.createElement('tr');
+        if(isBest) tr.style.background=TC[tok]+'09';
+        tr.innerHTML=`
+          <td style="font-size:9px;color:#334155;padding-left:${isBest?'0':'13px'};${isBest?`border-left:2.5px solid ${TC[tok]}`:''}">${isBest?'★':idx}</td>
+          <td style="color:${TC[tok]};opacity:0.55;font-size:10px">${tok}</td>
+          <td style="color:${MC[r.model]};font-size:10px">${r.model}</td>
+          <td><span style="color:${modeColor};font-size:10px">${r.mode==='delta'?'Δ delta':'S state'}</span></td>
+          <td><span class="hval" style="background:${is.bg};color:${is.fg};border-color:${is.bd}">${r.interp.toFixed(1)}%</span></td>
+          <td><span class="hval" style="background:${es.bg};color:${es.fg};border-color:${es.bd}">${r.extrap.toFixed(1)}%</span>${isBest&&tokBest>0?`<span style="font-family:'DM Mono',monospace;font-size:9px;margin-left:7px;color:${TC[tok]};opacity:0.75">← best</span>`:''}</td>`;
+        tbody.appendChild(tr);
+        idx++;
+      });
+    });
+
+    table.appendChild(tbody); wrap.appendChild(table); block.appendChild(wrap);
+    root.appendChild(block);
+  });
+}
+</script>
+</body>
+</html>
