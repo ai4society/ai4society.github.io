@@ -176,7 +176,7 @@
   }
 
   .updates-navigation p::before {
-    content: "Updates archive: ";
+    content: "Learn more: ";
     color: var(--primary-color);
     font-weight: 700;
   }
@@ -653,3 +653,4 @@
   margin-top: 0.5rem;
   text-align: center;
 }
+
