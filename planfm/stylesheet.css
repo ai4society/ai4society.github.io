@@ -157,6 +157,41 @@
     margin-bottom: 0.5rem;
     font-size: 0.95rem;
   }
+
+  .updates-navigation {
+    margin: 0 0 2.5rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid #bdd3ee;
+    border-left: 6px solid #0a66cc;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #f4f8ff 0%, #ffffff 100%);
+    box-shadow: 0 6px 18px rgba(0, 64, 128, 0.08);
+  }
+
+  .updates-navigation p {
+    margin: 0;
+    color: #1e3a5c;
+    font-size: 0.97rem;
+    line-height: 1.7;
+  }
+
+  .updates-navigation p::before {
+    content: "Updates archive: ";
+    color: var(--primary-color);
+    font-weight: 700;
+  }
+
+  .updates-navigation a {
+    color: #0056b3;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
+  }
+
+  .updates-navigation a:hover {
+    color: #003d80;
+  }
   
   /* Project Overview Section */
   .project-overview {
