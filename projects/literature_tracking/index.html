@@ -1,0 +1,724 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>Literature Tracking Tool</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
+  <style>
+    .project-kicker {
+      color: #5f6b7a;
+      line-height: 1.6;
+      margin: 0.2rem 0 1rem;
+    }
+
+    .idea-box,
+    .quick-start {
+      border-radius: 6px;
+      font-family: Arial, sans-serif;
+      margin-bottom: 20px;
+      padding: 15px;
+    }
+
+    .idea-box {
+      background-color: #f8f4ff;
+      border: 2px solid hsl(265, 63%, 55%);
+      box-shadow: 2px 2px 8px rgba(116, 76, 196, 0.16);
+    }
+
+    .idea-box h4,
+    .quick-start h4 {
+      margin: 0 0 8px;
+    }
+
+    .idea-box h4 {
+      color: hsl(265, 63%, 38%);
+    }
+
+    .quick-start {
+      background-color: #fbfcfe;
+      border: 3px solid #111111;
+    }
+
+    .quick-start ol {
+      color: #333333;
+      line-height: 1.6;
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .quick-start li {
+      margin-bottom: 9px;
+    }
+
+    .quick-start li:last-child {
+      margin-bottom: 0;
+    }
+
+    .quick-start-item {
+      align-items: center;
+      display: flex;
+      gap: 12px;
+      justify-content: space-between;
+    }
+
+    .quick-start-text {
+      flex: 1;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+      margin-top: 0;
+    }
+
+    .resource-button {
+      border-radius: 5px;
+      display: inline-block;
+      font-weight: bold;
+      padding: 6px 10px;
+      text-decoration: none;
+    }
+
+    .resource-button.primary {
+      background-color: #1772d0;
+      color: #ffffff !important;
+    }
+
+    .resource-button.secondary {
+      background-color: #f3f4f6;
+      border: 1px solid #d1d5db;
+      color: #16324f !important;
+    }
+
+    .project-section {
+      clear: both;
+      margin: 1.45rem 0 0;
+    }
+
+    .project-section h4 {
+      color: #16324f;
+      font-size: 16px;
+      margin: 0 0 8px;
+    }
+
+    .project-section p,
+    .project-section li {
+      line-height: 1.6;
+    }
+
+    .feature-list,
+    .drift-list,
+    .publication-list {
+      margin-top: 8px;
+      padding-left: 20px;
+    }
+
+    .feature-list li,
+    .drift-list li,
+    .publication-list li {
+      margin-bottom: 10px;
+    }
+
+    .tool-preview {
+      align-items: flex-start;
+      display: flex;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .tool-preview-image {
+      flex: 0 0 180px;
+    }
+
+    .tool-preview img {
+      max-width: 180px;
+      width: 100%;
+    }
+
+    .link-list {
+      margin-top: 4px;
+    }
+
+    .drift-wrapper {
+      clear: both;
+      margin: 1.6rem 0 0;
+      padding: 1.25rem;
+      border-radius: 8px;
+      border: 1px solid rgba(22, 50, 79, 0.1);
+      background: #f8fafc;
+      box-shadow: 0 0.75rem 1.8rem rgba(22, 50, 79, 0.08);
+    }
+
+    .taxonomy-drift {
+      border-radius: 8px;
+      border: 1px solid rgba(22, 50, 79, 0.09);
+      background: rgba(255, 255, 255, 0.92);
+      display: grid;
+      gap: 0.8rem;
+      padding: 1rem;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: drift-panel-in 680ms cubic-bezier(0.22, 1, 0.36, 1) 0.08s forwards;
+    }
+
+    .drift-timeline {
+      display: grid;
+      gap: 0.72rem;
+    }
+
+    .drift-timeline-track {
+      position: relative;
+      height: 2.7rem;
+      border-radius: 999px;
+      overflow: hidden;
+      background: linear-gradient(90deg, rgba(15, 118, 110, 0.08), rgba(22, 50, 79, 0.06), rgba(139, 108, 26, 0.08));
+      border: 1px solid rgba(22, 50, 79, 0.08);
+    }
+
+    .drift-timeline-line {
+      position: absolute;
+      inset: 50% 1rem auto;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(22, 50, 79, 0.18), rgba(116, 76, 196, 0.28), rgba(22, 50, 79, 0.18));
+      transform: translateY(-50%);
+    }
+
+    .drift-timeline-line::before,
+    .drift-timeline-line::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 0.46rem;
+      height: 0.46rem;
+      border-radius: 50%;
+      background: rgba(22, 50, 79, 0.32);
+      transform: translateY(-50%);
+    }
+
+    .drift-timeline-line::before {
+      left: 0;
+    }
+
+    .drift-timeline-line::after {
+      right: 0;
+    }
+
+    .drift-timeline-pulse {
+      position: absolute;
+      top: 50%;
+      left: calc(40% - 0.5rem);
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      transform: translateY(-50%);
+      background: linear-gradient(135deg, hsl(265, 63%, 55%), #16324f);
+      box-shadow:
+        0 0 0 0.45rem rgba(116, 76, 196, 0.08),
+        0 0.45rem 1.1rem rgba(22, 50, 79, 0.16);
+      animation: timeline-pulse 5.4s ease-in-out 0.8s infinite;
+    }
+
+    .drift-year-row {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.5rem;
+    }
+
+    .drift-year {
+      position: relative;
+      display: grid;
+      justify-items: center;
+      padding-top: 0.7rem;
+      text-align: center;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(93, 106, 121, 0.88);
+    }
+
+    .drift-year::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 0.46rem;
+      height: 0.46rem;
+      border-radius: 50%;
+      background: rgba(22, 50, 79, 0.24);
+    }
+
+    .drift-year-active {
+      color: #1f2937;
+    }
+
+    .drift-year-active::before {
+      background: linear-gradient(135deg, hsl(265, 63%, 55%), #16324f);
+      box-shadow: 0 0 0 0.28rem rgba(116, 76, 196, 0.08);
+    }
+
+    .drift-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.72rem;
+    }
+
+    .drift-card {
+      position: relative;
+      min-height: 6.2rem;
+      padding: 0.88rem 0.92rem 0.94rem;
+      border-radius: 8px;
+      border: 1px solid rgba(22, 50, 79, 0.1);
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 0.5rem 1.1rem rgba(22, 50, 79, 0.06);
+      opacity: 0;
+      transform: translateY(10px);
+      animation: drift-card-in 720ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .drift-card:nth-child(1) {
+      animation-delay: 0.38s;
+    }
+
+    .drift-card:nth-child(2) {
+      animation-delay: 0.46s;
+    }
+
+    .drift-card:nth-child(3) {
+      animation-delay: 0.54s;
+    }
+
+    .drift-card:nth-child(4) {
+      animation-delay: 0.62s;
+    }
+
+    .drift-card:nth-child(5) {
+      animation-delay: 0.7s;
+    }
+
+    .drift-card:nth-child(6) {
+      animation-delay: 0.78s;
+    }
+
+    .drift-card:nth-child(7) {
+      animation-delay: 0.86s;
+    }
+
+    .drift-card:nth-child(8) {
+      animation-delay: 0.94s;
+    }
+
+    .drift-card:nth-child(9) {
+      animation-delay: 1.02s;
+    }
+
+    .drift-card:nth-child(10) {
+      animation-delay: 1.1s;
+    }
+
+    .drift-card::after {
+      content: "";
+      position: absolute;
+      left: 0.92rem;
+      right: 0.92rem;
+      bottom: 0.72rem;
+      height: 0.22rem;
+      border-radius: 999px;
+      transform: scaleX(0);
+      transform-origin: left;
+      animation: drift-bar-in 880ms cubic-bezier(0.2, 0.8, 0.2, 1) 1.2s forwards;
+    }
+
+    .drift-card strong {
+      display: block;
+      margin-top: 0.45rem;
+      font-size: 0.86rem;
+      line-height: 1.25;
+      color: #1f2937;
+    }
+
+    .drift-card p {
+      margin: 0.24rem 0 0;
+      color: #59677a;
+      font-size: 0.79rem;
+      line-height: 1.5;
+    }
+
+    .drift-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 1.55rem;
+      padding: 0.18rem 0.52rem;
+      border-radius: 999px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .drift-card-down .drift-badge {
+      background: rgba(193, 92, 63, 0.14);
+      color: #9d4a32;
+    }
+
+    .drift-card-up .drift-badge {
+      background: rgba(15, 118, 110, 0.14);
+      color: #0f5b55;
+    }
+
+    .drift-card-stable .drift-badge {
+      background: rgba(22, 50, 79, 0.1);
+      color: #16324f;
+    }
+
+    .drift-card-new .drift-badge {
+      background: rgba(139, 108, 26, 0.14);
+      color: #7b6218;
+    }
+
+    .drift-card-down::after {
+      background: linear-gradient(90deg, rgba(193, 92, 63, 0.92), rgba(193, 92, 63, 0.24));
+    }
+
+    .drift-card-up::after {
+      background: linear-gradient(90deg, rgba(15, 118, 110, 0.92), rgba(15, 118, 110, 0.24));
+    }
+
+    .drift-card-stable::after {
+      background: linear-gradient(90deg, rgba(22, 50, 79, 0.82), rgba(22, 50, 79, 0.22));
+    }
+
+    .drift-card-new::after {
+      background: linear-gradient(90deg, rgba(139, 108, 26, 0.92), rgba(139, 108, 26, 0.24));
+    }
+
+    @keyframes drift-panel-in {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @keyframes drift-card-in {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @keyframes drift-bar-in {
+      from {
+        transform: scaleX(0);
+      }
+
+      to {
+        transform: scaleX(1);
+      }
+    }
+
+    @keyframes timeline-pulse {
+      0% {
+        left: calc(0% + 1rem);
+      }
+
+      38% {
+        left: calc(50% - 0.5rem);
+      }
+
+      72% {
+        left: calc(75% - 0.5rem);
+      }
+
+      100% {
+        left: calc(100% - 2rem);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .quick-start-item {
+        align-items: flex-start;
+        display: block;
+      }
+
+      .button-row {
+        justify-content: flex-start;
+        margin-top: 8px;
+      }
+
+      .tool-preview {
+        display: block;
+      }
+
+      .tool-preview-image {
+        display: block;
+      }
+
+      .tool-preview img {
+        margin-top: 10px;
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .drift-wrapper {
+        padding: 0.9rem;
+      }
+
+      .taxonomy-drift {
+        padding: 0.85rem;
+      }
+
+      .drift-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .drift-year-row {
+        gap: 0.25rem;
+      }
+
+      .drift-year {
+        font-size: 0.68rem;
+        letter-spacing: 0.03em;
+      }
+    }
+  </style>
+</head>
+
+<body class="container">
+
+  <table style="width:80%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+    <tbody>
+      <tr style="padding:0px">
+        <td style="padding-left:2.5%;padding-top:3%;width:63%;vertical-align:middle">
+          <p style="text-align:left">
+            <a href='../../index.html'>Home</a> &nbsp;/&nbsp;
+            <a href='../index.html'>Projects</a> &nbsp;/&nbsp;
+          </p>
+        </td>
+      </tr>
+
+      <tr style="padding:0px">
+        <td style="padding-left:2.5%;width:63%;vertical-align:middle">
+          <h2 style="display:flex;align-items:center;">
+            <span style="background-color:hsl(265, 63%, 55%);height:20px;width:20px;margin-right:10px;border:1px solid black;"></span>
+            Literature Tracking Tool
+          </h2>
+
+          <p class="project-kicker">
+            <b>Team:</b> Bernardo Denkvitts, Bharath Muppasani, Nitin Gupta, Vishal Pallagani, Biplav Srivastava
+          </p>
+
+          <div class="idea-box">
+            <h4>Key Idea</h4>
+            <p style="margin:0; font-size:14.5px; line-height:1.6; color:#333333;">
+              This project studies how scientific fields evolve and builds tools that help researchers move from keyword search to structured exploration. Given a query, the system retrieves recent papers, groups them into coherent themes, assigns representative keywords, and visualizes how those themes change over time.
+            </p>
+          </div>
+
+          <div class="quick-start">
+            <h4>Quick Start</h4>
+            <ol>
+              <li>
+                <div class="quick-start-item">
+                  <span class="quick-start-text">Try the current Streamlit prototype for query-based paper retrieval, clustering, and temporal exploration.</span>
+                  <div class="button-row">
+                    <a class="resource-button primary" href="https://ai4society-paper-searcher.streamlit.app/" target="_blank">Open Tool</a>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="quick-start-item">
+                  <span class="quick-start-text">Share feedback through the active survey as we evaluate usefulness, interpretability, and interaction flow.</span>
+                  <div class="button-row">
+                    <a class="resource-button secondary" href="https://forms.gle/RusAVnwQZjuXgmz76" target="_blank">Feedback Survey</a>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="quick-start-item">
+                  <span class="quick-start-text">Explore the prior LLM Planning Visualization Tool that motivated this broader literature evolution workflow.</span>
+                  <div class="button-row">
+                    <a class="resource-button secondary" href="https://ai4society.github.io/LLM-Planning-Viz/index.html" target="_blank">LLM Planning Viz</a>
+                  </div>
+                </div>
+              </li>
+            </ol>
+          </div>
+
+          <div class="project-section">
+            <h4>The Literature Tracking Tool</h4>
+            <p style="margin-top:0;">
+              The current tool generalizes lessons from our ICAPS 2024 and ICAPS 2025 LLMs-in-planning surveys into a domain-flexible literature exploration system. <b>A public prototype and feedback survey are available now (see above).</b>
+            </p>
+            <p>
+              The tool has the following features that support literature evolution understanding and exploration:
+            </p>
+            <ul class="feature-list">
+              <li><b>Dynamic retrieval:</b> users can search arXiv using single-word and multi-word keywords, with filters such as subject category, date range, sorting criteria, and result limits.</li>
+              <li><b>Theme discovery:</b> titles and abstracts are embedded, reduced in dimension, and clustered so users can inspect semantically related groups instead of a flat result list.</li>
+              <li><b>Cluster labels:</b> cluster-level keywords summarize each theme using distinctive terms, making the retrieved papers easier to scan and compare.</li>
+              <li><b>Temporal views:</b> trend visualizations help users understand how themes emerge, grow, decline, or split as a research area changes over time.</li>
+            </ul>
+          </div>
+
+          <div class="project-section">
+            <h4>Broader Line of Work</h4>
+            <p style="margin-top:0;">
+              This tool is connected by a sequence of literature understanding projects: first, a curated taxonomy of LLMs in automated planning and scheduling; second, semi-automated updates that detect category drift; and now, a more general tool for exploring literature evolution in any queried domain.
+            </p>
+            <p>
+              <b>ICAPS 2024: Manual taxonomy.</b> A survey of 126 papers on LLMs in Automated Planning and Scheduling organized the field into eight categories, including plan generation, language translation, model construction, tool integration, and interactive planning.
+              <span class="link-list">
+                <a href="https://arxiv.org/abs/2401.02500" target="_blank">[2024 Paper]</a>
+              </span>
+            </p>
+            <p>
+              <b>ICAPS 2025: Evolving categories.</b> A semi-automated analysis added 47 papers, reported drift across existing categories, and surfaced emerging categories such as goal decomposition and replanning.
+              <span class="link-list">
+                <a href="../../publications/papers_local/litevol.pdf" target="_blank">[2025 Paper]</a>
+              </span>
+            </p>
+
+            <div class="tool-preview">
+              <div>
+                <p style="margin:0;">
+                  <b>Interactive visualization.</b> The earlier visualization tool remains a concrete example of the project goal: making research categories browsable, updateable, and useful for researchers who need to understand a fast-moving field.
+                </p>
+                <p style="margin:4px 0 0;">
+                  <a href="https://ai4society.github.io/LLM-Planning-Viz/index.html" target="_blank">[Explore Prior Tool]</a>
+                </p>
+              </div>
+              <a class="tool-preview-image" href="https://ai4society.github.io/LLM-Planning-Viz/index.html" target="_blank">
+                <img src="../../images/llm-planning-viz-thumbnail.png" alt="LLM Planning Visualization Tool thumbnail">
+              </a>
+            </div>
+          </div>
+
+          <div class="project-section">
+            <h4>Representative Publications</h4>
+            <ul class="publication-list">
+              <li>
+                <strong>On the Prospects of Incorporating Large Language Models (LLMs) in Automated Planning and Scheduling (APS)</strong><br>
+                <i>Vishal Pallagani, Bharath Chandra Muppasani, Kaushik Roy, Francesco Fabiano, Andrea Loreggia, Keerthiram Murugesan, Biplav Srivastava, Francesca Rossi, Lior Horesh, Amit Sheth. ICAPS 2024.</i><br>
+                <a href="https://arxiv.org/abs/2401.02500" target="_blank">[Paper]</a>
+                <a href="https://ai4society.github.io/LLM-Planning-Viz/index.html" target="_blank">[Tool]</a>
+              </li>
+              <li>
+                <strong>Revisiting LLMs in Planning from Literature Review: a Semi-Automated Analysis Approach and Evolving Categories Representing Shifting Perspectives</strong><br>
+                <i>Vishal Pallagani, Nitin Gupta, Bharath Chandra Muppasani, Biplav Srivastava. ICAPS 2025.</i><br>
+                <a href="../../publications/papers_local/litevol.pdf" target="_blank">[Paper]</a>
+                <a href="https://ai4society.github.io/LLM-Planning-Viz/index.html" target="_blank">[Tool]</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="project-section">
+            <h4>Category Drift</h4>
+            <p style="margin-top:0;">
+              The ICAPS 2025 update showed how a taxonomy changes as the field matures: some categories shrink in relative share, others grow, and new categories appear as researchers ask more specific questions.
+            </p>
+          </div>
+
+          <div class="drift-wrapper">
+            <div class="taxonomy-drift">
+              <div class="drift-timeline">
+                <div class="drift-timeline-track" aria-hidden="true">
+                  <span class="drift-timeline-line"></span>
+                  <span class="drift-timeline-pulse"></span>
+                </div>
+                <div class="drift-year-row">
+                  <span class="drift-year">2020</span>
+                  <span class="drift-year">2021</span>
+                  <span class="drift-year drift-year-active">2022</span>
+                  <span class="drift-year drift-year-active">2023</span>
+                  <span class="drift-year drift-year-active">2024</span>
+                </div>
+              </div>
+
+              <div class="drift-grid">
+                <div class="drift-card drift-card-down">
+                  <span class="drift-badge">Down</span>
+                  <strong>Plan generation</strong>
+                  <p>Still dominant in D2, but its relative share decreases.</p>
+                </div>
+
+                <div class="drift-card drift-card-down">
+                  <span class="drift-badge">Down</span>
+                  <strong>Language translation</strong>
+                  <p>Declines as translation is treated as necessary but insufficient for planning.</p>
+                </div>
+
+                <div class="drift-card drift-card-down">
+                  <span class="drift-badge">Down</span>
+                  <strong>Interactive planning</strong>
+                  <p>Decreases as end-to-end interactive use remains difficult to scale reliably.</p>
+                </div>
+
+                <div class="drift-card drift-card-up">
+                  <span class="drift-badge">Up</span>
+                  <strong>Model construction</strong>
+                  <p>Grows and becomes the second-highest category in D2.</p>
+                </div>
+
+                <div class="drift-card drift-card-stable">
+                  <span class="drift-badge">Stable</span>
+                  <strong>Heuristics optimization</strong>
+                  <p>Maintains a stable presence across the two datasets.</p>
+                </div>
+
+                <div class="drift-card drift-card-up">
+                  <span class="drift-badge">Up</span>
+                  <strong>Tool integration</strong>
+                  <p>Increases and reaches the third-highest share in D2.</p>
+                </div>
+
+                <div class="drift-card drift-card-down">
+                  <span class="drift-badge">Down</span>
+                  <strong>Brain-inspired planning</strong>
+                  <p>Declines as work shifts toward concrete neuro-symbolic architectures.</p>
+                </div>
+
+                <div class="drift-card drift-card-down">
+                  <span class="drift-badge">Down</span>
+                  <strong>Multi-agent planning</strong>
+                  <p>Decreases as coordination reliability remains a major challenge.</p>
+                </div>
+
+                <div class="drift-card drift-card-new">
+                  <span class="drift-badge">New</span>
+                  <strong>Goal decomposition</strong>
+                  <p>Emerges in D2 with 4 papers focused on subgoal structuring.</p>
+                </div>
+
+                <div class="drift-card drift-card-new">
+                  <span class="drift-badge">New</span>
+                  <strong>Replanning</strong>
+                  <p>Emerges in D2 with 1 paper centered on plan adaptation after failure.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+
+</html>
