@@ -11,6 +11,60 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
 
   <link rel="stylesheet" type="text/css" href="../stylesheet.css" />
+  <style>
+    .bibtex-link {
+      display: inline-block;
+    }
+
+    .bibtex-link-copied {
+      animation: bibtex-link-pulse 0.9s ease;
+    }
+
+    .bibtex-copy-toast {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 9999;
+      padding: 12px 16px;
+      border-radius: 8px;
+      background: #12365f;
+      color: #fff;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+      opacity: 0;
+      transform: translateY(12px);
+      pointer-events: none;
+      transition: opacity 0.22s ease, transform 0.22s ease;
+    }
+
+    .bibtex-copy-toast.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes bibtex-link-pulse {
+      0% {
+        background-color: rgba(18, 54, 95, 0);
+      }
+
+      35% {
+        background-color: rgba(18, 54, 95, 0.16);
+      }
+
+      100% {
+        background-color: rgba(18, 54, 95, 0);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .bibtex-copy-toast {
+        right: 16px;
+        bottom: 16px;
+        left: 16px;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 
 <body class="container">
@@ -112,7 +166,7 @@
           Nitin Gupta, Vishal Pallagani, Alex John Aydin, Biplav Srivastava,
           <br />
           <a href="https://arxiv.org/abs/2602.23148" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/on-sample-efficient-generalized-planning-via-learned-transition-models.bib" target="_blank" data-bibtex="@misc{gupta2026sampleefficientgeneralizedplanninglearned,&#10;      title={On Sample-Efficient Generalized Planning via Learned Transition Models}, &#10;      author={Nitin Gupta and Vishal Pallagani and John A. Aydin and Biplav Srivastava},&#10;      year={2026},&#10;      eprint={2602.23148},&#10;      archivePrefix={arXiv},&#10;      primaryClass={cs.AI},&#10;      url={https://arxiv.org/abs/2602.23148}, &#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/on-sample-efficient-generalized-planning-via-learned-transition-models.bib" target="_blank" data-bibtex="@misc{gupta2026sampleefficientgeneralizedplanninglearned,&#10;      title={On Sample-Efficient Generalized Planning via Learned Transition Models}, &#10;      author={Nitin Gupta and Vishal Pallagani and John A. Aydin and Biplav Srivastava},&#10;      year={2026},&#10;      eprint={2602.23148},&#10;      archivePrefix={arXiv},&#10;      primaryClass={cs.AI},&#10;      url={https://arxiv.org/abs/2602.23148}, &#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <a href="https://github.com/ai4society/state-centric-gen-planning" target="_blank">[Github]</a>
           <span class="tag tag-type">Conference</span>
           <span class="tag tag-method">Automated Planning</span>
@@ -185,7 +239,7 @@
               Nitin Gupta, Pallav Koppisetti, Kausik Lakkaraju, Biplav Srivastava
               <br />
               <a href="https://arxiv.org/abs/2508.16753" target="_blank">[Paper]</a>
-              <a class="bibtex-link" href="bib/gaico-a-deployed-and-extensible-framework-for-evaluating-diverse-and-multimodal-generative-a.bib" target="_blank" data-bibtex="@misc{gupta2026gaicodeployedextensibleframework,&#10;      title={GAICo: A Deployed and Extensible Framework for Evaluating Diverse and Multimodal Generative AI Outputs}, &#10;      author={Nitin Gupta and Pallav Koppisetti and Kausik Lakkaraju and Biplav Srivastava},&#10;      year={2026},&#10;      eprint={2508.16753},&#10;      archivePrefix={arXiv},&#10;      primaryClass={cs.CL},&#10;      doi={https://doi.org/10.1609/aaai.v40i47.41496},&#10;      url={https://arxiv.org/abs/2508.16753}, &#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+              <a class="bibtex-link" href="bib/gaico-a-deployed-and-extensible-framework-for-evaluating-diverse-and-multimodal-generative-a.bib" target="_blank" data-bibtex="@misc{gupta2026gaicodeployedextensibleframework,&#10;      title={GAICo: A Deployed and Extensible Framework for Evaluating Diverse and Multimodal Generative AI Outputs}, &#10;      author={Nitin Gupta and Pallav Koppisetti and Kausik Lakkaraju and Biplav Srivastava},&#10;      year={2026},&#10;      eprint={2508.16753},&#10;      archivePrefix={arXiv},&#10;      primaryClass={cs.CL},&#10;      doi={https://doi.org/10.1609/aaai.v40i47.41496},&#10;      url={https://arxiv.org/abs/2508.16753}, &#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
               <span class="tag tag-type">Conference</span>
               <span class="tag tag-method">Trust Rating</span>
               <br />
@@ -196,7 +250,7 @@
               Pallav Koppisetti, Nitin Gupta, Kausik Lakkaraju, Biplav Srivastava
               <br />
               <a href="papers_local/GAICO-Demo-AAAI2026.pdf" target="_blank">[Paper]</a>
-              <a class="bibtex-link" href="bib/gaico-demonstrating-a-unified-framework-for-multi-modal-genai-evaluation.bib" target="_blank" data-bibtex="@article{Koppisetti_2026, title={GAICo: Demonstrating a Unified Framework for Multi-Modal GenAI Evaluation}, volume={40}, ISSN={2159-5399}, url={http://dx.doi.org/10.1609/aaai.v40i48.42360}, DOI={10.1609/aaai.v40i48.42360}, number={48}, journal={Proceedings of the AAAI Conference on Artificial Intelligence}, publisher={Association for the Advancement of Artificial Intelligence (AAAI)}, author={Koppisetti, Pallav and Gupta, Nitin and Lakkaraju, Kausik and Srivastava, Biplav}, year={2026}, month=Mar, pages={41622–41624} }&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+              <a class="bibtex-link" href="bib/gaico-demonstrating-a-unified-framework-for-multi-modal-genai-evaluation.bib" target="_blank" data-bibtex="@article{Koppisetti_2026, title={GAICo: Demonstrating a Unified Framework for Multi-Modal GenAI Evaluation}, volume={40}, ISSN={2159-5399}, url={http://dx.doi.org/10.1609/aaai.v40i48.42360}, DOI={10.1609/aaai.v40i48.42360}, number={48}, journal={Proceedings of the AAAI Conference on Artificial Intelligence}, publisher={Association for the Advancement of Artificial Intelligence (AAAI)}, author={Koppisetti, Pallav and Gupta, Nitin and Lakkaraju, Kausik and Srivastava, Biplav}, year={2026}, month=Mar, pages={41622–41624} }&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
               <a href="https://drive.google.com/file/d/1m93agi6H4-HDpIvZCiYOOw6RpYEIQbvD/view"
                 target="_blank">[Video]</a>
               <a href="posters/poster_GAICo.png" target="_blank">[Poster]</a>
@@ -221,7 +275,7 @@
           Riju Marwah, Vishal Pallagani, Ritvik Garimella, Amit Sheth
           <br />
           <a href="./papers_local/chatsparent_aaai_demo.pdf" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/chatsparent-an-interactive-system-for-detecting-and-mitigating-cognitive-fatigue-in-llms.bib" target="_blank" data-bibtex="@article{Marwah_2026, title={Chatsparent: An Interactive System for Detecting and Mitigating Cognitive Fatigue in LLMs}, volume={40}, ISSN={2159-5399}, url={http://dx.doi.org/10.1609/aaai.v40i48.42365}, DOI={10.1609/aaai.v40i48.42365}, number={48}, journal={Proceedings of the AAAI Conference on Artificial Intelligence}, publisher={Association for the Advancement of Artificial Intelligence (AAAI)}, author={Marwah, Riju and Pallagani, Vishal and Garimella, Ritvik and Sheth, Amit}, year={2026}, month=Mar, pages={41637–41639} }&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/chatsparent-an-interactive-system-for-detecting-and-mitigating-cognitive-fatigue-in-llms.bib" target="_blank" data-bibtex="@article{Marwah_2026, title={Chatsparent: An Interactive System for Detecting and Mitigating Cognitive Fatigue in LLMs}, volume={40}, ISSN={2159-5399}, url={http://dx.doi.org/10.1609/aaai.v40i48.42365}, DOI={10.1609/aaai.v40i48.42365}, number={48}, journal={Proceedings of the AAAI Conference on Artificial Intelligence}, publisher={Association for the Advancement of Artificial Intelligence (AAAI)}, author={Marwah, Riju and Pallagani, Vishal and Garimella, Ritvik and Sheth, Amit}, year={2026}, month=Mar, pages={41637–41639} }&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <a href="https://www.youtube.com/watch?v=ktqkZyYWDDE" target="_blank">[Video]</a>
           <span class="tag tag-type">Demo</span>
           <br />
@@ -236,7 +290,7 @@
               Bharath Muppasani, Ritirupa Dey, Biplav Srivastava, Vignesh Narayanan
               <br />
               <a href="./papers_local/AAAI_26_Demo_MAPF_Ontology.pdf" target="_blank">[Paper]</a>
-              <a class="bibtex-link" href="bib/omega-an-ontology-driven-tool-for-explaining-multi-agent-path-finding.bib" target="_blank" data-bibtex="@article{Muppasani_2026, title={OMEGA: An Ontology-Driven Tool for Explaining Multi-Agent Path Finding}, volume={40}, ISSN={2159-5399}, url={http://dx.doi.org/10.1609/aaai.v40i48.42367}, DOI={10.1609/aaai.v40i48.42367}, number={48}, journal={Proceedings of the AAAI Conference on Artificial Intelligence}, publisher={Association for the Advancement of Artificial Intelligence (AAAI)}, author={Muppasani, Bharath and Dey, Ritirupa and Srivastava, Biplav and Narayanan, Vignesh}, year={2026}, month=Mar, pages={41643–41645} }&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+              <a class="bibtex-link" href="bib/omega-an-ontology-driven-tool-for-explaining-multi-agent-path-finding.bib" target="_blank" data-bibtex="@article{Muppasani_2026, title={OMEGA: An Ontology-Driven Tool for Explaining Multi-Agent Path Finding}, volume={40}, ISSN={2159-5399}, url={http://dx.doi.org/10.1609/aaai.v40i48.42367}, DOI={10.1609/aaai.v40i48.42367}, number={48}, journal={Proceedings of the AAAI Conference on Artificial Intelligence}, publisher={Association for the Advancement of Artificial Intelligence (AAAI)}, author={Muppasani, Bharath and Dey, Ritirupa and Srivastava, Biplav and Narayanan, Vignesh}, year={2026}, month=Mar, pages={41643–41645} }&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
               <a href="https://drive.google.com/file/d/1FJ-Qm154FZXwJw94spUKh3PO3YzoqkcB/view"
                 target="_blank">[Video]</a>
               <a href="../projects/ontology/files/omega_poster_AAAI-2026.pdf" target="_blank">[Poster]</a>
@@ -270,7 +324,7 @@
           Michael Widener, Kausik Lakkaraju, John Aydin, Biplav Srivastava
           <br />
           <a href="https://arxiv.org/abs/2508.20437" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/on-identifying-why-and-when-foundation-models-perform-well-on-time-series-forecasting-using-.bib" target="_blank" data-bibtex="@misc{widener2025identifyingfoundationmodelsperform,&#10;      title={On Identifying Why and When Foundation Models Perform Well on Time-Series Forecasting Using Automated Explanations and Rating}, &#10;      author={Michael Widener and Kausik Lakkaraju and John Aydin and Biplav Srivastava},&#10;      year={2025},&#10;      eprint={2508.20437},&#10;      archivePrefix={arXiv},&#10;      primaryClass={cs.LG},&#10;      url={https://arxiv.org/abs/2508.20437}, &#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/on-identifying-why-and-when-foundation-models-perform-well-on-time-series-forecasting-using-.bib" target="_blank" data-bibtex="@misc{widener2025identifyingfoundationmodelsperform,&#10;      title={On Identifying Why and When Foundation Models Perform Well on Time-Series Forecasting Using Automated Explanations and Rating}, &#10;      author={Michael Widener and Kausik Lakkaraju and John Aydin and Biplav Srivastava},&#10;      year={2025},&#10;      eprint={2508.20437},&#10;      archivePrefix={arXiv},&#10;      primaryClass={cs.LG},&#10;      url={https://arxiv.org/abs/2508.20437}, &#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <span class="tag tag-type">Conference</span>
           <span class="tag tag-method">Trust Rating</span>
           <br />
@@ -284,7 +338,7 @@
           Vishal Pallagani, Nitin Gupta, Bharath Chandra Muppasani, Biplav Srivastava,
           <br />
           <a href="papers_local/litevol.pdf" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/revisiting-llms-in-planning-from-literature-review-a-semi-automated-analysis-approach-and-ev.bib" target="_blank" data-bibtex="@article{pallagani2025revisiting,&#10;  title={Revisiting LLMs in Planning from Literature Review: a Semi-Automated Analysis Approach and Evolving Categories Representing Shifting Perspectives},&#10;  author={Pallagani, Vishal and Gupta, Nitin and Muppasani, Bharath Chandra and Srivastava, Biplav},&#10;  journal={ICAPS 2025},&#10;  year={2025}&#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/revisiting-llms-in-planning-from-literature-review-a-semi-automated-analysis-approach-and-ev.bib" target="_blank" data-bibtex="@article{pallagani2025revisiting,&#10;  title={Revisiting LLMs in Planning from Literature Review: a Semi-Automated Analysis Approach and Evolving Categories Representing Shifting Perspectives},&#10;  author={Pallagani, Vishal and Gupta, Nitin and Muppasani, Bharath Chandra and Srivastava, Biplav},&#10;  journal={ICAPS 2025},&#10;  year={2025}&#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <a href="https://ai4society.github.io/LLM-Planning-Viz/index.html#" target="_blank">[Visualization Tool]</a>
           <a href="https://www.linkedin.com/posts/niting9_icaps2025-ai-machinelearning-activity-7400896428866293760-s9kc?utm_source=share&utm_medium=member_desktop&rcm=ACoAADuM5WkB8J5zV_bVoUUh3JzTkpJL1L9DPVs"
             target="_blank">[LinkedIn Post]</a>
@@ -326,7 +380,7 @@
           Vivek Kumar, Himanshu Sahu, Hari Prabhat Gupta, Biplav Srivastava
           <br />
           <a href="https://arxiv.org/abs/2508.18283" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/technology-assisted-personalized-yoga-for-better-health-challenges-and-outlook.bib" target="_blank" data-bibtex="@misc{kumar2025technologyassistedpersonalizedyogabetter,&#10;      title={Technology-assisted Personalized Yoga for Better Health -- Challenges and Outlook}, &#10;      author={Vivek Kumar and Himanshu Sahu and Hari Prabhat Gupta and Biplav Srivastava},&#10;      year={2025},&#10;      eprint={2508.18283},&#10;      archivePrefix={arXiv},&#10;      primaryClass={cs.HC},&#10;      url={https://arxiv.org/abs/2508.18283}, &#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/technology-assisted-personalized-yoga-for-better-health-challenges-and-outlook.bib" target="_blank" data-bibtex="@misc{kumar2025technologyassistedpersonalizedyogabetter,&#10;      title={Technology-assisted Personalized Yoga for Better Health -- Challenges and Outlook}, &#10;      author={Vivek Kumar and Himanshu Sahu and Hari Prabhat Gupta and Biplav Srivastava},&#10;      year={2025},&#10;      eprint={2508.18283},&#10;      archivePrefix={arXiv},&#10;      primaryClass={cs.HC},&#10;      url={https://arxiv.org/abs/2508.18283}, &#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <span class="tag tag-type">Preprint</span>
           <span class="tag tag-domain">Health</span>
           <span class="tag tag-method">Recommender Systems</span>
@@ -340,7 +394,7 @@
           Kausik Lakkaraju, Siva Likitha Valluru, Biplav Srivastava
           <br />
           <a href="https://arxiv.org/abs/2508.05792" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/holistic-explainable-ai-h-xai-extending-transparency-beyond-developers-in-ai-driven-decision.bib" target="_blank" data-bibtex="@misc{lakkaraju2026holisticexplainableaihxai,&#10;      title={Holistic Explainable AI (H-XAI): Extending Transparency Beyond Developers in AI-Driven Decision Making}, &#10;      author={Kausik Lakkaraju and Siva Likitha Valluru and Biplav Srivastava},&#10;      year={2026},&#10;      eprint={2508.05792},&#10;      archivePrefix={arXiv},&#10;      primaryClass={cs.AI},&#10;      url={https://arxiv.org/abs/2508.05792}, &#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/holistic-explainable-ai-h-xai-extending-transparency-beyond-developers-in-ai-driven-decision.bib" target="_blank" data-bibtex="@misc{lakkaraju2026holisticexplainableaihxai,&#10;      title={Holistic Explainable AI (H-XAI): Extending Transparency Beyond Developers in AI-Driven Decision Making}, &#10;      author={Kausik Lakkaraju and Siva Likitha Valluru and Biplav Srivastava},&#10;      year={2026},&#10;      eprint={2508.05792},&#10;      archivePrefix={arXiv},&#10;      primaryClass={cs.AI},&#10;      url={https://arxiv.org/abs/2508.05792}, &#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <span class="tag tag-type">Preprint</span>
           <span class="tag tag-method">Trust Rating</span>
           <br />
@@ -355,7 +409,7 @@
 
           <a href="https://cacm.acm.org/research/thinking-fast-and-slow-in-human-and-machine-intelligence/"
             target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/thinking-fast-and-slow-in-human-and-machine-intelligence.bib" target="_blank" data-bibtex="@article{Fabiano_2025, title={Thinking Fast and Slow in Human and Machine Intelligence}, volume={68}, ISSN={1557-7317}, url={http://dx.doi.org/10.1145/3715709}, DOI={10.1145/3715709}, number={8}, journal={Communications of the ACM}, publisher={Association for Computing Machinery (ACM)}, author={Fabiano, Francesco and Ganapini, Marianna B. and Loreggia, Andrea and Mattei, Nicholas and Murugesan, Keerthiram and Pallagani, Vishal and Rossi, Francesca and Srivastava, Biplav and Venable, K. Brent}, year={2025}, month=July, pages={72–79} }&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/thinking-fast-and-slow-in-human-and-machine-intelligence.bib" target="_blank" data-bibtex="@article{Fabiano_2025, title={Thinking Fast and Slow in Human and Machine Intelligence}, volume={68}, ISSN={1557-7317}, url={http://dx.doi.org/10.1145/3715709}, DOI={10.1145/3715709}, number={8}, journal={Communications of the ACM}, publisher={Association for Computing Machinery (ACM)}, author={Fabiano, Francesco and Ganapini, Marianna B. and Loreggia, Andrea and Mattei, Nicholas and Murugesan, Keerthiram and Pallagani, Vishal and Rossi, Francesca and Srivastava, Biplav and Venable, K. Brent}, year={2025}, month=July, pages={72–79} }&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <span class="tag tag-type">Journal</span>
           <span class="tag tag-method">Neuro-Symbolic AI</span>
           <span class="tag tag-method">Automated Planning</span>
@@ -370,7 +424,7 @@
           Vignesh Narayanan
           <br />
           <a href="https://link.springer.com/article/10.1007/s44248-025-00093-9" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/building-a-planning-ontology-to-represent-and-exploit-planning-knowledge-and-its-application.bib" target="_blank" data-bibtex="@article{Muppasani_2025, title={Building a planning ontology to represent and exploit planning knowledge and its applications}, volume={3}, ISSN={2731-6955}, url={http://dx.doi.org/10.1007/s44248-025-00093-9}, DOI={10.1007/s44248-025-00093-9}, number={1}, journal={Discover Data}, publisher={Springer Science and Business Media LLC}, author={Muppasani, Bharath Chandra and Gupta, Nitin and Pallagani, Vishal and Srivastava, Biplav and Mutharaju, Raghava and Huhns, Michael N. and Narayanan, Vignesh}, year={2025}, month=Nov }&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/building-a-planning-ontology-to-represent-and-exploit-planning-knowledge-and-its-application.bib" target="_blank" data-bibtex="@article{Muppasani_2025, title={Building a planning ontology to represent and exploit planning knowledge and its applications}, volume={3}, ISSN={2731-6955}, url={http://dx.doi.org/10.1007/s44248-025-00093-9}, DOI={10.1007/s44248-025-00093-9}, number={1}, journal={Discover Data}, publisher={Springer Science and Business Media LLC}, author={Muppasani, Bharath Chandra and Gupta, Nitin and Pallagani, Vishal and Srivastava, Biplav and Mutharaju, Raghava and Huhns, Michael N. and Narayanan, Vignesh}, year={2025}, month=Nov }&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <a href="https://ai4society.github.io/planning-ontology/" target="_blank">[Website]</a>
           <span class="tag tag-type">Journal</span>
           <span class="tag tag-method">Automated Planning</span>
@@ -385,7 +439,7 @@
           Vishal Pallagani, Nitin Gupta, John Aydin, Biplav Srivastava
           <br />
           <a href="https://arxiv.org/abs/2505.24258" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/fable-a-novel-data-flow-analysis-benchmark-on-procedural-text-for-large-language-model-evalu.bib" target="_blank" data-bibtex="@misc{pallagani2025fablenoveldataflowanalysis,&#10;      title={FABLE: A Novel Data-Flow Analysis Benchmark on Procedural Text for Large Language Model Evaluation}, &#10;      author={Vishal Pallagani and Nitin Gupta and John Aydin and Biplav Srivastava},&#10;      year={2025},&#10;      eprint={2505.24258},&#10;      archivePrefix={arXiv},&#10;      primaryClass={cs.AI},&#10;      url={https://arxiv.org/abs/2505.24258}, &#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/fable-a-novel-data-flow-analysis-benchmark-on-procedural-text-for-large-language-model-evalu.bib" target="_blank" data-bibtex="@misc{pallagani2025fablenoveldataflowanalysis,&#10;      title={FABLE: A Novel Data-Flow Analysis Benchmark on Procedural Text for Large Language Model Evaluation}, &#10;      author={Vishal Pallagani and Nitin Gupta and John Aydin and Biplav Srivastava},&#10;      year={2025},&#10;      eprint={2505.24258},&#10;      archivePrefix={arXiv},&#10;      primaryClass={cs.AI},&#10;      url={https://arxiv.org/abs/2505.24258}, &#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <span class="tag tag-type">Preprint</span>
           <span class="tag tag-method">Automated Planning</span>
           <span class="tag tag-method">Data Analysis</span>
@@ -405,7 +459,7 @@
           Vipula Rawte, Deja N Scott, Gaurav Kumar, Aishneet Juneja, Bharat Sowrya Yaddanapalli, Biplav Srivastava,
           <br />
           <a href="https://arxiv.org/abs/2412.15273" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/do-voters-get-the-information-they-want-understanding-authentic-voter-faqs-in-the-us-and-how.bib" target="_blank" data-bibtex="@misc{rawte2024votersinformationwantunderstanding,&#10;      title={Do Voters Get the Information They Want? Understanding Authentic Voter FAQs in the US and How to Improve for Informed Electoral Participation}, &#10;      author={Vipula Rawte and Deja N Scott and Gaurav Kumar and Aishneet Juneja and Bharat Sowrya Yaddanapalli and Biplav Srivastava},&#10;      year={2024},&#10;      eprint={2412.15273},&#10;      archivePrefix={arXiv},&#10;      primaryClass={cs.CY},&#10;      url={https://arxiv.org/abs/2412.15273}, &#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/do-voters-get-the-information-they-want-understanding-authentic-voter-faqs-in-the-us-and-how.bib" target="_blank" data-bibtex="@misc{rawte2024votersinformationwantunderstanding,&#10;      title={Do Voters Get the Information They Want? Understanding Authentic Voter FAQs in the US and How to Improve for Informed Electoral Participation}, &#10;      author={Vipula Rawte and Deja N Scott and Gaurav Kumar and Aishneet Juneja and Bharat Sowrya Yaddanapalli and Biplav Srivastava},&#10;      year={2024},&#10;      eprint={2412.15273},&#10;      archivePrefix={arXiv},&#10;      primaryClass={cs.CY},&#10;      url={https://arxiv.org/abs/2412.15273}, &#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <span class="tag tag-type">Workshop</span>
           <span class="tag tag-method">Data Analysis</span>
           <span class="tag tag-domain">Elections</span>
@@ -419,7 +473,7 @@
           Biplav Srivastava, Kausik Lakkaraju, Nitin Gupta, Vansh Nagpal, Bharath C. Muppasani, Sara E. Jones
           <br />
           <a href="https://arxiv.org/abs/2504.07995" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/safechat-a-framework-for-building-trustworthy-collaborative-assistants-and-a-case-study-of-i.bib" target="_blank" data-bibtex="@misc{srivastava2025safechatframeworkbuildingtrustworthy,&#10;      title={SafeChat: A Framework for Building Trustworthy Collaborative Assistants and a Case Study of its Usefulness}, &#10;      author={Biplav Srivastava and Kausik Lakkaraju and Nitin Gupta and Vansh Nagpal and Bharath C. Muppasani and Sara E. Jones},&#10;      year={2025},&#10;      eprint={2504.07995},&#10;      archivePrefix={arXiv},&#10;      primaryClass={cs.CL},&#10;      url={https://arxiv.org/abs/2504.07995}, &#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/safechat-a-framework-for-building-trustworthy-collaborative-assistants-and-a-case-study-of-i.bib" target="_blank" data-bibtex="@misc{srivastava2025safechatframeworkbuildingtrustworthy,&#10;      title={SafeChat: A Framework for Building Trustworthy Collaborative Assistants and a Case Study of its Usefulness}, &#10;      author={Biplav Srivastava and Kausik Lakkaraju and Nitin Gupta and Vansh Nagpal and Bharath C. Muppasani and Sara E. Jones},&#10;      year={2025},&#10;      eprint={2504.07995},&#10;      archivePrefix={arXiv},&#10;      primaryClass={cs.CL},&#10;      url={https://arxiv.org/abs/2504.07995}, &#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <span class="tag tag-type">Preprint</span>
           <span class="tag tag-method">Chatbots</span>
           <span class="tag tag-domain">Elections</span>
@@ -435,7 +489,7 @@
           Biplav Srivastava
           <br />
           <a href="https://ojs.aaai.org/index.php/AAAI/article/view/35086" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/a-vision-for-reinventing-credible-elections-with-artificial-intelligence.bib" target="_blank" data-bibtex="@article{Srivastava_2025, title={A Vision for Reinventing Credible Elections with Artificial Intelligence}, volume={39}, ISSN={2159-5399}, url={http://dx.doi.org/10.1609/aaai.v39i27.35086}, DOI={10.1609/aaai.v39i27.35086}, number={27}, journal={Proceedings of the AAAI Conference on Artificial Intelligence}, publisher={Association for the Advancement of Artificial Intelligence (AAAI)}, author={Srivastava, Biplav}, year={2025}, month=Apr, pages={28616–28623} }&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/a-vision-for-reinventing-credible-elections-with-artificial-intelligence.bib" target="_blank" data-bibtex="@article{Srivastava_2025, title={A Vision for Reinventing Credible Elections with Artificial Intelligence}, volume={39}, ISSN={2159-5399}, url={http://dx.doi.org/10.1609/aaai.v39i27.35086}, DOI={10.1609/aaai.v39i27.35086}, number={27}, journal={Proceedings of the AAAI Conference on Artificial Intelligence}, publisher={Association for the Advancement of Artificial Intelligence (AAAI)}, author={Srivastava, Biplav}, year={2025}, month=Apr, pages={28616–28623} }&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <a href="./presentations/AAAI-AIElectionVision-Feb2025.pdf" target="_blank">[Slides]</a>
           <span class="tag tag-type">Conference</span>
           <span class="tag tag-method">Elections</span>
@@ -453,7 +507,7 @@
               Reck, Emma Kennedy, Kevin Poore, Karilyn Tremblay, Biplav Srivastava, Lucas Vasconcelos
               <br />
               <a href="https://ojs.aaai.org/index.php/AAAI/article/view/35260" target="_blank">[Paper]</a>
-              <a class="bibtex-link" href="bib/towards-enhancing-road-safety-in-south-carolina-using-insights-from-traffic-and-driver-educa.bib" target="_blank" data-bibtex="@article{Gupta_2025, title={Towards Enhancing Road Safety in South Carolina Using Insights from Traffic and Driver-Education Data (Student Abstract)}, volume={39}, ISSN={2159-5399}, url={http://dx.doi.org/10.1609/aaai.v39i28.35260}, DOI={10.1609/aaai.v39i28.35260}, number={28}, journal={Proceedings of the AAAI Conference on Artificial Intelligence}, publisher={Association for the Advancement of Artificial Intelligence (AAAI)}, author={Gupta, Nitin and Muppasani, Bharath and Srivastava, Saina and Goel, Aarohi and Hartfield, Ross and Buehrig, Todd and Reck, Melissa and Kennedy, Emma and Poore, Kevin and Tremblay, Karilyn and Srivastava, Biplav and Vasconcelos, Lucas}, year={2025}, month=Apr, pages={29385–29387} }&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+              <a class="bibtex-link" href="bib/towards-enhancing-road-safety-in-south-carolina-using-insights-from-traffic-and-driver-educa.bib" target="_blank" data-bibtex="@article{Gupta_2025, title={Towards Enhancing Road Safety in South Carolina Using Insights from Traffic and Driver-Education Data (Student Abstract)}, volume={39}, ISSN={2159-5399}, url={http://dx.doi.org/10.1609/aaai.v39i28.35260}, DOI={10.1609/aaai.v39i28.35260}, number={28}, journal={Proceedings of the AAAI Conference on Artificial Intelligence}, publisher={Association for the Advancement of Artificial Intelligence (AAAI)}, author={Gupta, Nitin and Muppasani, Bharath and Srivastava, Saina and Goel, Aarohi and Hartfield, Ross and Buehrig, Todd and Reck, Melissa and Kennedy, Emma and Poore, Kevin and Tremblay, Karilyn and Srivastava, Biplav and Vasconcelos, Lucas}, year={2025}, month=Apr, pages={29385–29387} }&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
               <a href="./posters/AAAI-25_Student-Abstract_Poster.png" target="_blank">[Poster]</a>
               <span class="tag tag-type">Conference</span>
               <span class="tag tag-method">Data Analysis</span>
@@ -509,7 +563,7 @@
           Srivastava, Marco Valtorta
           <br />
           <a href="https://arxiv.org/abs/2502.12226" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/on-creating-a-causally-grounded-usable-rating-method-for-assessing-the-robustness-of-foundat.bib" target="_blank" data-bibtex="@article{lakkaraju2025creating,&#10;  title={On Creating a Causally Grounded Usable Rating Method for Assessing the Robustness of Foundation Models Supporting Time Series},&#10;  author={Lakkaraju, Kausik and Kaur, Rachneet and Zehtabi, Parisa and Patra, Sunandita and Valluru, Siva Likitha and Zeng, Zhen and Srivastava, Biplav and Valtorta, Marco},&#10;  journal={arXiv preprint arXiv:2502.12226},&#10;  year={2025}&#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/on-creating-a-causally-grounded-usable-rating-method-for-assessing-the-robustness-of-foundat.bib" target="_blank" data-bibtex="@article{lakkaraju2025creating,&#10;  title={On Creating a Causally Grounded Usable Rating Method for Assessing the Robustness of Foundation Models Supporting Time Series},&#10;  author={Lakkaraju, Kausik and Kaur, Rachneet and Zehtabi, Parisa and Patra, Sunandita and Valluru, Siva Likitha and Zeng, Zhen and Srivastava, Biplav and Valtorta, Marco},&#10;  journal={arXiv preprint arXiv:2502.12226},&#10;  year={2025}&#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <span class="tag tag-type">Preprint</span>
           <span class="tag tag-method">Trust Rating</span>
           <span class="tag tag-domain">Finance</span>
@@ -545,7 +599,7 @@
               Bharath Muppasani, Protik Nag, Vignesh Narayanan, Biplav Srivastava and Michael N. Huhns
               <br />
               <a href="https://openreview.net/forum?id=LYivxMp5es" target="_blank">[Paper]</a>
-              <a class="bibtex-link" href="bib/towards-effective-planning-strategies-for-dynamic-opinion-networks.bib" target="_blank" data-bibtex="@inproceedings{Huhns_2024, series={NeurIPS 2024}, title={Towards Effective Planning Strategies for Dynamic Opinion Networks}, url={http://dx.doi.org/10.52202/079017-4355}, DOI={10.52202/079017-4355}, booktitle={Advances in Neural Information Processing Systems 37}, publisher={Neural Information Processing Systems Foundation, Inc. (NeurIPS)}, author={Huhns, Michael and Muppasani, Bharath and Nag, Protik and Narayanan, Vignesh and Srivastava, Biplav}, year={2024}, pages={137046–137104}, collection={NeurIPS 2024} }&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+              <a class="bibtex-link" href="bib/towards-effective-planning-strategies-for-dynamic-opinion-networks.bib" target="_blank" data-bibtex="@inproceedings{Huhns_2024, series={NeurIPS 2024}, title={Towards Effective Planning Strategies for Dynamic Opinion Networks}, url={http://dx.doi.org/10.52202/079017-4355}, DOI={10.52202/079017-4355}, booktitle={Advances in Neural Information Processing Systems 37}, publisher={Neural Information Processing Systems Foundation, Inc. (NeurIPS)}, author={Huhns, Michael and Muppasani, Bharath and Nag, Protik and Narayanan, Vignesh and Srivastava, Biplav}, year={2024}, pages={137046–137104}, collection={NeurIPS 2024} }&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
               <a href="./posters/NeurIPS-24-Poster.png" target="_blank">[Poster]</a>
               <span class="tag tag-type">Conference</span>
               <span class="tag tag-method">Dynamical Systems</span>
@@ -570,7 +624,7 @@
           Srivastava
           <br />
           <a href="https://arxiv.org/abs/2412.17910" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/a-novel-approach-to-balance-convenience-and-nutrition-in-meals-with-long-term-group-recommen.bib" target="_blank" data-bibtex="@article{nagpal2024novel,&#10;  title={A Novel Approach to Balance Convenience and Nutrition in Meals With Long-Term Group Recommendations and Reasoning on Multimodal Recipes and its Implementation in BEACON},&#10;  author={Nagpal, Vansh and Valluru, Siva Likitha and Lakkaraju, Kausik and Gupta, Nitin and Abdulrahman, Zach and Davison, Andrew and Srivastava, Biplav},&#10;  journal={arXiv preprint arXiv:2412.17910},&#10;  year={2024}&#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/a-novel-approach-to-balance-convenience-and-nutrition-in-meals-with-long-term-group-recommen.bib" target="_blank" data-bibtex="@article{nagpal2024novel,&#10;  title={A Novel Approach to Balance Convenience and Nutrition in Meals With Long-Term Group Recommendations and Reasoning on Multimodal Recipes and its Implementation in BEACON},&#10;  author={Nagpal, Vansh and Valluru, Siva Likitha and Lakkaraju, Kausik and Gupta, Nitin and Abdulrahman, Zach and Davison, Andrew and Srivastava, Biplav},&#10;  journal={arXiv preprint arXiv:2412.17910},&#10;  year={2024}&#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <span class="tag tag-type">Preprint</span>
           <span class="tag tag-method">Data Analysis</span>
           <span class="tag tag-method">Recommender Systems</span>
@@ -586,7 +640,7 @@
           Siva Likitha Valluru, Michael Widener, Biplav Srivastava, Sriraam Natarajan, Sugata Gangopadhyay
           <br />
           <a href="https://onlinelibrary.wiley.com/doi/10.1002/aaai.12203" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/ai-assisted-research-collaboration-with-open-data-for-fair-and-effective-response-to-call-fo.bib" target="_blank" data-bibtex="@article{Valluru_2024, title={AI‐assisted research collaboration with open data for fair and effective response to call for proposals}, volume={45}, ISSN={2371-9621}, url={http://dx.doi.org/10.1002/aaai.12203}, DOI={10.1002/aaai.12203}, number={4}, journal={AI Magazine}, publisher={Wiley}, author={Valluru, Siva Likitha and Widener, Michael and Srivastava, Biplav and Natarajan, Sriraam and Gangopadhyay, Sugata}, year={2024}, month=Oct, pages={457–471} }&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/ai-assisted-research-collaboration-with-open-data-for-fair-and-effective-response-to-call-fo.bib" target="_blank" data-bibtex="@article{Valluru_2024, title={AI‐assisted research collaboration with open data for fair and effective response to call for proposals}, volume={45}, ISSN={2371-9621}, url={http://dx.doi.org/10.1002/aaai.12203}, DOI={10.1002/aaai.12203}, number={4}, journal={AI Magazine}, publisher={Wiley}, author={Valluru, Siva Likitha and Widener, Michael and Srivastava, Biplav and Natarajan, Sriraam and Gangopadhyay, Sugata}, year={2024}, month=Oct, pages={457–471} }&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <span class="tag tag-method">Data Analysis</span>
           <span class="tag tag-method">Recommender Systems</span>
           <br />
@@ -599,7 +653,7 @@
           Vansh Nagpal, Siva Likitha Valluru, Kausik Lakkaraju, Biplav Srivastava
           <br />
           <a href="https://arxiv.org/abs/2406.13714" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/beacon-balancing-convenience-and-nutrition-in-meals-with-long-term-group-recommendations-and.bib" target="_blank" data-bibtex="@article{nagpal2024beacon,&#10;  title={BEACON: Balancing Convenience and Nutrition in Meals With Long-Term Group Recommendations and Reasoning on Multimodal Recipes},&#10;  author={Nagpal, Vansh and Valluru, Siva Likitha and Lakkaraju, Kausik and Srivastava, Biplav},&#10;  journal={arXiv preprint arXiv:2406.13714},&#10;  year={2024}&#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/beacon-balancing-convenience-and-nutrition-in-meals-with-long-term-group-recommendations-and.bib" target="_blank" data-bibtex="@article{nagpal2024beacon,&#10;  title={BEACON: Balancing Convenience and Nutrition in Meals With Long-Term Group Recommendations and Reasoning on Multimodal Recipes},&#10;  author={Nagpal, Vansh and Valluru, Siva Likitha and Lakkaraju, Kausik and Srivastava, Biplav},&#10;  journal={arXiv preprint arXiv:2406.13714},&#10;  year={2024}&#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <span class="tag tag-type">Preprint</span>
           <span class="tag tag-method">Data Analysis</span>
           <span class="tag tag-method">Recommender Systems</span>
@@ -624,7 +678,7 @@
           <i>Planning and Reinforcement Learning (PRL) Workshop at ICAPS 2024</i><br />
           Biplav Srivastava, Vishal Pallagani<br />
           <a href="https://arxiv.org/abs/2404.04540" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/the-case-for-developing-a-foundation-model-for-planning-like-tasks-from-scratch.bib" target="_blank" data-bibtex="@misc{srivastava2024casedevelopingfoundationmodel,&#10;      title={The Case for Developing a Foundation Model for Planning-like Tasks from Scratch}, &#10;      author={Biplav Srivastava and Vishal Pallagani},&#10;      year={2024},&#10;      eprint={2404.04540},&#10;      archivePrefix={arXiv},&#10;      primaryClass={cs.AI},&#10;      url={https://arxiv.org/abs/2404.04540}, &#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/the-case-for-developing-a-foundation-model-for-planning-like-tasks-from-scratch.bib" target="_blank" data-bibtex="@misc{srivastava2024casedevelopingfoundationmodel,&#10;      title={The Case for Developing a Foundation Model for Planning-like Tasks from Scratch}, &#10;      author={Biplav Srivastava and Vishal Pallagani},&#10;      year={2024},&#10;      eprint={2404.04540},&#10;      archivePrefix={arXiv},&#10;      primaryClass={cs.AI},&#10;      url={https://arxiv.org/abs/2404.04540}, &#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <span class="tag tag-type">Workshop</span>
           <span class="tag tag-method">Automated Planning</span>
           <br />
@@ -636,7 +690,7 @@
             Demonstration Track (ICAPS-24 Demo)</i><br />
           Bharath Muppasani, Vishal Pallagani and Biplav Srivastava<br />
           <a href="./papers_local/RC_ICAPS_24_Demo.pdf" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/solving-the-rubik-s-cube-with-a-pddl-planner.bib" target="_blank" data-bibtex="@article{muppasani2022solving,&#10;author = {Muppasani, Bharath and Pallagani, Vishal and Srivastava, Biplav},&#10;year = {2024},&#10;month = {03},&#10;pages = {},&#10;title = {Solving the Rubik&#x27;s Cube with a PDDL Planner},&#10;doi = {10.13140/RG.2.2.36563.04649}&#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/solving-the-rubik-s-cube-with-a-pddl-planner.bib" target="_blank" data-bibtex="@article{muppasani2022solving,&#10;author = {Muppasani, Bharath and Pallagani, Vishal and Srivastava, Biplav},&#10;year = {2024},&#10;month = {03},&#10;pages = {},&#10;title = {Solving the Rubik&#x27;s Cube with a PDDL Planner},&#10;doi = {10.13140/RG.2.2.36563.04649}&#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <a href="./presentations/RC_ICAPS-24_Demo Poster.pdf" target="_blank">[Poster]</a>
           <a href="https://youtu.be/YQZ2sj-x5js" target="_blank">[Video]</a>
           <span class="tag tag-type">Demo</span>
@@ -649,7 +703,7 @@
           <i>IEEE Transactions on Technology and Society (IF=5.2)</i><br />
           Kausik Lakkaraju, Biplav Srivastava, Marco Valtorta<br />
           <a href="https://ieeexplore.ieee.org/document/10466637" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/rating-sentiment-analysis-systems-for-bias-through-a-causal-lens.bib" target="_blank" data-bibtex="@ARTICLE{10466637,&#10;  author={Lakkaraju, Kausik and Srivastava, Biplav and Valtorta, Marco},&#10;  journal={IEEE Transactions on Technology and Society}, &#10;  title={Rating Sentiment Analysis Systems for Bias Through a Causal Lens}, &#10;  year={2024},&#10;  volume={},&#10;  number={},&#10;  pages={1-1},&#10;  keywords={AI;Bias;Causality;Rating;Sentiment Analysis Systems;User Trust},&#10;  doi={10.1109/TTS.2024.3375519}}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/rating-sentiment-analysis-systems-for-bias-through-a-causal-lens.bib" target="_blank" data-bibtex="@ARTICLE{10466637,&#10;  author={Lakkaraju, Kausik and Srivastava, Biplav and Valtorta, Marco},&#10;  journal={IEEE Transactions on Technology and Society}, &#10;  title={Rating Sentiment Analysis Systems for Bias Through a Causal Lens}, &#10;  year={2024},&#10;  volume={},&#10;  number={},&#10;  pages={1-1},&#10;  keywords={AI;Bias;Causality;Rating;Sentiment Analysis Systems;User Trust},&#10;  doi={10.1109/TTS.2024.3375519}}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <span class="tag tag-type">Journal</span>
           <span class="tag tag-method">Trust Rating</span>
           <br />
@@ -665,7 +719,7 @@
               (AR=31%)<br />
               Siva Likitha Valluru, Biplav Srivastava, Sai Teja Paladi, Siwen Yan, Sriraam Natarajan<br />
               <a href="./papers_local/ULTRA-IAAI_AAAI2024_Deployed_Application_Track.pdf" target="_blank">[Paper]</a>
-              <a class="bibtex-link" href="bib/promoting-research-collaboration-with-open-data-driven-team-recommendation-in-response-to-ca.bib" target="_blank" data-bibtex="@article{valluru2024deployed,&#10;  title={Promoting Research Collaboration with Open Data Driven Team Recommendation in Response to Call for Proposals},&#10;  author={Valluru, Siva Likitha and Srivastava, Biplav and Paladi, Sai Teja and Yan, Siwen and Natarajan, Sriraam},&#10;  journal={The Thirty-Sixth Annual Conference on Innovative Applications of Artificial Intelligence},&#10;  year={2023}&#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+              <a class="bibtex-link" href="bib/promoting-research-collaboration-with-open-data-driven-team-recommendation-in-response-to-ca.bib" target="_blank" data-bibtex="@article{valluru2024deployed,&#10;  title={Promoting Research Collaboration with Open Data Driven Team Recommendation in Response to Call for Proposals},&#10;  author={Valluru, Siva Likitha and Srivastava, Biplav and Paladi, Sai Teja and Yan, Siwen and Natarajan, Sriraam},&#10;  journal={The Thirty-Sixth Annual Conference on Innovative Applications of Artificial Intelligence},&#10;  year={2023}&#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
               <a href="./papers_local/AAAI-IAAI-2024-ULTRA-Poster.pdf" target="_blank">[Poster]</a>
               <span class="tag tag-type">Conference</span>
               <span class="tag tag-method">Recommender Systems</span>
@@ -691,7 +745,7 @@
                 Intelligence - Demonstrations Track (AAAI-24 Demo)</i><br />
               Bharath Muppasani, Vignesh Narayanan, Biplav Srivastava and Michael N. Huhns<br />
               <a href="./papers_local/InfoSpread_AAAI24_Demo.pdf" target="_blank">[Paper]</a>
-              <a class="bibtex-link" href="bib/expressive-and-flexible-simulation-of-information-spread-strategies-in-social-networks-using.bib" target="_blank" data-bibtex="@article{Muppasani_2024, title={Expressive and Flexible Simulation of Information Spread Strategies in Social Networks Using Planning}, volume={38}, ISSN={2159-5399}, url={http://dx.doi.org/10.1609/aaai.v38i21.30576}, DOI={10.1609/aaai.v38i21.30576}, number={21}, journal={Proceedings of the AAAI Conference on Artificial Intelligence}, publisher={Association for the Advancement of Artificial Intelligence (AAAI)}, author={Muppasani, Bharath and Narayanan, Vignesh and Srivastava, Biplav and Huhns, Michael N.}, year={2024}, month=Mar, pages={23820–23822} }&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+              <a class="bibtex-link" href="bib/expressive-and-flexible-simulation-of-information-spread-strategies-in-social-networks-using.bib" target="_blank" data-bibtex="@article{Muppasani_2024, title={Expressive and Flexible Simulation of Information Spread Strategies in Social Networks Using Planning}, volume={38}, ISSN={2159-5399}, url={http://dx.doi.org/10.1609/aaai.v38i21.30576}, DOI={10.1609/aaai.v38i21.30576}, number={21}, journal={Proceedings of the AAAI Conference on Artificial Intelligence}, publisher={Association for the Advancement of Artificial Intelligence (AAAI)}, author={Muppasani, Bharath and Narayanan, Vignesh and Srivastava, Biplav and Huhns, Michael N.}, year={2024}, month=Mar, pages={23820–23822} }&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
               <a href="./papers_local/AAAI-24_Demo_Poster.pdf" target="_blank">[Poster]</a>
               <a href="https://drive.google.com/file/d/19d65zjSoFBSngCIPrteT0_DOlymmkEiM/view?usp=drive_link"
                 target="_blank">[Video]</a>
@@ -716,7 +770,7 @@
             Demonstration Track, 2024</i>(AR=50%)<br />
           Siva Likitha Valluru, Michael Widener, Biplav Srivastava, Sugata Gangopadhyay<br />
           <a href="https://dl.acm.org/doi/10.1145/3632410.3632503" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/ultra-exploring-team-recommendations-in-two-geographies-using-open-data-in-response-to-call-.bib" target="_blank" data-bibtex="@inproceedings{valluru2024ultra,&#10;author = {Valluru, Siva Likitha and Widener, Michael and Srivastava, Biplav and Gangopadhyay, Sugata},&#10;title = {ULTRA: Exploring Team Recommendations in Two Geographies Using Open Data in Response to Call for Proposals},&#10;year = {2024},&#10;isbn = {9798400716348},&#10;publisher = {Association for Computing Machinery},&#10;address = {New York, NY, USA},&#10;url = {https://doi.org/10.1145/3632410.3632503},&#10;doi = {10.1145/3632410.3632503},&#10;abstract = {This paper demonstrates ULTRA (University-Lead Team Builder from RFPs and Analysis), a novel AI-based recommendation system for team formation, where (1) candidate teams are formed with the goal to reach highest possible skill coverage, as demanded by an opportunity, and (2) the challenge of fair distribution of opportunities is balanced amongst all available members. Using this tool, users can explore the skills required in open data from proposal calls (demand) and adeptly assemble teams from candidate researcher profiles (supply). The efficiency of these teams is then evaluated using an innovative goodness metric and validated through both quantitative and qualitative experiments. Beyond teaming, the tool design and evaluation of this work could interest researchers exploring the potential of set recommendation in other applications, rather than the well-understood traditional single-item recommendations. We deploy this system in two major institutions from diverse geographical regions of the world (United States and India), and in doing so, we show that ULTRA can generate good candidate teams across differing teaming contexts, and support the notion that our system is widely expandable.},&#10;booktitle = {Proceedings of the 7th Joint International Conference on Data Science \&amp; Management of Data (11th ACM IKDD CODS and 29th COMAD)},&#10;pages = {547–552},&#10;numpages = {6},&#10;keywords = {Natural Language Processing, Team Formation, Boosted Bandit, Recommender Systems, Artificial Intelligence},&#10;location = {&lt;conf-loc&gt;, &lt;city&gt;Bangalore&lt;/city&gt;, &lt;country&gt;India&lt;/country&gt;, &lt;/conf-loc&gt;},&#10;series = {CODS-COMAD &#x27;24}&#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/ultra-exploring-team-recommendations-in-two-geographies-using-open-data-in-response-to-call-.bib" target="_blank" data-bibtex="@inproceedings{valluru2024ultra,&#10;author = {Valluru, Siva Likitha and Widener, Michael and Srivastava, Biplav and Gangopadhyay, Sugata},&#10;title = {ULTRA: Exploring Team Recommendations in Two Geographies Using Open Data in Response to Call for Proposals},&#10;year = {2024},&#10;isbn = {9798400716348},&#10;publisher = {Association for Computing Machinery},&#10;address = {New York, NY, USA},&#10;url = {https://doi.org/10.1145/3632410.3632503},&#10;doi = {10.1145/3632410.3632503},&#10;abstract = {This paper demonstrates ULTRA (University-Lead Team Builder from RFPs and Analysis), a novel AI-based recommendation system for team formation, where (1) candidate teams are formed with the goal to reach highest possible skill coverage, as demanded by an opportunity, and (2) the challenge of fair distribution of opportunities is balanced amongst all available members. Using this tool, users can explore the skills required in open data from proposal calls (demand) and adeptly assemble teams from candidate researcher profiles (supply). The efficiency of these teams is then evaluated using an innovative goodness metric and validated through both quantitative and qualitative experiments. Beyond teaming, the tool design and evaluation of this work could interest researchers exploring the potential of set recommendation in other applications, rather than the well-understood traditional single-item recommendations. We deploy this system in two major institutions from diverse geographical regions of the world (United States and India), and in doing so, we show that ULTRA can generate good candidate teams across differing teaming contexts, and support the notion that our system is widely expandable.},&#10;booktitle = {Proceedings of the 7th Joint International Conference on Data Science \&amp; Management of Data (11th ACM IKDD CODS and 29th COMAD)},&#10;pages = {547–552},&#10;numpages = {6},&#10;keywords = {Natural Language Processing, Team Formation, Boosted Bandit, Recommender Systems, Artificial Intelligence},&#10;location = {&lt;conf-loc&gt;, &lt;city&gt;Bangalore&lt;/city&gt;, &lt;country&gt;India&lt;/country&gt;, &lt;/conf-loc&gt;},&#10;series = {CODS-COMAD &#x27;24}&#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <span class="tag tag-type">Demo</span>
           <span class="tag tag-method">Recommender Systems</span>
           <br />
@@ -730,7 +784,7 @@
           Vishal Pallagani, Bharath Muppasani, Kaushik Roy, Francesco Fabiano, Andrea Loreggia, Keerthiram Murugesan,
           Biplav Srivastava, Francesca Rossi, Lior Horesh, Amit Sheth<br />
           <a href="https://arxiv.org/abs/2401.02500" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/on-the-prospects-of-incorporating-large-language-models-llms-in-automated-planning-and-sched.bib" target="_blank" data-bibtex="@article{pallagani2024prospects,&#10;  title={On the Prospects of Incorporating Large Language Models (LLMs) in Automated Planning and Scheduling (APS)},&#10;  author={Pallagani, Vishal and Roy, Kaushik and Muppasani, Bharath and Fabiano, Francesco and Loreggia, Andrea and Murugesan, Keerthiram and Srivastava, Biplav and Rossi, Francesca and Horesh, Lior and Sheth, Amit},&#10;  journal={arXiv preprint arXiv:2401.02500},&#10;  year={2024}&#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/on-the-prospects-of-incorporating-large-language-models-llms-in-automated-planning-and-sched.bib" target="_blank" data-bibtex="@article{pallagani2024prospects,&#10;  title={On the Prospects of Incorporating Large Language Models (LLMs) in Automated Planning and Scheduling (APS)},&#10;  author={Pallagani, Vishal and Roy, Kaushik and Muppasani, Bharath and Fabiano, Francesco and Loreggia, Andrea and Murugesan, Keerthiram and Srivastava, Biplav and Rossi, Francesca and Horesh, Lior and Sheth, Amit},&#10;  journal={arXiv preprint arXiv:2401.02500},&#10;  year={2024}&#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <span class="tag tag-type">Conference</span>
           <span class="tag tag-method">Automated Planning</span>
           <span class="tag tag-method">Neuro-Symbolic AI</span>
@@ -742,7 +796,7 @@
           <i>Artificial Intelligence for Design Problems Bridge Program at AAAI, 2024</i><br />
           Sai Krishna Revanth Vuruma, Ashley Margetts, Jianhai Su, Faez Ahmed, Biplav Srivastava<br />
           <a href="https://arxiv.org/abs/2402.12702" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/from-cloud-to-edge-rethinking-generative-ai-for-low-resource-design-challenges.bib" target="_blank" data-bibtex="@misc{vuruma2024cloudedgerethinkinggenerative,&#10;      title={From Cloud to Edge: Rethinking Generative AI for Low-Resource Design Challenges}, &#10;      author={Sai Krishna Revanth Vuruma and Ashley Margetts and Jianhai Su and Faez Ahmed and Biplav Srivastava},&#10;      year={2024},&#10;      eprint={2402.12702},&#10;      archivePrefix={arXiv},&#10;      primaryClass={cs.AI},&#10;      url={https://arxiv.org/abs/2402.12702}, &#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/from-cloud-to-edge-rethinking-generative-ai-for-low-resource-design-challenges.bib" target="_blank" data-bibtex="@misc{vuruma2024cloudedgerethinkinggenerative,&#10;      title={From Cloud to Edge: Rethinking Generative AI for Low-Resource Design Challenges}, &#10;      author={Sai Krishna Revanth Vuruma and Ashley Margetts and Jianhai Su and Faez Ahmed and Biplav Srivastava},&#10;      year={2024},&#10;      eprint={2402.12702},&#10;      archivePrefix={arXiv},&#10;      primaryClass={cs.AI},&#10;      url={https://arxiv.org/abs/2402.12702}, &#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <span class="tag tag-type">Workshop</span>
           <span class="tag tag-method">Neuro-Symbolic AI</span>
           <br />
@@ -755,7 +809,7 @@
           Francesco Fabiano, Vishal Pallagani, Marianna Bergamaschi Ganapini, Lior Horesh, Andrea Loreggia, Keerthiram
           Murugesan, Francesca Rossi, Biplav Srivastava<br />
           <a href="https://openreview.net/pdf?id=ORAhay0H4x" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/plan-sofai-a-neuro-symbolic-planning-architecture.bib" target="_blank" data-bibtex="@inproceedings{fabiano2023plan,&#10;  title={Plan-SOFAI: A Neuro-Symbolic Planning Architecture},&#10;  author={Fabiano, Francesco and Pallagani, Vishal and Ganapini, Marianna Bergamaschi and Horesh, Lior and Loreggia, Andrea and Murugesan, Keerthiram and Rossi, Francesca and Srivastava, Biplav},&#10;  booktitle={Neuro-Symbolic Learning and Reasoning in the era of Large Language Models},&#10;  year={2023}&#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/plan-sofai-a-neuro-symbolic-planning-architecture.bib" target="_blank" data-bibtex="@inproceedings{fabiano2023plan,&#10;  title={Plan-SOFAI: A Neuro-Symbolic Planning Architecture},&#10;  author={Fabiano, Francesco and Pallagani, Vishal and Ganapini, Marianna Bergamaschi and Horesh, Lior and Loreggia, Andrea and Murugesan, Keerthiram and Rossi, Francesca and Srivastava, Biplav},&#10;  booktitle={Neuro-Symbolic Learning and Reasoning in the era of Large Language Models},&#10;  year={2023}&#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <span class="tag tag-type">Workshop</span>
           <span class="tag tag-method">Automated Planning</span>
           <span class="tag tag-method">Neuro-Symbolic AI</span>
@@ -793,7 +847,7 @@
           Vishal Pallagani, Bharath Muppasani, Keerthiram Murugesan, Francesca Rossi, Biplav Srivastava, Lior Horesh,
           Francesco Fabiano, Andrea Loreggia<br />
           <a href="https://arxiv.org/abs/2305.16151" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/understanding-the-capabilities-of-large-language-models-for-automated-planning.bib" target="_blank" data-bibtex="@article{pallagani2023understanding,&#10;  title={Understanding the Capabilities of Large Language Models for Automated Planning},&#10;  author={Pallagani, Vishal and Muppasani, Bharath and Murugesan, Keerthiram and Rossi, Francesca and Srivastava, Biplav and Horesh, Lior and Fabiano, Francesco and Loreggia, Andrea},&#10;  journal={arXiv preprint arXiv:2305.16151},&#10;  year={2023}&#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/understanding-the-capabilities-of-large-language-models-for-automated-planning.bib" target="_blank" data-bibtex="@article{pallagani2023understanding,&#10;  title={Understanding the Capabilities of Large Language Models for Automated Planning},&#10;  author={Pallagani, Vishal and Muppasani, Bharath and Murugesan, Keerthiram and Rossi, Francesca and Srivastava, Biplav and Horesh, Lior and Fabiano, Francesco and Loreggia, Andrea},&#10;  journal={arXiv preprint arXiv:2305.16151},&#10;  year={2023}&#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <span class="tag tag-type">Preprint</span>
           <span class="tag tag-method">Automated Planning</span>
           <br />
@@ -805,7 +859,7 @@
           Francesco Fabiano, Vishal Pallagani, Marianna Bergamaschi Ganapini, Lior Horesh, Andrea Loreggia, Keerthiram
           Murugesan, Francesca Rossi, Biplav Srivastava<br />
           <a href="https://arxiv.org/abs/2303.04283" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/fast-and-slow-planning.bib" target="_blank" data-bibtex="@article{fabiano2023fast,&#10;  title={Fast and Slow Planning},&#10;  author={Fabiano, Francesco and Pallagani, Vishal and Ganapini, Marianna Bergamaschi and Horesh, Lior and Loreggia, Andrea and Murugesan, Keerthiram and Rossi, Francesca and Srivastava, Biplav},&#10;  journal={arXiv preprint arXiv:2303.04283},&#10;  year={2023}&#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/fast-and-slow-planning.bib" target="_blank" data-bibtex="@article{fabiano2023fast,&#10;  title={Fast and Slow Planning},&#10;  author={Fabiano, Francesco and Pallagani, Vishal and Ganapini, Marianna Bergamaschi and Horesh, Lior and Loreggia, Andrea and Murugesan, Keerthiram and Rossi, Francesca and Srivastava, Biplav},&#10;  journal={arXiv preprint arXiv:2303.04283},&#10;  year={2023}&#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <span class="tag tag-type">Preprint</span>
           <span class="tag tag-method">Automated Planning</span>
           <span class="tag tag-method">Neuro-Symbolic AI</span>
@@ -818,7 +872,7 @@
           Vishal Pallagani, Bharath Muppasani, Keerthiram Murugesan, Francesca Rossi, Biplav Srivastava, Lior Horesh,
           Francesco Fabiano, Andrea Loreggia<br />
           <a href="https://openreview.net/pdf?id=gWhXByDv2n" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/plansformer-generating-symbolic-plans-using-transformers.bib" target="_blank" data-bibtex="@article{pallagani2022plansformer,&#10;  title={Plansformer: Generating Symbolic Plans using Transformers},&#10;  author={Pallagani, Vishal and Muppasani, Bharath and Murugesan, Keerthiram and Rossi, Francesca and Horesh, Lior and Srivastava, Biplav and Fabiano, Francesco and Loreggia, Andrea},&#10;  journal={arXiv preprint arXiv:2212.08681},&#10;  year={2022}&#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/plansformer-generating-symbolic-plans-using-transformers.bib" target="_blank" data-bibtex="@article{pallagani2022plansformer,&#10;  title={Plansformer: Generating Symbolic Plans using Transformers},&#10;  author={Pallagani, Vishal and Muppasani, Bharath and Murugesan, Keerthiram and Rossi, Francesca and Horesh, Lior and Srivastava, Biplav and Fabiano, Francesco and Loreggia, Andrea},&#10;  journal={arXiv preprint arXiv:2212.08681},&#10;  year={2022}&#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <span class="tag tag-type">Workshop</span>
           <span class="tag tag-method">Automated Planning</span>
           <span class="tag tag-method">Neuro-Symbolic AI</span>
@@ -831,7 +885,7 @@
           Kausik Lakkaraju, Sara Rae Jones, Sai Krishna Revanth Vuruma, Vishal Pallagani, Bharath C Muppasani and
           Biplav Srivastava<br />
           <a href="https://dl.acm.org/doi/fullHtml/10.1145/3604237.3626867" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/llms-for-financial-advisement-a-fairness-and-efficacy-study-in-personal-decision-making.bib" target="_blank" data-bibtex="@misc{lakkaraju2023icaif,&#10;      title={LLMs for Financial Advisement: A Fairness and Efficacy Study in Personal Decision Making}, &#10;      author={Kausik Lakkaraju, Sara E. Jones, Sai Krishna Revanth Vuruma, Vishal Pallagani, Bharath C Muppasani, Biplav Srivastava},&#10;      year={2023},&#10;      keywords = {chatbots, llms, fairness, efficacy},&#10;      location={Brooklyn, United States of America}&#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/llms-for-financial-advisement-a-fairness-and-efficacy-study-in-personal-decision-making.bib" target="_blank" data-bibtex="@misc{lakkaraju2023icaif,&#10;      title={LLMs for Financial Advisement: A Fairness and Efficacy Study in Personal Decision Making}, &#10;      author={Kausik Lakkaraju, Sara E. Jones, Sai Krishna Revanth Vuruma, Vishal Pallagani, Bharath C Muppasani, Biplav Srivastava},&#10;      year={2023},&#10;      keywords = {chatbots, llms, fairness, efficacy},&#10;      location={Brooklyn, United States of America}&#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <a href="./presentations/ICAIF2023_KL_Pres.pdf" target="_blank">[Slides]</a>
           <span class="tag tag-type">Conference</span>
           <span class="tag tag-method">Chatbots</span>
@@ -846,7 +900,7 @@
             Applications: IEEE TPS'23, Atlanta, 2023</i><br />
           Kausik Lakkaraju, Aniket Gupta, Biplav Srivastava, Marco Valtorta, Dezhi Wu<br />
           <a href="./papers_local/M_SAS_Final_IEEE.pdf" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/the-effect-of-human-v-s-synthetic-test-data-and-round-tripping-on-assessment-of-sentiment-an.bib" target="_blank" data-bibtex="@misc{lakkaraju2023advances,&#10;      title={The Effect of Human v/s Synthetic Test Data and Round-tripping on Assessment of Sentiment Analysis Systems for Bias}, &#10;      author={Kausik Lakkaraju, Aniket Gupta, Biplav Srivastava, Marco Valtorta and Dezhi Wu},&#10;      year={2023},&#10;      keywords = {bias, fairness, rating AI systems},&#10;      location={Atlanta, United States of America}&#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/the-effect-of-human-v-s-synthetic-test-data-and-round-tripping-on-assessment-of-sentiment-an.bib" target="_blank" data-bibtex="@misc{lakkaraju2023advances,&#10;      title={The Effect of Human v/s Synthetic Test Data and Round-tripping on Assessment of Sentiment Analysis Systems for Bias}, &#10;      author={Kausik Lakkaraju, Aniket Gupta, Biplav Srivastava, Marco Valtorta and Dezhi Wu},&#10;      year={2023},&#10;      keywords = {bias, fairness, rating AI systems},&#10;      location={Atlanta, United States of America}&#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <a href="./presentations/IEEETPS2023_KL_Pres.pdf" target="_blank">[Slides]</a>
           <span class="tag tag-type">Conference</span>
           <span class="tag tag-method">Trust Rating</span>
@@ -858,7 +912,7 @@
           <i>Preprint, Sep 2023</i><br />
           Biplav Srivastava, Kausik Lakkaraju, Tarmo Koppel, Vignesh Narayanan, Ashish Kundu, Sachindra Joshi <br />
           <a href="https://arxiv.org/abs/2309.05680" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/evaluating-chatbots-to-promote-users-trust-practices-and-open-problems.bib" target="_blank" data-bibtex="@misc{srivastava2023evaluating,&#10;      title={Evaluating Chatbots to Promote Users&#x27; Trust -- Practices and Open Problems}, &#10;      author={Biplav Srivastava and Kausik Lakkaraju and Tarmo Koppel and Vignesh Narayanan and Ashish Kundu and Sachindra Joshi},&#10;      year={2023},&#10;      eprint={2309.05680},&#10;      archivePrefix={arXiv},&#10;      primaryClass={cs.HC}&#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/evaluating-chatbots-to-promote-users-trust-practices-and-open-problems.bib" target="_blank" data-bibtex="@misc{srivastava2023evaluating,&#10;      title={Evaluating Chatbots to Promote Users&#x27; Trust -- Practices and Open Problems}, &#10;      author={Biplav Srivastava and Kausik Lakkaraju and Tarmo Koppel and Vignesh Narayanan and Ashish Kundu and Sachindra Joshi},&#10;      year={2023},&#10;      eprint={2309.05680},&#10;      archivePrefix={arXiv},&#10;      primaryClass={cs.HC}&#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <span class="tag tag-type">Preprint</span>
           <span class="tag tag-method">Chatbots</span>
           <br />
@@ -871,7 +925,7 @@
           Kausik Lakkaraju, Vedant Khandelwal, Biplav Srivastava, Forest Agostinelli, Hengtao Tang, Prathamjeet Singh,
           Dezhi Wu, Matt Irvin, Ashish Kundu<br />
           <a href="https://drive.google.com/file/d/14kmrr7HTFXtdpzx-7KEItftQAO_6m5li/view" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/trust-and-ethical-considerations-in-a-multi-modal-explainable-ai-driven-chatbot-tutoring-sys.bib" target="_blank" data-bibtex="@misc{lakkaraju2023trust,&#10;      title={Trust and ethical considerations in a multi-modal, explainable AI-driven chatbot tutoring system: The case of collaboratively solving Rubik’s Cube}, &#10;      author={Kausik Lakkaraju, Vedant Khandelwal, Biplav Srivastava, Forest Agostinelli, Hengtao Tang, Prathamjeet Singh, Dezhi Wu, Matt Irvin, Ashish Kundu},&#10;      year={2023},&#10;      keywords = {chatbots, fairness, education, security},&#10;      location={ICML 2023 TEACH Conversational AI Workshop, Hawaii, 2023}&#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/trust-and-ethical-considerations-in-a-multi-modal-explainable-ai-driven-chatbot-tutoring-sys.bib" target="_blank" data-bibtex="@misc{lakkaraju2023trust,&#10;      title={Trust and ethical considerations in a multi-modal, explainable AI-driven chatbot tutoring system: The case of collaboratively solving Rubik’s Cube}, &#10;      author={Kausik Lakkaraju, Vedant Khandelwal, Biplav Srivastava, Forest Agostinelli, Hengtao Tang, Prathamjeet Singh, Dezhi Wu, Matt Irvin, Ashish Kundu},&#10;      year={2023},&#10;      keywords = {chatbots, fairness, education, security},&#10;      location={ICML 2023 TEACH Conversational AI Workshop, Hawaii, 2023}&#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <span class="tag tag-type">Workshop</span>
           <span class="tag tag-method">Chatbots</span>
           <br />
@@ -883,7 +937,7 @@
           Bharath Muppasani, Vishal Pallagani, Kausik Lakkaraju, Shuge Lei, Biplav Srivastava, Brett Robertson, Andrea
           Hickerson, Vignesh Narayanan<br />
           <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/aaai.12109" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/on-safe-and-usable-chatbots-for-promoting-voter-participation.bib" target="_blank" data-bibtex="@article{muppasani2023safe,&#10;  title={On safe and usable chatbots for promoting voter participation},&#10;  author={Muppasani, B. and Pallagani, V. and Lakkaraju, K. and Lei, S. and Srivastava, B. and Robertson, B. and Hickerson, A. and Narayanan, V.},&#10;  journal={AI Magazine},&#10;  volume={44},&#10;  pages={240--247},&#10;  year={2023},&#10;  url={https://doi.org/10.1002/aaai.12109}&#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/on-safe-and-usable-chatbots-for-promoting-voter-participation.bib" target="_blank" data-bibtex="@article{muppasani2023safe,&#10;  title={On safe and usable chatbots for promoting voter participation},&#10;  author={Muppasani, B. and Pallagani, V. and Lakkaraju, K. and Lei, S. and Srivastava, B. and Robertson, B. and Hickerson, A. and Narayanan, V.},&#10;  journal={AI Magazine},&#10;  volume={44},&#10;  pages={240--247},&#10;  year={2023},&#10;  url={https://doi.org/10.1002/aaai.12109}&#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <span class="tag tag-method">Chatbots</span>
           <span class="tag tag-domain">Elections</span>
           <br />
@@ -895,7 +949,7 @@
           Vishal Pallagani, Bharath Muppasani, Biplav Srivastava, Francesca Rossi, Lior Horesh, Keerthiram Murugesan,
           Andrea Loreggia, Francesco Fabiano, Rony Joseph, Yathin Kethepal<br />
           <a href="https://www.ijcai.org/proceedings/2023/0839.pdf" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/plansformer-tool-demonstrating-generation-of-symbolic-plans-using-transformers.bib" target="_blank" data-bibtex="@inproceedings{pallagani2023plansformer,&#10;  title={Plansformer tool: demonstrating generation of symbolic plans using transformers},&#10;  author={Pallagani, Vishal and Muppasani, Bharath and Srivastava, Biplav and Rossi, Francesca and Horesh, Lior and Murugesan, Keerthiram and Loreggia, Andrea and Fabiano, Francesco and Joseph, Rony and Kethepalli, Yathin and others},&#10;  booktitle={IJCAI},&#10;  volume={2023},&#10;  pages={7158--7162},&#10;  year={2023},&#10;  organization={International Joint Conferences on Artificial Intelligence}&#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/plansformer-tool-demonstrating-generation-of-symbolic-plans-using-transformers.bib" target="_blank" data-bibtex="@inproceedings{pallagani2023plansformer,&#10;  title={Plansformer tool: demonstrating generation of symbolic plans using transformers},&#10;  author={Pallagani, Vishal and Muppasani, Bharath and Srivastava, Biplav and Rossi, Francesca and Horesh, Lior and Murugesan, Keerthiram and Loreggia, Andrea and Fabiano, Francesco and Joseph, Rony and Kethepalli, Yathin and others},&#10;  booktitle={IJCAI},&#10;  volume={2023},&#10;  pages={7158--7162},&#10;  year={2023},&#10;  organization={International Joint Conferences on Artificial Intelligence}&#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <span class="tag tag-type">Demo</span>
           <span class="tag tag-method">Automated Planning</span>
           <br />
@@ -907,7 +961,7 @@
           <i>Frontiers Artificial Intelligence</i><br />
           Surjodeep Sarkar, Manas Gaur, Lujie Karen Chen, Muskan Garg, Biplav Srivastava<br />
           <a href="https://www.frontiersin.org/articles/10.3389/frai.2023.1229805/full" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/a-review-of-the-explainability-and-safety-of-conversational-agents-for-mental-health-to-iden.bib" target="_blank" data-bibtex="@article{Sarkar_2023, title={A review of the explainability and safety of conversational agents for mental health to identify avenues for improvement}, volume={6}, ISSN={2624-8212}, url={http://dx.doi.org/10.3389/frai.2023.1229805}, DOI={10.3389/frai.2023.1229805}, journal={Frontiers in Artificial Intelligence}, publisher={Frontiers Media SA}, author={Sarkar, Surjodeep and Gaur, Manas and Chen, Lujie Karen and Garg, Muskan and Srivastava, Biplav}, year={2023}, month=Oct }&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/a-review-of-the-explainability-and-safety-of-conversational-agents-for-mental-health-to-iden.bib" target="_blank" data-bibtex="@article{Sarkar_2023, title={A review of the explainability and safety of conversational agents for mental health to identify avenues for improvement}, volume={6}, ISSN={2624-8212}, url={http://dx.doi.org/10.3389/frai.2023.1229805}, DOI={10.3389/frai.2023.1229805}, journal={Frontiers in Artificial Intelligence}, publisher={Frontiers Media SA}, author={Sarkar, Surjodeep and Gaur, Manas and Chen, Lujie Karen and Garg, Muskan and Srivastava, Biplav}, year={2023}, month=Oct }&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <span class="tag tag-type">Journal</span>
           <span class="tag tag-method">Chatbots</span>
           <br />
@@ -938,7 +992,7 @@
             COMAD) (CODS-COMAD 2023), January 4–7, 2023, Mumbai, India</i><br />
           Bihu Suchetana, Biplav Srivastava, Hari Prabhat Gupta, Manabendra Saharia<br />
           <a href="https://dl.acm.org/doi/pdf/10.1145/3570991.3571021" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/promoting-sustainable-water-usage-and-management-with-water-data-ai-and-policy.bib" target="_blank" data-bibtex="@inproceedings{Suchetana_2023, series={CODS-COMAD 2023}, title={Promoting Sustainable Water Usage and Management With Water Data, AI and Policy}, url={http://dx.doi.org/10.1145/3570991.3571021}, DOI={10.1145/3570991.3571021}, booktitle={Proceedings of the 6th Joint International Conference on Data Science &amp;amp; Management of Data (10th ACM IKDD CODS and 28th COMAD)}, publisher={ACM}, author={Suchetana, Bihu and Srivastava, Biplav and Gupta, Hari Prabhat and Saharia, Manabendra}, year={2023}, month=Jan, pages={308–311}, collection={CODS-COMAD 2023} }&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/promoting-sustainable-water-usage-and-management-with-water-data-ai-and-policy.bib" target="_blank" data-bibtex="@inproceedings{Suchetana_2023, series={CODS-COMAD 2023}, title={Promoting Sustainable Water Usage and Management With Water Data, AI and Policy}, url={http://dx.doi.org/10.1145/3570991.3571021}, DOI={10.1145/3570991.3571021}, booktitle={Proceedings of the 6th Joint International Conference on Data Science &amp;amp; Management of Data (10th ACM IKDD CODS and 28th COMAD)}, publisher={ACM}, author={Suchetana, Bihu and Srivastava, Biplav and Gupta, Hari Prabhat and Saharia, Manabendra}, year={2023}, month=Jan, pages={308–311}, collection={CODS-COMAD 2023} }&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <span class="tag tag-type">Tutorial</span>
           <span class="tag tag-domain">Water</span>
           <br />
@@ -962,7 +1016,7 @@
               Bharath Muppasani, Cheyyur Jaya Anand, Chinmayi Appajigowda, Biplav Srivastava, Lokesh Johri
               <br />
               <a href="https://arxiv.org/pdf/2209.00987.pdf" target="_blank">[Paper]</a>
-              <a class="bibtex-link" href="bib/a-dataset-and-baseline-approach-for-identifying-usage-states-from-non-intrusive-power-sensin.bib" target="_blank" data-bibtex="@inproceedings{midas-state-id,&#10;&#10;author = {Bharath C Muppasani and C J Anand and Chinmayi Appajigowda  and Biplav Srivastava  and Lokesh Johri},&#10;&#10;title = {A Dataset and Baseline Approach for Identifying Usage States from Non-Intrusive Power Sensing With MiDAS IoT-based Sensors},&#10;&#10;booktitle = {Proc. Thirty-Fifth Annual Conference on Innovative Applications of Artificial Intelligence (AAAI/IAAI-23)},&#10;year = {2023},&#10;keywords = {Signal Processing (eess.SP), Artificial Intelligence (cs.AI), Machine Learning (cs.LG), FOS: Electrical engineering, electronic engineering, information engineering, FOS: Computer and information sciences},&#10;copyright = {Creative Commons Attribution Non Commercial No Derivatives 4.0 International}&#10;&#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+              <a class="bibtex-link" href="bib/a-dataset-and-baseline-approach-for-identifying-usage-states-from-non-intrusive-power-sensin.bib" target="_blank" data-bibtex="@inproceedings{midas-state-id,&#10;&#10;author = {Bharath C Muppasani and C J Anand and Chinmayi Appajigowda  and Biplav Srivastava  and Lokesh Johri},&#10;&#10;title = {A Dataset and Baseline Approach for Identifying Usage States from Non-Intrusive Power Sensing With MiDAS IoT-based Sensors},&#10;&#10;booktitle = {Proc. Thirty-Fifth Annual Conference on Innovative Applications of Artificial Intelligence (AAAI/IAAI-23)},&#10;year = {2023},&#10;keywords = {Signal Processing (eess.SP), Artificial Intelligence (cs.AI), Machine Learning (cs.LG), FOS: Electrical engineering, electronic engineering, information engineering, FOS: Computer and information sciences},&#10;copyright = {Creative Commons Attribution Non Commercial No Derivatives 4.0 International}&#10;&#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
               <a href="./presentations/PowerIoT_IAAI_Presentation.pdf" target="_blank">[Slides]</a>
               <span class="tag tag-type">Conference</span>
               <span class="tag tag-method">Data Analysis</span>
@@ -985,7 +1039,7 @@
           Bharath Muppasani, Vishal Pallagani, Kausik Lakkaraju, Shuge Lei, Biplav Srivastava, Brett Robertson, Andrea
           Hickerson, Vignesh Narayanan<br />
           <a href="https://arxiv.org/pdf/2212.11219.pdf" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/on-safe-and-usable-chatbots-for-promoting-voter-participation-2.bib" target="_blank" data-bibtex="@misc{muppasani2022safeusablechatbotspromoting,&#10;      title={On Safe and Usable Chatbots for Promoting Voter Participation}, &#10;      author={Bharath Muppasani and Vishal Pallagani and Kausik Lakkaraju and Shuge Lei and Biplav Srivastava and Brett Robertson and Andrea Hickerson and Vignesh Narayanan},&#10;      year={2022},&#10;      eprint={2212.11219},&#10;      archivePrefix={arXiv},&#10;      primaryClass={cs.HC},&#10;      url={https://arxiv.org/abs/2212.11219}, &#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/on-safe-and-usable-chatbots-for-promoting-voter-participation-2.bib" target="_blank" data-bibtex="@misc{muppasani2022safeusablechatbotspromoting,&#10;      title={On Safe and Usable Chatbots for Promoting Voter Participation}, &#10;      author={Bharath Muppasani and Vishal Pallagani and Kausik Lakkaraju and Shuge Lei and Biplav Srivastava and Brett Robertson and Andrea Hickerson and Vignesh Narayanan},&#10;      year={2022},&#10;      eprint={2212.11219},&#10;      archivePrefix={arXiv},&#10;      primaryClass={cs.HC},&#10;      url={https://arxiv.org/abs/2212.11219}, &#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <span class="tag tag-type">Workshop</span>
           <span class="tag tag-method">Chatbots</span>
           <span class="tag tag-domain">Elections</span>
@@ -998,7 +1052,7 @@
             San Francisco, 2023</i><br />
           Biplav Srivastava, Kausik Lakkaraju, Mariana Bernagozzi, Marco Valtorta<br />
           <a href="https://link.springer.com/article/10.1007/s43681-023-00391-5" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/advances-in-automatically-rating-the-trustworthiness-of-text-processing-services.bib" target="_blank" data-bibtex="@misc{srivastava2023advances,&#10;      title={Advances in Automatically Rating the Trustworthiness of Text Processing Services}, &#10;      author={Biplav Srivastava and Kausik Lakkaraju and Mariana Bernagozzi and Marco Valtorta},&#10;      year={2023},&#10;      eprint={2302.09079},&#10;      archivePrefix={arXiv},&#10;      primaryClass={cs.HC}&#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/advances-in-automatically-rating-the-trustworthiness-of-text-processing-services.bib" target="_blank" data-bibtex="@misc{srivastava2023advances,&#10;      title={Advances in Automatically Rating the Trustworthiness of Text Processing Services}, &#10;      author={Biplav Srivastava and Kausik Lakkaraju and Mariana Bernagozzi and Marco Valtorta},&#10;      year={2023},&#10;      eprint={2302.09079},&#10;      archivePrefix={arXiv},&#10;      primaryClass={cs.HC}&#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <span class="tag tag-type">Journal</span>
           <span class="tag tag-method">Trust Rating</span>
           <br />
@@ -1010,7 +1064,7 @@
           <i>Planning and Scheduling for Financial Services (FinPlan'23) Workshop at ICAPS 2023</i><br />
           Kausik Lakkaraju, Sai Krishna Revanth Vuruma, Vishal Pallagani, Bharath Muppasani, Biplav Srivastava<br />
           <a href="https://arxiv.org/abs/2307.07422" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/can-llms-be-good-financial-advisors-an-initial-study-in-personal-decision-making-for-optimiz.bib" target="_blank" data-bibtex="@misc{lakkaraju2023llms,&#10;      title={Can LLMs be Good Financial Advisors?: An Initial Study in Personal Decision Making for Optimized Outcomes}, &#10;      author={Kausik Lakkaraju and Sai Krishna Revanth Vuruma and Vishal Pallagani and Bharath Muppasani and Biplav Srivastava},&#10;      year={2023},&#10;      eprint={2307.07422},&#10;      archivePrefix={arXiv},&#10;      primaryClass={cs.CL}&#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/can-llms-be-good-financial-advisors-an-initial-study-in-personal-decision-making-for-optimiz.bib" target="_blank" data-bibtex="@misc{lakkaraju2023llms,&#10;      title={Can LLMs be Good Financial Advisors?: An Initial Study in Personal Decision Making for Optimized Outcomes}, &#10;      author={Kausik Lakkaraju and Sai Krishna Revanth Vuruma and Vishal Pallagani and Bharath Muppasani and Biplav Srivastava},&#10;      year={2023},&#10;      eprint={2307.07422},&#10;      archivePrefix={arXiv},&#10;      primaryClass={cs.CL}&#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <a href="./presentations/FinPlan2023_KL_Pres.pdf" target="_blank">[Slides]</a>
           <span class="tag tag-type">Workshop</span>
           <span class="tag tag-method">Trust Rating</span>
@@ -1027,7 +1081,7 @@
           Kausik Lakkaraju, Vinamra Palaiyya, Sai Teja Paladi, Chinmayi Appajigowda, Biplav Srivastava, Lokesh
           Johri<br />
           <a href="https://dl.acm.org/doi/abs/10.1007/978-3-031-00129-1_49" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/data-based-insights-for-the-masses-scaling-natural-language-querying-to-middleware-data.bib" target="_blank" data-bibtex="@inbook{Lakkaraju_2022, title={Data-Based Insights for the Masses: Scaling Natural Language Querying to Middleware Data}, ISBN={9783031001291}, ISSN={1611-3349}, url={http://dx.doi.org/10.1007/978-3-031-00129-1_49}, DOI={10.1007/978-3-031-00129-1_49}, booktitle={Database Systems for Advanced Applications}, publisher={Springer International Publishing}, author={Lakkaraju, Kausik and Palaiya, Vinamra and Paladi, Sai Teja and Appajigowda, Chinmayi and Srivastava, Biplav and Johri, Lokesh}, year={2022}, pages={527–531} }&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/data-based-insights-for-the-masses-scaling-natural-language-querying-to-middleware-data.bib" target="_blank" data-bibtex="@inbook{Lakkaraju_2022, title={Data-Based Insights for the Masses: Scaling Natural Language Querying to Middleware Data}, ISBN={9783031001291}, ISSN={1611-3349}, url={http://dx.doi.org/10.1007/978-3-031-00129-1_49}, DOI={10.1007/978-3-031-00129-1_49}, booktitle={Database Systems for Advanced Applications}, publisher={Springer International Publishing}, author={Lakkaraju, Kausik and Palaiya, Vinamra and Paladi, Sai Teja and Appajigowda, Chinmayi and Srivastava, Biplav and Johri, Lokesh}, year={2022}, pages={527–531} }&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <a href="https://vimeo.com/651270271" target="_blank">[Presentation]</a>
           <span class="tag tag-type">Conference</span>
           <span class="tag tag-method">Data Analysis</span>
@@ -1052,7 +1106,7 @@
           <i>Conference on Artificial Intelligence, Ethics and Society (AIES) 2022</i><br />
           Kausik Lakkaraju<br />
           <a href="https://dl.acm.org/doi/10.1145/3514094.3539556" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/why-is-my-system-biased-rating-of-ai-systems-through-a-causal-lens-student-abstract.bib" target="_blank" data-bibtex="@inproceedings{10.1145/3514094.3539556,&#10;author = {Lakkaraju, Kausik},&#10;title = {Why is My System Biased?: Rating of AI Systems through a Causal Lens},&#10;year = {2022},&#10;isbn = {9781450392471},&#10;publisher = {Association for Computing Machinery},&#10;address = {New York, NY, USA},&#10;url = {https://doi.org/10.1145/3514094.3539556},&#10;doi = {10.1145/3514094.3539556},&#10;abstract = {Artificial Intelligence (AI) systems like facial recognition systems and sentiment analyzers are known to exhibit model uncertainty which can be perceived as algorithmic bias in most cases. The aim of my Ph.D. is to examine and control the bias present in these AI systems by establishing causal relationships and also assigning a rating to these systems, which helps the user to make an informed selection when choosing from different systems for their application.},&#10;booktitle = {Proceedings of the 2022 AAAI/ACM Conference on AI, Ethics, and Society},&#10;pages = {902},&#10;numpages = {1},&#10;keywords = {bias, fairness, rating AI systems},&#10;location = {Oxford, United Kingdom},&#10;series = {AIES &#x27;22}&#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/why-is-my-system-biased-rating-of-ai-systems-through-a-causal-lens-student-abstract.bib" target="_blank" data-bibtex="@inproceedings{10.1145/3514094.3539556,&#10;author = {Lakkaraju, Kausik},&#10;title = {Why is My System Biased?: Rating of AI Systems through a Causal Lens},&#10;year = {2022},&#10;isbn = {9781450392471},&#10;publisher = {Association for Computing Machinery},&#10;address = {New York, NY, USA},&#10;url = {https://doi.org/10.1145/3514094.3539556},&#10;doi = {10.1145/3514094.3539556},&#10;abstract = {Artificial Intelligence (AI) systems like facial recognition systems and sentiment analyzers are known to exhibit model uncertainty which can be perceived as algorithmic bias in most cases. The aim of my Ph.D. is to examine and control the bias present in these AI systems by establishing causal relationships and also assigning a rating to these systems, which helps the user to make an informed selection when choosing from different systems for their application.},&#10;booktitle = {Proceedings of the 2022 AAAI/ACM Conference on AI, Ethics, and Society},&#10;pages = {902},&#10;numpages = {1},&#10;keywords = {bias, fairness, rating AI systems},&#10;location = {Oxford, United Kingdom},&#10;series = {AIES &#x27;22}&#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <a href="./presentations/AIES2022_KL_Pres.pdf" target="_blank">[Slides]</a>
           <span class="tag tag-type">Conference</span>
           <span class="tag tag-method">Trust Rating</span>
@@ -1080,7 +1134,7 @@
           Marianna Ganapini, Murray Campbell, Francesco Fabiano, Lior Horesh, Jon Lenchner, Andrea Loreggia, Nicholas
           Mattei, Francesca Rossi, Biplav Srivastava, Kristen Brent Venable<br />
           <a href="https://icaps21.icaps-conference.org/demos/demos/381.pdf" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/thinking-fast-and-slow-in-ai-the-role-of-metacognition.bib" target="_blank" data-bibtex="@inbook{Ganapini_2023, title={Thinking Fast and Slow in AI: The Role of Metacognition}, ISBN={9783031258916}, ISSN={1611-3349}, url={http://dx.doi.org/10.1007/978-3-031-25891-6_38}, DOI={10.1007/978-3-031-25891-6_38}, booktitle={Machine Learning, Optimization, and Data Science}, publisher={Springer Nature Switzerland}, author={Ganapini, M. Bergamaschi and Campbell, Murray and Fabiano, Francesco and Horesh, Lior and Lenchner, Jon and Loreggia, Andrea and Mattei, Nicholas and Rossi, Francesca and Srivastava, Biplav and Venable, Kristen Brent}, year={2023}, pages={502–509} }&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/thinking-fast-and-slow-in-ai-the-role-of-metacognition.bib" target="_blank" data-bibtex="@inbook{Ganapini_2023, title={Thinking Fast and Slow in AI: The Role of Metacognition}, ISBN={9783031258916}, ISSN={1611-3349}, url={http://dx.doi.org/10.1007/978-3-031-25891-6_38}, DOI={10.1007/978-3-031-25891-6_38}, booktitle={Machine Learning, Optimization, and Data Science}, publisher={Springer Nature Switzerland}, author={Ganapini, M. Bergamaschi and Campbell, Murray and Fabiano, Francesco and Horesh, Lior and Lenchner, Jon and Loreggia, Andrea and Mattei, Nicholas and Rossi, Francesca and Srivastava, Biplav and Venable, Kristen Brent}, year={2023}, pages={502–509} }&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <span class="tag tag-type">Conference</span>
           <span class="tag tag-method">Neuro-Symbolic AI</span>
           <br />
@@ -1092,7 +1146,7 @@
           <i>International Conference on Automated Planning and Scheduling (ICAPS) Demonstration Track, 2021</i><br />
           Vishal Pallagani, Biplav Srivastava<br />
           <a href="https://icaps21.icaps-conference.org/demos/demos/381.pdf" target="_blank">[Paper]</a>
-          <a class="bibtex-link" href="bib/prudent-a-generic-dialog-agent-for-information-retrieval-that-can-flexibly-mix-automated-pla.bib" target="_blank" data-bibtex="@article{pallagani2021prudent,&#10;  title={PRUDENT-A Generic Dialog Agent for Information Retrieval That Can Flexibly Mix Automated Planning and Reinforcement Learning},&#10;  author={Pallagani, Vishal and Srivastava, Biplav and Agrawal, Sparsh},&#10;  year={2021}&#10;}&#10;" onclick="copyBibTeX(this)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
+          <a class="bibtex-link" href="bib/prudent-a-generic-dialog-agent-for-information-retrieval-that-can-flexibly-mix-automated-pla.bib" target="_blank" data-bibtex="@article{pallagani2021prudent,&#10;  title={PRUDENT-A Generic Dialog Agent for Information Retrieval That Can Flexibly Mix Automated Planning and Reinforcement Learning},&#10;  author={Pallagani, Vishal and Srivastava, Biplav and Agrawal, Sparsh},&#10;  year={2021}&#10;}&#10;" onclick="return copyBibTeX(this, event)" title="Copy BibTeX and open raw BibTeX">[BibTeX]</a>
           <span class="tag tag-type">Demo</span>
           <span class="tag tag-method">Automated Planning</span>
           <span class="tag tag-method">Chatbots</span>
@@ -1188,12 +1242,92 @@
     }
   </script>
   <script>
-    function copyBibTeX(link) {
-      var bibtex = link.getAttribute("data-bibtex") || "";
-      if (bibtex && navigator.clipboard) {
-        navigator.clipboard.writeText(bibtex).catch(function () {});
+    function showBibTeXCopied(link, message) {
+      var toast = document.querySelector(".bibtex-copy-toast");
+      if (!toast) {
+        toast = document.createElement("div");
+        toast.className = "bibtex-copy-toast";
+        toast.setAttribute("role", "status");
+        toast.setAttribute("aria-live", "polite");
+        document.body.appendChild(toast);
       }
-      return true;
+
+      toast.textContent = message;
+      toast.classList.remove("is-visible");
+      window.clearTimeout(toast.hideTimer);
+
+      requestAnimationFrame(function () {
+        toast.classList.add("is-visible");
+      });
+
+      toast.hideTimer = window.setTimeout(function () {
+        toast.classList.remove("is-visible");
+      }, 1600);
+
+      if (link) {
+        link.classList.remove("bibtex-link-copied");
+        void link.offsetWidth;
+        link.classList.add("bibtex-link-copied");
+        window.setTimeout(function () {
+          link.classList.remove("bibtex-link-copied");
+        }, 900);
+      }
+    }
+
+    function copyTextToClipboard(text, callback) {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(function () {
+          callback(true);
+        }).catch(function () {
+          callback(false);
+        });
+        return;
+      }
+
+      var textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      document.body.appendChild(textarea);
+      textarea.select();
+
+      var copied = false;
+      try {
+        copied = document.execCommand("copy");
+      } catch (error) {
+        copied = false;
+      }
+
+      document.body.removeChild(textarea);
+      callback(copied);
+    }
+
+    function copyBibTeX(link, event) {
+      var bibtex = link.getAttribute("data-bibtex") || "";
+      if (event) {
+        event.preventDefault();
+      }
+
+      if (bibtex) {
+        copyTextToClipboard(bibtex, function (copied) {
+          showBibTeXCopied(link, copied ? "Copied BibTeX" : "BibTeX opened");
+        });
+      }
+
+      var tab = window.open("", "_blank");
+      if (tab) {
+        tab.opener = null;
+        tab.document.title = "BibTeX";
+        tab.document.body.style.margin = "24px";
+        tab.document.body.style.fontFamily = "Consolas, Monaco, 'Courier New', monospace";
+        tab.document.body.style.whiteSpace = "pre-wrap";
+        tab.document.body.style.lineHeight = "1.45";
+        tab.document.body.textContent = bibtex;
+        tab.document.close();
+      }
+
+      return false;
     }
   </script>
 
