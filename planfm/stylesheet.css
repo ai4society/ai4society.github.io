@@ -589,7 +589,8 @@
     font-weight: 700;
     letter-spacing: 0.08em;
     margin-bottom: 0.45rem;
-    text-transform: uppercase;
+    white-space: normal;
+    word-break: break-word;
   }
 
   .resource-card h3 {
