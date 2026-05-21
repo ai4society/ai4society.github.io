@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -1607,7 +1607,17 @@ after aggregating scores using the provided aggregate_func.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Additional keyword arguments: - metric_name (str, required): The name of the metric to plot. - model_col (str, optional): Name of the column identifying models. Defaults to "model_name". - score_col (str, optional): Name of the column containing scores. Defaults to "score". - metric_col (str, optional): Name of the column containing metric names. Defaults to "metric_name". - title (Optional[str], optional): Title for the plot. - xlabel (Optional[str], optional): Label for the x-axis. Defaults to "Model". - ylabel (Optional[str], optional): Label for the y-axis. Defaults to the plotted metric's name. - figsize (tuple, optional): Figure size. Defaults to (10, 6). - axis (Optional[matplotlib.axes.Axes], optional): Matplotlib Axes to plot on. - Other kwargs are passed to seaborn.barplot.</p>
+                <p>Additional keyword arguments:
+- metric_name (str, required): The name of the metric to plot.
+- model_col (str, optional): Name of the column identifying models. Defaults to "model_name".
+- score_col (str, optional): Name of the column containing scores. Defaults to "score".
+- metric_col (str, optional): Name of the column containing metric names. Defaults to "metric_name".
+- title (Optional[str], optional): Title for the plot.
+- xlabel (Optional[str], optional): Label for the x-axis. Defaults to "Model".
+- ylabel (Optional[str], optional): Label for the y-axis. Defaults to the plotted metric's name.
+- figsize (tuple, optional): Figure size. Defaults to (10, 6).
+- axis (Optional[matplotlib.axes.Axes], optional): Matplotlib Axes to plot on.
+- Other kwargs are passed to seaborn.barplot.</p>
               </div>
             </td>
             <td>
@@ -1747,7 +1757,17 @@ after aggregating scores using the provided aggregate_func.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Additional keyword arguments: - metrics (List[str], optional): List of metric names to include. If None, all metrics in df are used. - model_col (str, optional): Name of the column identifying models. Defaults to "model_name". - score_col (str, optional): Name of the column containing scores. Defaults to "score". - metric_col (str, optional): Name of the column containing metric names. Defaults to "metric_name". - title (Optional[str], optional): Title for the plot. Defaults to "Model Comparison Radar Plot". - figsize (tuple, optional): Figure size. Defaults to (8, 8). - fill_alpha (float, optional): Alpha for filled area. Defaults to 0.1. - line_width (float, optional): Width of plot lines. Defaults to 1.0. - y_ticks (Optional[List[float]], optional): Custom y-axis ticks. - axis (Optional[matplotlib.axes.Axes], optional): Matplotlib polar Axes to plot on.</p>
+                <p>Additional keyword arguments:
+- metrics (List[str], optional): List of metric names to include. If None, all metrics in df are used.
+- model_col (str, optional): Name of the column identifying models. Defaults to "model_name".
+- score_col (str, optional): Name of the column containing scores. Defaults to "score".
+- metric_col (str, optional): Name of the column containing metric names. Defaults to "metric_name".
+- title (Optional[str], optional): Title for the plot. Defaults to "Model Comparison Radar Plot".
+- figsize (tuple, optional): Figure size. Defaults to (8, 8).
+- fill_alpha (float, optional): Alpha for filled area. Defaults to 0.1.
+- line_width (float, optional): Width of plot lines. Defaults to 1.0.
+- y_ticks (Optional[List[float]], optional): Custom y-axis ticks.
+- axis (Optional[matplotlib.axes.Axes], optional): Matplotlib polar Axes to plot on.</p>
               </div>
             </td>
             <td>

@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -1598,7 +1598,9 @@ Specifically, it is of type Dict[str, float | Any].</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Either a single dictionary of scores or a list of score dictionaries Single: {"BLEU": 0.6, "JSD": 0.1} Batch: [{"BLEU": 0.6, "JSD": 0.1}, {"BLEU": 0.4, "JSD": 0.2}]</p>
+                <p>Either a single dictionary of scores or a list of score dictionaries
+Single: {"BLEU": 0.6, "JSD": 0.1}
+Batch: [{"BLEU": 0.6, "JSD": 0.1}, {"BLEU": 0.4, "JSD": 0.2}]</p>
               </div>
             </td>
             <td>
@@ -1614,7 +1616,8 @@ Specifically, it is of type Dict[str, float | Any].</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Dictionary of metric names to threshold values. Defaults to get_default_thresholds() if not provided.</p>
+                <p>Dictionary of metric names to threshold values.
+Defaults to get_default_thresholds() if not provided.</p>
               </div>
             </td>
             <td>
@@ -1640,7 +1643,9 @@ Specifically, it is of type Dict[str, float | Any].</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>For single input, returns a dictionary. For batch input, returns a list. Single: {"BLEU": {"score": 0.6, "threshold_applied": 0.5, "passed_threshold": True}, ...} Batch: [{"BLEU": {"score": 0.6, ...}, ...}, {"BLEU": {"score": 0.4, ...}, ...}]</p>
+                <p>For single input, returns a dictionary. For batch input, returns a list.
+Single: {"BLEU": {"score": 0.6, "threshold_applied": 0.5, "passed_threshold": True}, ...}
+Batch: [{"BLEU": {"score": 0.6, ...}, ...}, {"BLEU": {"score": 0.4, ...}, ...}]</p>
               </div>
             </td>
           </tr>
@@ -1684,7 +1689,8 @@ This is useful for testing and can be overridden by user-defined thresholds.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>A dictionary of default thresholds for each metric. e.g., {"BLEU": 0.5, "JSD": 0.5}</p>
+                <p>A dictionary of default thresholds for each metric.
+e.g., {"BLEU": 0.5, "JSD": 0.5}</p>
               </div>
             </td>
           </tr>
