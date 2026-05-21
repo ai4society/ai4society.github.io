@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>Resources | PlanFM</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="PlanFM code repositories, datasets, and dissertation resources">
+  <meta name="description" content="PlanFM code repositories and datasets">
   <link rel="stylesheet" href="stylesheet.css">
 </head>
 
@@ -34,7 +34,7 @@
   <main class="main">
     <section class="demo-hero resource-hero">
       <p class="demo-kicker">PlanFM Resources</p>
-      <h1 class="demo-title">Code, Datasets, and Dissertation Work</h1>
+      <h1 class="demo-title">Code and Datasets</h1>
       <p class="demo-intro">
         Repositories and datasets connected to PlanFM research on compact foundation models for planning-like tasks,
         state-centric representations, learned transition models, and downstream planning evaluation.
@@ -45,7 +45,7 @@
       <h2 id="code-resources">Code</h2>
       <div class="resource-grid">
         <article class="resource-card">
-          <p class="resource-type">Quantization</p>
+          <p class="resource-type">Model Compression - Quantization</p>
           <h3>PlanFM State-Centric Quantization</h3>
           <p>
             Code for quantization experiments associated with compact state-centric planning models and efficient
@@ -60,7 +60,7 @@
         </article>
 
         <article class="resource-card">
-          <p class="resource-type">Tokenization</p>
+          <p class="resource-type">Tokenizer Design</p>
           <h3>PlanFM State-Centric Tokenization</h3>
           <p>
             Code for representing symbolic planning states as learning-ready tokens, including tokenization choices
@@ -70,12 +70,13 @@
             <span class="demo-tag">Symbolic States</span>
             <span class="demo-tag">Graph Encodings</span>
             <span class="demo-tag">Tokenization</span>
+            <span class="demo-tag">PhD Dissertation</span>
           </div>
           <a class="resource-link" href="https://github.com/ai4society/planfm-state-centric-tokenization" target="_blank" rel="noopener noreferrer">Open GitHub repository</a>
         </article>
 
         <article class="resource-card">
-          <p class="resource-type">Plan Validity</p>
+          <p class="resource-type">Downstream Applications - Plan Validity</p>
           <h3>PlanFM Validity</h3>
           <p>
             Code for the downstream plan-validity task, where state-centric learning is used to assess whether
@@ -90,7 +91,7 @@
         </article>
 
         <article class="resource-card">
-          <p class="resource-type">Generalized Planning</p>
+          <p class="resource-type">Model Architecture and Training</p>
           <h3>On Sample-Efficient Generalized Planning via Learned Transition Models</h3>
           <p>
             Official implementation for learning transition dynamics over state representations and decoding
@@ -111,7 +112,7 @@
       <h2 id="dataset-resources">Datasets</h2>
       <div class="resource-grid resource-grid-single">
         <article class="resource-card">
-          <p class="resource-type">Benchmark Dataset</p>
+          <p class="resource-type">Data Preparation</p>
           <h3>FABLE+: Data-Flow Analysis Benchmark Resources</h3>
           <p>
             FABLE evaluates language models on data-flow analysis over procedural text, including planning scenarios,
@@ -131,26 +132,6 @@
       </div>
     </section>
 
-    <section class="resource-section" aria-labelledby="dissertation-resources">
-      <h2 id="dissertation-resources">Dissertation</h2>
-      <div class="resource-grid resource-grid-single">
-        <article class="resource-card resource-card-featured">
-          <p class="resource-type">PhD Dissertation</p>
-          <h3>Generalized Planning Using Language Models and Its Applications</h3>
-          <p>
-            Dissertation work by Vishal Pallagani on language-model methods for automated planning, compact
-            state-centric planning models, planning ontology, plan summarization, neuro-symbolic planning architectures,
-            and applied decision-making systems.
-          </p>
-          <div class="demo-tag-row">
-            <span class="demo-tag">Generalized Planning</span>
-            <span class="demo-tag">Language Models</span>
-            <span class="demo-tag">Neuro-Symbolic AI</span>
-          </div>
-          <a class="resource-link" href="https://vishalpallagani.github.io/phd/" target="_blank" rel="noopener noreferrer">Open dissertation page</a>
-        </article>
-      </div>
-    </section>
   </main>
 
   <footer class="footer">
