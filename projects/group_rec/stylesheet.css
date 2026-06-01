@@ -625,3 +625,68 @@ details[close] > .content {
   margin: 0 0 10px 0;
   color: #018b92;
 }
+
+.exercise-poster {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin: 20px 0;
+  padding: 16px;
+  border: 2px solid #59bcfe;
+  border-radius: 5px;
+  background-color: #f3fffe;
+  box-shadow: 2px 2px 8px rgba(59, 72, 255, 0.474);
+}
+
+.exercise-poster__preview {
+  display: block;
+  flex: 0 0 150px;
+  max-width: 150px;
+  border: 1px solid #c9d7d7;
+  background-color: white;
+}
+
+.exercise-poster__preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.exercise-poster__copy {
+  flex: 1;
+}
+
+.exercise-poster__copy h3 {
+  margin: 0 0 8px 0;
+  color: #018b92;
+  line-height: 1.3;
+}
+
+.exercise-poster__copy p {
+  margin: 0 0 10px 0;
+  line-height: 1.6;
+}
+
+.exercise-poster__label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: #555555;
+}
+
+.exercise-poster__actions {
+  margin-bottom: 0;
+}
+
+@media only screen and (max-width: 700px) {
+  .exercise-poster {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .exercise-poster__preview {
+    flex-basis: auto;
+    max-width: 220px;
+  }
+}
