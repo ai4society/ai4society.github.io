@@ -679,6 +679,46 @@ details[close] > .content {
   margin-bottom: 0;
 }
 
+.paper-has-poster .paper-item-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.paper-has-poster .paper-details {
+  flex: 1 1 260px;
+  min-width: 100px;
+}
+
+.paper-has-poster .paper-poster {
+  flex: 0 0 130px;
+  max-width: 160px;
+}
+
+.paper-has-poster .paper-poster a {
+  display: block;
+}
+
+.paper-has-poster .paper-poster img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 120px;
+  border: 1px solid #c9d7d7;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+  object-fit: contain;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.paper-has-poster .paper-poster img:hover,
+.paper-has-poster .paper-poster img:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+}
+
 @media only screen and (max-width: 700px) {
   .exercise-poster {
     flex-direction: column;
@@ -688,5 +728,23 @@ details[close] > .content {
   .exercise-poster__preview {
     flex-basis: auto;
     max-width: 220px;
+  }
+
+  .paper-has-poster .paper-item-layout {
+    display: block;
+  }
+
+  .paper-has-poster .paper-details {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .paper-has-poster .paper-poster {
+    max-width: 220px;
+    margin-top: 8px;
+  }
+
+  .paper-has-poster .paper-poster img {
+    max-height: 180px;
   }
 }
