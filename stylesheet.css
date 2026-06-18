@@ -475,6 +475,119 @@ button:hover {
   margin-bottom: 0;
 }
 
+.icaps26-section {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 20px 24px;
+  background: #fafbfc;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+}
+
+.icaps26-section-title {
+  margin: 0 0 6px 0;
+  color: #1a237e;
+  font-weight: 600;
+}
+
+.icaps26-section-title a {
+  color: #1a237e;
+  text-decoration: none;
+}
+
+.icaps26-section-title a:hover {
+  text-decoration: underline;
+}
+
+.icaps26-section-subtitle {
+  margin: 0 0 14px 0;
+  color: #555;
+  font-size: 0.9em;
+}
+
+.icaps26-table-wrap {
+  margin-top: 10px;
+  overflow-x: auto;
+}
+
+.icaps26-schedule {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  background: #fff;
+  border: 1px solid #d0d7de;
+  border-radius: 4px;
+}
+
+.icaps26-schedule th,
+.icaps26-schedule td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #e6e8eb;
+  text-align: left;
+  vertical-align: top;
+}
+
+.icaps26-schedule th {
+  background: #1a237e;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+.icaps26-schedule tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.icaps26-schedule tbody tr:hover {
+  background: #f5f7fb;
+}
+
+.icaps26-time {
+  color: #555;
+  font-size: 0.85em;
+}
+
+.icaps26-authors {
+  color: #555;
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+.icaps26-tag {
+  display: inline-block;
+  padding: 2px 6px;
+  font-size: 0.75em;
+  font-weight: 600;
+  border-radius: 3px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.icaps26-tag-tutorial {
+  background: #e8eaf6;
+  color: #1a237e;
+}
+
+.icaps26-tag-paper {
+  background: #e0f2f1;
+  color: #00695c;
+}
+
+.icaps26-tag-workshop {
+  background: #fff3e0;
+  color: #bf6000;
+}
+
+@media (max-width: 600px) {
+  .icaps26-schedule {
+    font-size: 0.82em;
+  }
+  .icaps26-schedule th,
+  .icaps26-schedule td {
+    padding: 6px 6px;
+  }
+}
+
 .timeline-dot.year-dot {
   position: absolute;
   left: -25px;
