@@ -578,6 +578,15 @@ button:hover {
   color: #bf6000;
 }
 
+a.icaps26-tag {
+  text-decoration: none;
+}
+
+a.icaps26-tag:hover {
+  filter: brightness(0.92);
+  text-decoration: underline;
+}
+
 @media (max-width: 600px) {
   .icaps26-schedule {
     font-size: 0.82em;
