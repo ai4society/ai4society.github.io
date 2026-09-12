@@ -166,20 +166,20 @@
         <h1>Demonstration</h1>
         <div class="demo-highlight">
             <p style="text-align: justify;"><span style="background-color: hsla(95, 99%, 35%, 0.302);"><b>ARC:<u>A</u>I <u>R</u>ating through <u>C</u>ausality</b></span></p>
+
+            <!--
             <i><b>Collaborators: </b>AIISC - University of South Carolina, Department of Computer Science and Engineering - University of South Carolina</i>
             <br>
             <i><b>Contributors: </b>Kausik Lakkaraju, Likitha Valluru, Biplav Srivastava, Marco Valtorta</i>
+            -->
 
-         <b>ARC: A Tool to Rate AI Models for Robustness Through a Causal Lens for Enabling Trustworthy Model
+         <i><b>ARC: A Tool to Rate AI Models for Robustness Through a Causal Lens for Enabling Trustworthy Model
             Selection</b><br />
           <i>The ACM Web Conference, Dubai, United Arab Emirates, April 2026</i><br />
           Kausik Lakkaraju, Siva Likitha Valluru, Biplav Srivastava, Marco Valtorta
           <br />
           <a href="./papers_local/ARC_Demo_WebConference2026.pdf" target="_blank">[Paper]</a>
           <a href="https://drive.google.com/file/d/1SrI7jJH0vU4s7CTjdqzotGkKjYycio4s/view" target="_blank">[Video]</a>
-          <span class="tag tag-type">Demo</span>
-          <span class="tag tag-method">Trust Rating</span>
-          <br />
             
             <br>
             <p style="text-align: justify;">
@@ -205,6 +205,44 @@
 
         <h1>Research Publications</h1>
 
+        <div class="paper">
+            <p style="text-align: justify;"><span style="background-color: hsla(95, 99%, 35%, 0.302);">
+                <b>Rating Composite AI Models for Robustness Through Probabilistic Planning
+            </b></span></p>
+                <i><b style="color: blue">Conference:</b> 
+                    Proceedings of the 36th International Conference on Automated Planning and Scheduling (ICAPS), June 2026, Dublin, Ireland</i>
+                <br>
+                <i><b>Collaborators: </b>AIISC - University of South Carolina, J.P. Morgan Research</i>
+                <br>
+                <i><b>Contributors: </b>Kausik Lakkaraju, Sunandita Patra, Parisa Zehtabi, Biplav Srivastava,</i>
+                <br>
+            </p>
+            <p style="text-align: justify;">
+                Many real-world AI systems combine several primitive component models, such as translators and 
+                sentiment analyzers, into larger composite models, like chatbots. Understanding how these compositions 
+                behave under uncertainty and how properties like bias or instability move through a composite model is 
+                increasingly important, yet most evaluation methods still focus on primitive models. We introduce a 
+                new use of probabilistic planning to assess the robustness of composite AI models. Each component model
+                call is represented as a stochastic action in the RDDL domain, and the reward combines robustness metrics 
+                to the cost of components (actions). The planner runs each primitive model on randomly drawn data batches, 
+                allowing robustness to be assessed under variation in both the data and the model outputs induced by those data.
+                We demonstrate via case studies and experiments in multilingual sentiment analysis and a synthetic domain, 
+                the planner consistently identifies more stable composite configurations than baseline methods, showing that
+                probabilistic planning can serve as a practical, scalable approach for reasoning about reliability in complex, 
+                composite AI models. 
+            </p>
+            <!-- <img src="../rating_page/images/xai_rating.png" alt="TSFM" 
+            style="width: 20%; 
+                   height: auto;
+                   border-radius: 5px;
+                   margin: 10px auto; 
+                   display: block;"> -->
+            <div class="links">
+                <a href="https://ojs.aaai.org/index.php/ICAPS/article/view/42867" target="_blank">[Paper]</a>
+            </div>
+        </div>
+            
+        
         <div class="paper">
             <p style="text-align: justify;"><span style="background-color: hsla(95, 99%, 35%, 0.302);"><b>On Identifying Why and When Foundation Models Perform Well on Time-Series Forecasting Using Automated Explanations and Rating
             </b></span></p>
