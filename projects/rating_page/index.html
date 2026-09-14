@@ -106,6 +106,17 @@
         .key-idea { background: linear-gradient(135deg, #eef4ff, #f2fbf4); }
         .news-card { background: linear-gradient(135deg, #f3fbf1, #eef8ee); }
 
+        @keyframes newsFlash {
+            0%, 100% { color: var(--ink); text-shadow: none; }
+            50% { color: #d97706; text-shadow: 0 0 8px rgba(217,119,6,0.45); }
+        }
+        .flash-text {
+            animation: newsFlash 1.8s ease-in-out infinite;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .flash-text { animation: none; }
+        }
+
         .quick-start ol { margin: 0; padding-left: 18px; font-size: 14px; color: #333; line-height: 1.7; }
         .quick-start a { color: var(--accent-green); text-decoration: none; font-weight: 600; }
         .quick-start a:hover { text-decoration: underline; }
@@ -321,15 +332,13 @@
                 <a href="https://dl.acm.org/doi/10.1145/3514094.3539556">[Student Paper]</a>
                 <a href="https://link.springer.com/article/10.1007/s43681-023-00391-5" target="_blank">[Journal Paper]</a>
               </li>
-              <li>📘 Our book, <b>"Assessing, Explaining, and Rating AI Systems for Trust: With Applications in Finance"</b>, is now available from Springer Nature.
-                <a href="https://link.springer.com/book/10.1007/978-3-032-21039-5" target="_blank">[Book]</a>
-              </li>
             </ol>
         </section>
 
         <section class="card news-card">
             <h3>News</h3>
-            <p>Kausik Lakkaraju, Rachneet Kaur, Sunandita Patra, and Biplav Srivastava conducted a tutorial on <a href="https://sites.google.com/view/raasta2024icaif/" target="_blank">'Evaluating and Rating AI Systems for Trust and Its Application to Finance'</a> at 5th ACM International Conference on AI in Finance (ICAIF-24)</p>
+            <p>Our book, <b class="flash-text">"Assessing, Explaining, and Rating AI Systems for Trust: With Applications in Finance"</b>, is now available from Springer Nature. <a href="https://link.springer.com/book/10.1007/978-3-032-21039-5" target="_blank">[Book]</a></p>
+            <!-- <p>Kausik Lakkaraju, Rachneet Kaur, Sunandita Patra, and Biplav Srivastava conducted a tutorial on <a href="https://sites.google.com/view/raasta2024icaif/" target="_blank">'Evaluating and Rating AI Systems for Trust and Its Application to Finance'</a> at 5th ACM International Conference on AI in Finance (ICAIF-24)</p> -->
         </section>
 
         <section class="card book-card" id="book">
