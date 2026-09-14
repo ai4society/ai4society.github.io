@@ -1,621 +1,759 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Causal Rating</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        @font-face {
-            font-family: 'Lato';
-            font-style: normal;
-            font-weight: 400;
-            src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v15/S6uyw4BMUTPHjx4wXiWtFCc.woff2) format('woff2');
-            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-        }
-        @font-face {
-            font-family: 'Lato';
-            font-style: italic;
-            font-weight: 400;
-            src: local('Lato Italic'), local('Lato-Italic'), url(https://fonts.gstatic.com/s/lato/v15/S6u8w4BMUTPHjxsAXC-qNiXg7Q.woff2) format('woff2');
-            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-        }
-
-        body {
-            font-family: 'Lato', sans-serif;
-            background-color: #f0f2f5;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-        .container {
-            width: 80%;
-            margin: 20px auto;
-            background: #fff;
-            padding: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-
-        .title {
-            background-color: #252525;
-            color: #fff;
-            padding: 15px;
-            font-size: 14px;
-            text-align: center;
-        }
-        .highlight, .demo-highlight {
-            background-image: linear-gradient(135deg, #6e8efb, #a777e3);
-            color: black;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 10px;
-            border: 1px solid #ccc;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        .video-thumbnail {
-            width: 40%; 
-            height: auto;
-            border-radius: 5px;
-            margin: 10px auto; 
-            display: block;
-        }
-        .links a {
-            display: inline-block;
-            margin-right: 10px;
-            text-decoration: none;
-            color: #0077cc;
-            font-weight: 500;
-        }
-        .links a:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head> -->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Rating of AI Systems through a Causal Lens: research, tools, publications, and a new book on assessing, explaining, and rating AI systems for trust.">
 
     <title>Causal Rating</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <style>
+        :root {
+            --navy: #13294b;
+            --ink: #222831;
+            --muted: #5b6472;
+            --page-bg: #f4f6f9;
+            --card-bg: #ffffff;
+            --border: #e3e7ec;
+            --accent-green: #1f9d55;
+            --cat-composite: #7c3aed;
+            --cat-explain: #0891b2;
+            --cat-tsfm: #ea580c;
+            --cat-sentiment: #db2777;
+            --cat-foundational: #64748b;
+        }
+
+        body.rp-page {
+            background-color: var(--page-bg);
+            color: var(--ink);
+        }
+
+        .rp-topbar {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 18px 16px 0 16px;
+            box-sizing: border-box;
+        }
+        .rp-topbar a { color: #1772d0; text-decoration: none; }
+        .rp-topbar a:hover { text-decoration: underline; }
+
+        .rp-title-wrap {
+            max-width: 980px;
+            margin: 8px auto 0 auto;
+            padding: 0 16px;
+            box-sizing: border-box;
+        }
+        .rp-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            line-height: 1.3;
+            color: var(--navy);
+            margin: 6px 0 14px 0;
+            flex-wrap: wrap;
+        }
+        .rp-dot {
+            flex: 0 0 auto;
+            height: 18px;
+            width: 18px;
+            border-radius: 50%;
+            background-color: var(--accent-green);
+            border: 1px solid rgba(0,0,0,0.2);
+        }
+
+        .rp-quicknav {
+            max-width: 980px;
+            margin: 0 auto 18px auto;
+            padding: 0 16px;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .rp-quicknav a {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--navy);
+            background: #eef1f6;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 6px 12px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .rp-quicknav a:hover { background: #e2e8f2; }
+
+        .rp-container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 16px 40px 16px;
+            box-sizing: border-box;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 0 0 20px 0;
+            box-shadow: 0 2px 10px rgba(20, 30, 50, 0.06);
+            box-sizing: border-box;
+        }
+        .card h3 { margin-top: 0; }
+
+        .key-idea { background: linear-gradient(135deg, #eef4ff, #f2fbf4); }
+        .news-card { background: linear-gradient(135deg, #f3fbf1, #eef8ee); }
+
+        .quick-start ol { margin: 0; padding-left: 18px; font-size: 14px; color: #333; line-height: 1.7; }
+        .quick-start a { color: var(--accent-green); text-decoration: none; font-weight: 600; }
+        .quick-start a:hover { text-decoration: underline; }
+
+        /* Book section */
+        .book-card {
+            border: 1px solid var(--border);
+            background: linear-gradient(180deg, #ffffff, #fbfaf7);
+            position: relative;
+            overflow: hidden;
+        }
+        .book-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--navy), #d97706);
+        }
+        .book-flex {
+            display: flex;
+            gap: 22px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+        .book-cover-img {
+            width: 320px;
+            max-width: 100%;
+            border-radius: 6px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+            display: block;
+        }
+        .book-info { flex: 1 1 320px; min-width: 0; }
+        .book-info p { text-align: justify; margin: 0 0 10px 0; }
+        .book-info .byline { font-style: italic; color: var(--muted); text-align: left; }
+        .promo-box {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #fff7ec;
+            border: 1px dashed #d97706;
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 13.5px;
+            margin: 4px 0 12px 0;
+        }
+        .promo-code {
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+            background: #d97706;
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Category filter bar */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 4px 0 22px 0;
+        }
+        .filter-btn {
+            font-size: 13px;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            background: #fff;
+            color: var(--navy);
+            border-radius: 999px;
+            padding: 7px 14px;
+            cursor: pointer;
+            transition: transform 0.05s ease-in;
+        }
+        .filter-btn:hover { border-color: #c3cad4; }
+        .filter-btn.active { color: #fff; border-color: transparent; }
+        .filter-btn[data-filter="all"].active { background: var(--navy); }
+        .filter-btn[data-filter="composite"].active { background: var(--cat-composite); }
+        .filter-btn[data-filter="explain"].active { background: var(--cat-explain); }
+        .filter-btn[data-filter="tsfm"].active { background: var(--cat-tsfm); }
+        .filter-btn[data-filter="sentiment"].active { background: var(--cat-sentiment); }
+        .filter-btn[data-filter="foundational"].active { background: var(--cat-foundational); }
+
+        .cat-heading {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.15rem;
+            padding: 4px 0;
+            margin: 0 0 12px 0;
+            border-bottom: 3px solid currentColor;
+        }
+        .cat-block[data-cat="composite"] .cat-heading { color: var(--cat-composite); }
+        .cat-block[data-cat="explain"] .cat-heading { color: var(--cat-explain); }
+        .cat-block[data-cat="tsfm"] .cat-heading { color: var(--cat-tsfm); }
+        .cat-block[data-cat="sentiment"] .cat-heading { color: var(--cat-sentiment); }
+        .cat-block[data-cat="foundational"] .cat-heading { color: var(--cat-foundational); }
+
+        .cat-block { margin-bottom: 30px; scroll-margin-top: 12px; }
+
+        .paper {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-left: 5px solid var(--border);
+            border-radius: 8px;
+            padding: 16px 18px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 4px rgba(20,30,50,0.05);
+            box-sizing: border-box;
+        }
+        .cat-block[data-cat="composite"] .paper { border-left-color: var(--cat-composite); }
+        .cat-block[data-cat="explain"] .paper { border-left-color: var(--cat-explain); }
+        .cat-block[data-cat="tsfm"] .paper { border-left-color: var(--cat-tsfm); }
+        .cat-block[data-cat="sentiment"] .paper { border-left-color: var(--cat-sentiment); }
+        .cat-block[data-cat="foundational"] .paper { border-left-color: var(--cat-foundational); }
+
+        .paper p { text-align: justify; }
+        .paper .links a {
+            display: inline-block;
+            margin: 8px 10px 0 0;
+            text-decoration: none;
+            color: #0077cc;
+            font-weight: 600;
+            font-size: 13.5px;
+        }
+        .paper .links a:hover { text-decoration: underline; }
+
+        .pub-img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-width: var(--img-w, 320px);
+            margin: 12px auto;
+            border-radius: 6px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+        }
+
+        .demo-highlight {
+            background-image: linear-gradient(135deg, #6e8efb1a, #a777e31a);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .demo-highlight p { text-align: justify; }
+
+        h1.rp-section {
+            font-size: 1.4rem;
+            color: var(--navy);
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 8px;
+            margin: 32px 0 16px 0;
+        }
+
+        @media (max-width: 640px) {
+            .rp-title { font-size: 1.2rem; }
+            .card, .paper { padding: 14px; }
+            .book-flex { flex-direction: column; align-items: center; text-align: left; }
+            .book-cover-img { width: 220px; }
+            .filter-btn { font-size: 12px; padding: 6px 11px; }
+            h1.rp-section { font-size: 1.2rem; }
+        }
+    </style>
 </head>
-<body>
-    <table style="width:80%;border:0;border-spacing:0;border-collapse:separate;margin-right:auto;margin-left:auto;">
-        <tbody>
-            <tr style="padding:0">
-                <td style="padding-left:2.5%;padding-top:3%;width:100%;vertical-align:middle">
-                    <p style="text-align:left">
-                        <a href='../../index.html'>Home</a> &nbsp/&nbsp
-                        <a href='../index.html'>Projects</a> &nbsp/&nbsp
-                    </p>
-                </td>
-            </tr>
-            <tr style="padding:0px">
-                <td style="padding-left:2.5%;width:63%;vertical-align:middle">   
-                  
+<body class="rp-page">
 
-                  <h2 style="display:flex;align-items:center;">
-                    <span style="background-color:#28a745;height:20px;width:20px;margin-right:10px;border:1px solid black;"></span>
-                    Rating of AI Systems through a Causal Lens
-                  </h2>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="rp-topbar">
+        <p style="text-align:left">
+            <a href='../../index.html'>Home</a> &nbsp/&nbsp
+            <a href='../index.html'>Projects</a>
+        </p>
+    </div>
 
-    <div class="container" style="width:80%;border:0;border-spacing:0;border-collapse:separate;margin-right:auto;margin-left:auto;">
-        <div style="border: 3px solid #030303; 
-        padding: 10px; 
-        font-family: Arial, sans-serif;
-        background-image: linear-gradient(135deg, #eef1ed48, #eff3ee48);
-        color: black;
-        padding: 20px;
-        margin: 20px 0;
-        border-radius: 5px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
-            <h3 style="margin: 0 0 5px 0; color: black;">
-            <b>Key Idea</b>
-            </h3>
-            <p>We introduce a novel approach to evaluate and rate AI systems using causal analysis, 
-            aiming to identify and quantify the robustness exhibited by different AI systems. 
+    <div class="rp-title-wrap">
+        <h2 class="rp-title"><span class="rp-dot"></span>Rating of AI Systems through a Causal Lens</h2>
+    </div>
+
+    <nav class="rp-quicknav" aria-label="Section quick links">
+        <a href="#book">📘 Book</a>
+        <a href="#demo">Demo</a>
+        <a href="#composite">Composite AI Models</a>
+        <a href="#explain">Explanation &amp; Rating</a>
+        <a href="#tsfm">Time-Series Forecasting</a>
+        <a href="#sentiment">Sentiment Analysis</a>
+        <a href="#tutorials">Tutorials</a>
+        <a href="#patents">Patents</a>
+    </nav>
+
+    <div class="rp-container">
+
+        <section class="card key-idea">
+            <h3><b>Key Idea</b></h3>
+            <p>We introduce a novel approach to evaluate and rate AI systems using causal analysis,
+            aiming to identify and quantify the robustness exhibited by different AI systems.
             Our rating method provides causally interpretable ratings that help communicate the behavior of AI systems
             to end-users and help them make informed decisions based on the data in hand.</p>
             <p>
-            Here's our proposed generalized causal model. The validity of link `1' depends on the conditional distribution ($T|Z$), 
+            Here's our proposed generalized causal model. The validity of link `1' depends on the conditional distribution ($T|Z$),
             while the validity of the links `2' and `3' can be tested using the evaluation metrics.
             </p>
-            <img src="../rating_page/images/gen_causal_diagram.png" alt="Demo Video Thumbnail" 
-            style="width: 25%; 
-                   height: auto;
-                   border-radius: 5px;
-                   margin: 10px auto; 
-                   display: block;">
-        </div>
-        <div style="border: 3px solid black; padding: 10px; font-family: Arial, sans-serif;">
-            <h3 style="margin: 0 0 10px 0;">
-              <b>Quick Start</b>
-            </h3>
-            <ol style="margin: 0; padding-left: 18px; font-size: 14px; color: #333; line-height: 1.6;">
-              <li>Try out our tool that helps you rate AI systems for robustness! <b>ARC:<u>A</u>I <u>R</u>ating through <u>C</u>ausality</b>
-                <a href="https://tinyurl.com/42raarm4" style="color: #28a745; text-decoration: none;">[Demo Video]</a>
-                <a href="http://casy.cse.sc.edu/causal_rating" target="_blank" style="color: #28a745; text-decoration: none;">[Tool]</a>
-              </li>
-              <li>The papers in which we introduce the idea of rating AI systems through a causal lens</li>
-              <a href="https://dl.acm.org/doi/10.1145/3514094.3539556" style="color: #28a745; text-decoration: none;">[Student Paper]</a>
-              <a href="https://link.springer.com/article/10.1007/s43681-023-00391-5" target="_blank" style="color: #28a745; text-decoration: none;">[Journal Paper]</a>
-            </ol>
-          </div>
-        <div style="border: 3px solid #030303; 
-                    padding: 10px; 
-                    font-family: Arial, sans-serif;
-                    background-image: linear-gradient(135deg, #8bed6148, #8bed6148);
-                    color: black;
-                    padding: 20px;
-                    margin: 20px 0;
-                    border-radius: 5px;
-                    box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
-            <h3 style="margin: 0 0 5px 0; color: black;">
-            News
-            </h3>
-            <p>Kausik Lakkaraju, Rachneet Kaur, Sunandita Patra, and Biplav Srivastava conducted a tutorial on <a href="https://sites.google.com/view/raasta2024icaif/" target="_blank">'Evaluating and Rating AI Systems for Trust and Its Application to Finance'</a> at 5th ACM International Conference on AI in Finance (ICAIF-24)</p>
-            <!-- <p class="highlight">Kausik Lakkaraju was awarded $ 1,000 NSF student travel grant to present the paper, <a href="../../publications/papers_local/M_SAS_Final_IEEE.pdf" target="_blank">'The Effect of Human v/s Synthetic Test Data and Round-tripping on Assessment of Sentiment Analysis Systems for Bias'</a> at the 2023 IEEE 5th International Conference on Trust, Privacy and Security.</p>
-            <p class="highlight">Kausik Lakkaraju received the best graduate student poster presentation award at a university-wide event that was held at the University of South Carolina in April 2023 for a poster presented on the topic, 'Rating of AI Systems through a Causal Lens'.</p> -->
-        </div>
-        <h1>Demonstration</h1>
-        <div class="demo-highlight">
-            <p style="text-align: justify;"><span style="background-color: hsla(95, 99%, 35%, 0.302);"><b>ARC:<u>A</u>I <u>R</u>ating through <u>C</u>ausality</b></span></p>
+            <img src="../rating_page/images/gen_causal_diagram.png" alt="Generalized causal model diagram"
+                 class="pub-img" style="--img-w:340px;">
+        </section>
 
-            <!--
-            <i><b>Collaborators: </b>AIISC - University of South Carolina, Department of Computer Science and Engineering - University of South Carolina</i>
-            <br>
-            <i><b>Contributors: </b>Kausik Lakkaraju, Likitha Valluru, Biplav Srivastava, Marco Valtorta</i>
-            -->
+        <section class="card quick-start" id="quick-start">
+            <h3><b>Quick Start</b></h3>
+            <ol>
+              <li>Try out our tool that helps you rate AI systems for robustness! <b>ARC: <u>A</u>I <u>R</u>ating through <u>C</u>ausality</b>
+                &nbsp;<a href="https://tinyurl.com/42raarm4">[Demo Video]</a>
+                <a href="http://casy.cse.sc.edu/causal_rating" target="_blank">[Tool]</a>
+              </li>
+              <li>The papers in which we introduce the idea of rating AI systems through a causal lens:
+                <a href="https://dl.acm.org/doi/10.1145/3514094.3539556">[Student Paper]</a>
+                <a href="https://link.springer.com/article/10.1007/s43681-023-00391-5" target="_blank">[Journal Paper]</a>
+              </li>
+              <li>📘 Our book, <b>"Assessing, Explaining, and Rating AI Systems for Trust: With Applications in Finance"</b>, is now available from Springer Nature.
+                <a href="https://link.springer.com/book/10.1007/978-3-032-21039-5" target="_blank">[Book]</a>
+              </li>
+            </ol>
+        </section>
+
+        <section class="card news-card">
+            <h3>News</h3>
+            <p>Kausik Lakkaraju, Rachneet Kaur, Sunandita Patra, and Biplav Srivastava conducted a tutorial on <a href="https://sites.google.com/view/raasta2024icaif/" target="_blank">'Evaluating and Rating AI Systems for Trust and Its Application to Finance'</a> at 5th ACM International Conference on AI in Finance (ICAIF-24)</p>
+        </section>
+
+        <section class="card book-card" id="book">
+            <h3>📘 New Book: Assessing, Explaining, and Rating AI Systems for Trust</h3>
+            <div class="book-flex">
+                <img src="images/book_cover_promo.png" alt="Book cover for Assessing, Explaining, and Rating AI Systems for Trust: With Applications in Finance" class="book-cover-img">
+                <div class="book-info">
+                    <p class="byline">Kausik Lakkaraju, Biplav Srivastava &mdash; Synthesis Lectures on Computer Science, Springer Nature, 2026</p>
+                    <p>This book introduces actionable steps to measure AI trustworthiness, including generating trust scores or trust
+                    ratings for AI systems. It addresses decision-making for evaluating and selecting trustworthy AI systems based on
+                    general causality principles, presents emerging trends in AI regulation along with strategies to safely deploy AI
+                    applications, and provides actionable insights for evaluating AI systems &mdash; with applications in finance &mdash;
+                    without requiring deep technical expertise.</p>
+                    <div class="promo-box">Get 20% off with code&nbsp;<span class="promo-code">SPRAUT</span>&nbsp;on link.springer.com</div>
+                    <div class="links">
+                        <a href="https://link.springer.com/book/10.1007/978-3-032-21039-5" target="_blank"><b>[Book Page]</b></a>
+                        <a href="book_flyer.pdf" target="_blank"><b>[Flyer]</b></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <h1 class="rp-section" id="demo">Demonstration</h1>
+        <div class="demo-highlight">
+            <p style="text-align: justify;"><span style="background-color: hsla(95, 99%, 35%, 0.302);"><b>ARC: <u>A</u>I <u>R</u>ating through <u>C</u>ausality</b></span></p>
 
          <i><b>ARC: A Tool to Rate AI Models for Robustness Through a Causal Lens for Enabling Trustworthy Model
-            Selection</b><br />
+            Selection</b></i><br />
           <i>The ACM Web Conference, Dubai, United Arab Emirates, April 2026</i><br />
           Kausik Lakkaraju, Siva Likitha Valluru, Biplav Srivastava, Marco Valtorta
           <br />
           <a href="./papers_local/ARC_Demo_WebConference2026.pdf" target="_blank">[Paper]</a>
           <a href="https://drive.google.com/file/d/1SrI7jJH0vU4s7CTjdqzotGkKjYycio4s/view" target="_blank">[Video]</a>
-            
-            <br>
+
             <p style="text-align: justify;">
                 We introduce ARC, a tool to rate AI systems for robustness, encompassing both bias and robustness
-                against perturbations, along with accuracy through a causal lens. The main objective of the 
-                tool is to assist developers in building better models and aid end-users in making informed 
-                decisions based on the available data. The tool is extensible and currently supports four 
-                different AI tasks: binary classification, sentiment analysis, group recommendation, and 
-                time-series forecasting. It allows users to select data for a task and rate AI systems for 
-                robustness, assessing their stability against perturbations while also identifying biases 
-                related to protected attributes. The rating method is system-independent, and the ratings 
-                produced are causally interpretable. These ratings help users make informed decisions based 
-                on the data at hand. The demonstration video is available here:<br></p>
+                against perturbations, along with accuracy through a causal lens. The main objective of the
+                tool is to assist developers in building better models and aid end-users in making informed
+                decisions based on the available data. The tool is extensible and currently supports four
+                different AI tasks: binary classification, sentiment analysis, group recommendation, and
+                time-series forecasting. It allows users to select data for a task and rate AI systems for
+                robustness, assessing their stability against perturbations while also identifying biases
+                related to protected attributes. The rating method is system-independent, and the ratings
+                produced are causally interpretable. These ratings help users make informed decisions based
+                on the data at hand. The demonstration video is available here:</p>
                 <a href="https://tinyurl.com/42raarm4" target="_blank">
-                <img src="../rating_page/images/arc.png" alt="Demo Video Thumbnail" 
-                style="width: 50%; 
-                       height: auto;
-                       border-radius: 5px;
-                       margin: 10px auto; 
-                       display: block;">
+                <img src="../rating_page/images/arc.png" alt="ARC demo video thumbnail" class="pub-img" style="--img-w:420px;">
                 </a>
         </div>
 
-        <h1>Research Publications</h1>
+        <h1 class="rp-section">Research Publications</h1>
 
+        <div class="filter-bar" role="tablist" aria-label="Filter publications by category">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="composite">Composite AI Models</button>
+            <button class="filter-btn" data-filter="explain">Explanation &amp; Rating</button>
+            <button class="filter-btn" data-filter="tsfm">Time-Series Forecasting</button>
+            <button class="filter-btn" data-filter="sentiment">Sentiment Analysis</button>
+            <button class="filter-btn" data-filter="foundational">Foundational</button>
+        </div>
+
+        <div class="cat-block" id="composite" data-cat="composite">
+            <h2 class="cat-heading">Rating Composite AI Models</h2>
+
+            <div class="paper">
+                <p><span style="background-color: hsla(95, 99%, 35%, 0.302);">
+                    <b>Rating Composite AI Models for Robustness Through Probabilistic Planning</b></span></p>
+                    <i><b style="color: blue">Conference:</b>
+                        Proceedings of the 36th International Conference on Automated Planning and Scheduling (ICAPS), June 2026, Dublin, Ireland</i>
+                    <br>
+                    <i><b>Collaborators: </b>AIISC - University of South Carolina, J.P. Morgan Research</i>
+                    <br>
+                    <i><b>Contributors: </b>Kausik Lakkaraju, Sunandita Patra, Parisa Zehtabi, Biplav Srivastava</i>
+                <p>
+                    Many real-world AI systems combine several primitive component models, such as translators and
+                    sentiment analyzers, into larger composite models, like chatbots. Understanding how these compositions
+                    behave under uncertainty and how properties like bias or instability move through a composite model is
+                    increasingly important, yet most evaluation methods still focus on primitive models. We introduce a
+                    new use of probabilistic planning to assess the robustness of composite AI models. Each component model
+                    call is represented as a stochastic action in the RDDL domain, and the reward combines robustness metrics
+                    to the cost of components (actions). The planner runs each primitive model on randomly drawn data batches,
+                    allowing robustness to be assessed under variation in both the data and the model outputs induced by those data.
+                    We demonstrate via case studies and experiments in multilingual sentiment analysis and a synthetic domain,
+                    the planner consistently identifies more stable composite configurations than baseline methods, showing that
+                    probabilistic planning can serve as a practical, scalable approach for reasoning about reliability in complex,
+                    composite AI models.
+                </p>
+                <div class="links">
+                    <a href="https://ojs.aaai.org/index.php/ICAPS/article/view/42867" target="_blank">[Paper]</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="cat-block" id="explain" data-cat="explain">
+            <h2 class="cat-heading">Explanation and Rating</h2>
+
+            <div class="paper">
+                <p><span style="background-color: hsla(95, 99%, 35%, 0.302);">
+                    <b>Holistic Explainable AI (H-XAI): Extending Transparency Beyond Developers in AI-Driven Decision Making, 2025</b></span></p>
+                    <i><b>Contributors: </b>Kausik Lakkaraju, Siva Likitha Valluru, Biplav Srivastava</i>
+                <p>
+                    As AI systems increasingly mediate decisions in domains such as credit scoring and financial forecasting,
+                    their lack of transparency and bias raises critical concerns for fairness and public trust. Existing explainable
+                    AI (XAI) approaches largely serve developers, focusing on model justification rather than the needs of affected
+                    users or regulators. We introduce Holistic eXplainable AI (H-XAI), a framework that integrates causality-based
+                    rating methods with post-hoc explanation techniques to support transparent, stakeholder-aligned evaluation of AI
+                    systems deployed in online decision contexts. H-XAI treats explanation as an interactive, hypothesis-driven process,
+                    allowing users, auditors, and organizations to ask questions, test hypotheses, and compare model behavior against
+                    automatically generated random and biased baselines. By combining global and instance-level explanations, H-XAI helps
+                    communicate model bias and instability that shape everyday digital decisions. Through case studies in credit risk
+                    assessment and stock price prediction, we show how H-XAI extends explainability beyond developers toward responsible
+                    and inclusive AI practices that strengthen accountability in sociotechnical systems.
+                </p>
+                <div class="links">
+                    <a href="https://arxiv.org/abs/2508.05792" target="_blank">[Paper]</a>
+                </div>
+            </div>
+
+            <div class="paper">
+                <p><span style="background-color: hsla(95, 99%, 35%, 0.302);"><b>On Identifying Why and When Foundation Models Perform Well on Time-Series Forecasting Using Automated Explanations and Rating</b></span></p>
+                    <i><b style="color: blue">Symposium:</b> AAAI2025 Fall Symposium on AI Trustworthiness and Risk Assessment for Challenged Contexts (ATRACC), Arlington, VA, USA, Nov 2025</i>
+                    <br>
+                    <i><b>Collaborators: </b>AIISC - University of South Carolina</i>
+                    <br>
+                    <i><b>Contributors: </b>Michael Widener, Kausik Lakkaraju, John Aydin, Biplav Srivastava</i>
+                <p>
+                    Time-series forecasting models (TSFM) have evolved from classical statistical methods to sophisticated foundation models,
+                    yet understanding why and when these models succeed or fail remains challenging. Despite this known limitation, time series
+                    forecasting models are increasingly used to generate information that informs real-world actions with equally real consequences.
+                    Understanding the complexity, performance variability, and opaque nature of these models then becomes a valuable endeavor to combat
+                    serious concerns about how users should interact with and rely on these models' outputs. This work addresses these concerns by
+                    combining traditional explainable AI (XAI) methods with Rating Driven Explanations (RDE) to assess TSFM performance and
+                    interpretability across diverse domains and use cases. We evaluate four distinct model architectures: ARIMA, Gradient Boosting,
+                    Chronos (time-series specific foundation model), Llama (general-purpose; both fine-tuned and base models) on four heterogeneous
+                    datasets spanning finance, energy, transportation, and automotive sales domains. In doing so, we demonstrate that feature-engineered
+                    models (e.g., Gradient Boosting) consistently outperform foundation models (e.g., Chronos) in volatile or sparse domains (e.g.,
+                    power, car parts) while providing more interpretable explanations, whereas foundation models excel only in stable or trend-driven
+                    contexts (e.g., finance).
+                </p>
+                <div class="links">
+                    <a href="https://arxiv.org/abs/2508.20437" target="_blank"><b>[Paper]</b></a>
+                    <a href="../rating_page/bib/xai_ts_2025.txt" target="_blank" type="text/plain"><b>[Bibtex]</b></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="cat-block" id="tsfm" data-cat="tsfm">
+            <h2 class="cat-heading">Rating Time-Series Forecasting Models</h2>
+
+            <div class="paper">
+                <p><span style="background-color: hsla(95, 99%, 35%, 0.302);"><b>On Creating a Causally Grounded Usable Rating Method for Assessing the Robustness of Foundation Models Supporting Time Series</b></span></p>
+                    <i><b>Collaborators: </b>AIISC - University of South Carolina, J.P. Morgan Research, Department of Computer Science and Engineering - University of South Carolina</i>
+                    <br>
+                    <i><b>Contributors: </b>Kausik Lakkaraju, Rachneet Kaur, Parisa Zehtabi, Sunandita Patra, Siva Likitha Valluru, Zhen Zeng, Biplav Srivastava, Marco Valtorta</i>
+                <p>
+                    Foundation Models (FMs) have improved time series forecasting in various sectors, such as finance, but their vulnerability to input disturbances can hinder their
+                    adoption by stakeholders, such as investors and analysts. To address this, we propose a causally grounded rating framework to study the robustness of Foundational
+                    Models for Time Series (FMTS) with respect to input perturbations. We evaluate our approach to the stock price prediction problem, a well-studied problem with
+                    easily accessible public data, evaluating six state-of-the-art (some multi-modal) FMTS across six prominent stocks spanning three industries. The ratings
+                    proposed by our framework effectively assess the robustness of FMTS and also offer actionable insights for model selection and deployment. Within the scope of
+                    our study, we find that (1) multi-modal FMTS exhibit better robustness and accuracy compared to their uni-modal versions and, (2) FMTS pre-trained on time series
+                    forecasting task exhibit better robustness and forecasting accuracy compared to general-purpose FMTS pre-trained across diverse settings. Further, to validate our
+                    framework's usability, we conduct a user study showcasing FMTS prediction errors along with our computed ratings. The study confirmed that our ratings reduced the
+                    difficulty for users in comparing the robustness of different systems.
+                </p>
+                <img src="../rating_page/images/FM_Workflow.png" alt="FMTS causal rating workflow" class="pub-img" style="--img-w:480px;">
+                <div class="links">
+                    <a href="https://arxiv.org/pdf/2502.12226" target="_blank"><b>[Paper]</b></a>
+                    <a href="../rating_page/bib/fmts2024.txt" target="_blank" type="text/plain"><b>[Bibtex]</b></a>
+                </div>
+            </div>
+
+            <div class="paper">
+                <p><span style="background-color: hsla(95, 99%, 35%, 0.302);"><b>Rating Multi-Modal Time-Series Forecasting Models (MM-TSFM) for Robustness Through a Causal Lens</b></span></p>
+                    <i><b>Collaborators: </b>AIISC - University of South Carolina, J.P. Morgan Research</i>
+                    <br>
+                    <i><b>Contributors: </b>Kausik Lakkaraju, Rachneet Kaur, Zhen Zeng, Parisa Zehtabi, Sunandita Patra, Biplav Srivastava, Marco Valtorta</i>
+                <p>
+                    AI systems are notorious for their fragility; minor input changes can potentially cause major output swings. When such systems are deployed
+                    in critical areas like finance, the consequences of their uncertain behavior could be severe. In this paper, we focus on multi-modal
+                    time-series forecasting, where imprecision due to noisy or incorrect data can lead to erroneous predictions, impacting stakeholders such
+                    as analysts, investors, and traders. Recently, it has been shown that beyond numeric data, graphical transformations can be used with
+                    advanced visual models to achieve better performance. In this context, we introduce a rating methodology to assess the robustness of
+                    Multi-Modal Time-Series Forecasting Models (MM-TSFM) through causal analysis, which helps us understand and quantify the isolated impact
+                    of various attributes on the forecasting accuracy of MM-TSFM. We apply our novel rating method on a variety of numeric and multi-modal
+                    forecasting models in a large experimental setup (six input settings of control and perturbations, ten data distributions, time series from
+                    six leading stocks in three industries over a year of data, and five time-series forecasters) to draw insights on robust forecasting models
+                    and the context of their strengths. Within the scope of our study, our main result is that multi-modal (numeric + visual) forecasting, which
+                    was found to be more accurate than numeric forecasting in previous studies, can also be more robust in diverse settings. Our work will help
+                    different stakeholders of time-series forecasting understand the models' behaviors along trust (robustness) and accuracy dimensions to select
+                    an appropriate model for forecasting using our rating method, leading to improved decision-making.
+                </p>
+                <img src="../rating_page/images/mmtsfm_workflow.png" alt="MM-TSFM causal rating workflow" class="pub-img" style="--img-w:560px;">
+                <div class="links">
+                    <a href="https://arxiv.org/pdf/2406.12908" target="_blank"><b>[Paper]</b></a>
+                    <a href="../rating_page/bib/mm_tsfm2024.txt" target="_blank" type="text/plain"><b>[Bibtex]</b></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="cat-block" id="sentiment" data-cat="sentiment">
+            <h2 class="cat-heading">Rating Sentiment Analysis Systems</h2>
+
+            <div class="paper">
+                <p><span style="background-color: hsla(95, 99%, 35%, 0.302);">
+                <b>Rating Sentiment Analysis Systems for Bias through a Causal Lens</b></span></p>
+                    <i><b style="color: blue">Journal:</b> 2024 IEEE Transactions on Technology and Society</i>
+                    <br>
+                    <i><b>Collaborators: </b>AIISC - University of South Carolina, Department of Computer Science and Engineering - University of South Carolina</i>
+                    <br>
+                    <i><b>Contributors: </b>Kausik Lakkaraju, Biplav Srivastava, Marco Valtorta</i>
+                <p>
+                    Sentiment Analysis Systems (SASs) are data-driven Artificial Intelligence (AI) systems that
+                    assign one or more numbers to convey the polarity and emotional intensity of a given piece of
+                    text. However, like other automatic machine learning systems, SASs can exhibit model uncertainty,
+                    resulting in drastic swings in output with even small changes in input. This issue becomes more
+                    problematic when inputs involve protected attributes like gender or race, as it can be perceived
+                    as bias or unfairness. To address this, we propose a novel method to assess and rate SASs.
+                    We perturb inputs in a controlled causal setting to test if the output sentiment is sensitive
+                    to protected attributes while keeping other components of the textual input, such as chosen
+                    emotion words, fixed. Based on the results, we assign labels (ratings) at both fine-grained and
+                    overall levels to indicate the robustness of the SAS to input changes. The ratings can help
+                    decision-makers improve online content by reducing hate speech, often fueled by biases related
+                    to protected attributes such as gender and race. These ratings provide a principled basis for
+                    comparing SASs and making informed choices based on their behavior. The ratings also benefit
+                    all users, especially developers who reuse off-the-shelf SASs to build larger AI systems but
+                    do not have access to their code or training data to compare.
+                </p>
+                <img src="../rating_page/images/sas_causal.png" alt="Causal model for sentiment analysis rating" class="pub-img" style="--img-w:280px;">
+                <div class="links">
+                    <a href="https://ieeexplore.ieee.org/document/10466637" target="_blank"><b>[Paper]</b></a>
+                    <a href="https://github.com/ai4society/causal-sas-rating.git" target="_blank" type="text/plain"><b>[GitHub Repository]</b></a>
+                    <a href="../rating_page/bib/ieee_tts2023.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
+                </div>
+            </div>
+
+            <div class="paper">
+                <p><span style="background-color: hsla(95, 99%, 35%, 0.302);"><b>The Effect of Human v/s Synthetic Test Data and Round-tripping on Assessment of Sentiment Analysis Systems for Bias</b></span></p>
+                    <i><b style="color: blue">Conference:</b> 2023 IEEE 5th International Conference on Trust, Privacy and Security</i>
+                    <br>
+                    <i><b>Collaborators: </b>AIISC - University of South Carolina, Department of Computer Science and Engineering, Department of Integrated Inforamtion Technology - University of South Carolina, Netaji Subhas University of Technology</i>
+                    <br>
+                    <i><b>Contributors: </b>Kausik Lakkaraju, Aniket Gupta, Biplav Srivastava, Marco Valtorta, Dezhi Wu</i>
+                <p>
+                  Sentiment Analysis Systems (SASs) are data-driven
+                  Artificial Intelligence (AI) systems that output polarity and
+                  emotional intensity when given a piece of text as input. Like
+                  other AIs, SASs are also known to have unstable behavior when
+                  subjected to changes in data which can make them problematic
+                  to trust out of concerns like bias when AI works with humans and
+                  data has protected attributes like gender, race, and age. Recently,
+                  an approach was introduced to assess SASs in a blackbox setting
+                  without training data or code, and rating them for bias using
+                  synthetic English data. We augment it by introducing two
+                  human-generated chatbot datasets and also considering a round-trip
+                  setting of translating the data from one language to the same
+                  through an intermediate language. We find that these settings
+                  show SASs performance in a more realistic light. Specifically,
+                  we find that rating SASs on the chatbot data showed more bias
+                  compared to the synthetic data, and round-tripping using Spanish
+                  and Danish as intermediate languages reduces the bias (up to
+                  68% reduction) in human-generated data while, in synthetic data,
+                  it takes a surprising turn by increasing the bias! Our findings
+                  will help researchers and practitioners refine their SAS testing
+                  strategies and foster trust as SASs are considered part of more
+                  mission-critical applications for global use.
+                </p>
+                <img src="../rating_page/images/sas_trans_flowchart.png" alt="Round-tripping evaluation flowchart" class="pub-img" style="--img-w:480px;">
+                <div class="links">
+                    <a href="../../publications/papers_local/M_SAS_Final_IEEE.pdf" target="_blank"><b>[Paper]</b></a>
+                    <a href="https://github.com/ai4society/causal-sas-rating.git" target="_blank" type="text/plain"><b>[GitHub Repository]</b></a>
+                    <a href="../rating_page/bib/mm_sas.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
+                </div>
+            </div>
+
+            <div class="paper">
+                <p><span style="background-color: hsla(95, 99%, 35%, 0.302);"><b>ROSE: Tool and Data ResOurces to Explore the Instability of SEntiment Analysis Systems, 2022</b></span></p>
+                    <i><b>Collaborators: </b>AIISC - University of South Carolina, Department of Computer Science and Engineering - IIIT Naya Raipur</i>
+                    <br>
+                    <i><b>Contributors: </b>Gaurav Mundada, Kausik Lakkaraju, &amp; Biplav Srivastava</i>
+                <p>
+                  Sentiment Analysis Systems (SASs) are data-driven Artificial Intelligence (AI) systems that assign a score conveying the sentiment and
+                  emotion intensity when a piece of text is given as input. Like other AI, and especially machine learning (ML) based systems, they have
+                  also exhibited instability in their values when inputs are perturbed with respect to gender and race, which can be interpreted as biased
+                  behavior. In this demonstration paper, we present ROSE, a resource for understanding the behavior of SAS systems with respect to
+                  gender. It consists of data consisting of input text and output sentiment scores and a visualization tool to explore the behavior of SAS.
+                  We calculated the output sentiment scores using off-the-shelf SASs and our deep-learning-based implementations based on published
+                  architectures. ROSE, created using the d3.js framework, is publicly available here for easy access.
+                </p>
+                <div class="links">
+                    <a href="https://www.researchgate.net/profile/Biplav-Srivastava/publication/358475224_ROSE_Tool_and_Data_ResOurces_to_Explore_the_Instability_of_SEntiment_Analysis_Systems/links/6203f8d0c83d2b75dffd6ecc/ROSE-Tool-and-Data-ResOurces-to-Explore-the-Instability-of-SEntiment-Analysis-Systems.pdf" target="_blank"><b>[Paper]</b></a>
+                    <a href="https://github.com/ai4society/sentiment-rating.git" target="_blank" type="text/plain"><b>[GitHub Repository]</b></a>
+                    <a href="../rating_page/bib/rose_tool.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="cat-block" id="foundational" data-cat="foundational">
+            <h2 class="cat-heading">Foundational &amp; General Rating Work</h2>
+
+            <div class="paper">
+                <p><span style="background-color: hsla(95, 99%, 35%, 0.302);"><b>Advances in Automatically Rating the Trustworthiness of Text Processing Services</b></span></p>
+                    <i><b style="color: blue">Journal:</b> AI and Ethics 2023</i>
+                    <br>
+                    <i><b>Collaborators: </b>AIISC - University of South Carolina, Department of Computer Science and Engineering - University of South Carolina, IBM Research</i>
+                    <br>
+                    <i><b>Contributors: </b>Biplav Srivastava, Kausik Lakkaraju, Mariana Bernagozzi, Marco Valtorta</i>
+                <p>
+                  AI services are known to have unstable behavior when subjected to changes in data, models or users.
+                  Such behaviors, whether triggered by omission or commission, lead to trust issues when AI works with humans.
+                  The current approach of assessing AI services in a black box setting, where the consumer does not have access to the AI's source code or training data, is limited.
+                  The consumer has to rely on the AI developer's documentation and trust that the system has been built as stated. Further, if the AI consumer reuses the service to build other services which they sell to their customers, the consumer is at the risk of the service providers (both data and model providers).
+                  Our approach, in this context, is inspired by the success of nutritional labeling in food industry to promote health and seeks to assess and rate AI services for trust from the perspective of an independent stakeholder.
+                  The ratings become a means to communicate the behavior of AI systems so that the consumer is informed about the risks and can make an informed decision.
+                  In this paper, we will first describe recent progress in developing rating methods for text-based machine translator AI services that have been found promising with user studies.
+                  Then, we will outline challenges and vision for a principled, multi-modal, causality-based rating methodologies and its implication for decision-support in real-world scenarios like health and food recommendation.
+                </p>
+                <div class="links">
+                    <a href="https://arxiv.org/pdf/2302.09079" target="_blank"><b>[Paper]</b></a>
+                    <a href="../rating_page/bib/aaai_symp2023.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
+                </div>
+            </div>
+
+            <div class="paper">
+                <p><span style="background-color: hsla(95, 99%, 35%, 0.302);"><b>Why is my System Biased?: Rating of AI Systems through a Causal Lens</b></span></p>
+                    <i><b style="color: blue">Conference:</b> 2022 AAAI/ACM Conference on AI, Ethics, and Society</i>
+                    <br>
+                    <i><b>Collaborators: </b>AIISC - University of South Carolina</i>
+                    <br>
+                    <i><b>Contributors: </b>Kausik Lakkaraju</i>
+                  <p>
+                    Artificial Intelligence (AI) systems like facial recognition systems and sentiment analyzers are known to exhibit model uncertainty which can be perceived as algorithmic bias in most cases.
+                    The aim of my Ph.D. is to examine and control the bias present in these AI systems by establishing causal relationships and also assigning a rating to these systems,
+                    which helps the user to make an informed selection when choosing from different systems for their application.
+                  </p>
+                  <div class="links">
+                    <a href="https://dl.acm.org/doi/abs/10.1145/3514094.3539556" target="_blank"><b>[Paper]</b></a>
+                    <a href="../rating_page/bib/aies_student2022.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
+                  </div>
+            </div>
+        </div>
+
+        <h1 class="rp-section" id="tutorials">Tutorials</h1>
         <div class="paper">
-            <p style="text-align: justify;"><span style="background-color: hsla(95, 99%, 35%, 0.302);">
-                <b>Rating Composite AI Models for Robustness Through Probabilistic Planning
-            </b></span></p>
-                <i><b style="color: blue">Conference:</b> 
-                    Proceedings of the 36th International Conference on Automated Planning and Scheduling (ICAPS), June 2026, Dublin, Ireland</i>
+            <p><span style="background-color: hsla(95, 99%, 35%, 0.302);"><b>Evaluating and Rating AI Systems for Trust and Its Application to Finance</b></span></p>
+                <i><b style="color: blue">Venue:</b> 2024 5th ACM International Conference on AI in Finance</i>
                 <br>
                 <i><b>Collaborators: </b>AIISC - University of South Carolina, J.P. Morgan Research</i>
                 <br>
-                <i><b>Contributors: </b>Kausik Lakkaraju, Sunandita Patra, Parisa Zehtabi, Biplav Srivastava</i>
-                <br>
+                <i><b>Contributors: </b>Kausik Lakkaraju, Rachneet Kaur, Sunandita Patra, Biplav Srivastava</i>
+            <p>
+                This tutorial explores the evaluation and rating of AI systems for trust, specifically focusing on financial applications.
+                As AI technologies increasingly rely on correlational data, their black-box nature becomes a problem in high-stakes domains
+                such as finance, where errors can have severe implications. We will discuss the rating method which is used to make the
+                system behavior transparent. Building on previous research, this tutorial will particularly discuss our novel causal
+                analysis-based approach to rate different black-box AI systems for bias and robustness. This tutorial aims to equip
+                stakeholders with the necessary tools to verify and choose AI systems that demonstrate real-world reliability and
+                robustness under various conditions.
             </p>
-            <p style="text-align: justify;">
-                Many real-world AI systems combine several primitive component models, such as translators and 
-                sentiment analyzers, into larger composite models, like chatbots. Understanding how these compositions 
-                behave under uncertainty and how properties like bias or instability move through a composite model is 
-                increasingly important, yet most evaluation methods still focus on primitive models. We introduce a 
-                new use of probabilistic planning to assess the robustness of composite AI models. Each component model
-                call is represented as a stochastic action in the RDDL domain, and the reward combines robustness metrics 
-                to the cost of components (actions). The planner runs each primitive model on randomly drawn data batches, 
-                allowing robustness to be assessed under variation in both the data and the model outputs induced by those data.
-                We demonstrate via case studies and experiments in multilingual sentiment analysis and a synthetic domain, 
-                the planner consistently identifies more stable composite configurations than baseline methods, showing that
-                probabilistic planning can serve as a practical, scalable approach for reasoning about reliability in complex, 
-                composite AI models. 
-            </p>
-            <!-- <img src="../rating_page/images/xai_rating.png" alt="TSFM" 
-            style="width: 20%; 
-                   height: auto;
-                   border-radius: 5px;
-                   margin: 10px auto; 
-                   display: block;"> -->
             <div class="links">
-                <a href="https://ojs.aaai.org/index.php/ICAPS/article/view/42867" target="_blank">[Paper]</a>
+                <a href="https://sites.google.com/view/raasta2024icaif" target="_blank"><b>[Webpage]</b></a>
+                <a href="https://drive.google.com/file/d/1cIQ1PcLQTqndSpMPyqTbugLuxqO_Kapv/view" target="_blank"><b>[Slides]</b></a>
             </div>
         </div>
 
-        
+        <h1 class="rp-section" id="patents">Patents</h1>
         <div class="paper">
-            <p style="text-align: justify;"><span style="background-color: hsla(95, 99%, 35%, 0.302);">
-                <b>Holistic Explainable AI (H-XAI): Extending Transparency Beyond Developers in AI-Driven Decision Making, 2025
-            </b></span></p>
-                <!-- <i><b style="color: blue">Conference:</b> 
-                    Proceedings of the 36th International Conference on Automated Planning and Scheduling (ICAPS), June 2026, Dublin, Ireland</i>
-                <br>
-                <i><b>Collaborators: </b>AIISC - University of South Carolina, J.P. Morgan Research</i>
-                <br>  -->
-                <i><b>Contributors: </b>Kausik Lakkaraju, Siva Likitha Valluru, Biplav Srivastava</i>
-                <br>
-            </p>
-            <p style="text-align: justify;">
-                As AI systems increasingly mediate decisions in domains such as credit scoring and financial forecasting, 
-                their lack of transparency and bias raises critical concerns for fairness and public trust. Existing explainable
-                AI (XAI) approaches largely serve developers, focusing on model justification rather than the needs of affected 
-                users or regulators. We introduce Holistic eXplainable AI (H-XAI), a framework that integrates causality-based 
-                rating methods with post-hoc explanation techniques to support transparent, stakeholder-aligned evaluation of AI 
-                systems deployed in online decision contexts. H-XAI treats explanation as an interactive, hypothesis-driven process, 
-                allowing users, auditors, and organizations to ask questions, test hypotheses, and compare model behavior against 
-                automatically generated random and biased baselines. By combining global and instance-level explanations, H-XAI helps 
-                communicate model bias and instability that shape everyday digital decisions. Through case studies in credit risk 
-                assessment and stock price prediction, we show how H-XAI extends explainability beyond developers toward responsible 
-                and inclusive AI practices that strengthen accountability in sociotechnical systems. 
-            </p>
-            <!-- <img src="../rating_page/images/xai_rating.png" alt="TSFM" 
-            style="width: 20%; 
-                   height: auto;
-                   border-radius: 5px;
-                   margin: 10px auto; 
-                   display: block;"> -->
-            <div class="links">
-                <a href="https://arxiv.org/abs/2508.05792" target="_blank">[Paper]</a>
-            </div>
-        </div>
-            
-
-        
-        <div class="paper">
-            <p style="text-align: justify;"><span style="background-color: hsla(95, 99%, 35%, 0.302);"><b>On Identifying Why and When Foundation Models Perform Well on Time-Series Forecasting Using Automated Explanations and Rating
-            </b></span></p>
-                <i><b style="color: blue">Symposium:</b> AAAI2025 Fall Symposium on  AI Trustworthiness and Risk Assessment for Challenged Contexts (ATRACC), Arlington, VA, USA, Nov 2025</i>
-                <br>
-                <i><b>Collaborators: </b>AIISC - University of South Carolina</i>
-                <br>
-                <i><b>Contributors: </b>Michael Widener, Kausik Lakkaraju, John Aydin, Biplav Srivastava</i>
-                <br>
-            </p>
-            <p style="text-align: justify;">
-                Time-series forecasting models (TSFM) have evolved from classical statistical methods to sophisticated foundation models, 
-                yet understanding why and when these models succeed or fail remains challenging. Despite this known limitation, time series 
-                forecasting models are increasingly used to generate information that informs real-world actions with equally real consequences. 
-                Understanding the complexity, performance variability, and opaque nature of these models then becomes a valuable endeavor to combat 
-                serious concerns about how users should interact with and rely on these models' outputs. This work addresses these concerns by 
-                combining traditional explainable AI (XAI) methods with Rating Driven Explanations (RDE) to assess TSFM performance and 
-                interpretability across diverse domains and use cases. We evaluate four distinct model architectures: ARIMA, Gradient Boosting, 
-                Chronos (time-series specific foundation model), Llama (general-purpose; both fine-tuned and base models) on four heterogeneous 
-                datasets spanning finance, energy, transportation, and automotive sales domains. In doing so, we demonstrate that feature-engineered 
-                models (e.g., Gradient Boosting) consistently outperform foundation models (e.g., Chronos) in volatile or sparse domains (e.g., 
-                power, car parts) while providing more interpretable explanations, whereas foundation models excel only in stable or trend-driven 
-                contexts (e.g., finance).
-            </p>
-            <!-- <img src="../rating_page/images/xai_rating.png" alt="TSFM" 
-            style="width: 20%; 
-                   height: auto;
-                   border-radius: 5px;
-                   margin: 10px auto; 
-                   display: block;"> -->
-            <div class="links">
-                <a href="https://arxiv.org/abs/2508.20437" target="_blank"><b>[Paper]</b></a>
-                <a href="../rating_page/bib/xai_ts_2025.txt" target="_blank" type="text/plain"><b>[Bibtex]</b></a>
-            </div>
-        </div>
-            
-
-
-        <div class="paper">
-            <p style="text-align: justify;"><span style="background-color: hsla(95, 99%, 35%, 0.302);"><b>On Creating a Causally Grounded Usable Rating Method for Assessing the Robustness of Foundation Models Supporting Time Series
-            </b></span></p>
-                <i><b>Collaborators: </b>AIISC - University of South Carolina, J.P. Morgan Research, Department of Computer Science and Engineering - University of South Carolina</i>
-                <br>
-                <i><b>Contributors: </b>Kausik Lakkaraju, Rachneet Kaur, Parisa Zehtabi, Sunandita Patra, Siva Likitha Valluru, Zhen Zeng, Biplav Srivastava, Marco Valtorta</i>
-                <br>
-            </p>
-            <p style="text-align: justify;">
-                Foundation Models (FMs) have improved time series forecasting in various sectors, such as finance, but their vulnerability to input disturbances can hinder their 
-                adoption by stakeholders, such as investors and analysts. To address this, we propose a causally grounded rating framework to study the robustness of Foundational 
-                Models for Time Series (FMTS) with respect to input perturbations. We evaluate our approach to the stock price prediction problem, a well-studied problem with 
-                easily accessible public data, evaluating six state-of-the-art (some multi-modal) FMTS across six prominent stocks spanning three industries. The ratings 
-                proposed by our framework effectively assess the robustness of FMTS and also offer actionable insights for model selection and deployment. Within the scope of 
-                our study, we find that (1) multi-modal FMTS exhibit better robustness and accuracy compared to their uni-modal versions and, (2) FMTS pre-trained on time series 
-                forecasting task exhibit better robustness and forecasting accuracy compared to general-purpose FMTS pre-trained across diverse settings. Further, to validate our 
-                framework's usability, we conduct a user study showcasing FMTS prediction errors along with our computed ratings. The study confirmed that our ratings reduced the 
-                difficulty for users in comparing the robustness of different systems.
-            </p>
-            <img src="../rating_page/images/FM_Workflow.png" alt="TSFM" 
-            style="width: 50%; 
-                   height: auto;
-                   border-radius: 5px;
-                   margin: 10px auto; 
-                   display: block;">
-            <div class="links">
-                <a href="https://arxiv.org/pdf/2502.12226" target="_blank"><b>[Paper]</b></a>
-                <a href="../rating_page/bib/fmts2024.txt" target="_blank" type="text/plain"><b>[Bibtex]</b></a>
-            </div>
-        </div>
-
-        <div class="paper">
-            <p style="text-align: justify;"><span style="background-color: hsla(95, 99%, 35%, 0.302);"><b>Rating Multi-Modal Time-Series Forecasting Models (MM-TSFM) for Robustness Through a Causal Lens
-            </b></span></p>
-                <i><b>Collaborators: </b>AIISC - University of South Carolina, J.P. Morgan Research</i>
-                <br>
-                <i><b>Contributors: </b>Kausik Lakkaraju, Rachneet Kaur, Zhen Zeng, Parisa Zehtabi, Sunandita Patra, Biplav Srivastava, Marco Valtorta</i>
-                <br>
-            </p>
-            <p style="text-align: justify;">
-                AI systems are notorious for their fragility; minor input changes can potentially cause major output swings. When such systems are deployed 
-                in critical areas like finance, the consequences of their uncertain behavior could be severe. In this paper, we focus on multi-modal 
-                time-series forecasting, where imprecision due to noisy or incorrect data can lead to erroneous predictions, impacting stakeholders such 
-                as analysts, investors, and traders. Recently, it has been shown that beyond numeric data, graphical transformations can be used with 
-                \advanced visual models to achieve better performance. In this context, we introduce a rating methodology to assess the robustness of 
-                Multi-Modal Time-Series Forecasting Models (MM-TSFM) through causal analysis, which helps us understand and quantify the isolated impact 
-                of various attributes on the forecasting accuracy of MM-TSFM. We apply our novel rating method on a variety of numeric and multi-modal 
-                forecasting models in a large experimental setup (six input settings of control and perturbations, ten data distributions, time series from 
-                six leading stocks in three industries over a year of data, and five time-series forecasters) to draw insights on robust forecasting models 
-                and the context of their strengths. Within the scope of our study, our main result is that multi-modal (numeric + visual) forecasting, which 
-                was found to be more accurate than numeric forecasting in previous studies, can also be more robust in diverse settings. Our work will help 
-                different stakeholders of time-series forecasting understand the models` behaviors along trust (robustness) and accuracy dimensions to select 
-                an appropriate model for forecasting using our rating method, leading to improved decision-making.
-            </p>
-            <img src="../rating_page/images/mmtsfm_workflow.png" alt="TSFM" 
-            style="width: 60%; 
-                   height: auto;
-                   border-radius: 5px;
-                   margin: 10px auto; 
-                   display: block;">
-            <div class="links">
-                <a href="https://arxiv.org/pdf/2406.12908" target="_blank"><b>[Paper]</b></a>
-                <a href="../rating_page/bib/mm_tsfm2024.txt" target="_blank" type="text/plain"><b>[Bibtex]</b></a>
-            </div>
-        </div>
-
-
-
-        <div class="paper">
-            <p style="text-align: justify;"><span style="background-color: hsla(95, 99%, 35%, 0.302);">
-            <b>Rating Sentiment Analysis Systems for Bias through a Causal Lens</b></span></p>
-                <i><b style="color: blue">Journal:</b> 2024 IEEE Transactions on Technology and Society</i>
+            <p><span style="background-color: hsla(95, 99%, 35%, 0.302);"><b>Assigning Trust Rating to AI Services Using Causal Impact Analysis</b></span></p>
+                <b>Identifier:</b> USC 1617, US-20240062079-A1
                 <br>
                 <i><b>Collaborators: </b>AIISC - University of South Carolina, Department of Computer Science and Engineering - University of South Carolina</i>
                 <br>
-                <i><b>Contributors: </b>Kausik Lakkaraju, Biplav Srivastava, Marco Valtorta</i>
-                <br>
+                <i><b>Contributors: </b>Biplav Srivastava, Kausik Lakkaraju, Marco Valtorta</i>
+            <p>
+                A method and system relates to assigning ratings (i.e., labels) to convey the trustability of AI systems grounded
+                in its cause-and-effect behavior of significant inputs and outputs of the AI. Sentiment Analysis Systems (SASs) are
+                data-driven Artificial Intelligence (AI) systems that, given a piece of text, assign a score conveying the sentiment
+                and emotion intensity. The present disclosure uses the approach that protected attributes like gender and race
+                influence the output (sentiment) given by SASs or if the sentiment is based on other components of the textual input,
+                e.g., chosen emotion words. The presently disclosed rating methodology assigns ratings at fine-grained and overall
+                levels, to rate SASs grounded in a causal setup, and provides an open-source implementation of both SASs&mdash;two
+                deep-learning based, one lexicon-based, and two custom-built models&mdash;for this rating implementation. This allows users
+                to understand the behavior of SAS in real-world applications.
             </p>
-            <p style="text-align: justify;">
-                Sentiment Analysis Systems (SASs) are data-driven Artificial Intelligence (AI) systems that 
-                assign one or more numbers to convey the polarity and emotional intensity of a given piece of 
-                text. However, like other automatic machine learning systems, SASs can exhibit model uncertainty, 
-                resulting in drastic swings in output with even small changes in input. This issue becomes more 
-                problematic when inputs involve protected attributes like gender or race, as it can be perceived 
-                as bias or unfairness. To address this, we propose a novel method to assess and rate SASs. 
-                We perturb inputs in a controlled causal setting to test if the output sentiment is sensitive 
-                to protected attributes while keeping other components of the textual input, such as chosen
-                emotion words, fixed. Based on the results, we assign labels (ratings) at both fine-grained and 
-                overall levels to indicate the robustness of the SAS to input changes. The ratings can help 
-                decision-makers improve online content by reducing hate speech, often fueled by biases related 
-                to protected attributes such as gender and race. These ratings provide a principled basis for
-                comparing SASs and making informed choices based on their behavior. The ratings also benefit 
-                all users, especially developers who reuse off-the-shelf SASs to build larger AI systems but 
-                do not have access to their code or training data to compare. 
-            </p>
-            <img src="../rating_page/images/sas_causal.png" alt="Causal Model" 
-            style="width: 20%; 
-                   height: auto;
-                   border-radius: 5px;
-                   margin: 10px auto; 
-                   display: block;">
             <div class="links">
-                <a href="https://ieeexplore.ieee.org/document/10466637" target="_blank"><b>[Paper]</b></a>
-                <a href="https://github.com/ai4society/causal-sas-rating.git" target="_blank" type="text/plain"><b>[GitHub Respository]</b></a>
-                <a href="../rating_page/bib/ieee_tts2023.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
-            </div>
-        </div>
-
-        <div class="paper">
-            <p style="text-align: justify;"><span style="background-color: hsla(95, 99%, 35%, 0.302);"><b>The Effect of Human v/s Synthetic Test Data and Round-tripping on Assessment of Sentiment Analysis Systems for Bias</b></span></p>
-                <i><b style="color: blue">Conference:</b> 2023 IEEE 5th International Conference on Trust, Privacy and Security</i>
-                <br>
-                <i><b>Collaborators: </b>AIISC - University of South Carolina, Department of Computer Science and Engineering, Department of Integrated Inforamtion Technology - University of South Carolina, Netaji Subhas University of Technology</i>
-                <br>
-                <i><b>Contributors: </b>Kausik Lakkaraju, Aniket Gupta, Biplav Srivastava, Marco Valtorta, Dezhi Wu</i>
-                <br>
-            </p>
-            <p style="text-align: justify;">
-              Sentiment Analysis Systems (SASs) are data-driven
-              Artificial Intelligence (AI) systems that output polarity and
-              emotional intensity when given a piece of text as input. Like
-              other AIs, SASs are also known to have unstable behavior when
-              subjected to changes in data which can make them problematic
-              to trust out of concerns like bias when AI works with humans and
-              data has protected attributes like gender, race, and age. Recently,
-              an approach was introduced to assess SASs in a blackbox setting
-              without training data or code, and rating them for bias using
-              synthetic English data. We augment it by introducing two 
-              human-generated chatbot datasets and also considering a round-trip
-              setting of translating the data from one language to the same
-              through an intermediate language. We find that these settings
-              show SASs performance in a more realistic light. Specifically,
-              we find that rating SASs on the chatbot data showed more bias
-              compared to the synthetic data, and round-tripping using Spanish
-              and Danish as intermediate languages reduces the bias (up to
-              68% reduction) in human-generated data while, in synthetic data,
-              it takes a surprising turn by increasing the bias! Our findings
-              will help researchers and practitioners refine their SAS testing
-              strategies and foster trust as SASs are considered part of more
-              mission-critical applications for global use.
-            </p>
-            <img src="../rating_page/images/sas_trans_flowchart.png" alt="Causal Model" 
-            style="width: 50%; 
-                   height: auto;
-                   border-radius: 5px;
-                   margin: 10px auto; 
-                   display: block;">
-            <div class="links">
-                <a href="../../publications/papers_local/M_SAS_Final_IEEE.pdf" target="_blank"><b>[Paper]</b></a>
-                <a href="https://github.com/ai4society/causal-sas-rating.git" target="_blank" type="text/plain"><b>[GitHub Respository]</b></a>
-                <a href="../rating_page/bib/mm_sas.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
+                <a href="https://patentimages.storage.googleapis.com/7e/2e/ef/95463ddc3378bf/US20240062079A1.pdf" target="_blank"><b>[PDF]</b></a>
+                <a href="../rating_page/bib/rating_patent.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
             </div>
         </div>
         <div class="paper">
-            <p style="text-align: justify;"><span style="background-color: hsla(95, 99%, 35%, 0.302);"><b>Advances in Automatically Rating the Trustworthiness of Text Processing Services</b></span></p>
-                <i><b style="color: blue">Journal:</b> AI and Ethics 2023</i>
+            <p><span style="background-color: hsla(95, 99%, 35%, 0.302);"><b>Generating Trust Certificates for AI with Black and WhiteBox Verification</b></span></p>
+                <b>Identifier:</b> USC 1655
                 <br>
-                <i><b>Collaborators: </b>AIISC - University of South Carolina, Department of Computer Science and Engineering - University of South Carolina, IBM Research</i>
+                <i><b>Collaborators: </b>AIISC - University of South Carolina, Department of Computer Science and Engineering - University of South Carolina</i>
                 <br>
-                <i><b>Contributors: </b>Biplav Srivastava, Kausik Lakkaraju, Mariana Bernagozzi, Marco Valtorta</i>
-                <br>
+                <i><b>Contributors: </b>Biplav Srivastava, Kausik Lakkaraju, Siva Likitha Valluru, Marco Valtorta</i>
+            <p>
+                Artificial Intelligence (AI) systems, including Object Recognition Systems (ORS) and Sentiment Analysis Systems (SASs),
+                often produce inaccurate results due to undesirable input features. These may be data-specific, such as typos in text
+                or lighting and background conditions in images, or societal-specific, such as person names or gendered pronouns that
+                proxy sensitive attributes like race or gender. This invention introduces methods for assigning interpretable ratings
+                to AI services in both blackbox and whitebox settings. These ratings reflect the system's sensitivity to various input
+                features, improving transparency and enabling users to understand the causal factors influencing AI predictions.
             </p>
-            <p style="text-align: justify;">
-              AI services are known to have unstable behavior when subjected to changes in data, models or users. 
-              Such behaviors, whether triggered by omission or commission, lead to trust issues when AI works with humans. 
-              The current approach of assessing AI services in a black box setting, where the consumer does not have access to the AI's source code or training data, is limited. 
-              The consumer has to rely on the AI developer's documentation and trust that the system has been built as stated. Further, if the AI consumer reuses the service to build other services which they sell to their customers, the consumer is at the risk of the service providers (both data and model providers). 
-              Our approach, in this context, is inspired by the success of nutritional labeling in food industry to promote health and seeks to assess and rate AI services for trust from the perspective of an independent stakeholder. 
-              The ratings become a means to communicate the behavior of AI systems so that the consumer is informed about the risks and can make an informed decision. 
-              In this paper, we will first describe recent progress in developing rating methods for text-based machine translator AI services that have been found promising with user studies. 
-              Then, we will outline challenges and vision for a principled, multi-modal, causality-based rating methodologies and its implication for decision-support in real-world scenarios like health and food recommendation.
-            </p>
-            <div class="links">
-                <a href="https://arxiv.org/pdf/2302.09079" target="_blank"><b>[Paper]</b></a>
-                <a href="../rating_page/bib/aaai_symp2023.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
-            </div>
         </div>
-        <div class="paper">
-            <p style="text-align: justify;"><span style="background-color: hsla(95, 99%, 35%, 0.302);"><b>Why is my System Biased?: Rating of AI Systems through a Causal Lens</b></span></p>
-                <i><b style="color: blue">Conference:</b> 2022 AAAI/ACM Conference on AI, Ethics, and Society</i>
-                <br>
-                <i><b>Collaborators: </b>AIISC - University of South Carolina</i>
-                <br>
-                <i><b>Contributors: </b>Kausik Lakkaraju</i>
-                <br>
-              </p>
-              <p style="text-align: justify;">
-                Artificial Intelligence (AI) systems like facial recognition systems and sentiment analyzers are known to exhibit model uncertainty which can be perceived as algorithmic bias in most cases. 
-                The aim of my Ph.D. is to examine and control the bias present in these AI systems by establishing causal relationships and also assigning a rating to these systems, 
-                which helps the user to make an informed selection when choosing from different systems for their application.
-              </p>
-            
-              <div class="links">
-                <a href="https://dl.acm.org/doi/abs/10.1145/3514094.3539556" target="_blank"><b>[Paper]</b></a>
-                <a href="../rating_page/bib/aies_student2022.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
-              </div>
-        </div>
-        <div class="paper">
-            <p style="text-align: justify;"><span style="background-color: hsla(95, 99%, 35%, 0.302);"><b>ROSE: Tool and Data ResOurces to Explore the Instability of SEntiment Analysis Systems, 2022</b></span></p>
-                <i><b>Collaborators: </b>AIISC - University of South Carolina, Department of Computer Science and Engineering - IIIT Naya Raipur</i>
-                <br>
-                <i><b>Contributors: </b>Gaurav Mundada, Kausik Lakkaraju, & Biplav Srivastava</i>
-                <br>
-            </p>
-            <p style="text-align: justify;">
-              Sentiment Analysis Systems (SASs) are data-driven Artificial Intelligence (AI) systems that assign a score conveying the sentiment and
-              emotion intensity when a piece of text is given as input. Like other AI, and especially machine learning (ML) based systems, they have
-              also exhibited instability in their values when inputs are perturbed with respect to gender and race, which can be interpreted as biased
-              behavior. In this demonstration paper, we present ROSE, a resource for understanding the behavior of SAS systems with respect to
-              gender. It consists of data consisting of input text and output sentiment scores and a visualization tool to explore the behavior of SAS.
-              We calculated the output sentiment scores using off-the-shelf SASs and our deep-learning-based implementations based on published
-              architectures. ROSE, created using the d3.js framework, is publicly available here for easy access.
-            </p>
-            <div class="links">
-                <a href="https://www.researchgate.net/profile/Biplav-Srivastava/publication/358475224_ROSE_Tool_and_Data_ResOurces_to_Explore_the_Instability_of_SEntiment_Analysis_Systems/links/6203f8d0c83d2b75dffd6ecc/ROSE-Tool-and-Data-ResOurces-to-Explore-the-Instability-of-SEntiment-Analysis-Systems.pdf" target="_blank"><b>[Paper]</b></a>
-                <a href="https://github.com/ai4society/sentiment-rating.git" target="_blank" type="text/plain"><b>[GitHub Respository]</b></a>
-                <a href="../rating_page/bib/rose_tool.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
-            </div>
-        </div>
-        
-    <h1>Tutorials</h1>
-    <div class="paper">
-        <p style="text-align: justify;"><span style="background-color: hsla(95, 99%, 35%, 0.302);"><b>Evaluating and Rating AI Systems for Trust and Its Application to Finance</b></span></p>
-            <i><b style="color: blue">Venue:</b> 2024 5th ACM International Conference on AI in Finance</i>
-            <br>
-            <i><b>Collaborators: </b>AIISC - University of South Carolina, J.P. Morgan Research</i>
-            <br>
-            <i><b>Contributors: </b>Kausik Lakkaraju, Rachneet Kaur, Sunandita Patra, Biplav Srivastava</i>
-            <br>
-        </p>
-        <p style="text-align: justify;">
-            This tutorial explores the evaluation and rating of AI systems for trust, specifically focusing on financial applications. 
-            As AI technologies increasingly rely on correlational data, their black-box nature becomes a problem in high-stakes domains 
-            such as finance, where errors can have severe implications. We will discuss the rating method which is used to make the 
-            system behavior transparent. Building on previous research, this tutorial will particularly discuss our novel causal 
-            analysis-based approach to rate different black-box AI systems for bias and robustness. This tutorial aims to equip 
-            stakeholders with the necessary tools to verify and choose AI systems that demonstrate real-world reliability and 
-            robustness under various conditions.
-        </p>
-        <div class="links">
-            <a href="https://sites.google.com/view/raasta2024icaif" target="_blank"><b>[Webpage]</b></a>
-            <a href="https://drive.google.com/file/d/1cIQ1PcLQTqndSpMPyqTbugLuxqO_Kapv/view" target="_blank"><b>[Slides]</b></a>
-        </div>
+
+        <h3>More papers on 'Rating of AI Systems'<br><a href="https://sites.google.com/site/biplavsrivastava/research-1/trustedai?authuser=0#h.useljqp3rw7i" target="_blank"><b>[Click here]</b></a></h3>
     </div>
 
-
-    <h1>Patents</h1>
-    <div class="paper">
-        <p style="text-align: justify;"><span style="background-color: hsla(95, 99%, 35%, 0.302);"><b>Assigning Trust Rating to AI Services Using Causal Impact Analysis</b></span></p>
-            <b>Identifier:</b> USC 1617, US-20240062079-A1
-            <br>
-            <i><b>Collaborators: </b>AIISC - University of South Carolina, Department of Computer Science and Engineering - University of South Carolina</i>
-            <br>
-            <i><b>Contributors: </b>Biplav Srivastava, Kausik Lakkaraju, Marco Valtorta</i>
-            <br>
-        </p>
-        <p style="text-align: justify;">
-            A method and system relates to assigning ratings (i.e., labels) to convey the trustability of AI systems grounded 
-            in its cause-and-effect behavior of significant inputs and outputs of the AI. Sentiment Analysis Systems (SASs) are 
-            data-driven Artificial Intelligence (AI) systems that, given a piece of text, assign a score conveying the sentiment 
-            and emotion intensity. The present disclosure uses the approach that protected attributes like gender and race 
-            influence the output (sentiment) given by SASs or if the sentiment is based on other components of the textual input, 
-            e.g., chosen emotion words. The presently disclosed rating methodology assigns ratings at fine-grained and overall 
-            levels, to rate SASs grounded in a causal setup, and provides an open-source implementation of both SASs—two 
-            deep-learning based, one lexicon-based, and two custom-built models—for this rating implementation. This allows users 
-            to understand the behavior of SAS in real-world applications.
-        </p>
-        <div class="links">
-            <a href="https://patentimages.storage.googleapis.com/7e/2e/ef/95463ddc3378bf/US20240062079A1.pdf" target="_blank"><b>[PDF]</b></a>
-            <a href="../rating_page/bib/rating_patent.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
-        </div>
-    </div>
-    <div class="paper">
-        <p style="text-align: justify;"><span style="background-color: hsla(95, 99%, 35%, 0.302);"><b>Generating Trust Certificates for AI with Black and WhiteBox Verification</b></span></p>
-            <b>Identifier:</b> USC 1655
-            <br>
-            <i><b>Collaborators: </b>AIISC - University of South Carolina, Department of Computer Science and Engineering - University of South Carolina</i>
-            <br>
-            <i><b>Contributors: </b>Biplav Srivastava, Kausik Lakkaraju, Siva Likitha Valluru, Marco Valtorta</i>
-            <br>
-        </p>
-        <p style="text-align: justify;">
-            Artificial Intelligence (AI) systems, including Object Recognition Systems (ORS) and Sentiment Analysis Systems (SASs), 
-            often produce inaccurate results due to undesirable input features. These may be data-specific, such as typos in text 
-            or lighting and background conditions in images, or societal-specific, such as person names or gendered pronouns that 
-            proxy sensitive attributes like race or gender. This invention introduces methods for assigning interpretable ratings 
-            to AI services in both blackbox and whitebox settings. These ratings reflect the system's sensitivity to various input 
-            features, improving transparency and enabling users to understand the causal factors influencing AI predictions.
-        </p>
-        <!-- <div class="links">
-            <a href="https://patentimages.storage.googleapis.com/7e/2e/ef/95463ddc3378bf/US20240062079A1.pdf" target="_blank"><b>[PDF]</b></a>
-            <a href="../rating_page/bib/rating_patent.txt" target="_blank" type="text/plain"><b>[BibTex]</b></a>
-        </div> -->
-    </div>
-        
-
-    <h3>More papers on 'Rating of AI Systems'<br><a href="https://sites.google.com/site/biplavsrivastava/research-1/trustedai?authuser=0#h.useljqp3rw7i" target="_blank"><b>[Click here]</b></a></h3>
-    </div>
+    <script>
+        (function () {
+            var buttons = document.querySelectorAll('.filter-btn');
+            var blocks = document.querySelectorAll('.cat-block');
+            buttons.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    buttons.forEach(function (b) { b.classList.remove('active'); });
+                    btn.classList.add('active');
+                    var cat = btn.getAttribute('data-filter');
+                    blocks.forEach(function (block) {
+                        block.style.display = (cat === 'all' || block.getAttribute('data-cat') === cat) ? '' : 'none';
+                    });
+                });
+            });
+        })();
+    </script>
 </body>
 </html>
