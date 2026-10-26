@@ -636,6 +636,22 @@ button:hover {
   text-align: left;
 }
 
+/* Sub-points under a news entry (e.g., media coverage) */
+.news-timeline .news-sub {
+  margin: 8px 0 0 0;
+  padding: 8px 0 0 18px;
+  border-top: 1px dashed rgba(0, 0, 0, 0.08);
+  line-height: 1.5;
+}
+
+.news-timeline .news-sub li {
+  margin: 0;
+}
+
+.news-timeline .news-sub li + li {
+  margin-top: 4px;
+}
+
 /* Closing "more news" link */
 .news-timeline .timeline-more {
   margin-bottom: 0;
