@@ -520,6 +520,160 @@ button:hover {
   }
 }
 
+/* ---------- Homepage News Timeline ---------- */
+/* Rail sits at x = 10px; every dot is centered on it. */
+.timeline.news-timeline {
+  padding-left: 30px;
+  margin-top: 4px;
+}
+
+.timeline.news-timeline:before {
+  left: 9px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(to bottom, #1772d0 0%, #C5CAE9 35%, rgba(197, 202, 233, 0.35) 100%);
+}
+
+.news-timeline .timeline-item {
+  position: relative;
+  padding-left: 0;
+  margin-bottom: 22px;
+}
+
+/* Month dot: hollow ring on the rail */
+.news-timeline .timeline-dot {
+  position: absolute;
+  left: -26px;
+  top: 3px;
+  width: 12px;
+  height: 12px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #1772d0;
+  z-index: 1;
+}
+
+/* Year dot: solid with a soft halo */
+.news-timeline .timeline-dot.year-dot {
+  left: -28px;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: #1772d0;
+  box-shadow: 0 0 0 4px rgba(23, 114, 208, 0.15);
+}
+
+.news-timeline .timeline-date {
+  margin-bottom: 8px;
+}
+
+/* NewsLog: start below the floated header rule */
+.page-content > .timeline.news-timeline {
+  clear: both;
+  padding-top: 18px;
+}
+
+.page-content > .timeline.news-timeline:before {
+  top: 28px;
+}
+
+/* Extra breathing room before each new year (NewsLog) */
+.news-timeline .timeline-year:not(:first-child) {
+  margin-top: 36px;
+}
+
+.news-timeline .timeline-year {
+  margin-bottom: 14px;
+}
+
+.news-timeline .timeline-date.month {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1772d0;
+}
+
+.news-timeline .timeline-date.year {
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: 999px;
+  background: #1772d0;
+  color: #fff;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.04em;
+}
+
+/* Each news entry is a light card */
+.news-timeline .timeline-content {
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.025);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.news-timeline .timeline-content:last-child {
+  margin-bottom: 0;
+}
+
+.news-timeline .timeline-content:hover {
+  background: #fff;
+  border-color: rgba(23, 114, 208, 0.25);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.news-timeline .timeline-content p {
+  margin: 0;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* Closing "more news" link */
+.news-timeline .timeline-more {
+  margin-bottom: 0;
+}
+
+.news-timeline .timeline-more .timeline-dot {
+  background: #C5CAE9;
+  border-color: #C5CAE9;
+}
+
+.news-timeline .news-more-link {
+  display: inline-block;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+@media (max-width: 600px) {
+  .timeline.news-timeline {
+    padding-left: 24px;
+  }
+
+  .timeline.news-timeline:before {
+    left: 6px;
+  }
+
+  .news-timeline .timeline-dot {
+    left: -23px;
+  }
+
+  .news-timeline .timeline-dot.year-dot {
+    left: -25px;
+  }
+
+  .news-timeline .timeline-content {
+    padding: 9px 10px;
+  }
+}
+
 /* News-Journal CSS */
 .newsjournal {
   position: relative;
@@ -1987,19 +2141,44 @@ button:hover {
 
 /* Navigation Container */
 .nav-container {
-  padding: 15px 0;
+  padding: 14px 0 10px 0;
+  margin-bottom: 8px;
   text-align: left;
-  line-height: 1.8;
   width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Links become soft pills; font-size 0 hides the "|" separators in the markup */
+.nav-container p {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0 -10px;
+  font-size: 0;
+  line-height: 0;
 }
 
 .nav-container a {
   display: inline-block;
   white-space: nowrap;
+  margin: 2px 1px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 14px;
+  line-height: 18px;
+  color: #3c4043;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.nav-container a:hover,
+.nav-container a:focus-visible {
+  color: #1772d0;
+  background: rgba(23, 114, 208, 0.07);
 }
 
 .nav-container a.nav-active {
-  color: #f09228;
+  color: #1772d0;
+  background: rgba(23, 114, 208, 0.1);
   font-weight: bold;
   pointer-events: none;
   cursor: default;
@@ -2041,5 +2220,14 @@ button:hover {
   .nav-container {
     text-align: center;
     /* Center nav on mobile looks better usually, or keep left */
+  }
+
+  .nav-container p {
+    justify-content: center;
+    margin: 0;
+  }
+
+  .nav-container a {
+    padding: 5px 9px;
   }
 }
