@@ -654,7 +654,8 @@ button:hover {
 
 /* Embedded news video inside an entry */
 .news-timeline .news-video {
-  margin-top: 10px;
+  max-width: 300px;
+  margin: 10px auto 0 auto;
   border-radius: 8px;
   overflow: hidden;
   background: #000;
