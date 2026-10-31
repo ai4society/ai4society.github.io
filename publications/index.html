@@ -1331,29 +1331,32 @@
     });
 
     document.addEventListener("DOMContentLoaded", function () {
-      var bestDemoBadge = document.querySelector(".best-demo-badge");
-      if (bestDemoBadge) {
-        bestDemoBadge.addEventListener("click", function () {
-          // Trigger the confetti effect
-          triggerConfetti();
+      document.querySelectorAll(".best-demo-badge").forEach(function (badge) {
+        badge.addEventListener("click", function () {
+          // Trigger the confetti effect from the badge
+          triggerConfetti(badge);
 
           // Apply the animate-badge class
-          this.classList.add("animate-badge");
+          badge.classList.add("animate-badge");
 
           // Set a timeout to remove the animate-badge class after 1 second
-          setTimeout(() => {
-            this.classList.remove("animate-badge");
+          setTimeout(function () {
+            badge.classList.remove("animate-badge");
           }, 1000);
         });
-      }
+      });
     });
 
-    // Function to trigger the confetti
-    function triggerConfetti() {
+    // Function to trigger the confetti, bursting from the clicked badge
+    function triggerConfetti(badge) {
+      var r = badge.getBoundingClientRect();
       confetti({
         particleCount: 100,
         spread: 70,
-        origin: { y: 0.6 },
+        origin: {
+          x: (r.left + r.width / 2) / window.innerWidth,
+          y: (r.top + r.height / 2) / window.innerHeight,
+        },
       });
     }
   </script>

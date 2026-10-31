@@ -9,6 +9,7 @@
   <meta name="author" content="Vishal Pallagani" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
   <link rel="stylesheet" type="text/css" href="../stylesheet.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
 </head>
@@ -607,6 +608,22 @@
         p.classList.add('is-clamped');
         p.addEventListener('click', function () { p.classList.toggle('is-open'); });
       }
+    });
+
+    // Award badges: confetti burst from the badge on click.
+    document.querySelectorAll('.best-demo-badge').forEach(function (badge) {
+      badge.addEventListener('click', function () {
+        if (typeof confetti !== 'function') return;
+        var r = badge.getBoundingClientRect();
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: {
+            x: (r.left + r.width / 2) / window.innerWidth,
+            y: (r.top + r.height / 2) / window.innerHeight
+          }
+        });
+      });
     });
 
     // Area filter chips.
