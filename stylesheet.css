@@ -652,22 +652,6 @@ button:hover {
   margin-top: 4px;
 }
 
-/* Embedded news video inside an entry */
-.news-timeline .news-video {
-  max-width: 300px;
-  margin: 10px auto 0 auto;
-  border-radius: 8px;
-  overflow: hidden;
-  background: #000;
-  aspect-ratio: 16 / 9;
-}
-
-.news-timeline .news-video iframe {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
 
 /* Closing "more news" link */
 .news-timeline .timeline-more {
@@ -2262,5 +2246,218 @@ button:hover {
 
   .nav-container a {
     padding: 5px 9px;
+  }
+}
+
+/* ---------- Embedded videos (homepage + Media page) ---------- */
+.video-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #000;
+}
+
+.video-embed iframe,
+.video-embed .powa {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Homepage: video under the photo slideshow */
+.side-video {
+  width: 300px;
+  max-width: 100%;
+  margin: 0 auto 22px auto;
+}
+
+.side-video .video-embed {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.side-video-caption {
+  margin-top: 6px;
+  font-size: 12.5px;
+  color: #5f6368;
+  text-align: center;
+}
+
+/* ---------- Media page ---------- */
+.media-intro {
+  margin: 4px 0 18px 0;
+  color: #5f6368;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.media-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.media-filter {
+  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+  color: #3c4043;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+.media-filter:hover {
+  border-color: rgba(23, 114, 208, 0.4);
+  color: #1772d0;
+}
+
+.media-filter.is-active {
+  background: #1772d0;
+  border-color: #1772d0;
+  color: #fff;
+  font-weight: 700;
+}
+
+.media-filter .count {
+  opacity: 0.7;
+  margin-left: 4px;
+}
+
+.media-year {
+  margin-top: 26px;
+}
+
+.media-year-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.media-year-label:after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.media-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: start;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.media-card:hover {
+  border-color: rgba(23, 114, 208, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.media-card.has-video {
+  grid-template-columns: minmax(0, 1fr) 320px;
+}
+
+.media-meta-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.media-type {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(23, 114, 208, 0.1);
+  color: #1765b5;
+}
+
+.media-type.t-tv { background: rgba(217, 48, 37, 0.09); color: #b3261e; }
+.media-type.t-panel { background: rgba(124, 77, 255, 0.1); color: #5b37c7; }
+.media-type.t-feature { background: rgba(242, 153, 0, 0.14); color: #8a5a00; }
+.media-type.t-column { background: rgba(0, 0, 0, 0.06); color: #4a4a4a; }
+
+.media-outlet {
+  font-size: 13px;
+  font-weight: 700;
+  color: #3c4043;
+}
+
+.media-title {
+  margin: 0 0 6px 0;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.media-title a {
+  font-size: 16px;
+  color: #1a1a1a;
+}
+
+.media-title a:hover {
+  color: #1772d0;
+}
+
+.media-desc {
+  margin: 0 0 8px 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #4a4a4a;
+}
+
+.media-desc a {
+  font-size: 13.5px;
+}
+
+.media-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  font-size: 12.5px;
+  color: #6b7075;
+}
+
+.media-foot a {
+  font-size: 12.5px;
+  font-weight: 700;
+}
+
+.media-tag {
+  color: #6b7075;
+}
+
+.media-tag:before {
+  content: '#';
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .media-card.has-video {
+    grid-template-columns: 1fr;
+  }
+
+  .media-card .video-embed {
+    order: -1;
   }
 }
