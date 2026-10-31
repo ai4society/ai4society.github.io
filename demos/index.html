@@ -36,581 +36,596 @@
     <hr style="width: 100%; float: left" />
   </div>
 
-  <div id="screen" class="page-content">
-    <section id="portfolio" class="portfolio">
-      <div style="margin: 0 auto" class="container">
-        <br />
+  <div class="page-content">
+    <p class="page-intro">
+      Tools and systems built at AI4Society that you can try, watch, or read about.
+      Click a video thumbnail to play it here.
+    </p>
 
-        <div class="demo-row">
-          <div class="demo-media">
-            <a href="https://ai4society-paper-searcher.streamlit.app/" target="_blank" rel="noopener noreferrer">
-              <img src="./images/ELIOT.png" alt="ELIOT Literature Exploration Tool"
-                style="width:280px;height:200px;border-radius:10px;object-fit:cover;cursor:pointer;">
-            </a>
+    <div class="chip-filters" role="group" aria-label="Filter demos">
+      <button type="button" class="chip-filter is-active" data-filter="all">All<span class="count"></span></button>
+      <button type="button" class="chip-filter" data-filter="planning">Planning<span class="count"></span></button>
+      <button type="button" class="chip-filter" data-filter="trust">Trusted AI<span class="count"></span></button>
+      <button type="button" class="chip-filter" data-filter="chatbots">Chatbots &amp; Elections<span class="count"></span></button>
+      <button type="button" class="chip-filter" data-filter="applications">Applications<span class="count"></span></button>
+    </div>
+
+    <div class="demo-grid">
+
+      <!-- ELIOT -->
+      <article class="demo-card" data-area="applications">
+        <div class="demo-thumb">
+          <a href="https://ai4society-paper-searcher.streamlit.app/" target="_blank" rel="noopener noreferrer">
+            <img src="./images/ELIOT.png" alt="ELIOT Literature Exploration Tool" loading="lazy" />
+          </a>
+        </div>
+        <div class="demo-body">
+          <div class="demo-meta">2026</div>
+          <h3 class="demo-title">ELIOT</h3>
+          <p class="demo-subtitle">Interactively Exploring Fast-Changing Scientific Literature Trends</p>
+          <div class="demo-tags">
+            <span class="tag tag-method">Literature Exploration</span>
+            <span class="tag tag-method">Information Retrieval</span>
           </div>
-
-          <div class="demo-text">
-            <h3 class="card-text">
-              ELIOT: Interactively Exploring Fast-Changing Scientific Literature Trends | 2026
-              <span class="tag tag-method">Literature Exploration</span>
-              <span class="tag tag-method">Information Retrieval</span>
-            </h3>
-            <p>
-              ELIOT helps researchers move beyond keyword search by retrieving arXiv papers from
-              explicit queries and filters, grouping papers into coherent themes, labeling clusters
-              with representative keywords, and visualizing how those themes change over time.
-            </p>
-            <a href="https://ai4society-paper-searcher.streamlit.app/" target="_blank"
-              rel="noopener noreferrer">[Demo]</a>
-            <a href="https://drive.google.com/file/d/1paMe8LHqbei4u9kanQ3eSd3D4-q-PV01/view?usp=sharing" target="_blank">[Demo Video]</a>
-            <a href="../projects/literature_exploration/index.html" target="_blank"
-              rel="noopener noreferrer">[More Details]</a>
+          <p class="demo-desc">
+            ELIOT helps researchers move beyond keyword search by retrieving arXiv papers from
+            explicit queries and filters, grouping papers into coherent themes, labeling clusters
+            with representative keywords, and visualizing how those themes change over time.
+          </p>
+          <div class="demo-links">
+            <a class="link-btn primary" href="https://ai4society-paper-searcher.streamlit.app/" target="_blank" rel="noopener noreferrer">Try Demo</a>
+            <a class="link-btn" href="https://drive.google.com/file/d/1paMe8LHqbei4u9kanQ3eSd3D4-q-PV01/view?usp=sharing" target="_blank" rel="noopener noreferrer">Video</a>
+            <a class="link-btn" href="../projects/literature_exploration/index.html" target="_blank" rel="noopener noreferrer">Details</a>
           </div>
         </div>
-        <br /><br />
+      </article>
 
-        <div class="demo-row">
-          <div class="demo-media">
-            <a href="https://ai4society.github.io/sn-ye/#sn-variants" target="_blank" rel="noopener noreferrer">
-              <img src="./images/SN-YE.png" alt="SN-YE Surya Namaskar Yoga Explorer Demo"
-                style="width:280px;height:200px;border-radius:10px;object-fit:cover;cursor:pointer;">
-            </a>
+      <!-- SN-YE -->
+      <article class="demo-card" data-area="applications">
+        <div class="demo-thumb">
+          <a href="https://ai4society.github.io/sn-ye/#sn-variants" target="_blank" rel="noopener noreferrer">
+            <img src="./images/SN-YE.png" alt="SN-YE Surya Namaskar Yoga Explorer" loading="lazy" />
+          </a>
+        </div>
+        <div class="demo-body">
+          <div class="demo-meta">2026</div>
+          <h3 class="demo-title">SN-YE</h3>
+          <p class="demo-subtitle">Surya Namaskar Yoga Explorer</p>
+          <div class="demo-tags">
+            <span class="tag tag-method">Exercise Recommendation</span>
+            <span class="tag tag-method">Ontology</span>
           </div>
-
-          <div class="demo-text">
-            <h3 class="card-text">
-              SN-YE: Surya Namaskar Yoga Explorer | 2026
-              <span class="tag tag-method">Exercise Recommendation</span>
-              <span class="tag tag-method">Ontology</span>
-            </h3>
-            <p>
-              SN-YE helps beginners explore Surya Namaskar (SN) variants, breathing patterns,
-              utterances, and mantras using the SN Yoga Ontology (SN-YO), supporting
-              personalized Yoga (SN) learning and practice in 28 languages (6 recognized by 
-              the United Nations and 22 recognized by India - the origin of Yoga).
-            </p>
-            <a href="https://ai4society.github.io/sn-ye/#sn-variants" target="_blank"
-              rel="noopener noreferrer">[Demo]</a>
-            <a href="https://ai4society.github.io/sn-yo/" target="_blank"
-              rel="noopener noreferrer">[Ontology]</a>
-            <a href="https://doi.org/10.13140/RG.2.2.31924.41606" target="_blank"
-              rel="noopener noreferrer">[Paper]</a>
-            <a href="../projects/group_rec/exercise_recommendation.html" target="_blank"
-              rel="noopener noreferrer">[More Details]</a>
+          <p class="demo-desc">
+            SN-YE helps beginners explore Surya Namaskar (SN) variants, breathing patterns,
+            utterances, and mantras using the SN Yoga Ontology (SN-YO), supporting
+            personalized Yoga (SN) learning and practice in 28 languages (6 recognized by
+            the United Nations and 22 recognized by India - the origin of Yoga).
+          </p>
+          <div class="demo-links">
+            <a class="link-btn primary" href="https://ai4society.github.io/sn-ye/#sn-variants" target="_blank" rel="noopener noreferrer">Try Demo</a>
+            <a class="link-btn" href="https://ai4society.github.io/sn-yo/" target="_blank" rel="noopener noreferrer">Ontology</a>
+            <a class="link-btn" href="https://doi.org/10.13140/RG.2.2.31924.41606" target="_blank" rel="noopener noreferrer">Paper</a>
+            <a class="link-btn" href="../projects/group_rec/exercise_recommendation.html" target="_blank" rel="noopener noreferrer">Details</a>
           </div>
         </div>
-        <br /><br />
+      </article>
 
-        <div class="demo-row">
-          <div class="demo-media">
-            <iframe width="300" height="200"
-              src="https://drive.google.com/file/d/1SrI7jJH0vU4s7CTjdqzotGkKjYycio4s/preview"
-              title="ARC: A Tool to Rate AI Models for Robustness Through a Causal Lens for Enabling Trustworthy Model Selection" alt="ARC Tool Demo" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
+      <!-- ARC -->
+      <article class="demo-card" data-area="trust">
+        <div class="demo-thumb">
+          <button type="button" class="demo-play" data-src="https://drive.google.com/file/d/1SrI7jJH0vU4s7CTjdqzotGkKjYycio4s/preview" aria-label="Play ARC demo video">
+            <img src="https://drive.google.com/thumbnail?id=1SrI7jJH0vU4s7CTjdqzotGkKjYycio4s&amp;sz=w800" alt="" loading="lazy" />
+            <span class="demo-play-icon"></span>
+          </button>
+        </div>
+        <div class="demo-body">
+          <div class="demo-meta">2026 <span class="demo-venue">ACM Web Conference</span></div>
+          <h3 class="demo-title">ARC</h3>
+          <p class="demo-subtitle">A Tool to Rate AI Models for Robustness Through a Causal Lens for Enabling Trustworthy Model Selection</p>
+          <div class="demo-tags">
+            <span class="tag tag-method">Trusted AI</span>
           </div>
-          <div class="demo-text">
-            <h3 class="card-text">
-              ARC: A Tool to Rate AI Models for Robustness Through a Causal Lens for Enabling Trustworthy Model Selection | ACM Web Conference 2026
-              <span class="tag tag-method">Trusted AI</span>
-            </h3>
-            <p>
-              AI models are widely used in web applications and data-driven services that rely on continuously collected and evolving online data. 
-              Their decisions can be affected by bias, noise, and shifts in the underlying data. 
-              This paper presents ARC, an interactive web-based tool for rating AI models for robustness using causality-based methods. 
-              ARC quantifies robustness, encompassing fairness and stability, through causal metrics that measure how predictions vary 
-              with perturbations and protected attributes, and allows users to explore trade-offs between robustness and accuracy. 
-            </p>
-            <a href="https://drive.google.com/file/d/1SrI7jJH0vU4s7CTjdqzotGkKjYycio4s/view" target="_blank">[Demo Video]</a>
-            <a href="http://casy.cse.sc.edu/causal_rating" target="_blank" rel="noopener noreferrer">[Tool]</a>
-            <!-- <a href="../projects/rating_page/bib/rose_tool.txt" target="_blank" type="text/plain">[BibTex]</a> -->
-            <!-- <a href="../projects/teaming/index.html" target="_blank" type="text/plain">[More Details]</a> -->
-            <br />
-            <!-- <p><b>Keywords :</b> #NSF, #COVID19, #Social_Impact, #Psychological_Impact, #Addiction, #Mental_Health, #Social_Quality_Index</p> -->
+          <p class="demo-desc">
+            AI models are widely used in web applications and data-driven services that rely on continuously collected and evolving online data.
+            Their decisions can be affected by bias, noise, and shifts in the underlying data.
+            This paper presents ARC, an interactive web-based tool for rating AI models for robustness using causality-based methods.
+            ARC quantifies robustness, encompassing fairness and stability, through causal metrics that measure how predictions vary
+            with perturbations and protected attributes, and allows users to explore trade-offs between robustness and accuracy.
+          </p>
+          <div class="demo-links">
+            <a class="link-btn primary" href="http://casy.cse.sc.edu/causal_rating" target="_blank" rel="noopener noreferrer">Tool</a>
+            <a class="link-btn" href="https://drive.google.com/file/d/1SrI7jJH0vU4s7CTjdqzotGkKjYycio4s/view" target="_blank" rel="noopener noreferrer">Video</a>
           </div>
         </div>
+      </article>
 
-        <div class="demo-row">
-          <div class="demo-media">
-            <a href="https://drive.google.com/file/d/1FJ-Qm154FZXwJw94spUKh3PO3YzoqkcB/view" target="_blank"
-              rel="noopener noreferrer">
-              <img src="./images/omega-AAAI-26.png" alt="OMEGA MAPF Ontology Demo"
-                style="width:280px;height:200px;border-radius:10px;object-fit:cover;cursor:pointer;">
-            </a>
+      <!-- OMEGA -->
+      <article class="demo-card" data-area="planning">
+        <div class="demo-thumb">
+          <a href="https://drive.google.com/file/d/1FJ-Qm154FZXwJw94spUKh3PO3YzoqkcB/view" target="_blank" rel="noopener noreferrer">
+            <img src="./images/omega-AAAI-26.png" alt="OMEGA MAPF Ontology Demo" loading="lazy" />
+          </a>
+        </div>
+        <div class="demo-body">
+          <div class="demo-meta">2026 <span class="demo-venue">AAAI Demo</span></div>
+          <h3 class="demo-title">OMEGA</h3>
+          <p class="demo-subtitle">An Ontology-Driven Tool for Explaining Multi-Agent Path Finding</p>
+          <div class="demo-tags">
+            <span class="tag tag-method">Automated Planning</span>
+            <span class="tag tag-method">Ontology</span>
           </div>
-
-          <div class="demo-text">
-            <h3 class="card-text">
-              OMEGA: An Ontology-Driven Tool for Explaining Multi-Agent Path Finding | AAAI 2026 Demo
-              <span class="tag tag-method">Automated Planning</span>
-              <span class="tag tag-method">Ontology</span>
-            </h3>
-            <p>
-              OMEGA links MAPF execution traces to a planning ontology to produce transparent,
-              queryable explanations of agent actions, conflicts, and resolutions—supporting
-              SPARQL-based “why/why not” queries and traceability across plans and runs.
-            </p>
-            <a href="../publications/papers_local/AAAI_26_Demo_MAPF_Ontology.pdf" target="_blank"
-              rel="noopener noreferrer">[Paper]</a>
-            <a href="https://drive.google.com/file/d/1FJ-Qm154FZXwJw94spUKh3PO3YzoqkcB/view" target="_blank"
-              rel="noopener noreferrer">[Demo Video]</a>
+          <p class="demo-desc">
+            OMEGA links MAPF execution traces to a planning ontology to produce transparent,
+            queryable explanations of agent actions, conflicts, and resolutions—supporting
+            SPARQL-based “why/why not” queries and traceability across plans and runs.
+          </p>
+          <div class="demo-links">
+            <a class="link-btn primary" href="https://drive.google.com/file/d/1FJ-Qm154FZXwJw94spUKh3PO3YzoqkcB/view" target="_blank" rel="noopener noreferrer">Video</a>
+            <a class="link-btn" href="../publications/papers_local/AAAI_26_Demo_MAPF_Ontology.pdf" target="_blank" rel="noopener noreferrer">Paper</a>
           </div>
         </div>
-        <br /><br />
+      </article>
 
-
-        <div class="demo-row">
-          <div class="demo-media">
-            <iframe width="300" height="200"
-              src="https://drive.google.com/file/d/1m93agi6H4-HDpIvZCiYOOw6RpYEIQbvD/preview"
-              title="GAICo Demonstration" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
+      <!-- GAICo -->
+      <article class="demo-card" data-area="trust">
+        <div class="demo-thumb">
+          <button type="button" class="demo-play" data-src="https://drive.google.com/file/d/1m93agi6H4-HDpIvZCiYOOw6RpYEIQbvD/preview" aria-label="Play GAICo demo video">
+            <img src="https://drive.google.com/thumbnail?id=1m93agi6H4-HDpIvZCiYOOw6RpYEIQbvD&amp;sz=w800" alt="" loading="lazy" />
+            <span class="demo-play-icon"></span>
+          </button>
+        </div>
+        <div class="demo-body">
+          <div class="demo-meta">2026 <span class="demo-venue"><a href="https://aaai.org/conference/aaai/aaai-26/iaai-26-call/" target="_blank" rel="noopener noreferrer">IAAI/AAAI</a></span></div>
+          <h3 class="demo-title">GAICo</h3>
+          <p class="demo-subtitle">GenAI Results Comparator</p>
+          <div class="demo-tags">
+            <span class="tag tag-method">LLM Evaluation</span>
+            <span class="tag tag-method">Trust Rating</span>
           </div>
-
-          <div class="demo-text">
-            <h3 class="card-text">
-              GAICo: GenAI Results Comparator |
-              <a href="https://aaai.org/conference/aaai/aaai-26/iaai-26-call/" target="_blank">IAAI/AAAI 2026</a>
-              <span class="tag tag-method">LLM Evaluation</span>
-              <span class="tag tag-method">Trust Rating</span>
-            </h3>
-            <p>
-              A Python library providing multi-modal evaluation metrics to compare generative AI
-              outputs, often against references. Features streamlined workflows for model
-              comparison and visualization.
-            </p>
-            <a href="https://tinyurl.com/yvu78n9k" target="_blank" rel="noopener noreferrer">[Demo Video]</a>
-            <a href="https://github.com/ai4society/GenAIResultsComparator" target="_blank"
-              rel="noopener noreferrer">[Repository]</a>
-            <a href="https://arxiv.org/abs/2508.16753" target="_blank" rel="noopener noreferrer">[IAAI/AAAI 2026
-              Paper]</a>
+          <p class="demo-desc">
+            A Python library providing multi-modal evaluation metrics to compare generative AI
+            outputs, often against references. Features streamlined workflows for model
+            comparison and visualization.
+          </p>
+          <div class="demo-links">
+            <a class="link-btn primary" href="https://github.com/ai4society/GenAIResultsComparator" target="_blank" rel="noopener noreferrer">Repository</a>
+            <a class="link-btn" href="https://tinyurl.com/yvu78n9k" target="_blank" rel="noopener noreferrer">Video</a>
+            <a class="link-btn" href="https://arxiv.org/abs/2508.16753" target="_blank" rel="noopener noreferrer">IAAI/AAAI 2026 Paper</a>
           </div>
         </div>
+      </article>
 
-        <div class="demo-row">
-          <div class="demo-media">
-            <img src="../images/llm-planning-viz-thumbnail.png" alt="LLM Planning Visualization"
-              style="width: 280px; height: 200px; border-radius: 10px; object-fit: cover" />
+      <!-- LLM Planning Visualization -->
+      <article class="demo-card" data-area="planning">
+        <div class="demo-thumb">
+          <a href="https://ai4society.github.io/LLM-Planning-Viz/" target="_blank" rel="noopener noreferrer">
+            <img src="../images/llm-planning-viz-thumbnail.png" alt="LLM Planning Visualization" loading="lazy" />
+          </a>
+        </div>
+        <div class="demo-body">
+          <div class="demo-meta">2024 &amp; 2025 <span class="demo-venue">ICAPS</span></div>
+          <h3 class="demo-title">LLM Planning Visualization</h3>
+          <div class="demo-tags">
+            <span class="tag tag-method">Automated Planning</span>
+            <span class="tag tag-method">LLMs</span>
           </div>
-
-          <div class="demo-text">
-            <h3 class="card-text">
-              LLM Planning Visualization | 2024 & 2025
-              <span class="tag tag-method">Automated Planning</span>
-              <span class="tag tag-method">LLMs</span>
-            </h3>
-            <p>
-              An interactive tool to centralize and categorize the exponentially growing
-              literature on LLMs and Automated Planning.
-            </p>
-            <a href="https://ai4society.github.io/LLM-Planning-Viz/" target="_blank"
-              rel="noopener noreferrer">[Demo]</a>
-            <a href="https://arxiv.org/abs/2401.02500" target="_blank" rel="noopener noreferrer">[ICAPS 2024 Paper]</a>
-            <a href="../publications/papers_local/litevol.pdf" target="_blank" rel="noopener noreferrer">[ICAPS 2025
-              Paper]</a>
+          <p class="demo-desc">
+            An interactive tool to centralize and categorize the exponentially growing
+            literature on LLMs and Automated Planning.
+          </p>
+          <div class="demo-links">
+            <a class="link-btn primary" href="https://ai4society.github.io/LLM-Planning-Viz/" target="_blank" rel="noopener noreferrer">Try Demo</a>
+            <a class="link-btn" href="https://arxiv.org/abs/2401.02500" target="_blank" rel="noopener noreferrer">ICAPS 2024 Paper</a>
+            <a class="link-btn" href="../publications/papers_local/litevol.pdf" target="_blank" rel="noopener noreferrer">ICAPS 2025 Paper</a>
           </div>
         </div>
-        <br /><br />
+      </article>
 
-        <div class="demo-row">
-          <div class="demo-media">
-            <!-- <iframe width="300" height="200"
-              src="https://drive.google.com/file/d/1_5hdy4yy7Wm8hCAp4W12bq_2iL5zxEAk/preview"
-              title="Demo of ElectionBot-SC" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe> -->
-            <img src="../projects/chatbots_page/images/safechat_ui.png" alt="SafeChat"
-              style="width: 280px; height: 200px; border-radius: 10px" />
+      <!-- ElectionBot-SC -->
+      <article class="demo-card" data-area="chatbots">
+        <div class="demo-thumb">
+          <a href="https://drive.google.com/file/d/1_5hdy4yy7Wm8hCAp4W12bq_2iL5zxEAk/view" target="_blank" rel="noopener noreferrer">
+            <img src="../projects/chatbots_page/images/safechat_ui.png" alt="ElectionBot-SC interface" loading="lazy" />
+          </a>
+        </div>
+        <div class="demo-body">
+          <div class="demo-meta">2024</div>
+          <h3 class="demo-title">ElectionBot-SC</h3>
+          <p class="demo-subtitle">A Tool to Understand and Compare Chatbot Behavior for Safe Election Information in South Carolina</p>
+          <div class="demo-tags">
+            <span class="tag tag-method">Chatbots</span>
           </div>
-          <div class="demo-text">
-            <h3 class="card-text">
-              ElectionBot-SC: A Tool to Understand and Compare Chatbot Behavior for Safe Election
-              Information in South Carolina | 2024 <span class="tag tag-method">Chatbots</span>
-            </h3>
-            <p>
-              We present ElectionBot-SC, a tool designed to provide reliable and accessible
-              election information, featuring three response engines: SafeChat (explained below),
-              Google Search, and a free-tier Large Language Model (LLM): Mixtral 8x7b.
-            </p>
-            <a href="../publications/papers_local/AAAI_25_SafeChat_Demo.pdf" target="_blank"
-              rel="noopener noreferrer">[Paper]</a>
-            <a href="https://drive.google.com/file/d/1_5hdy4yy7Wm8hCAp4W12bq_2iL5zxEAk/view" target="_blank">[Demo
-              Video]</a>
+          <p class="demo-desc">
+            We present ElectionBot-SC, a tool designed to provide reliable and accessible
+            election information, featuring three response engines: SafeChat (explained below),
+            Google Search, and a free-tier Large Language Model (LLM): Mixtral 8x7b.
+          </p>
+          <div class="demo-links">
+            <a class="link-btn primary" href="https://drive.google.com/file/d/1_5hdy4yy7Wm8hCAp4W12bq_2iL5zxEAk/view" target="_blank" rel="noopener noreferrer">Video</a>
+            <a class="link-btn" href="../publications/papers_local/AAAI_25_SafeChat_Demo.pdf" target="_blank" rel="noopener noreferrer">Paper</a>
           </div>
         </div>
-        <br /><br />
+      </article>
 
-        <div class="demo-row">
-          <div class="demo-media">
-            <img src="../projects/llm_page/images/election_qa.png" alt="Traffic Analysis GIF"
-              style="width: 280px; height: 200px; border-radius: 10px" />
-          </div>
-          <div class="demo-text">
-            <h3 class="card-text">Election-related Questions Around the World | 2024</h3>
-            <p>
-              This website organizes election-related questions by country, highlighting diverse
-              geopolitical contexts and allowing users to submit questions specific to their
-              nation.
-            </p>
-            <a href="https://ai4society.github.io/election-dataset/" target="_blank"
-              rel="noopener noreferrer">[Webpage]</a>
-            <!-- <a href="https://ai4society.github.io/projects/traffic-page/index.html" target="_blank" type="text/plain">[More Details]</a> -->
+      <!-- Election questions around the world -->
+      <article class="demo-card" data-area="chatbots">
+        <div class="demo-thumb">
+          <a href="https://ai4society.github.io/election-dataset/" target="_blank" rel="noopener noreferrer">
+            <img src="../projects/llm_page/images/election_qa.png" alt="Election-related questions website" loading="lazy" />
+          </a>
+        </div>
+        <div class="demo-body">
+          <div class="demo-meta">2024</div>
+          <h3 class="demo-title">Election-related Questions Around the World</h3>
+          <p class="demo-desc">
+            This website organizes election-related questions by country, highlighting diverse
+            geopolitical contexts and allowing users to submit questions specific to their
+            nation.
+          </p>
+          <div class="demo-links">
+            <a class="link-btn primary" href="https://ai4society.github.io/election-dataset/" target="_blank" rel="noopener noreferrer">Webpage</a>
           </div>
         </div>
-        <br />
-        <br />
+      </article>
 
-        <div class="demo-row">
-          <div class="demo-media">
-            <img src="../projects/traffic-page/images/git-incidents.gif" alt="Traffic Analysis GIF"
-              style="width: 280px; height: 250px; border-radius: 10px" />
-          </div>
-          <div class="demo-text">
-            <h3 class="card-text">Traffic Data Analysis | 2024</h3>
-            <p>
-              We analyze traffic accidents over time and across various regions, focusing on
-              economic impact, road conditions, and incident hotspots. The insights provided help
-              in understanding patterns and mitigating future risks.
-            </p>
-            <a href="https://ai4society.github.io/Traffic-Data-Analysis/" target="_blank"
-              rel="noopener noreferrer">[Demo]</a>
-            <a href="https://ai4society.github.io/projects/traffic-page/index.html" target="_blank"
-              type="text/plain">[More Details]</a>
+      <!-- Traffic -->
+      <article class="demo-card" data-area="applications">
+        <div class="demo-thumb">
+          <a href="https://ai4society.github.io/Traffic-Data-Analysis/" target="_blank" rel="noopener noreferrer">
+            <img src="../projects/traffic-page/images/git-incidents.gif" alt="Traffic incidents map of South Carolina" loading="lazy" />
+          </a>
+        </div>
+        <div class="demo-body">
+          <div class="demo-meta">2024</div>
+          <h3 class="demo-title">Traffic Data Analysis</h3>
+          <p class="demo-desc">
+            We analyze traffic accidents over time and across various regions, focusing on
+            economic impact, road conditions, and incident hotspots. The insights provided help
+            in understanding patterns and mitigating future risks.
+          </p>
+          <div class="demo-links">
+            <a class="link-btn primary" href="https://ai4society.github.io/Traffic-Data-Analysis/" target="_blank" rel="noopener noreferrer">Try Demo</a>
+            <a class="link-btn" href="https://ai4society.github.io/projects/traffic-page/index.html" target="_blank" rel="noopener noreferrer">Details</a>
           </div>
         </div>
-        <br />
-        <br />
+      </article>
 
-        <div class="demo-row">
-          <div class="demo-media">
-            <iframe width="300" height="200" src="https://www.youtube.com/embed/YQZ2sj-x5js"
-              title="Solving the Rubik's Cube" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe>
+      <!-- Rubik's Cube PDDL -->
+      <article class="demo-card" data-area="planning">
+        <div class="demo-thumb">
+          <button type="button" class="demo-play" data-src="https://www.youtube-nocookie.com/embed/YQZ2sj-x5js?autoplay=1" aria-label="Play Rubik's Cube PDDL demo video">
+            <img src="https://i.ytimg.com/vi/YQZ2sj-x5js/hqdefault.jpg" alt="" loading="lazy" />
+            <span class="demo-play-icon"></span>
+          </button>
+        </div>
+        <div class="demo-body">
+          <div class="demo-meta">2024 <span class="demo-venue">ICAPS</span></div>
+          <h3 class="demo-title">Solving the Rubik's Cube with a PDDL Planner</h3>
+          <div class="demo-tags">
+            <span class="tag tag-method">Neural-Symbolic AI</span>
           </div>
-          <div class="demo-text">
-            <h3 class="card-text">
-              Solving the Rubik's Cube with a PDDL Planner | ICAPS 2024<span class="tag tag-method">Neural-Symbolic
-                AI</span>
-            </h3>
-            <p>
-              In this demonstration, we introduce the first PDDL formulation for the 3-dimension
-              RC and solve it with an off-the-shelf Fast-Downward planner. We also create a plan
-              executor and visualizer to show how the plan achieves the intended goal.
-            </p>
-            <a href="../publications/papers_local/RC_ICAPS_24_Demo.pdf" target="_blank"
-              rel="noopener noreferrer">[Paper]</a>
-            <!-- <a href="../projects/rubiks_cube/bib/rubiks-pddl.txt" target="_blank" type="text/plain">[BibTex]</a>  -->
-            <a href="../projects/rubiks_cube/index.html" target="_blank" type="text/plain">[More Details]</a>
+          <p class="demo-desc">
+            In this demonstration, we introduce the first PDDL formulation for the 3-dimension
+            RC and solve it with an off-the-shelf Fast-Downward planner. We also create a plan
+            executor and visualizer to show how the plan achieves the intended goal.
+          </p>
+          <div class="demo-links">
+            <a class="link-btn primary" href="../publications/papers_local/RC_ICAPS_24_Demo.pdf" target="_blank" rel="noopener noreferrer">Paper</a>
+            <a class="link-btn" href="../projects/rubiks_cube/index.html" target="_blank" rel="noopener noreferrer">Details</a>
           </div>
         </div>
-        <br />
-        <br />
+      </article>
 
-        <div class="demo-row">
-          <div class="demo-media">
-            <iframe width="300" height="200"
-              src="https://drive.google.com/file/d/19d65zjSoFBSngCIPrteT0_DOlymmkEiM/preview"
-              title="Demo of Expressive and Flexible Simulation of Information Spread Strategies in Social Networks Using Planning"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
+      <!-- Information spread (Best Demo AAAI-24) -->
+      <article class="demo-card is-featured" data-area="planning">
+        <div class="demo-thumb">
+          <button type="button" class="demo-play" data-src="https://drive.google.com/file/d/19d65zjSoFBSngCIPrteT0_DOlymmkEiM/preview" aria-label="Play information spread demo video">
+            <img src="https://drive.google.com/thumbnail?id=19d65zjSoFBSngCIPrteT0_DOlymmkEiM&amp;sz=w800" alt="" loading="lazy" />
+            <span class="demo-play-icon"></span>
+          </button>
+        </div>
+        <div class="demo-body">
+          <div class="demo-meta">2024 <span class="demo-venue">AAAI</span> <span class="best-demo-badge">Best Demo at AAAI-24</span></div>
+          <h3 class="demo-title">Expressive and Flexible Simulation of Information Spread Strategies in Social Networks Using Planning</h3>
+          <div class="demo-tags">
+            <span class="tag tag-method">Automated Planning</span>
           </div>
-          <div class="demo-text">
-            <h3 class="card-text">
-              Expressive and Flexible Simulation of Information Spread Strategies in Social
-              Networks Using Planning | AAAI 2024
-              <span class="tag tag-method">Automated Planning</span>
-              <span class="best-demo-badge">Best Demo at AAAI-24</span>
-            </h3>
-            <p>
-              We present a demonstration of integrating Automated Planning with opinion dynamics,
-              enabling users to visualize, simulate, and strategically influence opinion evolution
-              in networks. This approach offers a practical solution for understanding and guiding
-              information spread.
-            </p>
-            <a href="../publications/papers_local/InfoSpread_AAAI24_Demo.pdf" target="_blank"
-              rel="noopener noreferrer">[Paper]</a>
-            <a href="https://drive.google.com/file/d/19d65zjSoFBSngCIPrteT0_DOlymmkEiM/view?usp=drive_link"
-              target="_blank">[Demo Video]</a>
+          <p class="demo-desc">
+            We present a demonstration of integrating Automated Planning with opinion dynamics,
+            enabling users to visualize, simulate, and strategically influence opinion evolution
+            in networks. This approach offers a practical solution for understanding and guiding
+            information spread.
+          </p>
+          <div class="demo-links">
+            <a class="link-btn primary" href="../publications/papers_local/InfoSpread_AAAI24_Demo.pdf" target="_blank" rel="noopener noreferrer">Paper</a>
+            <a class="link-btn" href="https://drive.google.com/file/d/19d65zjSoFBSngCIPrteT0_DOlymmkEiM/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Video</a>
           </div>
         </div>
-        <br />
-        <br />
+      </article>
 
-
-
-        <div class="demo-row">
-          <div class="demo-media">
-            <iframe width="300" height="200" src="https://www.youtube.com/embed/8MUtxsfVNIU"
-              title="Demo of ULTRA Tool: Team Recommendation for Researchers for Responding to Calls for Proposals"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
+      <!-- ULTRA -->
+      <article class="demo-card" data-area="applications">
+        <div class="demo-thumb">
+          <button type="button" class="demo-play" data-src="https://www.youtube-nocookie.com/embed/8MUtxsfVNIU?autoplay=1" aria-label="Play ULTRA demo video">
+            <img src="https://i.ytimg.com/vi/8MUtxsfVNIU/hqdefault.jpg" alt="" loading="lazy" />
+            <span class="demo-play-icon"></span>
+          </button>
+        </div>
+        <div class="demo-body">
+          <div class="demo-meta">January 2024 <span class="demo-venue">ACM IKDD CODS-COMAD</span></div>
+          <h3 class="demo-title">ULTRA</h3>
+          <p class="demo-subtitle"><u>U</u>niversity-<u>L</u>ead <u>T</u>eam Builder from <u>R</u>FPs and <u>A</u>nalysis</p>
+          <div class="demo-tags">
+            <span class="tag tag-method">Recommender Systems</span>
           </div>
-          <div class="demo-text">
-            <h3 class="card-text">
-              ULTRA: A <u>U</u>niversity-<u>L</u>ead <u>T</u>eam Builder from <u>R</u>FPs and
-              <u>A</u>nalysis | 2024 <span class="tag tag-method">Recommender Systems</span>
-            </h3>
-            <b>January 2024:</b>
-            <i>Proceedings of the 7th Joint International Conference on Data Science & Management
-              of Data (11th ACM IKDD CODS and 29th COMAD).</i><br />
-            <p>
-              We introduce ULTRA, a novel AI-based system for assisting team formation when
-              researchers respond to calls for proposals from funding agencies.
-            </p>
-            <a href="https://dl.acm.org/doi/abs/10.1145/3632410.3632503" target="_blank"
-              rel="noopener noreferrer">[Paper]</a>
-            <a href="https://www.youtube.com/watch?v=CUk_Rgvd5kg" target="_blank">[Demo Video]</a>
-            <a href="http://casy.cse.sc.edu/ultra/teaming/" target="_blank">[Tool]</a>
-            <a href="../projects/group_rec/bib/ultra-cods.txt" target="_blank" type="text/plain">[BibTex]</a>
-            <a href="../projects/group_rec/index.html" target="_blank" type="text/plain">[More Details]</a>
+          <p class="demo-desc">
+            We introduce ULTRA, a novel AI-based system for assisting team formation when
+            researchers respond to calls for proposals from funding agencies.
+          </p>
+          <div class="demo-links">
+            <a class="link-btn primary" href="http://casy.cse.sc.edu/ultra/teaming/" target="_blank" rel="noopener noreferrer">Tool</a>
+            <a class="link-btn" href="https://dl.acm.org/doi/abs/10.1145/3632410.3632503" target="_blank" rel="noopener noreferrer">Paper</a>
+            <a class="link-btn" href="https://www.youtube.com/watch?v=CUk_Rgvd5kg" target="_blank" rel="noopener noreferrer">Video</a>
+            <a class="link-btn" href="../projects/group_rec/bib/ultra-cods.txt" target="_blank" type="text/plain">BibTeX</a>
+            <a class="link-btn" href="../projects/group_rec/index.html" target="_blank">Details</a>
           </div>
         </div>
-        <br />
-        <br />
+      </article>
 
-        <div class="demo-row">
-          <div class="demo-media">
-            <iframe width="300" height="200" src="https://www.youtube.com/embed/_1rlctCGsrk" title="Plansformer Tool"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe>
+      <!-- Plansformer -->
+      <article class="demo-card" data-area="planning">
+        <div class="demo-thumb">
+          <button type="button" class="demo-play" data-src="https://www.youtube-nocookie.com/embed/_1rlctCGsrk?autoplay=1" aria-label="Play Plansformer demo video">
+            <img src="https://i.ytimg.com/vi/_1rlctCGsrk/hqdefault.jpg" alt="" loading="lazy" />
+            <span class="demo-play-icon"></span>
+          </button>
+        </div>
+        <div class="demo-body">
+          <div class="demo-meta">2023 <span class="demo-venue">IJCAI</span></div>
+          <h3 class="demo-title">Plansformer Tool</h3>
+          <p class="demo-subtitle">Demonstrating Generation of Symbolic Plans using Transformers</p>
+          <div class="demo-tags">
+            <span class="tag tag-method">Automated Planning</span>
           </div>
-          <div class="demo-text">
-            <h3 class="card-text">
-              Plansformer Tool: Demonstrating Generation of Symbolic Plans using Transformers |
-              IJCAI 2023<span class="tag tag-method">Automated Planning</span>
-            </h3>
-            <p>
-              We introduce Plansformer; an LLM fine-tuned on planning problems and capable of
-              generating plans with favorable behavior in terms of correctness and length with
-              reduced knowledge-engineering efforts.
-            </p>
-            <a href="https://arxiv.org/abs/2212.08681" target="_blank" rel="noopener noreferrer">[Paper]</a>
-            <a href="../projects/generalized_planning/bib/plansformer.txt" target="_blank"
-              type="text/plain">[BibTex]</a>
-            <a href="../projects/generalized_planning/index.html" target="_blank" type="text/plain">[More Details]</a>
+          <p class="demo-desc">
+            We introduce Plansformer; an LLM fine-tuned on planning problems and capable of
+            generating plans with favorable behavior in terms of correctness and length with
+            reduced knowledge-engineering efforts.
+          </p>
+          <div class="demo-links">
+            <a class="link-btn primary" href="https://arxiv.org/abs/2212.08681" target="_blank" rel="noopener noreferrer">Paper</a>
+            <a class="link-btn" href="../projects/generalized_planning/bib/plansformer.txt" target="_blank" type="text/plain">BibTeX</a>
+            <a class="link-btn" href="../projects/generalized_planning/index.html" target="_blank">Details</a>
           </div>
         </div>
-        <br />
-        <br />
+      </article>
 
-        <div class="demo-row">
-          <div class="demo-media">
-            <img src="../images/ecsc.PNG" width="300" height="200" />
+      <!-- ElectionBot SC -->
+      <article class="demo-card" data-area="chatbots">
+        <div class="demo-thumb">
+          <a href="http://casy.cse.sc.edu/Election-Chatbot-SC-main/" target="_blank" rel="noopener noreferrer">
+            <img src="../images/ecsc.PNG" alt="ElectionBot for South Carolina" loading="lazy" />
+          </a>
+        </div>
+        <div class="demo-body">
+          <div class="demo-meta">2023 <span class="demo-venue">AI Magazine</span></div>
+          <h3 class="demo-title">ElectionBot for South Carolina</h3>
+          <div class="demo-tags">
+            <span class="tag tag-method">Chatbots</span>
           </div>
-          <div class="demo-text">
-            <h3 class="card-text">
-              ElectionBot for South Carolina | AI Magazine 2023
-              <span class="tag tag-method">Chatbots</span>
-            </h3>
-            <p>
-              Here, we demonstrate how a chatbot built with the SafeChat architecture and using
-              official FAQs (questions and their answers) from South Carolina will answer to any
-              user question. The chatbot should only answer when it is confident of the question.
-              The chatbot can make answers consumable but will not cook up (hallucinate) new
-              answers.
-            </p>
-            <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/aaai.12109" target="_blank"
-              rel="noopener noreferrer">[Paper]</a>
-            <a href="http://casy.cse.sc.edu/Election-Chatbot-SC-main/" target="_blank"
-              rel="noopener noreferrer">[Tool]</a>
-            <a href="../projects/rating_page/bib/SafeChat_AI_Mag.txt" target="_blank" type="text/plain">[BibTex]</a>
-
-            <br />
-            <!-- <p><b>Keywords :</b> #NSF, #COVID19, #Social_Impact, #Psychological_Impact, #Addiction, #Mental_Health, #Social_Quality_Index</p> -->
+          <p class="demo-desc">
+            Here, we demonstrate how a chatbot built with the SafeChat architecture and using
+            official FAQs (questions and their answers) from South Carolina will answer to any
+            user question. The chatbot should only answer when it is confident of the question.
+            The chatbot can make answers consumable but will not cook up (hallucinate) new
+            answers.
+          </p>
+          <div class="demo-links">
+            <a class="link-btn primary" href="http://casy.cse.sc.edu/Election-Chatbot-SC-main/" target="_blank" rel="noopener noreferrer">Tool</a>
+            <a class="link-btn" href="https://onlinelibrary.wiley.com/doi/full/10.1002/aaai.12109" target="_blank" rel="noopener noreferrer">Paper</a>
+            <a class="link-btn" href="../projects/rating_page/bib/SafeChat_AI_Mag.txt" target="_blank" type="text/plain">BibTeX</a>
           </div>
         </div>
-        <br />
-        <br />
+      </article>
 
-        <div class="demo-row">
-          <div class="demo-media">
-            <img src="../images/ecms.PNG" width="300" height="200" />
+      <!-- ElectionBot MS -->
+      <article class="demo-card" data-area="chatbots">
+        <div class="demo-thumb">
+          <a href="http://casy.cse.sc.edu/ElectionBot-MS-main/Chatbot/" target="_blank" rel="noopener noreferrer">
+            <img src="../images/ecms.PNG" alt="ElectionBot for Mississippi" loading="lazy" />
+          </a>
+        </div>
+        <div class="demo-body">
+          <div class="demo-meta">2023 <span class="demo-venue">AI Magazine</span></div>
+          <h3 class="demo-title">ElectionBot for Mississippi</h3>
+          <div class="demo-tags">
+            <span class="tag tag-method">Chatbots</span>
           </div>
-          <div class="demo-text">
-            <h3 class="card-text">
-              ElectionBot for Mississippi | AI Magazine 2023
-              <span class="tag tag-method">Chatbots</span>
-            </h3>
-            <p>
-              Here, we demonstrate how a chatbot built with the SafeChat architecture and using
-              official FAQs (questions and their answers) from Mississippi will answer to any user
-              question. The chatbot should only answer when it is confident of the question. The
-              chatbot can make answers consumable but will not cook up (hallucinate) new answers.
-            </p>
-            <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/aaai.12109" target="_blank"
-              rel="noopener noreferrer">[Paper]</a>
-            <a href="http://casy.cse.sc.edu/ElectionBot-MS-main/Chatbot/" target="_blank"
-              rel="noopener noreferrer">[Tool]</a>
-            <a href="../projects/rating_page/bib/SafeChat_AI_Mag.txt" target="_blank" type="text/plain">[BibTex]</a>
-            <br />
-            <!-- <p><b>Keywords :</b> #NSF, #COVID19, #Social_Impact, #Psychological_Impact, #Addiction, #Mental_Health, #Social_Quality_Index</p> -->
+          <p class="demo-desc">
+            Here, we demonstrate how a chatbot built with the SafeChat architecture and using
+            official FAQs (questions and their answers) from Mississippi will answer to any user
+            question. The chatbot should only answer when it is confident of the question. The
+            chatbot can make answers consumable but will not cook up (hallucinate) new answers.
+          </p>
+          <div class="demo-links">
+            <a class="link-btn primary" href="http://casy.cse.sc.edu/ElectionBot-MS-main/Chatbot/" target="_blank" rel="noopener noreferrer">Tool</a>
+            <a class="link-btn" href="https://onlinelibrary.wiley.com/doi/full/10.1002/aaai.12109" target="_blank" rel="noopener noreferrer">Paper</a>
+            <a class="link-btn" href="../projects/rating_page/bib/SafeChat_AI_Mag.txt" target="_blank" type="text/plain">BibTeX</a>
           </div>
         </div>
-        <br />
-        <br />
+      </article>
 
-        <!-- ------- Removing Univ Bot as content not correct --- 
-          <div style="display:flex;justify-content: center;gap:15px;">
-          <div style="flex:0.8">
-            <img src='../images/univ.PNG' width="300" height="200">
-          </div>
-          <div style="flex:1">
-            <h3 class="card-text">EDU Chatbot  | 2023 <span class="tag tag-method">Chatbots</span></h3>
-            <p></p>
-            <a href="http://casy.cse.sc.edu/chatbot_univ/" target="_blank" rel="noopener noreferrer">[Website]</a>
-            <a href="../projects/rating_page/bib/mm_sas.txt" target="_blank" type="text/plain">[BibTex]</a>
-            <a href="../projects/rating_page/index.html" target="_blank" type="text/plain">[More Details]</a>
-            <br>
-         </div>
+      <!-- ALLURE -->
+      <article class="demo-card" data-area="planning">
+        <div class="demo-thumb">
+          <button type="button" class="demo-play" data-src="https://www.youtube-nocookie.com/embed/-0aKDVoEGvs?autoplay=1" aria-label="Play ALLURE demo video">
+            <img src="https://i.ytimg.com/vi/-0aKDVoEGvs/hqdefault.jpg" alt="" loading="lazy" />
+            <span class="demo-play-icon"></span>
+          </button>
         </div>
-        <br>
-        <br>
-      --------------- -->
-
-        <div class="demo-row">
-          <div class="demo-media">
-            <iframe width="300" height="200" src="https://www.youtube.com/embed/-0aKDVoEGvs" title="Allure Demo"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
+        <div class="demo-body">
+          <div class="demo-meta">2022 <span class="demo-venue">AAAI</span></div>
+          <h3 class="demo-title">ALLURE</h3>
+          <p class="demo-subtitle">A Multi-modal Guided Environment for Helping Children Learn to Solve a Rubik’s Cube</p>
+          <div class="demo-tags">
+            <span class="tag tag-method">Neuro-Symbolic AI</span>
           </div>
-
-          <div class="demo-text">
-            <h3 class="card-text">
-              ALLURE: A Multi-modal Guided Environment for Helping Children Learn to Solve a
-              Rubik’s Cube | AAAI 2022 <span class="tag tag-method">Neuro-Symbolic AI</span>
-            </h3>
-            <p>
-              We demonstrate ALLURE, an educational AI system for learning to solve the Rubik’s
-              cube that is designed to help students improve their problem solving skills.
-            </p>
-            <a href="https://ojs.aaai.org/index.php/AAAI/article/view/21722" target="_blank"
-              rel="noopener noreferrer">[Paper]</a>
-            <a href="https://www.youtube.com/embed/-0aKDVoEGvs" target="_blank">[Demo Video]</a>
-            <a href="../projects/rubiks_cube/bib/allure_aaai.txt" target="_blank" type="text/plain">[BibTex]</a>
-            <a href="../projects/rubiks_cube/index.html" target="_blank" type="text/plain">[More Details]</a>
+          <p class="demo-desc">
+            We demonstrate ALLURE, an educational AI system for learning to solve the Rubik’s
+            cube that is designed to help students improve their problem solving skills.
+          </p>
+          <div class="demo-links">
+            <a class="link-btn primary" href="https://ojs.aaai.org/index.php/AAAI/article/view/21722" target="_blank" rel="noopener noreferrer">Paper</a>
+            <a class="link-btn" href="https://www.youtube.com/watch?v=-0aKDVoEGvs" target="_blank" rel="noopener noreferrer">Video</a>
+            <a class="link-btn" href="../projects/rubiks_cube/bib/allure_aaai.txt" target="_blank" type="text/plain">BibTeX</a>
+            <a class="link-btn" href="../projects/rubiks_cube/index.html" target="_blank">Details</a>
           </div>
         </div>
-        <br />
-        <br />
+      </article>
 
-        <div class="demo-row">
-          <div class="demo-media">
-            <img src="../images/1pg.png" width="300" height="200" />
+      <!-- KITE -->
+      <article class="demo-card" data-area="applications">
+        <div class="demo-thumb">
+          <a href="http://casy.cse.sc.edu/kite" target="_blank" rel="noopener noreferrer">
+            <img src="../images/1pg.png" alt="KITE textual content exploration" loading="lazy" />
+          </a>
+        </div>
+        <div class="demo-body">
+          <div class="demo-meta">2022</div>
+          <h3 class="demo-title">KITE</h3>
+          <p class="demo-subtitle">An Unsupervised, Effective and Inclusive Approach for Textual Content Exploration</p>
+          <div class="demo-tags">
+            <span class="tag tag-method">Data Analysis</span>
           </div>
-          <div class="demo-text">
-            <h3 class="card-text">
-              KITE: An Unsupervised, Effective and Inclusive Approach for Textual Content
-              Exploration | 2022 <span class="tag tag-method">Data Analysis</span>
-            </h3>
-            <p>
-              We present an unsupervised system, called KITE, for exploring textual data which can
-              generate insights from a general as well as domaindependent perspective consisting
-              of holistic views, entity-centric view, events view, domain-specific interpretation
-              using industry taxonomies and a detailed full-text view transparently connecting the
-              document to insight elements.
-            </p>
-            <a href="https://www.researchgate.net/profile/Biplav-Srivastava/publication/363608853_KITE_-_An_Unsupervised_Effective_and_Inclusive_Approach_for_Textual_Content_Exploration/links/6324a33a071ea12e363a790e/KITE-An-Unsupervised-Effective-and-Inclusive-Approach-for-Textual-Content-Exploration.pdf"
-              target="_blank" rel="noopener noreferrer">[Paper]</a>
-            <a href="https://youtu.be/QoXd-6Gnjlo" target="_blank">[Demo Video]</a>
-            <a href="http://casy.cse.sc.edu/kite" target="_blank" rel="noopener noreferrer">[Tool]</a>
-            <a href="../projects/teaming/bib/kite.txt" target="_blank" type="text/plain">[BibTex]</a>
-            <!-- <a href="../projects/teaming/index.html" target="_blank" type="text/plain">[More Details]</a> -->
-            <br />
-            <!-- <p><b>Keywords :</b> #NSF, #COVID19, #Social_Impact, #Psychological_Impact, #Addiction, #Mental_Health, #Social_Quality_Index</p> -->
+          <p class="demo-desc">
+            We present an unsupervised system, called KITE, for exploring textual data which can
+            generate insights from a general as well as domaindependent perspective consisting
+            of holistic views, entity-centric view, events view, domain-specific interpretation
+            using industry taxonomies and a detailed full-text view transparently connecting the
+            document to insight elements.
+          </p>
+          <div class="demo-links">
+            <a class="link-btn primary" href="http://casy.cse.sc.edu/kite" target="_blank" rel="noopener noreferrer">Tool</a>
+            <a class="link-btn" href="https://www.researchgate.net/profile/Biplav-Srivastava/publication/363608853_KITE_-_An_Unsupervised_Effective_and_Inclusive_Approach_for_Textual_Content_Exploration/links/6324a33a071ea12e363a790e/KITE-An-Unsupervised-Effective-and-Inclusive-Approach-for-Textual-Content-Exploration.pdf" target="_blank" rel="noopener noreferrer">Paper</a>
+            <a class="link-btn" href="https://youtu.be/QoXd-6Gnjlo" target="_blank" rel="noopener noreferrer">Video</a>
+            <a class="link-btn" href="../projects/teaming/bib/kite.txt" target="_blank" type="text/plain">BibTeX</a>
           </div>
         </div>
-        <br />
-        <br />
-        <!-- <div style="display:flex;justify-content: center;gap:15px;">
-          <div style="flex:0.8">
-            <iframe width="300" height="200" src="https://youtu.be/QsL3nWkRGXU?si=OSVKSbr8Q5SAXZlG"
-              title="ROSE: Tool and Data ResOurces to Explore the Instability of SEntiment Analysis Systems" 
-              frameborder="0"
-              alt = "ROSE Demo"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe>
-          </div> -->
-        <div class="demo-row">
-          <div class="demo-media">
-            <img src="../projects/rating_page/images/rose.png" width="300" height="200" />
-          </div>
-          <div class="demo-text">
-            <h3 class="card-text">
-              ROSE: Tool and Data ResOurces to Explore the Instability of SEntiment Analysis
-              Systems | 2022 <span class="tag tag-method">Data Analysis</span>
-            </h3>
-            <p>
-              Sentiment Analysis Systems (SASs) are data-driven Artificial Intelligence (AI)
-              systems that assign a score conveying the sentiment and emotion intensity when a
-              piece of text is given as input. Like other AI, and especially machine learning (ML)
-              based systems, they have also exhibited instability in their values when inputs are
-              perturbed with respect to gender and race, which can be interpreted as biased
-              behavior. In this demonstration paper, we present ROSE, a resource for understanding
-              the behavior of SAS systems with respect to gender. It consists of data consisting
-              of input text and output sentiment scores and a visualization tool to explore the
-              behavior of SAS. We calculated the output sentiment scores using off-the-shelf SASs
-              and our deep-learning-based implementations based on published architectures.
-            </p>
-            <a href="https://www.researchgate.net/profile/Biplav-Srivastava/publication/358475224_ROSE_Tool_and_Data_ResOurces_to_Explore_the_Instability_of_SEntiment_Analysis_Systems/links/6203f8d0c83d2b75dffd6ecc/ROSE-Tool-and-Data-ResOurces-to-Explore-the-Instability-of-SEntiment-Analysis-Systems.pdf"
-              target="_blank" rel="noopener noreferrer">[Paper]</a>
-            <a href="https://youtu.be/QsL3nWkRGXU?si=h_sfNDyZO-_0ABbV" target="_blank">[Demo Video]</a>
-            <a href="https://ai4society.github.io/sentiment-rating/" target="_blank"
-              rel="noopener noreferrer">[Tool]</a>
-            <a href="../projects/rating_page/bib/rose_tool.txt" target="_blank" type="text/plain">[BibTex]</a>
-            <!-- <a href="../projects/teaming/index.html" target="_blank" type="text/plain">[More Details]</a> -->
-            <br />
-            <!-- <p><b>Keywords :</b> #NSF, #COVID19, #Social_Impact, #Psychological_Impact, #Addiction, #Mental_Health, #Social_Quality_Index</p> -->
-          </div>
-        </div>
-        <br />
-        <br />
+      </article>
 
-        <div class="demo-row">
-          <div class="demo-media">
-            <iframe width="300" height="200" src="https://www.youtube.com/embed/X2l7eW6dyBc" title="PRUDENT ICAPS Demo"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
+      <!-- ROSE -->
+      <article class="demo-card" data-area="trust">
+        <div class="demo-thumb">
+          <button type="button" class="demo-play" data-src="https://www.youtube-nocookie.com/embed/QsL3nWkRGXU?autoplay=1" aria-label="Play ROSE demo video">
+            <img src="https://i.ytimg.com/vi/QsL3nWkRGXU/hqdefault.jpg" alt="" loading="lazy" />
+            <span class="demo-play-icon"></span>
+          </button>
+        </div>
+        <div class="demo-body">
+          <div class="demo-meta">2022</div>
+          <h3 class="demo-title">ROSE</h3>
+          <p class="demo-subtitle">Tool and Data ResOurces to Explore the Instability of SEntiment Analysis Systems</p>
+          <div class="demo-tags">
+            <span class="tag tag-method">Data Analysis</span>
           </div>
-          <div class="demo-text">
-            <h3 class="card-text">
-              PRUDENT: A Generic Dialog Agent for Information Retrieval Based on Automated
-              Planning Within a Reinforcement Learning Platform | ICAPS 2021<span class="tag tag-method">Automated
-                Planning</span>
-            </h3>
-            <p>
-              We present a generic approach for dialogs for information retrieval based on
-              automated planning within a reinforcement learning (RL)-based platform, ParlAI.
-            </p>
-            <a href="https://prl-theworkshop.github.io/prl2021/papers/PRL2021_paper_28.pdf" target="_blank"
-              rel="noopener noreferrer">[Paper]</a>
-            <a href="https://github.com/ai4society/PRUDENT" target="_blank" rel="noopener noreferrer">[Github]</a>
-            <a href="../projects/generalized_planning/bib/prudent_demo.txt" target="_blank"
-              type="text/plain">[BibTex]</a>
-            <a href="../projects/generalized_planning/index.html" target="_blank" type="text/plain">[More Details]</a>
+          <p class="demo-desc">
+            Sentiment Analysis Systems (SASs) are data-driven Artificial Intelligence (AI)
+            systems that assign a score conveying the sentiment and emotion intensity when a
+            piece of text is given as input. Like other AI, and especially machine learning (ML)
+            based systems, they have also exhibited instability in their values when inputs are
+            perturbed with respect to gender and race, which can be interpreted as biased
+            behavior. In this demonstration paper, we present ROSE, a resource for understanding
+            the behavior of SAS systems with respect to gender. It consists of data consisting
+            of input text and output sentiment scores and a visualization tool to explore the
+            behavior of SAS. We calculated the output sentiment scores using off-the-shelf SASs
+            and our deep-learning-based implementations based on published architectures.
+          </p>
+          <div class="demo-links">
+            <a class="link-btn primary" href="https://ai4society.github.io/sentiment-rating/" target="_blank" rel="noopener noreferrer">Tool</a>
+            <a class="link-btn" href="https://www.researchgate.net/profile/Biplav-Srivastava/publication/358475224_ROSE_Tool_and_Data_ResOurces_to_Explore_the_Instability_of_SEntiment_Analysis_Systems/links/6203f8d0c83d2b75dffd6ecc/ROSE-Tool-and-Data-ResOurces-to-Explore-the-Instability-of-SEntiment-Analysis-Systems.pdf" target="_blank" rel="noopener noreferrer">Paper</a>
+            <a class="link-btn" href="https://youtu.be/QsL3nWkRGXU?si=h_sfNDyZO-_0ABbV" target="_blank" rel="noopener noreferrer">Video</a>
+            <a class="link-btn" href="../projects/rating_page/bib/rose_tool.txt" target="_blank" type="text/plain">BibTeX</a>
           </div>
         </div>
-        <br />
-        <br />
-      </div>
-      <!-- </div> -->
-      <!-- </div> -->
-    </section>
+      </article>
+
+      <!-- PRUDENT -->
+      <article class="demo-card" data-area="planning">
+        <div class="demo-thumb">
+          <button type="button" class="demo-play" data-src="https://www.youtube-nocookie.com/embed/X2l7eW6dyBc?autoplay=1" aria-label="Play PRUDENT demo video">
+            <img src="https://i.ytimg.com/vi/X2l7eW6dyBc/hqdefault.jpg" alt="" loading="lazy" />
+            <span class="demo-play-icon"></span>
+          </button>
+        </div>
+        <div class="demo-body">
+          <div class="demo-meta">2021 <span class="demo-venue">ICAPS</span></div>
+          <h3 class="demo-title">PRUDENT</h3>
+          <p class="demo-subtitle">A Generic Dialog Agent for Information Retrieval Based on Automated Planning Within a Reinforcement Learning Platform</p>
+          <div class="demo-tags">
+            <span class="tag tag-method">Automated Planning</span>
+          </div>
+          <p class="demo-desc">
+            We present a generic approach for dialogs for information retrieval based on
+            automated planning within a reinforcement learning (RL)-based platform, ParlAI.
+          </p>
+          <div class="demo-links">
+            <a class="link-btn primary" href="https://prl-theworkshop.github.io/prl2021/papers/PRL2021_paper_28.pdf" target="_blank" rel="noopener noreferrer">Paper</a>
+            <a class="link-btn" href="https://github.com/ai4society/PRUDENT" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="link-btn" href="../projects/generalized_planning/bib/prudent_demo.txt" target="_blank" type="text/plain">BibTeX</a>
+            <a class="link-btn" href="../projects/generalized_planning/index.html" target="_blank">Details</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
   </div>
 
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/js/main.js"></script>
+  <div class="footer-section">
+    <hr style="width: 100%; float: left;">
+    <p style="text-align:left">
+      <a target="_blank" href="https://github.com/ai4society">GitHub</a>&nbsp;|&nbsp;
+      <a target="_blank" href="https://maps.app.goo.gl/ZFgJm82yYJhoknvZA">Address</a>
+    </p>
+  </div>
+
+  <script>
+    // Click-to-play: load the video player only when a thumbnail is clicked.
+    document.querySelectorAll('.demo-play').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var frame = document.createElement('iframe');
+        frame.src = btn.getAttribute('data-src');
+        frame.title = btn.getAttribute('aria-label');
+        frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+        frame.allowFullscreen = true;
+        btn.replaceWith(frame);
+      });
+    });
+
+    // Long descriptions are clamped; click to expand.
+    document.querySelectorAll('.demo-desc').forEach(function (p) {
+      if (p.scrollHeight > p.clientHeight + 2) {
+        p.classList.add('is-clamped');
+        p.addEventListener('click', function () { p.classList.toggle('is-open'); });
+      }
+    });
+
+    // Area filter chips.
+    (function () {
+      var buttons = document.querySelectorAll('.chip-filter');
+      var cards = document.querySelectorAll('.demo-card');
+      buttons.forEach(function (btn) {
+        var area = btn.getAttribute('data-filter');
+        var n = area === 'all' ? cards.length : document.querySelectorAll('.demo-card[data-area="' + area + '"]').length;
+        btn.querySelector('.count').textContent = n;
+        btn.addEventListener('click', function () {
+          buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+          cards.forEach(function (c) {
+            c.style.display = (area === 'all' || c.getAttribute('data-area') === area) ? '' : 'none';
+          });
+        });
+      });
+    })();
+  </script>
 </body>
 
 </html>

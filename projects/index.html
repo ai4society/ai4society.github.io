@@ -11,81 +11,7 @@
 
   <link rel="stylesheet" type="text/css" href="../stylesheet.css">
 
-  <style>
-    /* Style for the collapsible content area */
-    .collapsible-content {
-      display: none;
-    }
 
-    /* General button styling */
-    .details-button {
-      background-color: #3498db;
-      color: white !important;
-      padding: 5px 10px;
-      text-decoration: none;
-      border-radius: 5px;
-      margin: 5px 0;
-      display: inline-block;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-    .details-button:hover {
-      background-color: #2980b9;
-    }
-
-    /* Styles for the colored section blocks */
-    .highlight-planning, .highlight-rating, .highlight-others {
-      border-radius: 8px;
-    }
-
-    .highlight-planning { background-color: #faeaea; }
-    .highlight-rating { background-color: #f0f0ff; }
-    .highlight-others { background-color: #fff8f0; }
-
-    /* Style for the toggle button */
-    .toggle-button {
-      cursor: pointer;
-      color: #333;
-      font-weight: bold;
-      text-align: center;
-      padding: 10px;
-      user-select: none;
-      background-color: #ffffff;
-      border-radius: 5px;
-      margin-top: 15px;
-      margin-bottom: 10px;
-      transition: all 0.3s ease;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-      border: 1px solid #eee;
-    }
-    .toggle-button:hover {
-      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-    }
-
-    /* Projects page specific table styling */
-    .projects-table {
-      width: 100%;
-      border: 0px;
-      border-spacing: 0px;
-      border-collapse: separate;
-    }
-
-    .projects-table td {
-      vertical-align: middle;
-    }
-
-    .project-section-header {
-      padding: 20px 20px 0 20px;
-    }
-
-    .project-item {
-      padding: 0 20px;
-    }
-
-    .project-toggle {
-      padding: 0 20px 10px 20px;
-    }
-  </style>
 
 </head>
 
@@ -114,243 +40,153 @@
     </div>
 
     <div class="page-content">
-      <table class="projects-table">
-        <tbody class="highlight-planning">
-            <tr>
-                <td class="project-section-header">
-                    <h2>Neuro-Symbolic and Automated Planning</h2>
-                </td>
-            </tr>
-            <tr>
-                <td class="project-item">
-                    <h3 style="display:flex;align-items:center;">
-                        <span style="background-color:hsl(60, 100%, 50%);height:15px;width:15px;margin-right:10px;border:1px solid black;"></span>
-                        Generalized Planning
-                        <span class="tag tag-method">Neuro-Symbolic AI</span>
-                        <span class="tag tag-method">Automated Planning</span>
-                    </h3>
-                    <i><b>Team: </b>University of South Carolina, IBM Research, University of Udine, University of Brescia</i>
-                    <p><b>Description:</b> A suite of projects aimed at building foundation models and agentic frameworks that can reason, plan, and adapt across diverse domains. This line of work includes <a href="https://ai4society.github.io/planfm/" target="_blank">PlanFM</a>, our effort to build compact foundation models for planning-like tasks through state-centric representations, tokenization, and learned transition models. Our work also spans the development of transformer-based architectures for learning sequential decision-making tasks, the design of agentic frameworks inspired by <i>Thinking, Fast and Slow</i> theories, and the creation of ontologies to support structured reasoning and planning.</p>
-                        <a class="details-button" href="./generalized_planning/index.html" target="_blank">More Details</a>
-                </td>
-            </tr>
-            <tr>
-                <td class="project-item">
-                    <h3 style="display:flex;align-items:center;">
-                        <span style="background-color:hsl(265, 60%, 65%);height:15px;width:15px;margin-right:10px;border:1px solid black;"></span>
-                        Knowledge Engineering for Planning
-                        <span class="tag tag-method">Automated Planning</span>
-                        <span class="tag tag-method">Knowledge Representation</span>
-                    </h3>
-                    <i><b>Team: </b>Bharath Muppasani, Vishal Pallagani, Ritirupa Dey, Biplav Srivastava, Vignesh Narayanan</i>
-                    <p><b>Description: </b>This project focuses on building ontologies to enhance AI planning systems. By structuring domain and planner knowledge, we improve planner selection, optimize performance via learned macros, and provide human-readable explanations for complex agent behaviors.</p>
-                        <a class="details-button" href="./ontology/index.html" target="_blank">More Details</a>
-                </td>
-            </tr>
-            <tr>
-                <td class="project-item">
-                    <h3 style="display:flex;align-items:center;">
-                        <span style="background-color:hsl(100, 100%, 50%);height:15px;width:15px;margin-right:10px;border:1px solid black;"></span>
-                        Collaborative Assistants
-                        <span class="tag tag-method">Neuro-Symbolic AI</span>
-                        <span class="tag tag-method">Trusted AI</span>
-                    </h3>
-                    <i><b>Team: </b>Vishal Pallagani, Bharath Chandra, Kausik Lakkaraju, Biplav Srivastava</i>
-                    <p><b>Description: </b>Collaborative Assistants, popularly known as chatbots provide an easy interface for users to obtain answers for their queries. At AI4Society, we build collaborative assistants for various applications such as information retrieval, answer election based questions, help learn puzzle solving through a series of conversations, and obtain information regarding sensor data.</p>
-                        <a class="details-button" href="chatbots_page/index.html" target="_blank">More Details</a>
-                </td>
-            </tr>
-        </tbody>
-
-        <tbody id="planning-more" class="collapsible-content highlight-planning">
-            <tr>
-                <td class="project-item">
-                    <h3 style="display:flex;align-items:center;">
-                        <span style="background-color:hsl(265, 60%, 65%);height:15px;width:15px;margin-right:10px;border:1px solid black;"></span>
-                        Multi-Agent Path Finding (MAPF)
-                        <span class="tag tag-method">Automated Planning</span>
-                        <span class="tag tag-method">Ontology</span>
-                    </h3>
-                    <i><b>Team: </b>Bharath Muppasani, Ritirupa Dey, Risha Patel, Biplav Srivastava, Vignesh Narayanan</i>
-                    <p><b>Description: </b>This project develops resource-efficient Multi-Agent Path Finding methods for robotic deployments. The HI-MAPF framework combines decentralized planning with lightweight conflict-triggered coordination to reduce inter-agent information sharing, and related maPO work provides ontology-driven explanations for planner behavior.</p>
-                    <p><b>HI-MAPF (IROS 2026): </b>
-                        <a href="../publications/posters/HI-MAPF_IROS-26_Poster.pdf" target="_blank">[Poster]</a>
-                        <a href="../publications/presentations/HI-MAPF_IROS2026_3-minute.pdf" target="_blank">[Slides]</a>
-                    </p>
-                        <a class="details-button" href="./mapf_page/index.html" target="_blank">More Details</a>
-                </td>
-            </tr>
-        </tbody>
-
-        <tbody class="highlight-planning">
-            <tr>
-                <td class="project-toggle">
-                    <div class="toggle-button" onclick="toggleProjects('planning-more', this)">Show More Projects</div>
-                </td>
-            </tr>
-        </tbody>
-
-        <tbody>
-            <tr><td><br></td></tr>
-        </tbody>
-
-        <tbody class="highlight-rating">
-            <tr>
-                <td class="project-section-header">
-                    <h2>Trusted AI</h2>
-                </td>
-            </tr>
-            <tr>
-                <td class="project-item">
-                    <h3 style="display:flex;align-items:center;">
-                        <span style="background-color:aqua;height:15px;width:15px;margin-right:10px;border:1px solid black;"></span>
-                        Trustworthy Group Recommendation
-                        <span class="tag tag-method">Recommender Systems</span>
-                        <span class="tag tag-method">Trusted AI</span>
-                    </h3>
-                    <i><b>Team: </b>Siva Likitha Valluru, Sai Teja Paladi, Tarmo Koppel, Biplav Srivastava</i>
-                    <p><b>Description: </b>We study the problem of trustworthy group recommendation, where the focus goes beyond individual user preferences and dives into collective tastes and interests. Our objective is to build novel methods and useful tools for group recommendation with fairness, and drive different use cases. This work also connects to our <a href="./group_rec/meal_recommendation.html" target="_blank">Meal Recommendation</a> and <a href="./group_rec/exercise_recommendation.html" target="_blank">Exercise Recommendation</a> pages for wellness-related applications. We extend this problem to the team formation domain, where we present an AI-based system to aid in collaborative teaming for researchers responding to funding agency proposals. Our approach leverages NLP techniques to extract and normalize technical skills from various data sources, facilitating matching and teaming based on constraints. We have gathered initial feedback from university researchers to deploy the prototype system and published a dataset for broader use.</p>
-                        <a class="details-button" href="./group_rec/index.html" target="_blank">More Details</a>
-                </td>
-            </tr>
-            <tr>
-                <td class="project-item">
-                    <h3 style="display:flex;align-items:center;">
-                        <span style="background-color:hsla(272, 81%, 65%, 0.835);height:15px;width:15px;margin-right:10px;border:1px solid black;"></span>
-                        Rating of AI Systems
-                        <span class="tag tag-method">Neuro-Symbolic AI</span>
-                        <span class="tag tag-method">Trusted AI</span>
-                    </h3>
-                    <i><b>Team: </b>Kausik Lakkaraju, Biplav Srivastava, Marco Valtorta</i>
-                    <p><b>Description: </b>AI systems, such as facial recognition and sentiment analyzers, often show model uncertainty, leading to algorithmic bias, particularly concerning protected attributes like gender and race. This research seeks to understand and reduce bias by establishing causal relationships. Assigning ratings to AI systems based on this helps users make informed choices.</p>
-                        <a class="details-button" href="./rating_page/index.html" target="_blank">More Details</a>
-                </td>
-            </tr>
-            <tr>
-                <td class="project-item">
-                    <h3 style="display:flex;align-items:center;">
-                        <span style="background-color:hsl(190, 85%, 55%);height:15px;width:15px;margin-right:10px;border:1px solid black;"></span>
-                        GenAI Results Comparator (GAICo)
-                        <span class="tag tag-method">Generative AI</span>
-                        <span class="tag tag-method">Evaluation</span>
-                        <span class="tag tag-method">Trusted AI</span>
-                    </h3>
-                    <i><b>Team: </b>Nitin Gupta, Pallav Koppisetti, Kausik Lakkaraju, Biplav Srivastava</i>
-                    <p><b>Description: </b>GenAI Results Comparator (GAICo) helps measure, compare, analyze, and visualize the quality of generative AI outputs across text, images, audio, structured data, planning sequences, and time-series data.</p>
-                        <a class="details-button" href="./GenAIResultsComparator/" target="_blank">More Details</a>
-                </td>
-            </tr>
-        </tbody>
-
-        <tbody id="trusted-ai-more" class="collapsible-content highlight-rating">
-            <tr>
-                <td class="project-item">
-                    <h3 style="display:flex;align-items:center;">
-                        <span style="background-color:hsla(221, 81%, 65%, 0.835);height:15px;width:15px;margin-right:10px;border:1px solid black;"></span>
-                        LLM and Chatbot Testing
-                        <span class="tag tag-method">Trusted AI</span>
-                    </h3>
-                    <i><b>Team: </b>Kausik Lakkaraju, Sara Rae Jones, Sai Krishna Revanth Vuruma, Vishal Pallagani, Bharath Muppasani, Biplav Srivastava</i>
-                    <p><b>Description: </b>Increasingly powerful Large Language Model (LLM) based chatbots, like ChatGPT and Bard, are becoming available to users that have the potential to revolutionize the quality of decision-making achieved by the public. We find that although the outputs of the chatbots are fluent and plausible, there are still critical gaps in providing accurate and reliable information using LLM-based chatbots.</p>
-                        <a class="details-button" href="./llm_page/index.html" target="_blank">More Details</a>
-                </td>
-            </tr>
-        </tbody>
-
-        <tbody class="highlight-rating">
-             <tr>
-                <td class="project-toggle">
-                    <div class="toggle-button" onclick="toggleProjects('trusted-ai-more', this)">Show More Projects</div>
-                </td>
-            </tr>
-        </tbody>
-
-        <tbody>
-            <tr><td><br></td></tr>
-        </tbody>
-
-        <tbody class="highlight-others">
-            <tr>
-                <td class="project-section-header">
-                    <h2>Applications and Others</h2>
-                </td>
-            </tr>
-            <tr>
-                <td class="project-item">
-                    <h3 style="display:flex;align-items:center;">
-                        <span style="background-color:hsl(265, 63%, 55%);height:15px;width:15px;margin-right:10px;border:1px solid black;"></span>
-                        Literature Exploration Tool
-                        <span class="tag tag-method">NLP</span>
-                        <span class="tag tag-method">Information Retrieval</span>
-                        <span class="tag tag-method">Visualization</span>
-                    </h3>
-                    <i><b>Team: </b>Nitin Gupta, Bernardo Denkvitts, Vishal Pallagani, Bharath Muppasani, Biplav Srivastava</i>
-                    <p><b>Description: </b>A literature exploration tool that retrieves papers, groups them into semantic themes, labels clusters with representative keywords, and visualizes how research areas evolve over time.</p>
-                        <a class="details-button" href="./literature_exploration/index.html" target="_blank">More Details</a>
-                </td>
-            </tr>
-            <tr>
-                <td class="project-item">
-                    <h3 style="display:flex;align-items:center;">
-                        <span style="background-color:hsl(15, 77%, 51%);height:15px;width:15px;margin-right:10px;border:1px solid black;"></span>
-                        Opinion Network for Online User Safety
-                        <span class="tag tag-method">Planning</span>
-                    </h3>
-                    <i><b>Team: </b>Bharath Muppasani, Vignesh Narayanan, Biplav Srivastava, Michael N. Huhns</i>
-                     <p><b>Description: </b>This project focuses on understanding and influencing information spread and opinion formation within networks by integrating the principles from Opinion Dynamics and Automated Planning.</p>
-                        <a class="details-button" href="./InfoSpread/index.html" target="_blank">More Details</a>
-                </td>
-            </tr>
-            <tr>
-                <td class="project-item">
-                    <h3 style="display:flex;align-items:center;">
-                        <span style="background-color:hsl(95, 99%, 35%);height:15px;width:15px;margin-right:10px;border:1px solid black;"></span>
-                        Traffic Data Analysis
-                        <span class="tag tag-method">Data Analysis</span>
-                    </h3>
-                    <i><b>Team: </b>Bharath Muppasani, Nitin Gupta, Biplav Srivastava, Lucas Vasconcelos</i>
-                     <p><b>Description: </b>The project aims to enhance road safety in South Carolina by analysing traffic data provided by Department of Transportation. We focused on identifying collision patterns and evaluating the Alive@25 program's impact to develop targeted recommendations for reducing accidents and improving road safety initiatives across urban and rural areas.</p>
-                        <a class="details-button" href="./traffic-page/index.html" target="_blank">More Details</a>
-                </td>
-            </tr>
-        </tbody>
-
-        <tbody id="others-more" class="collapsible-content highlight-others">
-             <tr>
-                <td class="project-item">
-                    <h3 style="display:flex;align-items:center;">
-                        <span style="background-color:hsla(0, 81%, 65%, 0.835);height:15px;width:15px;margin-right:10px;border:1px solid black;"></span>
-                        Rubik's Cube
-                        <span class="tag tag-method">Automated Planning</span>
-                    </h3>
-                    <i><b>Team: </b>Bharath Muppasani, Vishal Pallagani, Kausik Lakkaraju, Biplav Srivastava, Forest Agostinelli</i>
-                    <p><b>Description: </b>Rubik's Cube (RC) is a popular puzzle that is also computationally hard to solve. In this demonstration, we introduce the first PDDL formulation for the 3-dimension RC and solve it with off-the-shelf Fast-Downward planner. We also create a plan executor and visualizer to show how the plan achieves the intended goal. Our system has two audiences:(a) planning researchers who can explore a hard problem, and (b) RC learners wanting to learn how to solve the puzzle at their own pace.</p>
-                        <a class="details-button" href="./rubiks_cube/index.html" target="_blank">More Details</a>
-                </td>
-            </tr>
-            <tr>
-                <td class="project-item">
-                    <h3 style="display:flex;align-items:center;">
-                        <span style="background-color:hsl(37, 100%, 50%);height:15px;width:15px;margin-right:10px;border:1px solid black;"></span>
-                        Insights with Power Data
-                        <span class="tag tag-method">Time-Series</span>
-                        <span class="tag tag-method">Data Analysis</span>
-                    </h3>
-                    <i><b>Team: </b>Bharath Muppasani, Cheyyur Jaya Anand, Chinmayi Appajigowda, Lokesh Johri, Biplav Srivastava</i>
-                    <p><b>Description: </b>The project aims to identify power usage patterns of any system, like buildings or factories, of interest using the harmonics data obtained from MiDAS IoT sensor. We also make power usage dataset (electricity consumption data and harmonics data) available from 8 institutions in manufacturing, education and medical institutions from the US and India.</p>
-                        <a class="details-button" href="./power_page/index.html" target="_blank">More Details</a>
-                </td>
-            </tr>
-        </tbody>
-
-        <tbody class="highlight-others">
-             <tr>
-                <td class="project-toggle">
-                    <div class="toggle-button" onclick="toggleProjects('others-more', this)">Show More Projects</div>
-                </td>
-            </tr>
-        </tbody>
-      </table>
+      <div class="project-sections">
+      <section class="project-section accent-planning">
+        <h2 class="project-section-title">Neuro-Symbolic and Automated Planning</h2>
+        <div class="project-list">
+        <article class="project-card" style="--pc: hsl(60, 100%, 50%)">
+          <h3 class="project-title">Generalized Planning</h3>
+          <div class="project-tags"><span class="tag tag-method">Neuro-Symbolic AI</span> <span class="tag tag-method">Automated Planning</span></div>
+          <div class="project-body">
+            <p>A suite of projects aimed at building foundation models and agentic frameworks that can reason, plan, and adapt across diverse domains. This line of work includes <a href="https://ai4society.github.io/planfm/" target="_blank">PlanFM</a>, our effort to build compact foundation models for planning-like tasks through state-centric representations, tokenization, and learned transition models. Our work also spans the development of transformer-based architectures for learning sequential decision-making tasks, the design of agentic frameworks inspired by <i>Thinking, Fast and Slow</i> theories, and the creation of ontologies to support structured reasoning and planning.</p>
+          </div>
+          <p class="project-team"><b>Team:</b> University of South Carolina, IBM Research, University of Udine, University of Brescia</p>
+          <div class="project-links"><a class="project-more-link" href="./generalized_planning/index.html" target="_blank">More details &rarr;</a></div>
+        </article>
+        <article class="project-card" style="--pc: hsl(265, 60%, 65%)">
+          <h3 class="project-title">Knowledge Engineering for Planning</h3>
+          <div class="project-tags"><span class="tag tag-method">Automated Planning</span> <span class="tag tag-method">Knowledge Representation</span></div>
+          <div class="project-body">
+            <p>This project focuses on building ontologies to enhance AI planning systems. By structuring domain and planner knowledge, we improve planner selection, optimize performance via learned macros, and provide human-readable explanations for complex agent behaviors.</p>
+          </div>
+          <p class="project-team"><b>Team:</b> Bharath Muppasani, Vishal Pallagani, Ritirupa Dey, Biplav Srivastava, Vignesh Narayanan</p>
+          <div class="project-links"><a class="project-more-link" href="./ontology/index.html" target="_blank">More details &rarr;</a></div>
+        </article>
+        <article class="project-card" style="--pc: hsl(100, 100%, 50%)">
+          <h3 class="project-title">Collaborative Assistants</h3>
+          <div class="project-tags"><span class="tag tag-method">Neuro-Symbolic AI</span> <span class="tag tag-method">Trusted AI</span></div>
+          <div class="project-body">
+            <p>Collaborative Assistants, popularly known as chatbots provide an easy interface for users to obtain answers for their queries. At AI4Society, we build collaborative assistants for various applications such as information retrieval, answer election based questions, help learn puzzle solving through a series of conversations, and obtain information regarding sensor data.</p>
+          </div>
+          <p class="project-team"><b>Team:</b> Vishal Pallagani, Bharath Chandra, Kausik Lakkaraju, Biplav Srivastava</p>
+          <div class="project-links"><a class="project-more-link" href="chatbots_page/index.html" target="_blank">More details &rarr;</a></div>
+        </article>
+        <div id="planning-more" class="project-more">
+        <article class="project-card" style="--pc: hsl(265, 60%, 65%)">
+          <h3 class="project-title">Multi-Agent Path Finding (MAPF)</h3>
+          <div class="project-tags"><span class="tag tag-method">Automated Planning</span> <span class="tag tag-method">Ontology</span></div>
+          <div class="project-body">
+            <p>This project develops resource-efficient Multi-Agent Path Finding methods for robotic deployments. The HI-MAPF framework combines decentralized planning with lightweight conflict-triggered coordination to reduce inter-agent information sharing, and related maPO work provides ontology-driven explanations for planner behavior.</p>
+            <p><b>HI-MAPF (IROS 2026): </b>
+            <a href="../publications/posters/HI-MAPF_IROS-26_Poster.pdf" target="_blank">[Poster]</a>
+            <a href="../publications/presentations/HI-MAPF_IROS2026_3-minute.pdf" target="_blank">[Slides]</a>
+            </p>
+          </div>
+          <p class="project-team"><b>Team:</b> Bharath Muppasani, Ritirupa Dey, Risha Patel, Biplav Srivastava, Vignesh Narayanan</p>
+          <div class="project-links"><a class="project-more-link" href="./mapf_page/index.html" target="_blank">More details &rarr;</a></div>
+        </article>
+        </div>
+        <button type="button" class="project-toggle" onclick="toggleProjects('planning-more', this)">Show 1 more project</button>
+        </div>
+      </section>
+      <section class="project-section accent-trust">
+        <h2 class="project-section-title">Trusted AI</h2>
+        <div class="project-list">
+        <article class="project-card" style="--pc: aqua">
+          <h3 class="project-title">Trustworthy Group Recommendation</h3>
+          <div class="project-tags"><span class="tag tag-method">Recommender Systems</span> <span class="tag tag-method">Trusted AI</span></div>
+          <div class="project-body">
+            <p>We study the problem of trustworthy group recommendation, where the focus goes beyond individual user preferences and dives into collective tastes and interests. Our objective is to build novel methods and useful tools for group recommendation with fairness, and drive different use cases. This work also connects to our <a href="./group_rec/meal_recommendation.html" target="_blank">Meal Recommendation</a> and <a href="./group_rec/exercise_recommendation.html" target="_blank">Exercise Recommendation</a> pages for wellness-related applications. We extend this problem to the team formation domain, where we present an AI-based system to aid in collaborative teaming for researchers responding to funding agency proposals. Our approach leverages NLP techniques to extract and normalize technical skills from various data sources, facilitating matching and teaming based on constraints. We have gathered initial feedback from university researchers to deploy the prototype system and published a dataset for broader use.</p>
+          </div>
+          <p class="project-team"><b>Team:</b> Siva Likitha Valluru, Sai Teja Paladi, Tarmo Koppel, Biplav Srivastava</p>
+          <div class="project-links"><a class="project-more-link" href="./group_rec/index.html" target="_blank">More details &rarr;</a></div>
+        </article>
+        <article class="project-card" style="--pc: hsla(272, 81%, 65%, 0.835)">
+          <h3 class="project-title">Rating of AI Systems</h3>
+          <div class="project-tags"><span class="tag tag-method">Neuro-Symbolic AI</span> <span class="tag tag-method">Trusted AI</span></div>
+          <div class="project-body">
+            <p>AI systems, such as facial recognition and sentiment analyzers, often show model uncertainty, leading to algorithmic bias, particularly concerning protected attributes like gender and race. This research seeks to understand and reduce bias by establishing causal relationships. Assigning ratings to AI systems based on this helps users make informed choices.</p>
+          </div>
+          <p class="project-team"><b>Team:</b> Kausik Lakkaraju, Biplav Srivastava, Marco Valtorta</p>
+          <div class="project-links"><a class="project-more-link" href="./rating_page/index.html" target="_blank">More details &rarr;</a></div>
+        </article>
+        <article class="project-card" style="--pc: hsl(190, 85%, 55%)">
+          <h3 class="project-title">GenAI Results Comparator (GAICo)</h3>
+          <div class="project-tags"><span class="tag tag-method">Generative AI</span> <span class="tag tag-method">Evaluation</span> <span class="tag tag-method">Trusted AI</span></div>
+          <div class="project-body">
+            <p>GenAI Results Comparator (GAICo) helps measure, compare, analyze, and visualize the quality of generative AI outputs across text, images, audio, structured data, planning sequences, and time-series data.</p>
+          </div>
+          <p class="project-team"><b>Team:</b> Nitin Gupta, Pallav Koppisetti, Kausik Lakkaraju, Biplav Srivastava</p>
+          <div class="project-links"><a class="project-more-link" href="./GenAIResultsComparator/" target="_blank">More details &rarr;</a></div>
+        </article>
+        <div id="trusted-ai-more" class="project-more">
+        <article class="project-card" style="--pc: hsla(221, 81%, 65%, 0.835)">
+          <h3 class="project-title">LLM and Chatbot Testing</h3>
+          <div class="project-tags"><span class="tag tag-method">Trusted AI</span></div>
+          <div class="project-body">
+            <p>Increasingly powerful Large Language Model (LLM) based chatbots, like ChatGPT and Bard, are becoming available to users that have the potential to revolutionize the quality of decision-making achieved by the public. We find that although the outputs of the chatbots are fluent and plausible, there are still critical gaps in providing accurate and reliable information using LLM-based chatbots.</p>
+          </div>
+          <p class="project-team"><b>Team:</b> Kausik Lakkaraju, Sara Rae Jones, Sai Krishna Revanth Vuruma, Vishal Pallagani, Bharath Muppasani, Biplav Srivastava</p>
+          <div class="project-links"><a class="project-more-link" href="./llm_page/index.html" target="_blank">More details &rarr;</a></div>
+        </article>
+        </div>
+        <button type="button" class="project-toggle" onclick="toggleProjects('trusted-ai-more', this)">Show 1 more project</button>
+        </div>
+      </section>
+      <section class="project-section accent-others">
+        <h2 class="project-section-title">Applications and Others</h2>
+        <div class="project-list">
+        <article class="project-card" style="--pc: hsl(265, 63%, 55%)">
+          <h3 class="project-title">Literature Exploration Tool</h3>
+          <div class="project-tags"><span class="tag tag-method">NLP</span> <span class="tag tag-method">Information Retrieval</span> <span class="tag tag-method">Visualization</span></div>
+          <div class="project-body">
+            <p>A literature exploration tool that retrieves papers, groups them into semantic themes, labels clusters with representative keywords, and visualizes how research areas evolve over time.</p>
+          </div>
+          <p class="project-team"><b>Team:</b> Nitin Gupta, Bernardo Denkvitts, Vishal Pallagani, Bharath Muppasani, Biplav Srivastava</p>
+          <div class="project-links"><a class="project-more-link" href="./literature_exploration/index.html" target="_blank">More details &rarr;</a></div>
+        </article>
+        <article class="project-card" style="--pc: hsl(15, 77%, 51%)">
+          <h3 class="project-title">Opinion Network for Online User Safety</h3>
+          <div class="project-tags"><span class="tag tag-method">Planning</span></div>
+          <div class="project-body">
+            <p>This project focuses on understanding and influencing information spread and opinion formation within networks by integrating the principles from Opinion Dynamics and Automated Planning.</p>
+          </div>
+          <p class="project-team"><b>Team:</b> Bharath Muppasani, Vignesh Narayanan, Biplav Srivastava, Michael N. Huhns</p>
+          <div class="project-links"><a class="project-more-link" href="./InfoSpread/index.html" target="_blank">More details &rarr;</a></div>
+        </article>
+        <article class="project-card" style="--pc: hsl(95, 99%, 35%)">
+          <h3 class="project-title">Traffic Data Analysis</h3>
+          <div class="project-tags"><span class="tag tag-method">Data Analysis</span></div>
+          <div class="project-body">
+            <p>The project aims to enhance road safety in South Carolina by analysing traffic data provided by Department of Transportation. We focused on identifying collision patterns and evaluating the Alive@25 program's impact to develop targeted recommendations for reducing accidents and improving road safety initiatives across urban and rural areas.</p>
+          </div>
+          <p class="project-team"><b>Team:</b> Bharath Muppasani, Nitin Gupta, Biplav Srivastava, Lucas Vasconcelos</p>
+          <div class="project-links"><a class="project-more-link" href="./traffic-page/index.html" target="_blank">More details &rarr;</a></div>
+        </article>
+        <div id="others-more" class="project-more">
+        <article class="project-card" style="--pc: hsla(0, 81%, 65%, 0.835)">
+          <h3 class="project-title">Rubik's Cube</h3>
+          <div class="project-tags"><span class="tag tag-method">Automated Planning</span></div>
+          <div class="project-body">
+            <p>Rubik's Cube (RC) is a popular puzzle that is also computationally hard to solve. In this demonstration, we introduce the first PDDL formulation for the 3-dimension RC and solve it with off-the-shelf Fast-Downward planner. We also create a plan executor and visualizer to show how the plan achieves the intended goal. Our system has two audiences:(a) planning researchers who can explore a hard problem, and (b) RC learners wanting to learn how to solve the puzzle at their own pace.</p>
+          </div>
+          <p class="project-team"><b>Team:</b> Bharath Muppasani, Vishal Pallagani, Kausik Lakkaraju, Biplav Srivastava, Forest Agostinelli</p>
+          <div class="project-links"><a class="project-more-link" href="./rubiks_cube/index.html" target="_blank">More details &rarr;</a></div>
+        </article>
+        <article class="project-card" style="--pc: hsl(37, 100%, 50%)">
+          <h3 class="project-title">Insights with Power Data</h3>
+          <div class="project-tags"><span class="tag tag-method">Time-Series</span> <span class="tag tag-method">Data Analysis</span></div>
+          <div class="project-body">
+            <p>The project aims to identify power usage patterns of any system, like buildings or factories, of interest using the harmonics data obtained from MiDAS IoT sensor. We also make power usage dataset (electricity consumption data and harmonics data) available from 8 institutions in manufacturing, education and medical institutions from the US and India.</p>
+          </div>
+          <p class="project-team"><b>Team:</b> Bharath Muppasani, Cheyyur Jaya Anand, Chinmayi Appajigowda, Lokesh Johri, Biplav Srivastava</p>
+          <div class="project-links"><a class="project-more-link" href="./power_page/index.html" target="_blank">More details &rarr;</a></div>
+        </article>
+        </div>
+        <button type="button" class="project-toggle" onclick="toggleProjects('others-more', this)">Show 2 more projects</button>
+        </div>
+      </section>
+      </div>
     </div>
 
     <div class="footer-section">
@@ -361,22 +197,16 @@
       </p>
     </div>
 
-    <script>
-      // JavaScript function to toggle the visibility of project sections
-      function toggleProjects(contentId, buttonElement) {
-        var content = document.getElementById(contentId);
-
-        // Check current display state and toggle it
-        if (content.style.display === "none" || content.style.display === "") {
-          content.style.display = "table-row-group"; // Use 'table-row-group' for tbody
-          buttonElement.textContent = "Show Less Projects";
-        } else {
-          content.style.display = "none";
-          buttonElement.textContent = "Show More Projects";
-        }
-      }
-    </script>
-
+    
+  <script>
+    // Show or hide the extra projects in a section
+    function toggleProjects(contentId, buttonElement) {
+      var content = document.getElementById(contentId);
+      var open = content.classList.toggle('is-open');
+      if (!buttonElement.dataset.label) buttonElement.dataset.label = buttonElement.textContent;
+      buttonElement.textContent = open ? 'Show less' : buttonElement.dataset.label;
+    }
+  </script>
 </body>
 
 </html>

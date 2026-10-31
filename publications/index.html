@@ -85,6 +85,7 @@
 
   <div class="page-header">
     <heading>Publications</heading>
+    <hr style="width: 100%; float: left" />
   </div>
 
   <div class="page-content">
@@ -1303,19 +1304,29 @@
         });
 
         // Display 'No Results' message if no papers match the filter
-        noResults.style.display = anyResults ? "none" : "block";
+        if (noResults) noResults.style.display = anyResults ? "none" : "block";
       }
 
-      // Event listeners for each tag in the legend
-      document.querySelectorAll(".legend .sub-topics p, .legend .tag").forEach(function (tag) {
+      // Event listeners for each filter chip in the legend
+      var chips = document.querySelectorAll(".legend .sub-topics p");
+      var reset = document.querySelector(".reset-filters");
+
+      function markActive(el) {
+        chips.forEach(function (c) { c.classList.toggle("is-active", c === el); });
+        reset.classList.toggle("is-active", el === reset);
+      }
+
+      chips.forEach(function (tag) {
         tag.addEventListener("click", function () {
           filterPapers(tag.textContent);
+          markActive(tag);
         });
       });
 
       // Event listener for the reset filter button
-      document.querySelector(".reset-filters").addEventListener("click", function () {
+      reset.addEventListener("click", function () {
         filterPapers("");
+        markActive(reset);
       });
     });
 
