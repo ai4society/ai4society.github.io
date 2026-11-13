@@ -897,3 +897,35 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* People page photos */
+.person-card {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.person-photo {
+  flex: 0 0 88px;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 2px solid #dce6f3;
+  background: #edf3fc;
+}
+
+.person-initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: 0.03em;
+}
+
+.person-text {
+  min-width: 0;
+}
