@@ -1185,6 +1185,12 @@ button:hover {
   border: 1px solid rgba(0, 0, 0, 0.07);
 }
 
+.legend-hint {
+  margin: 0 0 10px 0;
+  font-size: 12.5px;
+  color: #80868b;
+}
+
 .legend-item {
   display: flex;
   align-items: flex-start;
