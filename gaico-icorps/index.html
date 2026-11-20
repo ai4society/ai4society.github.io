@@ -33,8 +33,8 @@
       <p class="nsf-label">NSF I-Corps&trade; Teams Award #2632220 &middot; Team 4950 &middot; National Cohort Fall #2, 2026</p>
       <h1 class="project-title">GAICo-D: Exploring Commercialization of Domain-Aware Generative AI Evaluation</h1>
       <p class="hero-subtext">
-        Can our open-source GenAI results evaluator, <a href="https://pypi.org/project/GAICo/" target="_blank" rel="noopener noreferrer">GAICo</a>,
-        become a product for high-stakes domains, starting with <b><i>health</i></b>? We are finding out by talking to the people who could use and buy it.
+        Can our open-source GenAI results comparator, <a href="https://pypi.org/project/GAICo/" target="_blank" rel="noopener noreferrer">GAICo</a>,
+        become a product for high-stakes domains, starting with health? We are finding out by talking to the people who would use and buy it.
       </p>
     </section>
 
@@ -42,17 +42,15 @@
       <h2>Recent Updates</h2>
       <ul class="updates-list">
 
-        <li class="upcoming"><span class="update-tag">Upcoming</span> Nov 19&ndash;20, 2026 - <b>Lessons Learned presentation and video</b>
-          at the I-Corps closing sessions. The video will be posted <a href="#video">below</a>.
+        <li>Nov 20, 2026 - <b>Lessons Learned video</b> presented at the I-Corps closing session.
+          <a href="#video">Watch it below</a> or <a href="https://youtu.be/in2ZZR1T_8A" target="_blank" rel="noopener noreferrer">on YouTube</a>.
         </li>
 
-
-        <li>Nov 2026 - <b>100 customer discovery interviews completed</b> (program's goal) as of Nov 12, with a week to spare.
+        <li>Nov 2026 - Team at <a href="https://www.aimed26.com/" target="_blank" rel="noopener noreferrer">AIMed26</a>
+          (Orlando, FL, Nov 11&ndash;13) to continue customer discovery interviews.
         </li>
 
-         <li>Nov 2026 - Team at <a href="https://www.aimed26.com/" target="_blank" rel="noopener noreferrer">AIMed26</a>
-          (Orlando, FL, Nov 11&ndash;13) and <a href="https://aaai.org/conference/fall-symposia/2026-fall-symposium-series-2/" target="_blank" rel="noopener noreferrer">AAAI Fall Symposium 2026</a>
-          (Washington, DC, Nov 5&ndash;7) to continue customer discovery interviews.
+        <li>Nov 2026 - <b>94 customer discovery interviews</b> completed as of Nov 12, working toward the program's goal of 100+.
         </li>
 
         <li>Nov 2026 - Session 8 report-out on key partners, resources, and our <b>path to the first $1M</b>.
@@ -61,13 +59,8 @@
         <li>Nov 2026 - Narrowed our focus to a single customer segment: <b>urban health systems</b> (Session 7).
         </li>
 
-        <li>Oct 2026 - Interviewed interested attendees at
+        <li>Oct 2026 - Interviewed attendees at
           <a href="https://sites.google.com/cse.sc.edu/safe-ai-for-seniors-2026" target="_blank" rel="noopener noreferrer">Safe AI for Seniors (SAiS 2026)</a>, Oct 23.
-        </li>
-
-
-         <li>Oct 2026 - Team at <a href="https://georgia.himss.org/events/gahimss-annual-conference-2026" target="_blank" rel="noopener noreferrer">GAHIMSS Annual Conference 2026</a>
-          (Duluth, GA, Oct 20) to continue customer discovery interviews.
         </li>
 
         <li>Oct 2026 - Started the NSF I-Corps national program with kickoff sessions on Oct 5&ndash;9, followed by weekly report-outs.
@@ -95,16 +88,15 @@
     <section id="video" class="video-section">
       <h2>Lessons Learned Video</h2>
       <div class="video-frame">
-        <!--
-          To publish the video, delete the placeholder div below and paste the embed here, e.g. for YouTube:
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="GAICo-D I-Corps Lessons Learned video"
-                  allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        -->
-        <div class="video-placeholder">
-          <i class="fas fa-film" aria-hidden="true"></i>
-          <p><b>Coming soon.</b> Our I-Corps Lessons Learned video will be posted here after the closing session on Nov 20, 2026.</p>
-        </div>
+        <a class="video-poster" href="https://youtu.be/in2ZZR1T_8A" data-video-id="in2ZZR1T_8A"
+           target="_blank" rel="noopener noreferrer" aria-label="Play the GAICo-Domain Lessons Learned video (2 minutes)">
+          <img src="images/video-thumbnail.jpg" width="1920" height="1080"
+               alt="GAICo-Domain Lessons Learned video: Alex Ervin, John Aydin, Biplav Srivastava, Teja Paladi and Lokesh Johri">
+          <span class="video-play"><i class="fas fa-play" aria-hidden="true"></i> Watch &middot; 2 min</span>
+        </a>
       </div>
+      <p class="video-caption">NSF I-Corps Team 4950 &middot; Captioned &middot;
+        <a href="https://youtu.be/in2ZZR1T_8A" target="_blank" rel="noopener noreferrer">Open on YouTube</a></p>
     </section>
 
     <section id="project-overview" class="project-overview">
@@ -165,6 +157,21 @@
       <p>&copy; 2026 AI4Society</p>
     </div>
   </footer>
+
+  <script>
+    // Show the thumbnail first; load the YouTube player only when someone clicks play.
+    document.querySelectorAll('.video-poster').forEach(function (poster) {
+      poster.addEventListener('click', function (e) {
+        e.preventDefault();
+        var iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube-nocookie.com/embed/' + poster.dataset.videoId + '?autoplay=1&rel=0&cc_load_policy=1';
+        iframe.title = 'GAICo-Domain Lessons Learned video';
+        iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen';
+        iframe.allowFullscreen = true;
+        poster.replaceWith(iframe);
+      });
+    });
+  </script>
 </body>
 
 </html>
