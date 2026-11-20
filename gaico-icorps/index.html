@@ -6,6 +6,14 @@
   <title>GAICo-D - NSF I-Corps Project</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="NSF I-Corps Team 4950 (GAICo-D) exploring commercialization of domain-aware evaluation of generative AI, starting with health">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="GAICo-D - NSF I-Corps Project">
+  <meta property="og:description" content="NSF I-Corps Team 4950: domain-specific evaluation for generative and agentic AI. Watch our Lessons Learned video.">
+  <meta property="og:url" content="https://ai4society.github.io/gaico-icorps/">
+  <meta property="og:image" content="https://ai4society.github.io/gaico-icorps/images/video-thumbnail.jpg">
+  <meta property="og:image:width" content="2560">
+  <meta property="og:image:height" content="1440">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="stylesheet.css">
 </head>
@@ -89,10 +97,10 @@
       <h2>Lessons Learned Video</h2>
       <div class="video-frame">
         <a class="video-poster" href="https://youtu.be/in2ZZR1T_8A" data-video-id="in2ZZR1T_8A"
-           target="_blank" rel="noopener noreferrer" aria-label="Play the GAICo-Domain Lessons Learned video (2 minutes)">
-          <img src="images/video-thumbnail.jpg" width="1920" height="1080"
+           target="_blank" rel="noopener noreferrer" aria-label="Play the GAICo-Domain Lessons Learned video">
+          <img src="images/video-thumbnail.jpg" width="2560" height="1440"
                alt="GAICo-Domain Lessons Learned video: Alex Ervin, John Aydin, Biplav Srivastava, Teja Paladi and Lokesh Johri">
-          <span class="video-play"><i class="fas fa-play" aria-hidden="true"></i> Watch &middot; 2 min</span>
+          <span class="video-play"><i class="fas fa-play" aria-hidden="true"></i> Watch</span>
         </a>
       </div>
       <p class="video-caption">NSF I-Corps Team 4950 &middot; Captioned &middot;
@@ -164,7 +172,7 @@
       poster.addEventListener('click', function (e) {
         e.preventDefault();
         var iframe = document.createElement('iframe');
-        iframe.src = 'https://www.youtube-nocookie.com/embed/' + poster.dataset.videoId + '?autoplay=1&rel=0&cc_load_policy=1';
+        iframe.src = 'https://www.youtube-nocookie.com/embed/' + poster.dataset.videoId + '?autoplay=1&rel=0&playsinline=1&cc_load_policy=1';
         iframe.title = 'GAICo-Domain Lessons Learned video';
         iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen';
         iframe.allowFullscreen = true;

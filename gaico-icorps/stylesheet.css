@@ -779,7 +779,7 @@
 .video-frame {
   position: relative;
   width: 100%;
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
   aspect-ratio: 16 / 9;
   border-radius: 10px;
@@ -842,7 +842,7 @@
 }
 
 .video-caption {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0.6rem auto 0;
   font-size: 0.9rem;
   color: #6c757d;
